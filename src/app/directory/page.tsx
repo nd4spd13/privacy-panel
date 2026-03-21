@@ -20,10 +20,8 @@ const DEFAULT_DIR: Record<SortKey, SortDir> = {
   date: "desc",
 };
 
-// Responsive column widths — must match between header and rows.
-// Mobile: grade + name + score only. md adds sold/tracking. lg adds analyzed.
-const COL =
-  "grid-cols-[48px_1fr_88px] md:grid-cols-[48px_1fr_88px_72px_88px] lg:grid-cols-[48px_1fr_88px_72px_88px_120px]";
+// Fixed column widths — must match between header and rows
+const COL = "grid-cols-[48px_minmax(140px,1fr)_88px_72px_88px_120px]";
 
 export default function DirectoryPage({
   searchParams,
@@ -131,54 +129,57 @@ export default function DirectoryPage({
           </div>
         ) : (
           <>
-            <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
-              {/* Table header */}
-              <div className={`grid ${COL} items-center px-4 py-2.5 bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-400 uppercase tracking-wide gap-4`}>
-                <div className="w-12" />
-                <Link href={sortHref("name")} className={`hover:text-gray-700 transition-colors ${sort === "name" ? "text-gray-700" : ""}`}>
-                  Company{sortArrow("name")}
-                </Link>
-                <Link href={sortHref("grade")} className={`text-right hover:text-gray-700 transition-colors ${sort === "grade" ? "text-gray-700" : ""}`}>
-                  Score{sortArrow("grade")}
-                </Link>
-                <div className="text-center hidden md:block">Sold</div>
-                <div className="text-center hidden md:block">Tracking</div>
-                <Link href={sortHref("date")} className={`text-right hover:text-gray-700 transition-colors hidden lg:block ${sort === "date" ? "text-gray-700" : ""}`}>
-                  Analyzed{sortArrow("date")}
-                </Link>
-              </div>
+            {/* overflow-x-auto lets the fixed-width table scroll on narrow viewports */}
+            <div className="overflow-x-auto rounded-xl border border-gray-200">
+              <div className="bg-white min-w-[560px]">
+                {/* Table header */}
+                <div className={`grid ${COL} items-center px-4 py-2.5 bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-400 uppercase tracking-wide gap-4`}>
+                  <div className="w-12" />
+                  <Link href={sortHref("name")} className={`hover:text-gray-700 transition-colors ${sort === "name" ? "text-gray-700" : ""}`}>
+                    Company{sortArrow("name")}
+                  </Link>
+                  <Link href={sortHref("grade")} className={`text-right hover:text-gray-700 transition-colors ${sort === "grade" ? "text-gray-700" : ""}`}>
+                    Score{sortArrow("grade")}
+                  </Link>
+                  <div className="text-center">Sold</div>
+                  <div className="text-center">Tracking</div>
+                  <Link href={sortHref("date")} className={`text-right hover:text-gray-700 transition-colors ${sort === "date" ? "text-gray-700" : ""}`}>
+                    Analyzed{sortArrow("date")}
+                  </Link>
+                </div>
 
-              {/* Rows */}
-              {pageRows.map(({ company, grade, analyzedAt, sold, tracking }) => (
-                <Link
-                  key={company.slug}
-                  href={`/company/${company.slug}`}
-                  className={`grid ${COL} items-center px-4 py-3 border-b border-gray-50 last:border-b-0 hover:bg-gray-50 transition-colors gap-4`}
-                >
-                  <div className="w-12"><GradeBadge letter={grade.letter} size="sm" /></div>
-                  <div className="min-w-0">
-                    <div className="font-semibold text-gray-900 truncate">{company.name}</div>
-                    {company.domain && <div className="text-xs text-gray-400 truncate">{company.domain}</div>}
-                  </div>
-                  <div className="text-right">
-                    <span className="text-sm font-bold text-gray-900">{grade.score}</span>
-                    <span className="text-xs text-gray-400">/100</span>
-                  </div>
-                  <div className="text-center hidden md:block">
-                    {sold
-                      ? <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">YES</span>
-                      : <span className="text-xs text-gray-300">—</span>}
-                  </div>
-                  <div className="text-center hidden md:block">
-                    {tracking
-                      ? <span className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">YES</span>
-                      : <span className="text-xs text-gray-300">—</span>}
-                  </div>
-                  <div className="text-right text-xs text-gray-400 hidden lg:block whitespace-nowrap">
-                    {new Date(analyzedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
-                  </div>
-                </Link>
-              ))}
+                {/* Rows */}
+                {pageRows.map(({ company, grade, analyzedAt, sold, tracking }) => (
+                  <Link
+                    key={company.slug}
+                    href={`/company/${company.slug}`}
+                    className={`grid ${COL} items-center px-4 py-3 border-b border-gray-50 last:border-b-0 hover:bg-gray-50 transition-colors gap-4`}
+                  >
+                    <div className="w-12"><GradeBadge letter={grade.letter} size="sm" /></div>
+                    <div className="min-w-0">
+                      <div className="font-semibold text-gray-900 truncate">{company.name}</div>
+                      {company.domain && <div className="text-xs text-gray-400 truncate">{company.domain}</div>}
+                    </div>
+                    <div className="text-right">
+                      <span className="text-sm font-bold text-gray-900">{grade.score}</span>
+                      <span className="text-xs text-gray-400">/100</span>
+                    </div>
+                    <div className="text-center">
+                      {sold
+                        ? <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">YES</span>
+                        : <span className="text-xs text-gray-300">—</span>}
+                    </div>
+                    <div className="text-center">
+                      {tracking
+                        ? <span className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">YES</span>
+                        : <span className="text-xs text-gray-300">—</span>}
+                    </div>
+                    <div className="text-right text-xs text-gray-400 whitespace-nowrap">
+                      {new Date(analyzedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* ── Pagination ──────────────────────────────────────────────── */}

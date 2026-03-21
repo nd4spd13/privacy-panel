@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { GradedLabel } from "@/core/rendering/GradedLabel";
+import { LabelScaler } from "@/components/LabelScaler";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
 import { FEATURE_DISPUTES } from "@/lib/flags";
@@ -37,10 +38,9 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
         <div className="flex flex-col lg:flex-row gap-10 items-start">
           {/* ── Left: Label ──────────────────────────────────────────────── */}
           <div className="w-full lg:w-auto lg:flex-shrink-0">
-            {/* overflow-x-auto lets the 380px label scroll on narrow viewports */}
-            <div className="overflow-x-auto">
+            <LabelScaler>
               <GradedLabel data={facts} grade={grade} />
-            </div>
+            </LabelScaler>
             <div className="mt-4 flex gap-2 text-xs">
               <a
                 href={`/api/v1/company/${company.slug}/label`}
