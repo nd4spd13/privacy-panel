@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FEATURE_COMPARE } from "@/lib/flags";
 
 export function Header() {
   return (
@@ -10,7 +11,7 @@ export function Header() {
         </Link>
         <nav className="flex items-center gap-6 text-sm text-gray-600">
           <Link href="/directory" className="hover:text-gray-900 transition-colors">Directory</Link>
-          <Link href="/compare" className="hover:text-gray-900 transition-colors">Compare</Link>
+          {FEATURE_COMPARE && <Link href="/compare" className="hover:text-gray-900 transition-colors">Compare</Link>}
           <Link href="/rubric" className="hover:text-gray-900 transition-colors">Rubric</Link>
           <Link href="/about" className="hover:text-gray-900 transition-colors">About</Link>
         </nav>

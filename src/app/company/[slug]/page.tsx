@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { GradedLabel } from "@/core/rendering/GradedLabel";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
+import { FEATURE_DISPUTES } from "@/lib/flags";
 
 export const dynamic = "force-dynamic";
 
@@ -160,17 +161,15 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
             </div>
 
             {/* Dispute */}
-            <div className="mt-6 bg-gray-50 border border-gray-200 rounded-xl p-4">
-              <h3 className="text-sm font-semibold text-gray-700 mb-1">Dispute this analysis</h3>
-              <p className="text-xs text-gray-500 leading-relaxed">
-                If you represent {company.name} and believe a finding is inaccurate, you can submit a dispute with
-                supporting evidence. We review all disputes and update analyses when warranted.
-              </p>
-              <a href={`mailto:disputes@privacyfacts.org?subject=Dispute: ${encodeURIComponent(company.name)}`}
-                className="inline-block mt-3 text-xs font-semibold text-gray-700 border border-gray-300 rounded-lg px-3 py-1.5 hover:bg-white transition-colors">
-                Submit a dispute →
-              </a>
-            </div>
+            {FEATURE_DISPUTES && (
+              <div className="mt-6 bg-gray-50 border border-gray-200 rounded-xl p-4">
+                <h3 className="text-sm font-semibold text-gray-700 mb-1">Dispute this analysis</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  If you represent {company.name} and believe a finding is inaccurate, you can submit a dispute with
+                  supporting evidence. We review all disputes and update analyses when warranted.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </main>
