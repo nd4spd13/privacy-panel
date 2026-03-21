@@ -1,0 +1,37 @@
+Privacy Policy — TypicalSaaS, Inc.
+
+Effective Date: January 1, 2025
+
+This Privacy Policy explains how TypicalSaaS, Inc. ("we," "us," or "our") collects, uses, and shares information about you.
+
+Information We Collect
+
+We collect your email address and name when you register. We log IP addresses for security purposes. We collect data about how you use our service, including pages visited, features used, and time spent. We collect payment card information for billing, which is processed by our payment provider.
+
+How We Use Your Information
+
+We use your information to provide and improve our services. We may share your data with advertising partners to deliver relevant ads on our platform and elsewhere. We use cookies and tracking pixels that may track you across websites. We build user profiles to improve our product recommendations and personalize your experience.
+
+We do not sell your personal information to third parties.
+
+We may use aggregated, anonymized data to improve our product features.
+
+Third Parties
+
+We work with approximately 8 third-party service providers including analytics providers, advertising networks, and infrastructure vendors.
+
+Data Retention
+
+We retain your data for up to 3 years after account closure.
+
+Your Rights
+
+You may request a copy of your personal data. You may request deletion of your personal data. You may request your data in a portable format. You may request correction of inaccurate data. You may opt out of marketing communications.
+
+Privacy Signals
+
+We do not currently respond to Global Privacy Control (GPC) signals. We do not alter our data collection in response to Do Not Track (DNT) signals, as there is no industry standard for how to respond to such signals.
+
+Security
+
+All data is encrypted in transit using TLS. Data at rest is protected using AES-256 encryption. We are SOC 2 Type II certified.

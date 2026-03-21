@@ -1,0 +1,29 @@
+Privacy Policy — Signal Messenger
+
+Last Updated: May 1, 2020
+
+Signal is designed to never collect or store any sensitive information beyond what is strictly necessary to operate the service.
+
+Data We Collect
+
+We require a phone number to register an account. We do not store your address book contacts on our servers. We do not collect your messages, which are end-to-end encrypted and stored only on your device.
+
+Data We Do Not Sell or Share
+
+Signal does not sell, rent, or monetize your personal data or content in any way — ever. Signal does not work with advertisers. We do not share your information with third parties for advertising purposes. We do not perform cross-site tracking.
+
+Security
+
+All messages are end-to-end encrypted using the Signal Protocol, which is open source and independently audited. We use forward secrecy to protect past communications. Your messages cannot be read by Signal.
+
+Retention
+
+Messages are stored only as long as necessary to deliver them to the recipient. After delivery, they are deleted from our servers.
+
+Your Rights
+
+You can request a copy of your data at any time. You can delete your account and all associated data at any time by going to Settings > Account > Delete Account. Signal supports data export.
+
+Global Privacy Control and Do Not Track
+
+Signal respects Global Privacy Control (GPC) signals. Signal respects Do Not Track browser settings.

@@ -1,0 +1,33 @@
+Privacy Policy — AggressiveCollector, Inc.
+
+Last Updated: March 1, 2025
+
+We collect and use your information extensively to provide our services and grow our business.
+
+Data We Collect
+
+We collect your full name, email address, phone number, and date of birth. We collect your precise GPS location in real time when you use our mobile application. We collect face recognition data for identity verification purposes. We collect health and fitness information from connected wearable devices. We collect bank account and credit card information for payments. We collect your full browsing history via our SDK embedded in partner websites. We collect your contacts list when you grant us permission.
+
+How We Share Your Information
+
+We may sell your personal information to third-party data brokers and marketing partners. We share your data with advertising networks for cross-context behavioral advertising. Our advertising partners track you across websites and apps to serve targeted advertisements. We use automated decision-making and profiling to personalize your experience and may make credit decisions based on your profile. We may use your data to train our AI and machine learning models to improve our products.
+
+Third Parties
+
+We work with more than 15 third-party data partners, advertising networks, and analytics providers.
+
+Retention
+
+We retain your data indefinitely unless you request deletion in writing. Even after a deletion request, we may retain data for legal and legitimate business purposes.
+
+Your Rights
+
+We do not offer a self-service data access portal. We may fulfill deletion requests at our discretion. You cannot opt out of core data sharing as it is required to use the service.
+
+Privacy Signals
+
+We do not honor Global Privacy Control (GPC) signals. We do not honor Do Not Track (DNT) browser signals.
+
+Security
+
+We take security seriously and implement reasonable measures to protect your data.

@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0.0",
+    "companyName": "TypicalSaaS",
+    "policyUrl": "https://typicalsaas.example.com/privacy",
+    "analyzedAt": "2026-03-21T00:00:00.000Z",
+    "policyHash": "b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5"
+  },
+  "dataCollection": {
+    "items": [
+      { "name": "Email address", "sensitive": false, "sourceQuote": "We collect your email address when you register." },
+      { "name": "Name", "sensitive": false, "sourceQuote": "We collect your name." },
+      { "name": "IP address", "sensitive": false, "sourceQuote": "We log IP addresses for security purposes." },
+      { "name": "Usage data", "sensitive": false, "sourceQuote": "We collect data about how you use our service." },
+      { "name": "Payment information", "sensitive": true, "sourceQuote": "We collect payment card information for billing." }
+    ],
+    "collectsPreciseGeolocation": {
+      "value": false,
+      "confidence": 0.8,
+      "sourceQuote": "We collect approximate location from IP address but not precise GPS location."
+    },
+    "collectsBiometricData": {
+      "value": false,
+      "confidence": 0.9,
+      "sourceQuote": "We do not collect biometric data."
+    },
+    "collectsHealthData": {
+      "value": false,
+      "confidence": 0.9,
+      "sourceQuote": "We do not collect health data."
+    },
+    "collectsFinancialData": {
+      "value": true,
+      "confidence": 0.95,
+      "sourceQuote": "We collect payment card information for billing."
+    }
+  },
+  "dataSharing": {
+    "soldToThirdParties": {
+      "value": false,
+      "confidence": 0.85,
+      "sourceQuote": "We do not sell your personal information to third parties."
+    },
+    "sharedForAdvertising": {
+      "value": true,
+      "confidence": 0.85,
+      "sourceQuote": "We may share your data with advertising partners to deliver relevant ads."
+    },
+    "crossSiteTracking": {
+      "value": true,
+      "confidence": 0.8,
+      "sourceQuote": "We use cookies and tracking pixels that may track you across websites."
+    },
+    "usedForProfiling": {
+      "value": true,
+      "confidence": 0.8,
+      "sourceQuote": "We build user profiles to improve our product recommendations."
+    },
+    "usedToTrainAI": {
+      "value": false,
+      "confidence": 0.7,
+      "sourceQuote": "We may use aggregated, anonymized data to improve our AI features."
+    },
+    "thirdPartyCount": 8
+  },
+  "retention": {
+    "retentionDays": 1095,
+    "indefinite": false,
+    "sourceQuote": "We retain your data for up to 3 years after account closure."
+  },
+  "consumerRights": {
+    "rightToAccess": {
+      "value": true,
+      "confidence": 0.9,
+      "sourceQuote": "You may request a copy of your personal data."
+    },
+    "rightToDelete": {
+      "value": true,
+      "confidence": 0.9,
+      "sourceQuote": "You may request deletion of your personal data."
+    },
+    "rightToPortability": {
+      "value": true,
+      "confidence": 0.85,
+      "sourceQuote": "You may request your data in a portable format."
+    },
+    "rightToCorrect": {
+      "value": true,
+      "confidence": 0.85,
+      "sourceQuote": "You may request correction of inaccurate data."
+    },
+    "rightToOptOut": {
+      "value": true,
+      "confidence": 0.9,
+      "sourceQuote": "You may opt out of marketing communications."
+    },
+    "rightToNonDiscrimination": {
+      "value": false,
+      "confidence": 0.6,
+      "sourceQuote": "No explicit non-discrimination right mentioned."
+    }
+  },
+  "signalHonoring": {
+    "honorsGPC": {
+      "value": false,
+      "confidence": 0.7,
+      "sourceQuote": "We do not currently respond to Global Privacy Control signals."
+    },
+    "honorsDNT": {
+      "value": false,
+      "confidence": 0.75,
+      "sourceQuote": "We do not alter our data collection in response to Do Not Track signals."
+    }
+  },
+  "security": {
+    "measures": [
+      { "name": "TLS encryption in transit", "sourceQuote": "All data is encrypted in transit using TLS." },
+      { "name": "AES-256 encryption at rest", "sourceQuote": "Data at rest is protected using AES-256 encryption." },
+      { "name": "SOC 2 Type II certified", "sourceQuote": "We are SOC 2 Type II certified." }
+    ]
+  }
+}

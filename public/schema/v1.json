@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://privacyfacts.org/schema/v1.json",
+  "title": "Privacy Facts",
+  "description": "Structured representation of a company's privacy practices as extracted from their privacy policy.",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["metadata", "dataCollection", "dataSharing", "retention", "consumerRights", "signalHonoring", "security"],
+  "additionalProperties": false,
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "Information about this analysis.",
+      "required": ["schemaVersion", "companyName", "policyUrl", "analyzedAt", "policyHash"],
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": {
+          "type": "string",
+          "const": "1.0.0",
+          "description": "Version of this schema."
+        },
+        "companyName": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The name of the company whose policy was analyzed."
+        },
+        "policyUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL of the privacy policy that was analyzed."
+        },
+        "analyzedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO-8601 timestamp when the analysis was performed."
+        },
+        "policyHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 hex digest of the raw policy text, for change detection."
+        },
+        "policyEffectiveDate": {
+          "type": "string",
+          "description": "The effective date printed in the policy itself, if present."
+        }
+      }
+    },
+    "dataCollection": {
+      "type": "object",
+      "description": "What data the company collects.",
+      "required": ["items", "collectsPreciseGeolocation", "collectsBiometricData", "collectsHealthData", "collectsFinancialData"],
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "type": "array",
+          "description": "List of data types collected, as disclosed in the policy.",
+          "items": {
+            "$ref": "#/$defs/DataItem"
+          }
+        },
+        "collectsPreciseGeolocation": { "$ref": "#/$defs/BooleanPractice" },
+        "collectsBiometricData": { "$ref": "#/$defs/BooleanPractice" },
+        "collectsHealthData": { "$ref": "#/$defs/BooleanPractice" },
+        "collectsFinancialData": { "$ref": "#/$defs/BooleanPractice" }
+      }
+    },
+    "dataSharing": {
+      "type": "object",
+      "description": "How the company shares data with others.",
+      "required": ["soldToThirdParties", "sharedForAdvertising", "crossSiteTracking", "usedForProfiling", "usedToTrainAI", "thirdPartyCount"],
+      "additionalProperties": false,
+      "properties": {
+        "soldToThirdParties": { "$ref": "#/$defs/BooleanPractice" },
+        "sharedForAdvertising": { "$ref": "#/$defs/BooleanPractice" },
+        "crossSiteTracking": { "$ref": "#/$defs/BooleanPractice" },
+        "usedForProfiling": { "$ref": "#/$defs/BooleanPractice" },
+        "usedToTrainAI": { "$ref": "#/$defs/BooleanPractice" },
+        "thirdPartyCount": {
+          "type": ["integer", "null"],
+          "minimum": 0,
+          "description": "Number of named third parties disclosed. null if the policy does not disclose a count."
+        }
+      }
+    },
+    "retention": {
+      "type": "object",
+      "description": "How long the company retains user data.",
+      "required": ["retentionDays", "indefinite", "sourceQuote"],
+      "additionalProperties": false,
+      "properties": {
+        "retentionDays": {
+          "type": ["integer", "null"],
+          "minimum": 1,
+          "description": "Retention period in days. null if indefinite or not specified."
+        },
+        "indefinite": {
+          "type": "boolean",
+          "description": "True if the policy explicitly states data is kept indefinitely."
+        },
+        "sourceQuote": {
+          "type": "string",
+          "description": "Excerpt from the policy supporting this determination."
+        }
+      }
+    },
+    "consumerRights": {
+      "type": "object",
+      "description": "Consumer rights available under the policy.",
+      "required": ["rightToAccess", "rightToDelete", "rightToPortability", "rightToCorrect", "rightToOptOut", "rightToNonDiscrimination"],
+      "additionalProperties": false,
+      "properties": {
+        "rightToAccess": { "$ref": "#/$defs/BooleanPractice" },
+        "rightToDelete": { "$ref": "#/$defs/BooleanPractice" },
+        "rightToPortability": { "$ref": "#/$defs/BooleanPractice" },
+        "rightToCorrect": { "$ref": "#/$defs/BooleanPractice" },
+        "rightToOptOut": { "$ref": "#/$defs/BooleanPractice" },
+        "rightToNonDiscrimination": { "$ref": "#/$defs/BooleanPractice" }
+      }
+    },
+    "signalHonoring": {
+      "type": "object",
+      "description": "Whether the company honors browser privacy signals.",
+      "required": ["honorsGPC", "honorsDNT"],
+      "additionalProperties": false,
+      "properties": {
+        "honorsGPC": { "$ref": "#/$defs/BooleanPractice" },
+        "honorsDNT": { "$ref": "#/$defs/BooleanPractice" }
+      }
+    },
+    "security": {
+      "type": "object",
+      "description": "Security measures disclosed in the policy.",
+      "required": ["measures"],
+      "additionalProperties": false,
+      "properties": {
+        "measures": {
+          "type": "array",
+          "description": "Named security measures (e.g. TLS, AES-256 at rest, SOC 2).",
+          "items": {
+            "type": "object",
+            "required": ["name", "sourceQuote"],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sourceQuote": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "BooleanPractice": {
+      "type": "object",
+      "description": "A boolean determination with supporting evidence and a confidence score.",
+      "required": ["value", "confidence", "sourceQuote"],
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "type": "boolean",
+          "description": "The determination: true if the practice is present, false if absent."
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Confidence in the determination, from 0.0 (very uncertain) to 1.0 (certain)."
+        },
+        "sourceQuote": {
+          "type": "string",
+          "description": "The excerpt from the privacy policy that supports this determination. If the policy is silent, this field explains the conservative default applied."
+        }
+      }
+    },
+    "DataItem": {
+      "type": "object",
+      "description": "A data type collected by the company.",
+      "required": ["name", "sensitive", "sourceQuote"],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Name of the data type (e.g. 'Email address', 'IP address')."
+        },
+        "sensitive": {
+          "type": "boolean",
+          "description": "True if this data type is considered sensitive (health, biometric, financial, precise location, etc.)."
+        },
+        "sourceQuote": {
+          "type": "string",
+          "description": "The excerpt from the privacy policy disclosing collection of this data type."
+        }
+      }
+    }
+  }
+}

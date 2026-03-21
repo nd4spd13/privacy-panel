@@ -1,0 +1,89 @@
+version: "1"
+startScore: 100
+
+deductions:
+  soldToThirdParties:
+    points: 25
+    label: "Data sold to third parties"
+  sharedForAdvertising:
+    points: 10
+    label: "Data shared for advertising"
+  crossSiteTracking:
+    points: 10
+    label: "Cross-site tracking"
+  usedForProfiling:
+    points: 8
+    label: "Used for profiling / AI decisions"
+  usedToTrainAI:
+    points: 8
+    label: "Used to train AI models"
+  collectsPreciseGeolocation:
+    points: 8
+    label: "Collects precise geolocation"
+  collectsBiometricData:
+    points: 8
+    label: "Collects biometric data"
+  collectsHealthData:
+    points: 5
+    label: "Collects health data"
+  collectsFinancialData:
+    points: 3
+    label: "Collects financial data"
+  doesNotHonorGPC:
+    points: 5
+    label: "Does not honor GPC"
+  doesNotHonorDNT:
+    points: 2
+    label: "Does not honor DNT"
+  thirdPartiesOver10:
+    points: 10
+    label: "More than 10 third parties"
+  thirdParties6To10:
+    points: 5
+    label: "6–10 third parties"
+  retentionIndefinite:
+    points: 10
+    label: "Retention is indefinite"
+  retentionOver3Years:
+    points: 8
+    label: "Retention longer than 3 years"
+  retentionOver1Year:
+    points: 3
+    label: "Retention longer than 1 year"
+
+bonuses:
+  perConsumerRight:
+    pointsEach: 2
+    maxCount: 6
+    label: "Consumer rights available"
+  perSecurityMeasure:
+    pointsEach: 2
+    maxCount: 5
+    label: "Security measures in place"
+
+grades:
+  A:
+    min: 85
+    max: 100
+    label: "Excellent"
+    color: "#15803d"
+  B:
+    min: 70
+    max: 84
+    label: "Good"
+    color: "#4d7c0f"
+  C:
+    min: 55
+    max: 69
+    label: "Fair"
+    color: "#b45309"
+  D:
+    min: 40
+    max: 54
+    label: "Poor"
+    color: "#c2410c"
+  F:
+    min: 0
+    max: 39
+    label: "Failing"
+    color: "#b91c1c"

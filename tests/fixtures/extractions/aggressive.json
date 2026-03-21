@@ -1,0 +1,122 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0.0",
+    "companyName": "AggressiveCollector",
+    "policyUrl": "https://aggressive.example.com/privacy",
+    "analyzedAt": "2026-03-21T00:00:00.000Z",
+    "policyHash": "c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+  },
+  "dataCollection": {
+    "items": [
+      { "name": "Name", "sensitive": false, "sourceQuote": "We collect your full name." },
+      { "name": "Email address", "sensitive": false, "sourceQuote": "We collect your email address." },
+      { "name": "Phone number", "sensitive": false, "sourceQuote": "We collect your phone number." },
+      { "name": "Precise GPS location", "sensitive": true, "sourceQuote": "We collect your precise GPS location in real time." },
+      { "name": "Biometric data", "sensitive": true, "sourceQuote": "We collect face recognition data for identity verification." },
+      { "name": "Health data", "sensitive": true, "sourceQuote": "We collect health and fitness information from connected devices." },
+      { "name": "Financial data", "sensitive": true, "sourceQuote": "We collect bank account and credit card information." },
+      { "name": "Browsing history", "sensitive": true, "sourceQuote": "We collect your full browsing history via our SDK." },
+      { "name": "Contacts", "sensitive": true, "sourceQuote": "We collect your contacts list." }
+    ],
+    "collectsPreciseGeolocation": {
+      "value": true,
+      "confidence": 0.98,
+      "sourceQuote": "We collect your precise GPS location in real time."
+    },
+    "collectsBiometricData": {
+      "value": true,
+      "confidence": 0.98,
+      "sourceQuote": "We collect face recognition data for identity verification."
+    },
+    "collectsHealthData": {
+      "value": true,
+      "confidence": 0.97,
+      "sourceQuote": "We collect health and fitness information from connected devices."
+    },
+    "collectsFinancialData": {
+      "value": true,
+      "confidence": 0.97,
+      "sourceQuote": "We collect bank account and credit card information."
+    }
+  },
+  "dataSharing": {
+    "soldToThirdParties": {
+      "value": true,
+      "confidence": 0.95,
+      "sourceQuote": "We may sell your personal information to third-party data brokers and marketing partners."
+    },
+    "sharedForAdvertising": {
+      "value": true,
+      "confidence": 0.97,
+      "sourceQuote": "We share your data with advertising networks for cross-context behavioral advertising."
+    },
+    "crossSiteTracking": {
+      "value": true,
+      "confidence": 0.95,
+      "sourceQuote": "Our advertising partners track you across websites and apps."
+    },
+    "usedForProfiling": {
+      "value": true,
+      "confidence": 0.95,
+      "sourceQuote": "We use automated decision-making and profiling to personalize your experience and make credit decisions."
+    },
+    "usedToTrainAI": {
+      "value": true,
+      "confidence": 0.9,
+      "sourceQuote": "We may use your data to train our AI and machine learning models."
+    },
+    "thirdPartyCount": 15
+  },
+  "retention": {
+    "retentionDays": null,
+    "indefinite": true,
+    "sourceQuote": "We retain your data indefinitely unless you request deletion."
+  },
+  "consumerRights": {
+    "rightToAccess": {
+      "value": false,
+      "confidence": 0.8,
+      "sourceQuote": "No explicit right to access mentioned in the policy."
+    },
+    "rightToDelete": {
+      "value": false,
+      "confidence": 0.8,
+      "sourceQuote": "We may retain data even after an account deletion request for legal and business purposes."
+    },
+    "rightToPortability": {
+      "value": false,
+      "confidence": 0.85,
+      "sourceQuote": "No data portability right mentioned."
+    },
+    "rightToCorrect": {
+      "value": false,
+      "confidence": 0.85,
+      "sourceQuote": "No right to correct mentioned."
+    },
+    "rightToOptOut": {
+      "value": false,
+      "confidence": 0.8,
+      "sourceQuote": "You cannot opt out of core data sharing as it is required to use the service."
+    },
+    "rightToNonDiscrimination": {
+      "value": false,
+      "confidence": 0.85,
+      "sourceQuote": "No non-discrimination right mentioned."
+    }
+  },
+  "signalHonoring": {
+    "honorsGPC": {
+      "value": false,
+      "confidence": 0.9,
+      "sourceQuote": "We do not honor Global Privacy Control signals."
+    },
+    "honorsDNT": {
+      "value": false,
+      "confidence": 0.9,
+      "sourceQuote": "We do not honor Do Not Track browser signals."
+    }
+  },
+  "security": {
+    "measures": []
+  }
+}
