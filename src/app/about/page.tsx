@@ -154,9 +154,23 @@ export default function AboutPage() {
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-3">Contact</h2>
           <div className="text-sm text-gray-600 space-y-1">
-            <p>General inquiries: <a href="mailto:hello@privacyfacts.org" className="underline hover:text-gray-900">hello@privacyfacts.org</a></p>
-            <p>Disputes: <a href="mailto:disputes@privacyfacts.org" className="underline hover:text-gray-900">disputes@privacyfacts.org</a></p>
-            <p>Security: <a href="mailto:security@privacyfacts.org" className="underline hover:text-gray-900">security@privacyfacts.org</a></p>
+            <p>
+              To report an error in a company&apos;s label, use the{" "}
+              <span className="font-medium text-gray-800">Dispute</span> link on
+              any company page.
+            </p>
+            <p>
+              To report a security vulnerability, open an issue on{" "}
+              <a
+                href="https://github.com/csabba/privacy-scorer"
+                className="underline hover:text-gray-900"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+              .
+            </p>
           </div>
         </section>
       </main>
