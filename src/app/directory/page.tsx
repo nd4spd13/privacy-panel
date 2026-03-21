@@ -20,8 +20,10 @@ const DEFAULT_DIR: Record<SortKey, SortDir> = {
   date: "desc",
 };
 
-// Fixed column widths — must match between header and rows
-const COL = "grid-cols-[48px_1fr_88px_72px_88px_120px]";
+// Responsive column widths — must match between header and rows.
+// Mobile: grade + name + score only. md adds sold/tracking. lg adds analyzed.
+const COL =
+  "grid-cols-[48px_1fr_88px] md:grid-cols-[48px_1fr_88px_72px_88px] lg:grid-cols-[48px_1fr_88px_72px_88px_120px]";
 
 export default function DirectoryPage({
   searchParams,

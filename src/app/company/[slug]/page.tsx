@@ -36,8 +36,11 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
 
         <div className="flex flex-col lg:flex-row gap-10 items-start">
           {/* ── Left: Label ──────────────────────────────────────────────── */}
-          <div className="flex-shrink-0">
-            <GradedLabel data={facts} grade={grade} />
+          <div className="w-full lg:w-auto lg:flex-shrink-0">
+            {/* overflow-x-auto lets the 380px label scroll on narrow viewports */}
+            <div className="overflow-x-auto">
+              <GradedLabel data={facts} grade={grade} />
+            </div>
             <div className="mt-4 flex gap-2 text-xs">
               <a
                 href={`/api/v1/company/${company.slug}/label`}
