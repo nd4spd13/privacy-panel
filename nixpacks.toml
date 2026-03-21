@@ -2,13 +2,13 @@
 # Ensures Python and build tools are available for better-sqlite3's native addon
 
 [phases.setup]
-nixPkgs = ["python3", "gcc", "gnumake", "nodePackages.pnpm"]
+nixPkgs = ["python3", "gcc", "gnumake", "nodejs_20"]
 
 [phases.install]
-cmds = ["pnpm install --frozen-lockfile"]
+cmds = ["npm ci"]
 
 [phases.build]
-cmds = ["pnpm run build"]
+cmds = ["npm run build"]
 
 [start]
 cmd = "node scripts/start.js"
