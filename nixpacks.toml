@@ -4,8 +4,11 @@
 [phases.setup]
 nixPkgs = ["python3", "gcc", "gnumake", "nodePackages.pnpm"]
 
+[phases.install]
+cmds = ["pnpm install --frozen-lockfile"]
+
 [phases.build]
-cmds = ["pnpm install --frozen-lockfile", "pnpm run build"]
+cmds = ["pnpm run build"]
 
 [start]
 cmd = "node scripts/start.js"
