@@ -25,7 +25,9 @@ try {
   console.error("[start] Could not create DB directory:", err.message);
 }
 
-// Seed on first boot — apply if the companies table is empty
+// Apply schema + seed on every boot — seed uses INSERT OR IGNORE so it is safe
+// to run against a database that already has some rows. New companies added to
+// seed.sql will be inserted; existing ones are silently skipped.
 try {
   const db = new Database(dbPath);
 
@@ -33,19 +35,19 @@ try {
   const schemaPath = join(__dirname, "../src/db/schema.sql");
   db.exec(readFileSync(schemaPath, "utf8"));
 
-  const count = db.prepare("SELECT COUNT(*) as n FROM companies").get().n;
-  if (count === 0) {
-    console.log("[start] Empty database detected — applying seed data...");
-    const seedPath = join(__dirname, "seed.sql");
-    if (existsSync(seedPath)) {
-      db.exec(readFileSync(seedPath, "utf8"));
-      const seeded = db.prepare("SELECT COUNT(*) as n FROM companies").get().n;
-      console.log(`[start] Seed applied: ${seeded} companies loaded.`);
+  const before = db.prepare("SELECT COUNT(*) as n FROM companies").get().n;
+  const seedPath = join(__dirname, "seed.sql");
+  if (existsSync(seedPath)) {
+    db.exec(readFileSync(seedPath, "utf8"));
+    const after = db.prepare("SELECT COUNT(*) as n FROM companies").get().n;
+    const added = after - before;
+    if (added > 0) {
+      console.log(`[start] Seed applied: added ${added} new companies (${after} total).`);
     } else {
-      console.warn("[start] seed.sql not found — starting with empty database.");
+      console.log(`[start] Database up to date: ${after} companies, nothing new to seed.`);
     }
   } else {
-    console.log(`[start] Database has ${count} companies — skipping seed.`);
+    console.warn("[start] seed.sql not found — starting with existing database.");
   }
 
   db.close();
