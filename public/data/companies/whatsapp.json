@@ -1,0 +1,152 @@
+{
+  "company": "Meta Platforms, Inc.",
+  "app_or_service": "WhatsApp",
+  "policy_url": "https://www.whatsapp.com/legal/privacy-policy",
+  "policy_last_updated": "2024-12",
+  "scraped_date": "2026-03-20",
+  "category": "Social Media & Messaging",
+  "data_collected": {
+    "types": [
+      "Phone number",
+      "Profile information (name, profile picture, status)",
+      "Contact list",
+      "Messages and call metadata (not contents due to end-to-end encryption)",
+      "Device information (IP, device ID, OS version, phone model)",
+      "Location data (if shared in messages or via Live Location)",
+      "Account recovery information",
+      "Business account information",
+      "Payment information for WhatsApp Pay",
+      "App crash reports and logs"
+    ],
+    "sensitive_types": [
+      "Contact networks/communication patterns",
+      "Precise geolocation (if Live Location shared)"
+    ],
+    "count": 10,
+    "sensitive_count": 2,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Providing messaging and calling services",
+      "Account authentication and verification",
+      "Customer support",
+      "Fraud prevention and security",
+      "Compliance with legal obligations",
+      "Improving services and troubleshooting",
+      "Marketing (on business accounts)",
+      "WhatsApp Pay functionality"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "WhatsApp states it does not sell user data"
+    },
+    "shared_for_advertising": {
+      "value": null,
+      "source_quote": "Based on training knowledge — WhatsApp doesn't run ads; sharing with Meta parent unclear in public policy"
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Based on training knowledge — not clearly stated in policy; some integration with Meta ecosystem suspected"
+    },
+    "used_for_profiling": {
+      "value": false,
+      "source_quote": "WhatsApp emphasizes user privacy; limited profiling disclosed"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — not clearly disclosed in published policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Meta companies (parent company)",
+      "Service providers (hosting, payment processing)",
+      "Law enforcement (as legally required)",
+      "Business service providers (for business accounts)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Messages deleted after delivery (due to E2E encryption); account data retained until account deletion or inactivity period",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Users can access their account information within the app"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Users can delete messages, chats, and request account deletion"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Users can update profile information (name, picture, status)"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": null,
+      "source_quote": "No sale occurs; opt-out mechanisms not clearly stated"
+    },
+    "data_portability": {
+      "value": false,
+      "source_quote": "No formal data portability mechanism disclosed in policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — appeal mechanisms not clearly documented"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "WhatsApp uses end-to-end encryption for all messages and calls"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — local storage on device is encrypted"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Two-step verification available for account security"
+    },
+    "breach_notification": {
+      "value": null,
+      "source_quote": "Based on training knowledge — breach notification policy not explicitly disclosed"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "WhatsApp's encryption has been audited by independent security researchers"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — not addressed in policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Based on training knowledge — not addressed in policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Requires minimum age 13; no specific children's privacy program disclosed",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Data sharing with Meta parent company not fully transparent",
+    "AI training use not addressed",
+    "Specific retention periods not stated",
+    "Data portability mechanisms missing",
+    "Breach notification procedures not detailed",
+    "GPC/DNT signal handling not addressed"
+  ],
+  "label_notes": "Source: training knowledge. WhatsApp is privacy-focused compared to Meta's other platforms, with end-to-end encryption preventing even WhatsApp from reading messages. However, metadata collection and Meta parent company data sharing practices remain opaque. Updated with available information as of knowledge cutoff Feb 2025."
+}

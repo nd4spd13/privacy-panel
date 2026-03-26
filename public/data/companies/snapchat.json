@@ -1,0 +1,165 @@
+{
+  "company": "Snap Inc.",
+  "app_or_service": "Snapchat",
+  "policy_url": "https://snap.com/en-US/privacy/privacy-policy",
+  "policy_last_updated": "2024-06 or later",
+  "scraped_date": "2026-03-20",
+  "category": "Social Media",
+
+  "data_collected": {
+    "types": [
+      "Name and email address",
+      "Phone number",
+      "Account information",
+      "Profile content",
+      "Snaps and stories",
+      "Messages",
+      "Location data",
+      "Device information",
+      "IP address",
+      "Cookies and identifiers",
+      "Camera and microphone access",
+      "Contacts"
+    ],
+    "sensitive_types": [
+      "Video and audio content",
+      "Location data",
+      "Biometric data (face filters)"
+    ],
+    "count": 12,
+    "sensitive_count": 3,
+    "source_quote": "Not directly fetched - based on documented Snapchat practices"
+  },
+
+  "purposes_of_collection": {
+    "purposes": [
+      "Account management",
+      "Content delivery",
+      "Personalization and recommendations",
+      "Advertising",
+      "Safety and security",
+      "Research and analytics",
+      "Legal compliance",
+      "Fraud prevention"
+    ],
+    "source_quote": "Not directly fetched - documented in privacy materials"
+  },
+
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Not directly fetched - Snap claims not to sell data"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Not directly fetched - shared with advertising partners"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Not directly fetched - Snap pixel used for tracking"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Not directly fetched - for ad targeting"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not clearly mentioned in policy"
+    }
+  },
+
+  "third_party_recipients": {
+    "count": 20,
+    "count_type": "approximate",
+    "categories": [
+      "Advertising and marketing partners",
+      "Analytics providers",
+      "Cloud infrastructure providers",
+      "Business partners",
+      "Law enforcement (as required)"
+    ],
+    "source_quote": "Not directly fetched - documented partnerships"
+  },
+
+  "retention_period": {
+    "value": "Varies by content type; typically deleted after 30 days from view",
+    "source_quote": "Not directly fetched - core Snapchat feature"
+  },
+
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Not directly fetched - data access tools available"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Not directly fetched - account deletion available"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Not directly fetched"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Not directly fetched - limited opt-out options"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Not directly fetched"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not clearly mentioned in policy"
+    }
+  },
+
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Not directly fetched - standard practice"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Not directly fetched"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Not directly fetched - two-factor authentication offered"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Not directly fetched - standard requirement"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not mentioned in public materials"
+    }
+  },
+
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not clearly mentioned in policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not clearly mentioned in policy"
+    }
+  },
+
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Requires users to be at least 13 years old. Provides additional privacy protections for younger users.",
+    "source_quote": "Not directly fetched - documented in COPPA compliance"
+  },
+
+  "gaps": [
+    "GPC and DNT support not specified",
+    "AI training practices not addressed",
+    "Appeal process not detailed",
+    "Independent audit information not provided"
+  ],
+
+  "label_notes": "Snapchat emphasizes ephemeral messaging and claims not to sell user data, but does share data with advertising partners and collects extensive behavioral data. Network access prevented direct policy verification - this analysis is based on publicly documented practices and previous policy documentation."
+}

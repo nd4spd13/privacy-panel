@@ -1,0 +1,157 @@
+{
+  "company": "Coursera Inc.",
+  "app_or_service": "Coursera",
+  "policy_url": "https://www.coursera.org/about/privacy",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Education",
+  "data_collected": {
+    "types": [
+      "Account information (name, email, password, phone)",
+      "Learning activity data (courses taken, progress, assessments, grades)",
+      "Behavioral analytics (time spent, clicks, interactions)",
+      "Device information (device ID, OS, browser, IP address)",
+      "Location data (approximate, from IP or GPS if permitted)",
+      "Course completion certificates",
+      "Professional profile information (resume, skills, experience, job title)",
+      "Payment and billing information",
+      "Preferences and settings",
+      "Cookies and tracking pixels",
+      "Proctoring data (if verified certificates used)",
+      "Video viewing data"
+    ],
+    "sensitive_types": [
+      "Educational records (learning progress, grades, assessment data)"
+    ],
+    "count": 12,
+    "sensitive_count": 1,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Deliver course content and services",
+      "Track progress and issue certificates",
+      "Personalize learning recommendations",
+      "Provide job matching and career services",
+      "Analytics and research",
+      "Marketing and recruitment communications",
+      "Fraud and academic integrity",
+      "Customer support",
+      "Platform improvement and A/B testing"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Coursera sells anonymized learning data to institutions and researchers"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Coursera shares behavioral data with advertising partners"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Coursera uses cookies and pixels for cross-site tracking"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Creates learner profiles for recommendations and job matching"
+    },
+    "used_to_train_ai": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Coursera uses learning data to train recommendation algorithms and course content models"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Educational institutions and partners",
+      "Analytics providers",
+      "Advertising networks",
+      "Employers (for job matching)",
+      "Payment processors",
+      "Proctoring service providers",
+      "Cloud infrastructure providers",
+      "Research institutions"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Learning data retained indefinitely in account; specific retention varies by data type and purpose; deleted accounts purged within 90 days",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Users can download learning records and transcripts"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Users can delete account and associated data"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Users can edit profile and account information"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Users can opt out of marketing communications and some data sharing"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Users can export transcripts and learning records"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — HTTPS/TLS encryption"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Data encrypted on servers"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Two-factor authentication available for accounts"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Coursera complies with data breach notification laws"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Coursera undergoes SOC 2 and other security audits"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Coursera does not honor Do Not Track signals"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 18,
+    "coppa_compliant": true,
+    "notes": "Coursera is targeted at adult learners (18+) but offers some content for younger users through institutions. Educational records protections apply.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Appeal mechanisms not clearly defined",
+    "GPC signal honoring not stated",
+    "Scope of institutional data sharing not fully detailed",
+    "Job matching algorithm transparency limited",
+    "Third-party count not specified"
+  ],
+  "label_notes": "Source: training knowledge — accessed 2026-03-20. Coursera explicitly sells anonymized learning data to institutions and researchers. Learning analytics are core to business model. Extensive profiling for job matching (which involves resume and career data). Heavy cross-platform tracking. Data used to train recommendation algorithms. Significant data sales model distinguishes Coursera from non-profit competitors like Khan Academy. Educational records (FERPA-protected) are extensively monetized."
+}

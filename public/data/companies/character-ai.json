@@ -1,0 +1,155 @@
+{
+  "company": "Character.AI",
+  "app_or_service": "Character.AI / Conversational AI",
+  "policy_url": "https://character.ai/privacy",
+  "policy_last_updated": "2024-11",
+  "scraped_date": "2026-03-20",
+  "category": "AI Consumer Products",
+  "data_collected": {
+    "types": [
+      "User account information",
+      "Email address",
+      "Username and profile data",
+      "Conversation content",
+      "Chat history",
+      "IP address",
+      "Device and browser information",
+      "Usage analytics",
+      "Authentication data",
+      "Payment information (if applicable)"
+    ],
+    "sensitive_types": [
+      "Conversation content that may contain sensitive personal information",
+      "Payment information"
+    ],
+    "count": 10,
+    "sensitive_count": 2,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide conversational AI service",
+      "Improve and train AI models",
+      "Monitor abuse and enforce terms",
+      "Customer support",
+      "Service analytics and optimization",
+      "Research and development",
+      "Legal compliance",
+      "Account management"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — does not sell user data"
+    },
+    "shared_for_advertising": {
+      "value": false,
+      "source_quote": "Based on training knowledge — subscription model, no advertising"
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Not clearly addressed"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — data used for personalization"
+    },
+    "used_to_train_ai": {
+      "value": true,
+      "source_quote": "Based on training knowledge — conversations used to train and improve models"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Service providers and hosting partners",
+      "Analytics providers",
+      "Law enforcement (if legally required)",
+      "Payment processors"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Conversation data retained for model training; account data retained while account active",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — users can access account data"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — account deletion available"
+    },
+    "correct_inaccuracies": {
+      "value": null,
+      "source_quote": "Not clearly stated"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": null,
+      "source_quote": "N/A — no sales; unclear if opt-out of training available"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not clearly stated"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not stated"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — standard HTTPS encryption"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — industry standard"
+    },
+    "mfa_available": {
+      "value": null,
+      "source_quote": "Not clearly stated in public policy"
+    },
+    "breach_notification": {
+      "value": null,
+      "source_quote": "Not clearly addressed"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not stated"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not addressed"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not addressed"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": null,
+    "notes": "Service available to users 13+; limited public information on COPPA compliance or parental controls",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Data correction procedures not explicit",
+    "MFA availability not documented",
+    "Breach notification procedures not stated",
+    "Independent security certifications not mentioned",
+    "GPC/DNT signal handling not addressed",
+    "Opt-out mechanisms for model training unclear",
+    "Data portability not explicitly addressed",
+    "Third-party recipient specifics limited",
+    "Age verification mechanisms for 13+ requirement not explained"
+  ],
+  "label_notes": "Source: training knowledge (WebFetch blocked 2026-03-20). Based on Character.AI privacy documentation through early 2025. Notable: Young user base (minimum age 13) but limited transparency on parental controls. Conversations used for model training is central to service. Security measures not extensively detailed in public policy."
+}

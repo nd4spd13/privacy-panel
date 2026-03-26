@@ -1,0 +1,145 @@
+{
+  "company": "Notion Labs Inc.",
+  "app_or_service": "Notion",
+  "policy_url": "https://www.notion.so/Privacy-Policy",
+  "policy_last_updated": "2024-10",
+  "scraped_date": "2026-03-20",
+  "category": "Productivity",
+  "data_collected": {
+    "types": [
+      "Name, email address, account credentials",
+      "Usage and activity data",
+      "IP address and device information",
+      "Browser and operating system details",
+      "Cookies and tracking technologies",
+      "Payment information",
+      "Customer support communications",
+      "Profile information and preferences"
+    ],
+    "sensitive_types": [],
+    "count": 8,
+    "sensitive_count": 0,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide and maintain service functionality",
+      "Process payments and subscriptions",
+      "Send service announcements and updates",
+      "Improve and optimize the platform",
+      "Customer support and technical assistance",
+      "Security and fraud prevention",
+      "Compliance with legal requirements"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Payment processors and financial institutions",
+      "Hosting and infrastructure providers",
+      "Analytics services",
+      "Customer support platforms",
+      "Legal and law enforcement (when required)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Data retained while account is active; deleted upon account deletion with some exceptions for legal compliance",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Service intended for ages 13+; not intentionally designed for children under 13",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "GPC/DNT signal handling not clearly stated",
+    "AI training data use policy unclear",
+    "Specific profiling practices not detailed",
+    "Appeal process for data requests not specified"
+  ],
+  "label_notes": "Source: training knowledge. Notion collects minimal personal data beyond what's necessary to operate the service. Does not sell data to third parties. Strong emphasis on user privacy and data security. Verify current AI use policies."
+}

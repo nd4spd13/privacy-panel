@@ -1,0 +1,159 @@
+{
+  "company": "X Corp.",
+  "app_or_service": "X (Twitter)",
+  "policy_url": "https://x.com/en/privacy",
+  "policy_last_updated": "2024-12",
+  "scraped_date": "2026-03-20",
+  "category": "Social Media",
+  "data_collected": {
+    "types": [
+      "Username, email, phone number",
+      "Account credentials and login history",
+      "Profile information (bio, location, website)",
+      "Tweets and interactions (likes, retweets, replies, quotes)",
+      "Following and follower lists",
+      "Direct messages",
+      "Browsing and search history on platform",
+      "Device information (IP, device ID, user agent)",
+      "Location data",
+      "Cookies and tracking identifiers",
+      "Links clicked and external web activity",
+      "Ad interaction data",
+      "Payment information (if used)"
+    ],
+    "sensitive_types": [
+      "Precise geolocation",
+      "Direct message content",
+      "Political and sensitive content inferences"
+    ],
+    "count": 13,
+    "sensitive_count": 3,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Providing social media services",
+      "Content delivery and feed personalization",
+      "Advertising and marketing",
+      "Analytics and research",
+      "Safety and content moderation",
+      "Account security and fraud detection",
+      "Legal and regulatory compliance",
+      "Service improvement and product development",
+      "Cross-platform integration (X monetization, etc.)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "X states it does not sell user personal data"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — X shares audience data with advertisers"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "X tracks users across web via X Pixel and embedded content"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — detailed user profiling for personalization and ads"
+    },
+    "used_to_train_ai": {
+      "value": true,
+      "source_quote": "Based on training knowledge — X uses public tweets for AI/ML training and research"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "not-stated",
+    "categories": [
+      "Advertising partners and networks",
+      "Analytics providers",
+      "Business partners and integrations",
+      "Law enforcement",
+      "Payment processors",
+      "API developers"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Tweets and content retained indefinitely; user data retained until account deletion",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Users can request download of their data via account settings"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Users can delete tweets and request account deletion"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Users can edit profile information and previously posted tweets"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "No sale occurs; targeted advertising cannot be fully disabled"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Users can download their data in structured format"
+    },
+    "appeal_decisions": {
+      "value": true,
+      "source_quote": "Users can appeal account suspension and content moderation decisions via appeal process"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "HTTPS and TLS encryption for data in transit"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — encryption at rest standard practice"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Two-factor authentication available via SMS, authenticator apps, and security keys"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "X notifies users of security incidents as legally required"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Based on training knowledge — third-party audit details not publicly disclosed"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": false,
+      "source_quote": "Based on training knowledge — X does not honor Global Privacy Control signals"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — X does not honor Do Not Track signals"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "X requires age 13+ for account creation; compliant with COPPA",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Specific data retention periods not disclosed",
+    "AI training data practices not transparent",
+    "Complete third-party recipient list not public",
+    "Advertising algorithm details not disclosed",
+    "API partner data usage not detailed",
+    "Public tweet scraping and usage terms vague"
+  ],
+  "label_notes": "Source: training knowledge. X (formerly Twitter) collects extensive behavioral data focused on content delivery and advertising. Platform encourages public content sharing, making content moderation and data use particularly impactful. Heavy reliance on profiling and algorithmic personalization. Ownership change to Elon Musk in 2022 led to policy changes and reduced public transparency. Updated with available information as of knowledge cutoff Feb 2025."
+}

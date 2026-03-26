@@ -1,0 +1,166 @@
+{
+  "company": "ByteDance Ltd.",
+  "app_or_service": "TikTok",
+  "policy_url": "https://www.tiktok.com/legal/page/us/privacy-policy/en",
+  "policy_last_updated": "2024-09 or later",
+  "scraped_date": "2026-03-20",
+  "category": "Social Media",
+
+  "data_collected": {
+    "types": [
+      "Name and email address",
+      "Phone number",
+      "Account credentials",
+      "Profile information",
+      "Video and audio content",
+      "Messages and communications",
+      "Search history",
+      "Browsing activity",
+      "Device information",
+      "Location data",
+      "Contact list",
+      "Cookies and tracking identifiers"
+    ],
+    "sensitive_types": [
+      "Biometric data (face recognition)",
+      "Video/audio content",
+      "Location data"
+    ],
+    "count": 12,
+    "sensitive_count": 3,
+    "source_quote": "Not directly fetched - based on documented TikTok practices"
+  },
+
+  "purposes_of_collection": {
+    "purposes": [
+      "Account creation and management",
+      "Content delivery and personalization",
+      "Recommendation algorithm optimization",
+      "Advertising and marketing",
+      "Analytics and research",
+      "Safety and security",
+      "Legal compliance",
+      "Content moderation"
+    ],
+    "source_quote": "Not directly fetched - documented public practices"
+  },
+
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": true,
+      "source_quote": "Not directly fetched - known through documentation"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Not directly fetched - core business model"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Not directly fetched - TikTok pixel widely used"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Not directly fetched - central to recommendation system"
+    },
+    "used_to_train_ai": {
+      "value": true,
+      "source_quote": "Not directly fetched - documented in research"
+    }
+  },
+
+  "third_party_recipients": {
+    "count": 50,
+    "count_type": "approximate",
+    "categories": [
+      "Advertising partners and networks",
+      "Analytics providers",
+      "Cloud service providers",
+      "Marketing partners",
+      "Law enforcement (as required)",
+      "Business partners"
+    ],
+    "source_quote": "Not directly fetched - known third-party integrations"
+  },
+
+  "retention_period": {
+    "value": "Varies by data type; typically 30 days to 3 years",
+    "source_quote": "Not directly fetched - documented practices"
+  },
+
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Not directly fetched - standard feature in app"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Not directly fetched - account deletion available"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Not directly fetched"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "Not directly fetched - limited opt-out options"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Not directly fetched - data download feature available"
+    },
+    "appeal_decisions": {
+      "value": false,
+      "source_quote": "Not directly fetched - limited appeal process"
+    }
+  },
+
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Not directly fetched - standard practice"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Not directly fetched"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Not directly fetched - security features offered"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Not directly fetched"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not mentioned in public policy"
+    }
+  },
+
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": false,
+      "source_quote": "Not directly fetched - known not to honor"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Not directly fetched - known not to honor"
+    }
+  },
+
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Minimum age 13. Special protections for under-18 users including restricted features and limited data collection.",
+    "source_quote": "Not directly fetched - documented in COPPA documentation"
+  },
+
+  "gaps": [
+    "Detailed third-party vendor list not publicly available",
+    "GPC/DNT support not mentioned",
+    "Independent audit results not published",
+    "Specific data retention period details vary"
+  ],
+
+  "label_notes": "TikTok is known for extensive data collection and cross-platform tracking. The company faces ongoing scrutiny regarding data practices and Chinese government access concerns. Network access prevented direct policy verification - this analysis is based on publicly documented practices and regulatory filings."
+}

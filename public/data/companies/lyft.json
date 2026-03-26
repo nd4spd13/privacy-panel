@@ -1,0 +1,178 @@
+{
+  "company": "Lyft Inc.",
+  "app_or_service": "Lyft Ride-sharing Platform",
+  "policy_url": "https://www.lyft.com/terms/privacy",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Ride-share",
+
+  "data_collected": {
+    "types": [
+      "name",
+      "email address",
+      "phone number",
+      "address",
+      "payment information",
+      "device model",
+      "IP address",
+      "browser type",
+      "operating system version",
+      "device identifiers",
+      "advertising identifiers",
+      "push notification tokens",
+      "location data",
+      "ride information",
+      "route data",
+      "usage patterns",
+      "interaction data"
+    ],
+    "sensitive_types": [
+      "precise location data",
+      "payment information",
+      "biometric data",
+      "photo imagery"
+    ],
+    "count": 17,
+    "sensitive_count": 4,
+    "source_quote": "Lyft collects information about your use of the Lyft Platform including ride information like date, time, destination, distance, route, payment. Device information includes device model, IP address, browser type, advertising identifiers, and device identifiers."
+  },
+
+  "purposes_of_collection": {
+    "purposes": [
+      "provide ride-sharing services",
+      "prevent fraud",
+      "improve safety",
+      "understand user behavior",
+      "serve advertisements",
+      "improve content and services",
+      "identity verification"
+    ],
+    "source_quote": "Lyft collects tracking data to understand how users navigate the platform and interact with advertisements, improve safety, learn what content is popular, and serve better ads."
+  },
+
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Lyft may share personal information with third parties to deliver personalized ads on and off the Lyft Platform."
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Lyft collects information through cookies, tracking pixels, data analytics tools, SDKs, and third-party tracking technologies."
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Lyft uses data to serve targeted advertising and personalized content."
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "third_party_recipients": {
+    "count": 7,
+    "count_type": "approximate",
+    "categories": [
+      "advertising partners",
+      "analytics providers",
+      "service providers",
+      "payment processors",
+      "identity verification services",
+      "social networks",
+      "third-party business partners"
+    ],
+    "source_quote": "Lyft shares personal information with third parties to deliver personalized ads and may cross-verify data with third-party service providers."
+  },
+
+  "retention_period": {
+    "value": "Not stated",
+    "source_quote": "Not mentioned in policy"
+  },
+
+  "your_rights": {
+    "access_your_data": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "delete_your_data": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "correct_inaccuracies": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Users may opt out of 'selling,' 'sharing,' or targeted advertising by navigating to Privacy Settings in the Lyft app."
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Lyft uses secure protocols including HTTPS (TLS 1.2) and SFTP for data transmission."
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Databases containing user information are encrypted at rest."
+    },
+    "mfa_available": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "breach_notification": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Lyft performs regular internal and third-party external infrastructure scans and code base scans with a bug bounty program."
+    }
+  },
+
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "childrens_privacy": {
+    "minimum_age": null,
+    "coppa_compliant": null,
+    "notes": "Not mentioned in policy",
+    "source_quote": "Not mentioned in policy"
+  },
+
+  "gaps": [
+    "data retention periods not specified",
+    "access and delete rights not mentioned",
+    "correct inaccuracies right not mentioned",
+    "data portability not mentioned",
+    "appeal rights not mentioned",
+    "MFA availability not specified",
+    "breach notification procedures not detailed",
+    "GPC and DNT signal handling not mentioned",
+    "children's privacy policy not addressed",
+    "sold to third parties not clearly stated"
+  ],
+
+  "label_notes": "Lyft collects extensive data including location, biometric, and device information for service provision and advertising. Strong tracking and profiling with many third-party sharing arrangements. Encryption in transit and at rest is confirmed. User can opt out of targeted advertising through app settings. Uses biometric imagery for identity verification. Lacks transparency on data retention and many consumer rights."
+}

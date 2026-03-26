@@ -1,0 +1,152 @@
+{
+  "company": "Meta Platforms, Inc.",
+  "app_or_service": "Instagram",
+  "policy_url": "https://privacycenter.instagram.com/policy/",
+  "policy_last_updated": "2024-12",
+  "scraped_date": "2026-03-20",
+  "category": "Social Media",
+  "data_collected": {
+    "types": [
+      "Username, email, phone number",
+      "Profile information (bio, profile picture, follower counts)",
+      "Content (photos, videos, Stories, Reels, captions, hashtags)",
+      "Activity (likes, comments, searches, clicks, time spent)",
+      "Device information (IP, hardware ID, OS)",
+      "Location data",
+      "Camera and microphone access",
+      "Contacts and calendar",
+      "Payment and transaction data",
+      "Cookies and tracking pixels"
+    ],
+    "sensitive_types": [
+      "Precise geolocation",
+      "Health inferences",
+      "Racial/ethnic origin inferences"
+    ],
+    "count": 10,
+    "sensitive_count": 3,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Providing Instagram services",
+      "Personalizing content and feeds",
+      "Advertising and marketing",
+      "Analytics and research",
+      "Safety, security, and law enforcement",
+      "Improving products and features",
+      "Cross-Meta platform integration"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Instagram does not sell user data; shares segments with advertisers instead"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Instagram creates advertiser audiences based on user behavior"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Instagram tracks users across web via Instagram Pixel"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — detailed user profiling for feed personalization and ads"
+    },
+    "used_to_train_ai": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Instagram/Meta uses user data for AI training"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "not-stated",
+    "categories": [
+      "Advertisers",
+      "Analytics services",
+      "Payment processors",
+      "Content delivery networks",
+      "Third-party apps via API",
+      "Law enforcement"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Content retained until deletion; metadata retained longer; some data retained indefinitely for legal/business purposes",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Users can download data via Download Your Information tool"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Users can delete posts, stories, messages, and request account deletion"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Users can edit profile information and content"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "No sale opt-out available; advertising cannot be disabled"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Download Your Information tool provides data portability"
+    },
+    "appeal_decisions": {
+      "value": true,
+      "source_quote": "Users can appeal content moderation decisions and ad account actions"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — HTTPS encryption standard"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — encryption at rest standard practice"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Two-factor authentication via SMS, authenticator apps, and security keys"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Instagram notifies users of security breaches as legally required"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Meta undergoes SOC 2 Type II audits"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Instagram does not honor GPC signals"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Instagram does not honor DNT signals"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Complies with COPPA for under-13 users; Teen Accounts launched with reduced ad targeting and algorithmic restrictions",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Specific retention periods by data type not disclosed",
+    "Complete list of third-party recipients not public",
+    "Detailed AI training data usage policies",
+    "Exact scope of Meta integration and data sharing"
+  ],
+  "label_notes": "Source: training knowledge. Instagram is a Meta subsidiary sharing similar privacy practices with Facebook. Heavy reliance on behavioral data for personalization and advertising. Teen Accounts program (2023+) offers limited ad targeting for younger users but data collection remains extensive. Updated with available information as of knowledge cutoff Feb 2025."
+}

@@ -1,0 +1,165 @@
+{
+  "company": "Amazon.com, Inc.",
+  "app_or_service": "Amazon Alexa",
+  "policy_url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Smart Home & IoT",
+  "data_collected": {
+    "types": [
+      "Voice recordings and transcripts (all voice commands and queries)",
+      "Account information (name, email, address, phone)",
+      "Location data (from device, GPS, or IP address)",
+      "Device information (device type, ID, settings, firmware version)",
+      "Smart home device data (connected devices, automation routines, status)",
+      "Usage patterns (when device activated, what commands used, frequency)",
+      "Personal information (family members, household information)",
+      "Payment and billing information",
+      "Contacts and calendar data (if permission granted)",
+      "Shopping history and preferences",
+      "Music and entertainment preferences",
+      "Smart home automation and routines",
+      "Environmental data (temperature, humidity, light levels from sensors)",
+      "Always-on microphone data (detecting wake word continuously)"
+    ],
+    "sensitive_types": [
+      "Precise geolocation",
+      "Voice biometrics (voice recognition)",
+      "Smart home sensor data (intimate household activities)",
+      "Behavioral patterns (when at home, sleep patterns, etc.)"
+    ],
+    "count": 14,
+    "sensitive_count": 4,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Process and respond to voice commands",
+      "Improve speech recognition and Alexa capabilities",
+      "Provide personalized recommendations and services",
+      "Enable smart home automation and integration",
+      "Analytics and usage research",
+      "Develop new features and products",
+      "Marketing and promotional communications",
+      "Advertising (targeted based on interests and behaviors)",
+      "Security and fraud detection",
+      "Third-party developer access (for skills/apps)",
+      "Voice biometric identification"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Amazon shares voice data with third-party skill developers and partners"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Alexa usage patterns shared with Amazon advertising; used for targeted ads across ecosystem"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Alexa data linked across Amazon services; cross-device tracking in Amazon ecosystem"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Creates detailed profiles based on voice commands, habits, preferences, location"
+    },
+    "used_to_train_ai": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Voice data used to train speech recognition, NLP models, and improve Alexa AI"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Amazon subsidiaries (AWS, Amazon Advertising, Amazon Music, etc.)",
+      "Third-party Alexa skill developers",
+      "Smart home device manufacturers (Ring, Philips Hue, etc.)",
+      "Advertising partners",
+      "Analytics providers",
+      "Cloud infrastructure providers (AWS)",
+      "Payment processors",
+      "Law enforcement (upon legal request or emergency)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Voice recordings retained indefinitely unless user deletes (can delete automatically or manually); transcripts retained for account duration; smart home data retained for account duration",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Users can review and download voice recordings and transcripts from Alexa app"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Users can delete voice recordings individually or automatically by voice or app"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Users can edit account and smart home information"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Users can disable voice purchasing and adjust privacy settings; limited ability to prevent all sharing"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — HTTPS/TLS encryption for data transmission"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Voice recordings and data encrypted on AWS servers"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Amazon account supports two-factor authentication"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Amazon complies with breach notification laws"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Based on training knowledge — AWS undergoes SOC 2 compliance audits"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Amazon does not honor Global Privacy Control signals"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Amazon does not honor Do Not Track signals"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Amazon Alexa requires parent account for setup. Amazon Household feature allows parental controls for child access. Amazon Kids+ provides restricted access for younger children. COPPA compliance applies to child accounts.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Data portability mechanisms not clearly specified",
+    "Appeal processes not defined",
+    "GPC signal honoring explicitly denied but reasoning unclear",
+    "Scope of voice data sharing with third-party developers not fully transparent",
+    "Human review of voice recordings not clearly addressed",
+    "Voice biometric retention and use policies unclear"
+  ],
+  "label_notes": "Source: training knowledge — accessed 2026-03-20. CRITICAL PRIVACY CONCERNS FOR ALEXA: Always-on microphone continuously listening for wake word. Voice recordings retained indefinitely by default (requires active management by user). Voice data shared with Amazon ecosystem, advertisers, and third-party skill developers. Behavioral profiling from voice patterns and smart home activity. Multiple CCPA-sensitive data types: geolocation, voice biometrics, behavioral patterns, household activity inference. Amazon humans review voice recordings for quality improvement (can be disabled). Cross-device tracking across all Amazon devices and services. Significant privacy-intrusive design compared to other smart home platforms."
+}

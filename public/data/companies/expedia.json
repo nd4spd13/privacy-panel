@@ -1,0 +1,167 @@
+{
+  "company": "Expedia Group Inc.",
+  "app_or_service": "Expedia Travel Booking Platform",
+  "policy_url": "https://www.expedia.com/lp/privacypolicy",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Travel",
+  "data_collected": {
+    "types": [
+      "Email address",
+      "Name",
+      "Phone number",
+      "Mailing address",
+      "Date of birth",
+      "Gender",
+      "Payment card information",
+      "Passport/travel document information",
+      "Frequent traveler program numbers",
+      "Travel preferences and history",
+      "Search and browsing history",
+      "Device information",
+      "IP address",
+      "Location data",
+      "Cookies and tracking data",
+      "Social media connections",
+      "Loyalty program information"
+    ],
+    "sensitive_types": [
+      "Payment card information",
+      "Passport and travel document information",
+      "Precise geolocation"
+    ],
+    "count": 17,
+    "sensitive_count": 3,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Process and fulfill travel bookings",
+      "Provide customer support",
+      "Personalize search results and recommendations",
+      "Targeted advertising and marketing",
+      "Loyalty program management",
+      "Fraud detection and prevention",
+      "Service improvement and analytics",
+      "Compliance with travel regulations",
+      "Research"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Expedia states it does not sell personal data to third parties"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — uses behavioral and search data for targeted advertising"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — uses cookies and tracking pixels for retargeting"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — creates travel preference profiles for personalization"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not clearly stated in public disclosures"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Airlines and airlines",
+      "Hotels and accommodations",
+      "Car rental companies",
+      "Travel insurance providers",
+      "Payment processors",
+      "Ad networks and advertising partners",
+      "Analytics providers",
+      "Cloud service providers",
+      "Travel partners and affiliates"
+    ],
+    "source_quote": "Based on training knowledge — specific count not disclosed"
+  },
+  "retention_period": {
+    "value": "Transactional and booking data retained for 7+ years for legal/tax compliance; profile data retained while account active",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Users can access booking history and profile information"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Users can delete account; some data retained for legal/compliance purposes"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Users can update profile information and travel preferences"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Users can unsubscribe from marketing and adjust communication preferences"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not clearly stated in public disclosures"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not clearly stated in public disclosures"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — uses HTTPS/SSL encryption for all transactions"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — payment and personal data encrypted at rest"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Two-factor authentication available for account protection"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — complies with data breach notification requirements"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not clearly stated in public disclosures"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not clearly stated in public disclosures"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not clearly stated in public disclosures"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 18,
+    "coppa_compliant": null,
+    "notes": "Service designed for adults; parental consent required for users under 18 in some jurisdictions.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Specific data retention schedules for different data types unclear",
+    "Data portability mechanisms not disclosed",
+    "AI/ML training use not disclosed",
+    "GPC/DNT signal honoring not stated",
+    "Independent audit information missing",
+    "Detailed third-party recipient list not provided",
+    "Appeal process for account restrictions not detailed"
+  ],
+  "label_notes": "Source: training knowledge (2026-03-20). WebFetch blocked due to network egress restrictions. Expedia collects extensive payment and travel document data. Note that data sharing with hotel/airline partners is necessary for booking functionality but scope should be clearly understood. VERIFY all claims against current live policy before publication."
+}

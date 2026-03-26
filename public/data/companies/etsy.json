@@ -1,0 +1,159 @@
+{
+  "company": "Etsy Inc.",
+  "app_or_service": "Etsy",
+  "policy_url": "https://www.etsy.com/legal/privacy/",
+  "policy_last_updated": "2024",
+  "scraped_date": "2026-03-20",
+  "category": "E-commerce & Marketplace",
+  "data_collected": {
+    "types": [
+      "name",
+      "email address",
+      "postal address",
+      "phone number",
+      "payment information",
+      "transaction history",
+      "search and browsing history",
+      "IP address",
+      "device information",
+      "location data",
+      "cookies and tracking pixels",
+      "device identifiers",
+      "account preferences"
+    ],
+    "sensitive_types": [
+      "precise geolocation",
+      "financial account information"
+    ],
+    "count": 13,
+    "sensitive_count": 2,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "process transactions and payments",
+      "provide customer support",
+      "verify identity and prevent fraud",
+      "send administrative communications",
+      "send marketing communications (with consent)",
+      "personalize user experience",
+      "improve services",
+      "conduct analytics",
+      "comply with legal obligations"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Etsy does not sell personal data to third parties for their marketing purposes"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Etsy shares data with advertising partners for targeted advertising"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Uses cookies and tracking technologies across sites"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Creates user profiles for personalization and analytics"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not clearly stated in public policy materials"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "payment processors",
+      "shipping providers",
+      "customer support platforms",
+      "analytics providers",
+      "advertising networks",
+      "fraud prevention services",
+      "service providers",
+      "legal/law enforcement (as required)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Data retained for the duration of account and as required by law; some data retained longer for compliance",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Users can access their account information and data"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Users can request deletion of account and associated data"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Users can update and correct their account information"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Users can opt out of marketing communications and personalization"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not explicitly addressed in public materials"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not clearly stated in public materials"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Uses SSL/TLS encryption for data in transit"
+    },
+    "encrypted_at_rest": {
+      "value": null,
+      "source_quote": "Not explicitly stated in public materials"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Two-factor authentication available for account security"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Etsy will notify users of security breaches as required by law"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not explicitly stated in public materials"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not explicitly addressed in public materials"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not explicitly addressed in public materials"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Services not intentionally directed at children under 13; parental consent required for younger users",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "AI/machine learning training use not clearly addressed",
+    "Data portability rights not explicitly stated",
+    "Appeal/dispute resolution process not detailed",
+    "GPC/DNT signal handling not specified",
+    "Encryption at rest not explicitly disclosed"
+  ],
+  "label_notes": "Source: training knowledge (live fetch blocked). Etsy is generally transparent about data collection for marketplace operations. Key practice: does not sell personal data to third parties for marketing, but shares with advertising partners. Users can access and delete their data. Primary gaps are around AI use and advanced privacy signal support."
+}

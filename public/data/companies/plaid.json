@@ -1,0 +1,166 @@
+{
+  "company": "Plaid Inc.",
+  "app_or_service": "Plaid Financial Data API",
+  "policy_url": "https://plaid.com/legal/privacy-statement/",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Fintech & Infrastructure",
+
+  "data_collected": {
+    "types": [
+      "name",
+      "email address",
+      "date of birth",
+      "phone number",
+      "social security number",
+      "account holder information",
+      "account transactions",
+      "account details",
+      "routing numbers",
+      "account numbers",
+      "balances",
+      "security tokens"
+    ],
+    "sensitive_types": [
+      "social security number",
+      "account numbers",
+      "routing numbers",
+      "account balances",
+      "transaction history"
+    ],
+    "count": 12,
+    "sensitive_count": 5,
+    "source_quote": "Plaid collects account holder information including name, address, phone number, and email address, as well as account transactions (amount, date, type, and description), and account details including account and routing numbers and balance."
+  },
+
+  "purposes_of_collection": {
+    "purposes": [
+      "power requested services",
+      "fraud prevention",
+      "unauthorized transaction protection",
+      "security purposes",
+      "financial app connectivity"
+    ],
+    "source_quote": "Plaid only shares personal financial data with third parties to power the services you requested and/or to protect against actual or potential fraud and unauthorized transactions."
+  },
+
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Plaid does not sell your personal data."
+    },
+    "shared_for_advertising": {
+      "value": false,
+      "source_quote": "Plaid does not share data for advertising purposes; only to power requested services."
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "used_for_profiling": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "third_party_recipients": {
+    "count": 1,
+    "count_type": "category-only",
+    "categories": [
+      "connected third-party apps and services (only as permitted by user and only data needed)"
+    ],
+    "source_quote": "Plaid will only share the data an app needs, even if the financial institution API returns more—unnecessary data won't be shared."
+  },
+
+  "retention_period": {
+    "value": "As long as needed",
+    "source_quote": "Plaid retains your data only as long as it is needed, considering the reason your data was collected and any legal requirements."
+  },
+
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Consumers can see which apps they've connected to and what data those apps accessed via Plaid's consumer portal."
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Consumers can revoke access at any time via Plaid's consumer portal or directly through the third party app."
+    },
+    "correct_inaccuracies": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Consumers can revoke access to connected apps at any time."
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Plaid uses AES-256 and TLS end-to-end encryption to securely share strictly necessary data."
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Plaid uses encryption to protect data in transit and at rest."
+    },
+    "mfa_available": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "breach_notification": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Plaid has ISO 27001 and ISO 27701 certifications and undergoes annual SOC 2 Type II audits."
+    }
+  },
+
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "childrens_privacy": {
+    "minimum_age": null,
+    "coppa_compliant": null,
+    "notes": "Not mentioned in policy",
+    "source_quote": "Not mentioned in policy"
+  },
+
+  "gaps": [
+    "cross_site_tracking not mentioned",
+    "profiling practices not disclosed",
+    "AI training not mentioned",
+    "correct inaccuracies right not mentioned",
+    "data portability not mentioned",
+    "appeal rights not mentioned",
+    "MFA availability not specified",
+    "breach notification procedures not detailed",
+    "GPC and DNT signal handling not mentioned",
+    "children's privacy policy not addressed"
+  ],
+
+  "label_notes": "Plaid has strong privacy protections with explicit no-sale and no-advertising policies. High security standards with ISO certifications and TLS/AES-256 encryption. Strong user control over app connections and data sharing. Minimal data collection principle practiced (only shares data needed by apps)."
+}

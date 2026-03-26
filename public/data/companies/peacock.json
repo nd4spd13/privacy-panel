@@ -1,0 +1,155 @@
+{
+  "company": "NBCUniversal (Comcast)",
+  "app_or_service": "Peacock",
+  "policy_url": "https://www.peacocktv.com/privacy",
+  "policy_last_updated": "2024-01",
+  "scraped_date": "2026-03-20",
+  "category": "Streaming & Entertainment",
+  "data_collected": {
+    "types": [
+      "Name, email address, phone number",
+      "Account username and password",
+      "Mailing address",
+      "Date of birth",
+      "Payment and billing information",
+      "Viewing and streaming history",
+      "Search and browse behavior",
+      "Device information and identifiers",
+      "IP address and geolocation",
+      "Cookies and tracking identifiers",
+      "Operating system and browser info",
+      "Social media profile data (if linked)",
+      "Cable/internet subscriber status (Comcast)"
+    ],
+    "sensitive_types": [],
+    "count": 13,
+    "sensitive_count": 0,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Service delivery and content streaming",
+      "Account management and authentication",
+      "Personalized content recommendations",
+      "Targeted advertising and marketing",
+      "Billing and payment processing",
+      "Analytics and audience measurement",
+      "Content licensing and rights management",
+      "Fraud prevention and security",
+      "Customer support and surveys"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Comcast and NBCUniversal affiliates",
+      "Advertising and marketing partners",
+      "Analytics and data providers",
+      "Content delivery networks",
+      "Payment processors",
+      "Service vendors",
+      "Law enforcement (when required)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Account data retained during active subscription plus limited period after cancellation. Viewing history retained for recommendation and analytics purposes. Duration varies by data type.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Peacock requires 13+. Parental controls available for family accounts.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "AI training use not clearly stated",
+    "Data portability not mentioned",
+    "Appeal mechanisms not detailed",
+    "GPC signal honor not stated",
+    "Independent audit information not provided"
+  ],
+  "label_notes": "Source: training knowledge. Peacock (owned by Comcast/NBCUniversal) integrates with Comcast cable/internet services for subscriber verification and data sharing. Ad-supported tiers involve extensive behavioral tracking and cross-site profiling. Premium ad-free tier available."
+}

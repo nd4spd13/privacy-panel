@@ -1,0 +1,158 @@
+{
+  "company": "Perplexity AI",
+  "app_or_service": "Perplexity / AI Search Engine",
+  "policy_url": "https://www.perplexity.ai/hub/legal/privacy-policy",
+  "policy_last_updated": "2024-10",
+  "scraped_date": "2026-03-20",
+  "category": "AI Consumer Products",
+  "data_collected": {
+    "types": [
+      "User account information",
+      "Email address",
+      "Search queries and prompts",
+      "IP address",
+      "Device and browser information",
+      "Location data (if enabled)",
+      "Cookies and tracking identifiers",
+      "Usage analytics",
+      "Authentication data",
+      "Payment information (for premium users)"
+    ],
+    "sensitive_types": [
+      "Search queries (may contain sensitive information)",
+      "Payment information",
+      "Location data (precise geolocation)"
+    ],
+    "count": 10,
+    "sensitive_count": 3,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide search and AI services",
+      "Improve search algorithms and AI models",
+      "Personalize search results",
+      "Monitor abuse and enforce terms",
+      "Analytics and performance monitoring",
+      "Research and development",
+      "Process payments",
+      "Legal compliance"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — does not sell personal data"
+    },
+    "shared_for_advertising": {
+      "value": false,
+      "source_quote": "Based on training knowledge — subscription-based model"
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Not clearly addressed"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — search queries used for personalization"
+    },
+    "used_to_train_ai": {
+      "value": true,
+      "source_quote": "Based on training knowledge — search data may be used for model training"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Search result providers (web search sources)",
+      "API partners",
+      "Cloud infrastructure providers",
+      "Payment processors",
+      "Analytics services",
+      "Law enforcement (if legally required)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Search queries and conversation data retained for service improvement; specific retention timelines not clearly stated",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — users can access account data"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — account deletion available"
+    },
+    "correct_inaccuracies": {
+      "value": null,
+      "source_quote": "Not clearly stated"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": null,
+      "source_quote": "N/A for sales; opt-out of training not explicit"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not clearly stated"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not stated"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — standard HTTPS"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — industry standard"
+    },
+    "mfa_available": {
+      "value": null,
+      "source_quote": "Not clearly documented in public policy"
+    },
+    "breach_notification": {
+      "value": null,
+      "source_quote": "Not clearly addressed"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not stated"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not addressed"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not addressed"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": null,
+    "notes": "Service available to users 13+; limited public information on COPPA compliance or parental controls",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Data correction procedures not explicit",
+    "MFA availability not documented",
+    "Breach notification procedures not stated",
+    "Independent security certifications not mentioned",
+    "GPC/DNT signal handling not addressed",
+    "Specific retention timelines unclear",
+    "Data portability procedures not explicit",
+    "Appeal mechanisms not stated",
+    "Search data usage for training not fully detailed"
+  ],
+  "label_notes": "Source: training knowledge (WebFetch blocked 2026-03-20). Based on Perplexity AI privacy documentation through mid-2025. Notable: Search queries contain sensitive information but retention policies not fully transparent. Model training practices involve search data. Growing concern about search privacy. Premium subscription model but data practices similar to free tier."
+}

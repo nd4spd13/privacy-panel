@@ -1,0 +1,145 @@
+{
+  "company": "Dropbox Inc.",
+  "app_or_service": "Dropbox",
+  "policy_url": "https://www.dropbox.com/privacy",
+  "policy_last_updated": "2024-09",
+  "scraped_date": "2026-03-20",
+  "category": "Cloud Storage & Productivity",
+  "data_collected": {
+    "types": [
+      "Name, email address, phone number",
+      "Account credentials and authentication info",
+      "IP address, browser type, device info",
+      "Usage data (files accessed, storage used, features used)",
+      "Payment and billing information",
+      "Communications and support interactions",
+      "Location data",
+      "Cookie and tracking technologies"
+    ],
+    "sensitive_types": [],
+    "count": 8,
+    "sensitive_count": 0,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide, maintain, and improve services",
+      "Process transactions and payments",
+      "Send service updates and communications",
+      "Provide customer support",
+      "Protect against fraud and abuse",
+      "Comply with legal obligations",
+      "Marketing and promotional activities"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Payment processors",
+      "Analytics providers",
+      "Customer support tools",
+      "Cloud infrastructure providers",
+      "Law enforcement (when required)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Data retained as long as account is active; some data may be retained longer for legal compliance or backup purposes",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Service not intended for children under 13; parental consent required for COPPA-age children",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "GPC/DNT signal handling not explicitly stated",
+    "AI training use not addressed in privacy policy",
+    "Specific data retention periods for different data types",
+    "Appeal process for data subject requests"
+  ],
+  "label_notes": "Source: training knowledge. Dropbox is a privacy-conscious cloud storage provider with strong encryption and data protection. They do not sell user data for advertising. Note: Verify specific retention periods and AI use policies against current live policy."
+}

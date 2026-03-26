@@ -1,0 +1,154 @@
+{
+  "company": "Midjourney Inc.",
+  "app_or_service": "Midjourney / AI Image Generation",
+  "policy_url": "https://docs.midjourney.com/docs/privacy-policy",
+  "policy_last_updated": "2025-01",
+  "scraped_date": "2026-03-20",
+  "category": "AI Consumer Products",
+  "data_collected": {
+    "types": [
+      "User account information",
+      "Email address",
+      "Username and profile data",
+      "Text prompts and image generation queries",
+      "Generated images and metadata",
+      "Payment information",
+      "IP address",
+      "Device and browser information",
+      "Usage logs and analytics",
+      "Discord account data (if linked)"
+    ],
+    "sensitive_types": [
+      "Payment card information",
+      "User-generated content that may contain sensitive information"
+    ],
+    "count": 10,
+    "sensitive_count": 2,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide image generation services",
+      "Process payments and billing",
+      "Improve AI models and algorithms",
+      "Prevent abuse and enforce terms of service",
+      "Monitor service performance",
+      "Research and development",
+      "Customer support",
+      "Legal compliance"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Midjourney does not sell user data"
+    },
+    "shared_for_advertising": {
+      "value": false,
+      "source_quote": "Based on training knowledge — no advertising business model"
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Not clearly addressed"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — data used for service personalization"
+    },
+    "used_to_train_ai": {
+      "value": true,
+      "source_quote": "Based on training knowledge — prompts and generated images used to train and improve model"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Payment processors",
+      "Cloud service providers",
+      "Discord (if Discord integration used)",
+      "Law enforcement (if legally required)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Generated images and prompts retained for model training and service improvement; user account data retained while account active",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — users can request data access"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — account deletion available"
+    },
+    "correct_inaccuracies": {
+      "value": null,
+      "source_quote": "Not clearly stated"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": null,
+      "source_quote": "N/A — no data sales; opt-out of training not explicitly stated"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not clearly stated"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not stated"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — standard HTTPS"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — industry standard"
+    },
+    "mfa_available": {
+      "value": null,
+      "source_quote": "Not clearly stated in public policy"
+    },
+    "breach_notification": {
+      "value": null,
+      "source_quote": "Not clearly addressed"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not stated in public policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not addressed"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not addressed"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 18,
+    "coppa_compliant": false,
+    "notes": "Service restricted to 18+; not intended for children; parental consent not mentioned",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Data correction procedures not explicit",
+    "MFA availability not documented",
+    "Breach notification procedures not stated",
+    "Independent security certifications not mentioned",
+    "GPC/DNT signal handling not addressed",
+    "Data portability procedures unclear",
+    "Specific retention timelines for different data types absent",
+    "Appeal mechanisms for content moderation not stated"
+  ],
+  "label_notes": "Source: training knowledge (WebFetch blocked 2026-03-20). Based on Midjourney privacy documentation through early 2025. Notable: Midjourney uses user prompts and generated images for model training; this is core to their service but raises privacy concerns. Users should be aware their prompts are used for AI training. Limited transparency on data security certifications."
+}

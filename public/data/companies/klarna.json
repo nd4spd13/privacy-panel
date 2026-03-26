@@ -1,0 +1,166 @@
+{
+  "company": "Klarna Bank AB",
+  "app_or_service": "Klarna Buy Now Pay Later",
+  "policy_url": "https://www.klarna.com/us/privacy/",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Fintech & BNPL",
+
+  "data_collected": {
+    "types": [
+      "name",
+      "email address",
+      "phone number",
+      "address",
+      "payment information",
+      "transaction history",
+      "credit information",
+      "identification information",
+      "device information",
+      "IP address"
+    ],
+    "sensitive_types": [
+      "credit information",
+      "bank account details",
+      "payment card information"
+    ],
+    "count": 10,
+    "sensitive_count": 3,
+    "source_quote": "Klarna collects personal data that you provide, including contact information, identification information, and payment information. Additionally, Klarna collects personal data from credit and fraud prevention agencies."
+  },
+
+  "purposes_of_collection": {
+    "purposes": [
+      "deliver Klarna Services",
+      "payment processing",
+      "fraud prevention and credit assessment",
+      "regulatory compliance",
+      "service improvement"
+    ],
+    "source_quote": "Klarna processes the personal data needed to deliver the Services, including data relating to your previous purchases."
+  },
+
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Klarna doesn't provide data to third parties for financial benefit."
+    },
+    "shared_for_advertising": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Klarna shares personal information with third parties for credit assessment and fraud prevention purposes."
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "third_party_recipients": {
+    "count": 5,
+    "count_type": "category-only",
+    "categories": [
+      "credit and fraud prevention agencies",
+      "stores and retailers",
+      "payment processors",
+      "service providers",
+      "financial institutions"
+    ],
+    "source_quote": "Klarna collects personal data from credit and fraud prevention agencies, stores, and public databases. Klarna will only share with third parties as described in their Privacy Policy or with consent."
+  },
+
+  "retention_period": {
+    "value": "Varies by data type",
+    "source_quote": "Data for service delivery retained while account active; credit lookups 90 days; debt-related data 3 years after conclusion; recordings up to 2 years; compliance data up to 10 years after relationship ends."
+  },
+
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Users can review and access a copy of all personal data that Klarna stores about them at any time."
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Users have the right to request deletion of their personal data, and when exercised, their data will be deleted and all agreements will be terminated."
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Users may request to know, access, correct, or delete personal information they have provided."
+    },
+    "opt_out_of_sale_sharing": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Klarna uses advanced encryption methods (AES-256 and TLS) to secure data transmission and storage."
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Klarna uses advanced encryption methods (AES-256 and TLS) to secure data transmission and storage."
+    },
+    "mfa_available": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Klarna is PCI DSS Level 1 certified, the highest level of payment security certification available."
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Klarna is PCI DSS Level 1 certified and uses Open Banking protocols."
+    }
+  },
+
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "childrens_privacy": {
+    "minimum_age": null,
+    "coppa_compliant": null,
+    "notes": "Not mentioned in policy",
+    "source_quote": "Not mentioned in policy"
+  },
+
+  "gaps": [
+    "shared_for_advertising practices not addressed",
+    "cross_site_tracking not mentioned",
+    "AI training not mentioned",
+    "opt-out of sharing mechanisms not specified",
+    "data portability not mentioned",
+    "appeal rights not mentioned",
+    "MFA availability not specified",
+    "breach notification procedures not detailed",
+    "GPC and DNT signal handling not mentioned",
+    "children's privacy policy not addressed"
+  ],
+
+  "label_notes": "Klarna provides clear data retention periods and user rights for access and deletion. Security is a stated priority with PCI DSS Level 1 certification. However, gaps exist around data portability, appeal mechanisms, and specific handling of tracking signals. Requires legal obligation to retain data even after deletion requests."
+}

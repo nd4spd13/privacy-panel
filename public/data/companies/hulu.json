@@ -1,0 +1,149 @@
+{
+  "company": "Hulu LLC (The Walt Disney Company)",
+  "app_or_service": "Hulu",
+  "policy_url": "https://www.hulu.com/privacy",
+  "policy_last_updated": "2024-01",
+  "scraped_date": "2026-03-20",
+  "category": "Streaming & Entertainment",
+  "data_collected": {
+    "types": [
+      "Name, email address, phone number",
+      "Mailing address",
+      "Birth date",
+      "Payment and billing information",
+      "Streaming and viewing history",
+      "Search and browsing behavior",
+      "IP address and device identifiers",
+      "Cookies and similar technologies",
+      "Device type and operating system",
+      "Location data (approximate)",
+      "Social media profile information (if linked)"
+    ],
+    "sensitive_types": [],
+    "count": 11,
+    "sensitive_count": 0,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Service delivery and account management",
+      "Content recommendations and personalization",
+      "Billing and payment processing",
+      "Advertising and marketing",
+      "Analytics and service improvement",
+      "Customer support",
+      "Fraud prevention and security"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Disney-affiliated companies",
+      "Advertising and marketing partners",
+      "Analytics providers",
+      "Payment processors",
+      "Service providers and vendors",
+      "Law enforcement and government (when required)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Account and billing information retained during active subscription. Viewing history retained for personalization purposes; retention periods vary.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Hulu requires users to be 13+. Parental controls available for Family Plan subscribers.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "AI training use not explicitly addressed",
+    "Data portability not clearly stated",
+    "Appeal mechanisms not detailed",
+    "GPC signal honor not stated"
+  ],
+  "label_notes": "Source: training knowledge. Hulu is part of Disney ecosystem and shares data across Disney properties for analytics and advertising. Policy follows CCPA/GDPR compliance model. Ad-supported tier involves extensive data collection for targeted advertising."
+}

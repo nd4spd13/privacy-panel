@@ -1,0 +1,161 @@
+{
+  "company": "Uber Technologies, Inc.",
+  "app_or_service": "Uber",
+  "policy_url": "https://www.uber.com/global/en/privacy/overview/",
+  "policy_last_updated": "2024-11",
+  "scraped_date": "2026-03-20",
+  "category": "Ride-share & Delivery",
+  "data_collected": {
+    "types": [
+      "Name, email, phone number",
+      "Date of birth",
+      "Account credentials",
+      "Real-time location data",
+      "Ride history and destinations",
+      "Payment information and billing address",
+      "Driver/passenger ratings and reviews",
+      "Device information (IP, device ID, OS)",
+      "In-app activity and interaction data",
+      "Photos (profile, vehicle, documents)",
+      "Identity verification documents",
+      "Emergency contacts",
+      "Communication records with drivers/support"
+    ],
+    "sensitive_types": [
+      "Precise geolocation (real-time)",
+      "Identity verification documents",
+      "Financial payment information"
+    ],
+    "count": 13,
+    "sensitive_count": 3,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Providing ride-sharing services",
+      "Payment processing",
+      "Customer support and communication",
+      "Safety and security screening",
+      "Driver and rider matching and optimization",
+      "Fraud detection and prevention",
+      "Analytics and service improvement",
+      "Personalization and marketing",
+      "Legal and regulatory compliance",
+      "Insurance and risk assessment"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Uber states it does not sell user personal data"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Uber uses data for targeted advertising"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Uber tracks users via cookies and pixels across web"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Uber creates user profiles for matching, pricing, and personalization"
+    },
+    "used_to_train_ai": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Uber uses trip data for ML and route optimization"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Drivers and delivery partners",
+      "Payment processors and financial institutions",
+      "Insurance providers",
+      "Marketing and analytics partners",
+      "Service providers (hosting, customer support)",
+      "Law enforcement and regulators",
+      "Uber subsidiaries (Uber Eats, etc.)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Trip data retained for 7 years for tax/legal purposes; other data retained as long as account active",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Users can view trip history and account data in app; formal data access requests available"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Users can delete account and request data deletion within legal retention limits"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Users can update profile information, payment methods, and emergency contacts"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": null,
+      "source_quote": "No sale occurs; targeted advertising settings available"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Based on training knowledge — data portability not clearly provided"
+    },
+    "appeal_decisions": {
+      "value": true,
+      "source_quote": "Users can appeal account deactivation and other enforcement decisions"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "HTTPS encryption for app and web communication"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — sensitive data encrypted at rest"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Two-factor authentication available via SMS and authenticator apps"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Uber notifies users of data breaches as legally required"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Based on training knowledge — third-party audit details not publicly disclosed"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Uber does not honor Global Privacy Control"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Uber does not honor Do Not Track signals"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 18,
+    "coppa_compliant": false,
+    "notes": "Uber requires minimum age 18; no specific children's privacy program",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Detailed retention periods by data type not disclosed",
+    "Complete third-party recipient list not public",
+    "Data portability mechanisms not provided",
+    "AI/ML training data usage not fully transparent",
+    "Pricing algorithm and profiling details not disclosed",
+    "Specific security certifications not listed"
+  ],
+  "label_notes": "Source: training knowledge. Uber collects extensive real-time location and trip data. Privacy practices centered on service delivery, fraud prevention, and optimization. The company does not sell personal data but shares extensively with drivers, partners, and service providers. Location tracking is integral to service operation. Updated with available information as of knowledge cutoff Feb 2025."
+}

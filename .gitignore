@@ -11,6 +11,8 @@ build/
 # ── Database ──────────────────────────────────────────────────────────────────
 # The SQLite database is a runtime artifact. See docs/SEEDING.md to populate.
 data/
+# Allow static data assets served from public/
+!public/data/
 *.db
 *.db-shm
 *.db-wal

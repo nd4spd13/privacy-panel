@@ -1,0 +1,4925 @@
+{
+  "generated_date": "2026-03-20",
+  "total_companies": 100,
+  "summary_stats": {
+    "data_practices": {
+      "sold_to_third_parties": {
+        "true": 5,
+        "false": 87,
+        "null": 8
+      },
+      "shared_for_advertising": {
+        "true": 64,
+        "false": 29,
+        "null": 7
+      },
+      "cross_site_tracking": {
+        "true": 70,
+        "false": 9,
+        "null": 21
+      },
+      "used_for_profiling": {
+        "true": 74,
+        "false": 14,
+        "null": 12
+      },
+      "used_to_train_ai": {
+        "true": 28,
+        "false": 1,
+        "null": 71
+      },
+      "honors_gpc": {
+        "true": 5,
+        "false": 12,
+        "null": 83
+      },
+      "honors_dnt": {
+        "true": 6,
+        "false": 31,
+        "null": 63
+      }
+    },
+    "user_rights": {
+      "access_your_data": {
+        "true": 95,
+        "false": 1,
+        "null": 4
+      },
+      "delete_your_data": {
+        "true": 95,
+        "false": 0,
+        "null": 5
+      },
+      "correct_inaccuracies": {
+        "true": 87,
+        "false": 0,
+        "null": 13
+      },
+      "opt_out_of_sale_sharing": {
+        "true": 56,
+        "false": 24,
+        "null": 20
+      },
+      "data_portability": {
+        "true": 43,
+        "false": 1,
+        "null": 56
+      },
+      "appeal_decisions": {
+        "true": 16,
+        "false": 1,
+        "null": 83
+      }
+    },
+    "security_measures": {
+      "encrypted_in_transit": {
+        "true": 95,
+        "false": 0,
+        "null": 5
+      },
+      "encrypted_at_rest": {
+        "true": 84,
+        "false": 0,
+        "null": 16
+      },
+      "mfa_available": {
+        "true": 80,
+        "false": 4,
+        "null": 16
+      },
+      "breach_notification": {
+        "true": 87,
+        "false": 0,
+        "null": 13
+      },
+      "independent_audits": {
+        "true": 37,
+        "false": 0,
+        "null": 63
+      }
+    },
+    "categories": {
+      "Health & Genetics": 1,
+      "Gaming": 6,
+      "Productivity & Creative": 1,
+      "Fintech & BNPL": 2,
+      "Travel": 4,
+      "Smart Home & IoT": 4,
+      "E-commerce": 2,
+      "AI Consumer Products": 5,
+      "Technology": 1,
+      "Crypto & Web3": 5,
+      "Browsers": 2,
+      "Dating": 3,
+      "Health & Wellness": 2,
+      "Fintech & Payments": 5,
+      "Fintech & Banking": 1,
+      "Education": 3,
+      "Social Media & Messaging": 2,
+      "Streaming & Entertainment": 7,
+      "Food Delivery": 2,
+      "Cloud Storage & Productivity": 1,
+      "Browsers & Search": 2,
+      "E-commerce & Marketplace": 3,
+      "Health & Fitness": 5,
+      "Developer Tools": 1,
+      "Delivery": 1,
+      "Grocery Delivery": 2,
+      "Social Media": 7,
+      "Social Media & Productivity": 1,
+      "Ride-share": 1,
+      "News & Media": 3,
+      "AI Consumer Products & Productivity": 1,
+      "Productivity": 1,
+      "Fintech & Infrastructure": 1,
+      "Social Media & News": 1,
+      "Fintech & Investing": 1,
+      "Technology & Smart Home": 1,
+      "Messaging": 2,
+      "Email & Productivity": 1,
+      "E-commerce & Retail": 2,
+      "Automotive & IoT": 1,
+      "Ride-share & Delivery": 1,
+      "Navigation": 1,
+      "Productivity & Video": 1
+    },
+    "total_gaps_identified": 572,
+    "average_gaps_per_company": 5.7,
+    "companies_with_sensitive_data": 77,
+    "average_sensitive_types_per_company": 2.2
+  },
+  "companies": [
+    {
+      "slug": "23andme",
+      "company": "23andMe Inc.",
+      "app_or_service": "23andMe DNA Testing & Health Platform",
+      "category": "Health & Genetics",
+      "policy_url": "https://www.23andme.com/legal/privacy/",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 14,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": true,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "Specific data retention periods for non-genetic data unclear",
+        "AI/ML training use not explicitly disclosed",
+        "GPC/DNT signal honoring status unclear",
+        "Independent audit information not disclosed",
+        "Appeal process for data requests not detailed"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": null,
+      "retention_period": "Indefinite for genetic data (with user account active); can be deleted by user"
+    },
+    {
+      "slug": "activision",
+      "company": "Activision Blizzard (Microsoft subsidiary)",
+      "app_or_service": "Call of Duty / Battle.net",
+      "category": "Gaming",
+      "policy_url": "https://www.activision.com/en/legal/privacy-policy",
+      "policy_last_updated": "2024-06",
+      "data_types_count": 13,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 8,
+      "gaps": [
+        "Voice/chat data retention periods not clearly stated",
+        "Microsoft integration data sharing not fully transparent",
+        "Data portability not explicitly offered",
+        "GPC signal handling not addressed",
+        "Independent security audits not mentioned",
+        "Anti-cheat data collection scope unclear",
+        "Behavioral data usage for profiling not detailed",
+        "Appeal procedures not fully documented"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "Account data retained while account active; gameplay logs and reports retained for moderation; voice/chat data retention not clearly specified"
+    },
+    {
+      "slug": "adobe",
+      "company": "Adobe Inc.",
+      "app_or_service": "Adobe Creative Cloud",
+      "category": "Productivity & Creative",
+      "policy_url": "https://www.adobe.com/privacy/policy.html",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 11,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 4,
+      "gaps": [
+        "Appeal mechanisms not clearly specified",
+        "GPC signal honoring not stated",
+        "Specific data breach notification timeline not stated",
+        "Third-party count and exhaustive list not provided"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained for duration of account plus 12 months after account closure; specific periods vary by data type and legal requirements"
+    },
+    {
+      "slug": "affirm",
+      "company": "Affirm Holdings Inc.",
+      "app_or_service": "Affirm Buy Now Pay Later",
+      "category": "Fintech & BNPL",
+      "policy_url": "https://www.affirm.com/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 9,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": null,
+        "shared_for_advertising": null,
+        "cross_site_tracking": true,
+        "used_for_profiling": null,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": null,
+        "mfa_available": null,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 11,
+      "gaps": [
+        "sold_to_third_parties not clearly stated",
+        "shared_for_advertising not addressed",
+        "profiling practices not disclosed",
+        "AI training not mentioned",
+        "data retention periods not specified",
+        "data portability not mentioned",
+        "appeal rights not mentioned",
+        "encryption at rest not specified",
+        "MFA availability not mentioned",
+        "GPC and DNT signal handling not mentioned",
+        "children's privacy policy not addressed"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "Not stated"
+    },
+    {
+      "slug": "airbnb",
+      "company": "Airbnb, Inc.",
+      "app_or_service": "Airbnb",
+      "category": "Travel",
+      "policy_url": "https://www.airbnb.com/help/article/2855",
+      "policy_last_updated": "2024-12",
+      "data_types_count": 13,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": false,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": true,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Detailed retention periods by data type not disclosed",
+        "Complete third-party recipient list not publicly available",
+        "Specific AI/ML training data usage policies unclear",
+        "Host/guest data sharing practices with third parties not fully detailed",
+        "Identity verification data retention periods vague",
+        "Specific security certifications not listed"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": false,
+      "retention_period": "Booking and payment data retained for minimum 7 years for tax/legal purposes; other data retained as needed for service operation"
+    },
+    {
+      "slug": "amazon-alexa",
+      "company": "Amazon.com, Inc.",
+      "app_or_service": "Amazon Alexa",
+      "category": "Smart Home & IoT",
+      "policy_url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 14,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": true,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": false,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Data portability mechanisms not clearly specified",
+        "Appeal processes not defined",
+        "GPC signal honoring explicitly denied but reasoning unclear",
+        "Scope of voice data sharing with third-party developers not fully transparent",
+        "Human review of voice recordings not clearly addressed",
+        "Voice biometric retention and use policies unclear"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Voice recordings retained indefinitely unless user deletes (can delete automatically or manually); transcripts retained for account duration; smart home data retained for account duration"
+    },
+    {
+      "slug": "amazon",
+      "company": "Amazon.com, Inc.",
+      "app_or_service": "Amazon Shopping",
+      "category": "E-commerce",
+      "policy_url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=GX7NJQ4ZB8MHFRNJ",
+      "policy_last_updated": "2024-12",
+      "data_types_count": 13,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": false,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 5,
+      "gaps": [
+        "Detailed third-party recipient list not publicly available",
+        "Specific data retention periods by data type not disclosed",
+        "Video surveillance and facial recognition data handling unclear",
+        "Alexa voice recording retention policies ambiguous",
+        "Cross-Amazon service data sharing not fully transparent"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Transaction data retained for 7+ years for accounting purposes; other data retained as needed for service operation"
+    },
+    {
+      "slug": "anthropic",
+      "company": "Anthropic PBC",
+      "app_or_service": "Claude",
+      "category": "AI Consumer Products",
+      "policy_url": "https://www.anthropic.com/legal/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 16,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": null,
+        "used_for_profiling": null,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": true,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": null,
+        "encrypted_at_rest": null,
+        "mfa_available": null,
+        "breach_notification": null,
+        "independent_audits": null
+      },
+      "gap_count": 7,
+      "gaps": [
+        "Specific encryption in transit details",
+        "Encryption at rest confirmation",
+        "MFA availability",
+        "Breach notification procedures and timelines",
+        "Independent security audits",
+        "Cross-site tracking practices",
+        "Profiling for behavioral analysis details"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": true,
+      "retention_period": "Until account deletion; conversations deleted within 30 days; varies by data type"
+    },
+    {
+      "slug": "apple",
+      "company": "Apple Inc.",
+      "app_or_service": "iOS & Apple Services",
+      "category": "Technology",
+      "policy_url": "https://www.apple.com/legal/privacy/",
+      "policy_last_updated": "2024-01",
+      "data_types_count": 14,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": false,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": true
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 3,
+      "gaps": [
+        "AI training use not explicitly stated",
+        "GPC signal honor not mentioned",
+        "Appeal mechanisms not detailed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained for duration of account and service use. iCloud data retained until user deletes or account is closed. Analytics data de-identified and aggregated. Siri queries retained for limited period for service improvement."
+    },
+    {
+      "slug": "binance",
+      "company": "Binance Holdings Limited",
+      "app_or_service": "Binance",
+      "category": "Crypto & Web3",
+      "policy_url": "https://www.binance.com/en/privacy",
+      "policy_last_updated": "2024-05",
+      "data_types_count": 10,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": true,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 5,
+      "gaps": [
+        "GPC/DNT signal handling not specified",
+        "AI training policies not addressed",
+        "Specific data breach prevention measures not detailed",
+        "Appeal process for regulatory compliance decisions unclear",
+        "Cross-border data transfer mechanisms not fully disclosed"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": true,
+      "retention_period": "KYC/AML documents retained for regulatory compliance (typically 5-7 years); transaction records retained as required by law"
+    },
+    {
+      "slug": "booking-com",
+      "company": "Booking Holdings Inc. / Booking.com",
+      "app_or_service": "Booking.com Travel Booking Platform",
+      "category": "Travel",
+      "policy_url": "https://www.booking.com/content/privacy.en-gb.html",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 17,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 7,
+      "gaps": [
+        "Specific data retention schedules unclear",
+        "Data portability download options not detailed",
+        "AI/ML training use not disclosed",
+        "GPC/DNT signal honoring not stated",
+        "Independent audit information missing",
+        "Detailed third-party recipient list unclear",
+        "Appeal process for account actions not detailed"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": null,
+      "retention_period": "Booking data retained for 7+ years for legal/tax purposes; profile data retained while account active"
+    },
+    {
+      "slug": "brave",
+      "company": "Brave Software Inc.",
+      "app_or_service": "Brave Browser",
+      "category": "Browsers",
+      "policy_url": "https://brave.com/privacy/browser/",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 7,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": false,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": true,
+        "honors_dnt": true
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": false,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training use not addressed",
+        "Data correction mechanism unclear",
+        "Data portability not specified",
+        "Independent audit information not published"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "Minimal data retention; crash reports and telemetry deleted after analysis; Rewards data per partner terms"
+    },
+    {
+      "slug": "bumble",
+      "company": "Bumble Inc.",
+      "app_or_service": "Bumble Dating & Social App",
+      "category": "Dating",
+      "policy_url": "https://bumble.com/en/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 18,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 7,
+      "gaps": [
+        "Specific data retention periods unclear",
+        "Data portability download functionality not clearly disclosed",
+        "AI/ML training use not disclosed",
+        "GPC/DNT signal honoring not stated",
+        "Independent audit information missing",
+        "Appeal process for account suspension/bans not detailed",
+        "Facial recognition technology terms not fully transparent"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": false,
+      "retention_period": "Data retained while account active; deleted upon account deletion subject to legal retention requirements"
+    },
+    {
+      "slug": "calm",
+      "company": "Calm.com Inc.",
+      "app_or_service": "Calm",
+      "category": "Health & Wellness",
+      "policy_url": "https://www.calm.com/privacy-policy",
+      "policy_last_updated": "2024-01",
+      "data_types_count": 13,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "AI training use not clearly stated",
+        "Data portability not mentioned",
+        "Appeal mechanisms not detailed",
+        "GPC signal honor not stated",
+        "Independent audit information not provided"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Account data retained during active subscription plus limited period after cancellation. Usage logs and session data retained for analytics. Personal data may be retained longer if legally required."
+    },
+    {
+      "slug": "cash-app",
+      "company": "Block Inc. (Cash App)",
+      "app_or_service": "Cash App",
+      "category": "Fintech & Payments",
+      "policy_url": "https://cash.app/legal/us/en-us/privacy",
+      "policy_last_updated": "2024",
+      "data_types_count": 14,
+      "sensitive_types_count": 5,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "AI/machine learning training use not addressed",
+        "Data portability not explicitly offered",
+        "GPC/DNT signal support not mentioned",
+        "Independent audit information not disclosed",
+        "Detailed biometric data retention policy not clearly stated"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": true,
+      "retention_period": "Data retained for account duration and as required by financial regulations; transaction records retained for 7+ years; SSN and ID information retained for compliance"
+    },
+    {
+      "slug": "character-ai",
+      "company": "Character.AI",
+      "app_or_service": "Character.AI / Conversational AI",
+      "category": "AI Consumer Products",
+      "policy_url": "https://character.ai/privacy",
+      "policy_last_updated": "2024-11",
+      "data_types_count": 10,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": null,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": null,
+        "breach_notification": null,
+        "independent_audits": null
+      },
+      "gap_count": 9,
+      "gaps": [
+        "Data correction procedures not explicit",
+        "MFA availability not documented",
+        "Breach notification procedures not stated",
+        "Independent security certifications not mentioned",
+        "GPC/DNT signal handling not addressed",
+        "Opt-out mechanisms for model training unclear",
+        "Data portability not explicitly addressed",
+        "Third-party recipient specifics limited",
+        "Age verification mechanisms for 13+ requirement not explained"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "Conversation data retained for model training; account data retained while account active"
+    },
+    {
+      "slug": "chime",
+      "company": "Chime Financial, Inc.",
+      "app_or_service": "Chime",
+      "category": "Fintech & Banking",
+      "policy_url": "https://www.chime.com/privacy-policy/",
+      "policy_last_updated": "2024-11",
+      "data_types_count": 13,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": null,
+        "cross_site_tracking": null,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Cross-site tracking and advertising practices unclear",
+        "AI/ML training data usage not disclosed",
+        "Detailed API partner data sharing not documented",
+        "Biometric data retention and usage not fully transparent",
+        "Appeal mechanisms for account decisions not documented",
+        "GPC/DNT signal handling not addressed"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": false,
+      "retention_period": "Financial records retained for minimum 7 years as required by law; other data retained for service operation"
+    },
+    {
+      "slug": "coinbase",
+      "company": "Coinbase Inc.",
+      "app_or_service": "Coinbase",
+      "category": "Crypto & Web3",
+      "policy_url": "https://www.coinbase.com/legal/privacy",
+      "policy_last_updated": "2024-08 or later",
+      "data_types_count": 10,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": false,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training practices unclear",
+        "GPC/DNT support not specified",
+        "Appeal process not detailed",
+        "Specific third-party vendor list not provided"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": false,
+      "retention_period": "Until account closure + 7 years for compliance records"
+    },
+    {
+      "slug": "coursera",
+      "company": "Coursera Inc.",
+      "app_or_service": "Coursera",
+      "category": "Education",
+      "policy_url": "https://www.coursera.org/about/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 12,
+      "sensitive_types_count": 1,
+      "data_practices": {
+        "sold_to_third_parties": true,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 5,
+      "gaps": [
+        "Appeal mechanisms not clearly defined",
+        "GPC signal honoring not stated",
+        "Scope of institutional data sharing not fully detailed",
+        "Job matching algorithm transparency limited",
+        "Third-party count not specified"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": true,
+      "retention_period": "Learning data retained indefinitely in account; specific retention varies by data type and purpose; deleted accounts purged within 90 days"
+    },
+    {
+      "slug": "discord",
+      "company": "Discord Inc.",
+      "app_or_service": "Discord",
+      "category": "Social Media & Messaging",
+      "policy_url": "https://discord.com/privacy",
+      "policy_last_updated": "2024-05 or later",
+      "data_types_count": 10,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": false,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training practices not addressed",
+        "GPC/DNT support not specified",
+        "Independent audit results not published",
+        "Message encryption details unclear"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Until account deletion or server removal (messages retained indefinitely by default)"
+    },
+    {
+      "slug": "disney-plus",
+      "company": "The Walt Disney Company",
+      "app_or_service": "Disney+",
+      "category": "Streaming & Entertainment",
+      "policy_url": "https://www.disneyplus.com/legal/privacy-policy",
+      "policy_last_updated": "2024-01",
+      "data_types_count": 11,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training use not clearly stated",
+        "Data portability not explicitly mentioned",
+        "Appeal mechanisms not detailed",
+        "GPC signal honor not mentioned"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Active account data retained during subscription. Viewing history retained for service delivery and personalization. Data retained for limited period after account cancellation."
+    },
+    {
+      "slug": "doordash",
+      "company": "DoorDash, Inc.",
+      "app_or_service": "DoorDash",
+      "category": "Food Delivery",
+      "policy_url": "https://www.doordash.com/privacy/",
+      "policy_last_updated": "2024-12",
+      "data_types_count": 13,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": false,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Specific data retention periods by type not disclosed",
+        "Complete third-party recipient list not available",
+        "Dasher location data retention and sharing not detailed",
+        "AI/ML algorithm transparency limited",
+        "Data portability mechanisms not provided",
+        "Specific security certifications not listed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Order and payment data retained for tax/accounting purposes (7+ years); other data retained as needed for service operation"
+    },
+    {
+      "slug": "dropbox",
+      "company": "Dropbox Inc.",
+      "app_or_service": "Dropbox",
+      "category": "Cloud Storage & Productivity",
+      "policy_url": "https://www.dropbox.com/privacy",
+      "policy_last_updated": "2024-09",
+      "data_types_count": 8,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 4,
+      "gaps": [
+        "GPC/DNT signal handling not explicitly stated",
+        "AI training use not addressed in privacy policy",
+        "Specific data retention periods for different data types",
+        "Appeal process for data subject requests"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained as long as account is active; some data may be retained longer for legal compliance or backup purposes"
+    },
+    {
+      "slug": "duckduckgo",
+      "company": "DuckDuckGo Inc.",
+      "app_or_service": "DuckDuckGo",
+      "category": "Browsers & Search",
+      "policy_url": "https://duckduckgo.com/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 5,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": false,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": true,
+        "honors_dnt": true
+      },
+      "rights_offered": {
+        "access_your_data": false,
+        "delete_your_data": null,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": null,
+        "mfa_available": null,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training use not disclosed",
+        "Data correction and portability not applicable (no user profiles)",
+        "MFA not applicable (no user accounts)",
+        "Independent security audit results not published"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "Search queries not stored tied to user; IP addresses logged briefly for spam detection then deleted"
+    },
+    {
+      "slug": "duolingo",
+      "company": "Duolingo Inc.",
+      "app_or_service": "Duolingo",
+      "category": "Education",
+      "policy_url": "https://www.duolingo.com/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 12,
+      "sensitive_types_count": 1,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": false,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "Data portability mechanisms not specified",
+        "Appeal processes not stated",
+        "GPC signal honoring not stated",
+        "Third-party audit information not provided",
+        "Voice data retention period unclear"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Learning data retained for account duration and up to 12 months after deletion; specific retention varies by data type"
+    },
+    {
+      "slug": "ea",
+      "company": "Electronic Arts Inc.",
+      "app_or_service": "EA / EA Sports / Apex Legends",
+      "category": "Gaming",
+      "policy_url": "https://www.ea.com/legal/privacy-policy",
+      "policy_last_updated": "2024-09",
+      "data_types_count": 13,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 8,
+      "gaps": [
+        "Data portability not explicitly offered",
+        "GPC signal handling not addressed",
+        "Independent security certifications not mentioned",
+        "AI training data practices not stated",
+        "Specific retention timelines for gameplay data unclear",
+        "Cross-game data sharing scope not fully transparent",
+        "Third-party advertising partner specifics limited",
+        "Parental controls not well documented"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "Account data retained while account active; gameplay and transaction data retained for service operation and analytics; some data retained longer for legal compliance"
+    },
+    {
+      "slug": "ebay",
+      "company": "eBay Inc.",
+      "app_or_service": "eBay",
+      "category": "E-commerce & Marketplace",
+      "policy_url": "https://www.ebayinc.com/company/privacy-center/",
+      "policy_last_updated": "2024-07 or later",
+      "data_types_count": 13,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training practices not addressed",
+        "GPC/DNT support not specified",
+        "Appeal process details limited for content/account moderation",
+        "Detailed third-party vendor list not fully public"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": false,
+      "retention_period": "Until account deletion + 7 years for tax and compliance records"
+    },
+    {
+      "slug": "epic-games",
+      "company": "Epic Games Inc.",
+      "app_or_service": "Fortnite / Epic Games Launcher",
+      "category": "Gaming",
+      "policy_url": "https://www.epicgames.com/site/en-US/privacypolicy",
+      "policy_last_updated": "2024-08",
+      "data_types_count": 12,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 8,
+      "gaps": [
+        "Data portability procedures not explicit",
+        "Appeal mechanisms for bans/suspensions not stated",
+        "GPC signal handling not addressed",
+        "Independent security certifications not mentioned",
+        "AI training data practices not addressed",
+        "Specific third-party recipient list incomplete",
+        "Cross-game data sharing scope not fully detailed",
+        "Voice chat data retention periods unclear"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Account data retained while account active; gameplay data retained for service operation and analytics; payment data retained per legal requirements"
+    },
+    {
+      "slug": "etsy",
+      "company": "Etsy Inc.",
+      "app_or_service": "Etsy",
+      "category": "E-commerce & Marketplace",
+      "policy_url": "https://www.etsy.com/legal/privacy/",
+      "policy_last_updated": "2024",
+      "data_types_count": 13,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": null,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "AI/machine learning training use not clearly addressed",
+        "Data portability rights not explicitly stated",
+        "Appeal/dispute resolution process not detailed",
+        "GPC/DNT signal handling not specified",
+        "Encryption at rest not explicitly disclosed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained for the duration of account and as required by law; some data retained longer for compliance"
+    },
+    {
+      "slug": "expedia",
+      "company": "Expedia Group Inc.",
+      "app_or_service": "Expedia Travel Booking Platform",
+      "category": "Travel",
+      "policy_url": "https://www.expedia.com/lp/privacypolicy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 17,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 7,
+      "gaps": [
+        "Specific data retention schedules for different data types unclear",
+        "Data portability mechanisms not disclosed",
+        "AI/ML training use not disclosed",
+        "GPC/DNT signal honoring not stated",
+        "Independent audit information missing",
+        "Detailed third-party recipient list not provided",
+        "Appeal process for account restrictions not detailed"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": null,
+      "retention_period": "Transactional and booking data retained for 7+ years for legal/tax compliance; profile data retained while account active"
+    },
+    {
+      "slug": "fitbit",
+      "company": "Google LLC (Fitbit)",
+      "app_or_service": "Fitbit",
+      "category": "Health & Fitness",
+      "policy_url": "https://www.fitbit.com/global/us/legal/privacy-policy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 13,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 5,
+      "gaps": [
+        "Appeal mechanisms not specified",
+        "GPC signal honoring not stated",
+        "Specific HIPAA compliance scope not detailed",
+        "Third-party researcher access not fully detailed",
+        "Health data research use scope unclear"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "Health data retained indefinitely in user account; specific aggregated data retention policies vary; deleted account data may persist in backups for 90 days"
+    },
+    {
+      "slug": "gemini-crypto",
+      "company": "Gemini Trust Company, LLC",
+      "app_or_service": "Gemini",
+      "category": "Crypto & Web3",
+      "policy_url": "https://www.gemini.com/legal/privacy-policy",
+      "policy_last_updated": "2024-03",
+      "data_types_count": 11,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": true,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 5,
+      "gaps": [
+        "GPC/DNT signal handling not specified",
+        "AI training and use of customer data not addressed",
+        "Specific biometric data handling procedures unclear",
+        "Appeal process for regulatory decisions not detailed",
+        "International data transfer safeguards not fully explained"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": true,
+      "retention_period": "Customer records and transaction history retained for minimum 5 years per regulatory requirements; longer retention for active accounts"
+    },
+    {
+      "slug": "github",
+      "company": "Microsoft / GitHub",
+      "app_or_service": "GitHub",
+      "category": "Developer Tools",
+      "policy_url": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 12,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 5,
+      "gaps": [
+        "Appeal mechanisms not specified",
+        "GPC signal honoring not stated",
+        "GitHub Copilot data training use scope not fully transparent",
+        "Third-party integration data handling not fully detailed",
+        "Public repository code licensing and use not addressed in privacy policy"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Account data retained while account active; deleted accounts purged within 90 days; certain logs and backups retained per legal requirements; public repository data may persist indefinitely"
+    },
+    {
+      "slug": "google",
+      "company": "Google LLC",
+      "app_or_service": "Google Search & Services",
+      "category": "Browsers & Search",
+      "policy_url": "https://policies.google.com/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 11,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": false,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 3,
+      "gaps": [
+        "Algorithmic decision-making appeal process unclear",
+        "Specific AI model training data sources not disclosed",
+        "Cross-product data linkage transparency limited"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Typically 18 months for most activity data; varies by service; users can delete data anytime"
+    },
+    {
+      "slug": "gopuff",
+      "company": "goPuff / GoBrands, Inc.",
+      "app_or_service": "goPuff Instant Delivery",
+      "category": "Delivery",
+      "policy_url": "https://www.gopuff.com/go/privacy-policy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 9,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": null,
+        "shared_for_advertising": null,
+        "cross_site_tracking": null,
+        "used_for_profiling": null,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": null,
+        "delete_your_data": null,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": null,
+        "encrypted_at_rest": null,
+        "mfa_available": null,
+        "breach_notification": null,
+        "independent_audits": null
+      },
+      "gap_count": 13,
+      "gaps": [
+        "data collection specifics not clearly detailed",
+        "sold_to_third_parties not addressed",
+        "shared_for_advertising not mentioned",
+        "cross_site_tracking not mentioned",
+        "profiling practices not disclosed",
+        "AI training not mentioned",
+        "data retention periods not specified",
+        "user rights not addressed (access, delete, correct, portability, appeal, opt-out)",
+        "encryption specifications not provided",
+        "MFA availability not mentioned",
+        "breach notification procedures not detailed",
+        "GPC and DNT signal handling not mentioned",
+        "children's privacy policy not addressed"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "Not stated"
+    },
+    {
+      "slug": "grubhub",
+      "company": "Grubhub / JustEat",
+      "app_or_service": "Grubhub Food Delivery Platform",
+      "category": "Food Delivery",
+      "policy_url": "https://www.grubhub.com/legal/privacy-policy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 11,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": null,
+        "shared_for_advertising": true,
+        "cross_site_tracking": null,
+        "used_for_profiling": null,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": null,
+        "encrypted_at_rest": null,
+        "mfa_available": null,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 11,
+      "gaps": [
+        "sold_to_third_parties not clearly stated",
+        "cross_site_tracking not mentioned",
+        "profiling practices not disclosed",
+        "AI training not mentioned",
+        "correct inaccuracies right not mentioned",
+        "data portability not mentioned",
+        "appeal rights not mentioned",
+        "encryption specifications not provided",
+        "MFA availability not mentioned",
+        "GPC and DNT signal handling not mentioned",
+        "children's privacy policy not addressed"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "Until no longer needed"
+    },
+    {
+      "slug": "headspace",
+      "company": "Headspace Health",
+      "app_or_service": "Headspace",
+      "category": "Health & Wellness",
+      "policy_url": "https://www.headspace.com/privacy-policy",
+      "policy_last_updated": "2024-01",
+      "data_types_count": 14,
+      "sensitive_types_count": 1,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 6,
+      "gaps": [
+        "AI training use not explicitly stated",
+        "Data portability rights not mentioned",
+        "Appeal mechanisms for decisions not detailed",
+        "GPC signal honor not mentioned",
+        "HIPAA compliance information not clearly stated",
+        "Independent audit information not provided"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Account and subscription data retained during active use. Meditation history and wellness data retained for service delivery and progress tracking. May retain longer for research purposes."
+    },
+    {
+      "slug": "hinge",
+      "company": "Match Group / Hinge",
+      "app_or_service": "Hinge Dating App",
+      "category": "Dating",
+      "policy_url": "https://hinge.co/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 17,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 7,
+      "gaps": [
+        "Specific data retention schedules unclear",
+        "Data portability mechanisms not detailed",
+        "AI/ML training use not disclosed",
+        "GPC/DNT signal honoring not stated",
+        "Independent audit information missing",
+        "Appeal process for moderation/bans not detailed",
+        "Cross-Match Group data sharing practices not fully transparent"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": false,
+      "retention_period": "Profile and message data retained while account active; deletion upon account closure subject to legal holds"
+    },
+    {
+      "slug": "hulu",
+      "company": "Hulu LLC (The Walt Disney Company)",
+      "app_or_service": "Hulu",
+      "category": "Streaming & Entertainment",
+      "policy_url": "https://www.hulu.com/privacy",
+      "policy_last_updated": "2024-01",
+      "data_types_count": 11,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training use not explicitly addressed",
+        "Data portability not clearly stated",
+        "Appeal mechanisms not detailed",
+        "GPC signal honor not stated"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Account and billing information retained during active subscription. Viewing history retained for personalization purposes; retention periods vary."
+    },
+    {
+      "slug": "instacart",
+      "company": "Maplebear Inc. (Instacart)",
+      "app_or_service": "Instacart",
+      "category": "Grocery Delivery",
+      "policy_url": "https://www.instacart.com/privacy",
+      "policy_last_updated": "2024",
+      "data_types_count": 13,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": null,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": null,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Whether personal data is sold to third parties not clearly stated",
+        "AI/ML training use not addressed",
+        "Data portability not offered",
+        "GPC/DNT signal handling not mentioned",
+        "Encryption at rest not disclosed",
+        "Independent audits not mentioned"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained for account duration and as required by law; transaction records retained for compliance and regulatory purposes"
+    },
+    {
+      "slug": "instagram",
+      "company": "Meta Platforms, Inc.",
+      "app_or_service": "Instagram",
+      "category": "Social Media",
+      "policy_url": "https://privacycenter.instagram.com/policy/",
+      "policy_last_updated": "2024-12",
+      "data_types_count": 10,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": false,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 4,
+      "gaps": [
+        "Specific retention periods by data type not disclosed",
+        "Complete list of third-party recipients not public",
+        "Detailed AI training data usage policies",
+        "Exact scope of Meta integration and data sharing"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Content retained until deletion; metadata retained longer; some data retained indefinitely for legal/business purposes"
+    },
+    {
+      "slug": "khan-academy",
+      "company": "Khan Academy",
+      "app_or_service": "Khan Academy",
+      "category": "Education",
+      "policy_url": "https://www.khanacademy.org/about/privacy-policy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 10,
+      "sensitive_types_count": 1,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": false,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": true
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": false,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "Data portability mechanism not specified",
+        "Appeal processes not stated",
+        "GPC signal honoring not stated",
+        "Third-party audit status unclear",
+        "AI training use not clearly stated"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Learning data retained for account duration; student data deleted within 30 days of account deletion or upon parent request for minors"
+    },
+    {
+      "slug": "klarna",
+      "company": "Klarna Bank AB",
+      "app_or_service": "Klarna Buy Now Pay Later",
+      "category": "Fintech & BNPL",
+      "policy_url": "https://www.klarna.com/us/privacy/",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 10,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": null,
+        "cross_site_tracking": null,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": null,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 10,
+      "gaps": [
+        "shared_for_advertising practices not addressed",
+        "cross_site_tracking not mentioned",
+        "AI training not mentioned",
+        "opt-out of sharing mechanisms not specified",
+        "data portability not mentioned",
+        "appeal rights not mentioned",
+        "MFA availability not specified",
+        "breach notification procedures not detailed",
+        "GPC and DNT signal handling not mentioned",
+        "children's privacy policy not addressed"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "Varies by data type"
+    },
+    {
+      "slug": "kraken",
+      "company": "Payward Inc. (Kraken)",
+      "app_or_service": "Kraken",
+      "category": "Crypto & Web3",
+      "policy_url": "https://www.kraken.com/legal/privacy",
+      "policy_last_updated": "2024-04",
+      "data_types_count": 10,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": true,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 5,
+      "gaps": [
+        "GPC/DNT signal handling not explicitly stated",
+        "AI training and use policies not addressed",
+        "Specific security incident procedures not detailed",
+        "Appeal process for compliance decisions unclear",
+        "Data transfer across jurisdictions not fully explained"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": true,
+      "retention_period": "KYC records and transaction history retained for 7 years for regulatory compliance; deleted after that period unless legally required otherwise"
+    },
+    {
+      "slug": "linkedin",
+      "company": "Microsoft / LinkedIn Corporation",
+      "app_or_service": "LinkedIn",
+      "category": "Social Media & Productivity",
+      "policy_url": "https://www.linkedin.com/legal/privacy-policy",
+      "policy_last_updated": "2024-07 or later",
+      "data_types_count": 12,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 4,
+      "gaps": [
+        "GPC and DNT support not specified",
+        "Appeal process for content moderation not detailed",
+        "Specific Microsoft AI training practices not detailed",
+        "Third-party vendor list not fully disclosed"
+      ],
+      "children_min_age": 16,
+      "coppa_compliant": false,
+      "retention_period": "Until account deletion + 30 days grace period for compliance"
+    },
+    {
+      "slug": "lyft",
+      "company": "Lyft Inc.",
+      "app_or_service": "Lyft Ride-sharing Platform",
+      "category": "Ride-share",
+      "policy_url": "https://www.lyft.com/terms/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 17,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": null,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": null,
+        "delete_your_data": null,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": null,
+        "breach_notification": null,
+        "independent_audits": true
+      },
+      "gap_count": 10,
+      "gaps": [
+        "data retention periods not specified",
+        "access and delete rights not mentioned",
+        "correct inaccuracies right not mentioned",
+        "data portability not mentioned",
+        "appeal rights not mentioned",
+        "MFA availability not specified",
+        "breach notification procedures not detailed",
+        "GPC and DNT signal handling not mentioned",
+        "children's privacy policy not addressed",
+        "sold to third parties not clearly stated"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "Not stated"
+    },
+    {
+      "slug": "medium",
+      "company": "A Medium Corporation",
+      "app_or_service": "Medium",
+      "category": "News & Media",
+      "policy_url": "https://policy.medium.com/medium-privacy-policy",
+      "policy_last_updated": "2024-08",
+      "data_types_count": 9,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "GPC/DNT signal handling not specified",
+        "Detailed AI training data use policies unclear",
+        "Specific tracking mechanisms and identifiers not fully disclosed",
+        "Appeal process for rights requests not detailed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "User data retained as long as account is active; some data retained for analytical purposes after account deletion"
+    },
+    {
+      "slug": "meta",
+      "company": "Meta Platforms, Inc.",
+      "app_or_service": "Facebook",
+      "category": "Social Media",
+      "policy_url": "https://www.facebook.com/privacy/policy/",
+      "policy_last_updated": "2024-12",
+      "data_types_count": 10,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": false,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 4,
+      "gaps": [
+        "Specific data retention timelines for different data types not clearly stated",
+        "Detailed list of all third-party recipients not publicly available",
+        "Specific security certifications and audit frequencies not disclosed",
+        "Partial transparency on AI training data usage"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained until account deletion; some data retained longer for legal/business purposes"
+    },
+    {
+      "slug": "metamask",
+      "company": "ConsenSys Software Inc. (MetaMask)",
+      "app_or_service": "MetaMask",
+      "category": "Crypto & Web3",
+      "policy_url": "https://consensys.io/privacy-policy",
+      "policy_last_updated": "2024-02",
+      "data_types_count": 10,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": true,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": false,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 5,
+      "gaps": [
+        "GPC/DNT signal handling not specified",
+        "AI training use of wallet data not addressed",
+        "Specific private key handling and security procedures unclear",
+        "Appeal process for account restrictions not detailed",
+        "Cross-chain data correlation practices not explained"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Account data retained while account is active; transaction logs and activity records may be retained longer for security and audit purposes"
+    },
+    {
+      "slug": "microsoft",
+      "company": "Microsoft Corporation",
+      "app_or_service": "Copilot, Office 365, Windows, Outlook",
+      "category": "AI Consumer Products & Productivity",
+      "policy_url": "https://privacy.microsoft.com/en-us/privacystatement",
+      "policy_last_updated": "2025-01",
+      "data_types_count": 12,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Cross-service tracking scope not fully detailed",
+        "AI training data practices lack specificity",
+        "Appeal mechanisms for decisions not stated",
+        "GPC signal handling not disclosed",
+        "Specific third-party recipient list incomplete",
+        "Copilot-specific data usage policies unclear"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Varies by data type: email/documents retained per user settings; diagnostic data retained 18 months; advertising data retained 13 months"
+    },
+    {
+      "slug": "midjourney",
+      "company": "Midjourney Inc.",
+      "app_or_service": "Midjourney / AI Image Generation",
+      "category": "AI Consumer Products",
+      "policy_url": "https://docs.midjourney.com/docs/privacy-policy",
+      "policy_last_updated": "2025-01",
+      "data_types_count": 10,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": null,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": null,
+        "breach_notification": null,
+        "independent_audits": null
+      },
+      "gap_count": 8,
+      "gaps": [
+        "Data correction procedures not explicit",
+        "MFA availability not documented",
+        "Breach notification procedures not stated",
+        "Independent security certifications not mentioned",
+        "GPC/DNT signal handling not addressed",
+        "Data portability procedures unclear",
+        "Specific retention timelines for different data types absent",
+        "Appeal mechanisms for content moderation not stated"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": false,
+      "retention_period": "Generated images and prompts retained for model training and service improvement; user account data retained while account active"
+    },
+    {
+      "slug": "mozilla-firefox",
+      "company": "Mozilla Corporation",
+      "app_or_service": "Firefox",
+      "category": "Browsers",
+      "policy_url": "https://www.mozilla.org/en-US/privacy/firefox/",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 8,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": false,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": true,
+        "honors_dnt": true
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 3,
+      "gaps": [
+        "Data correction mechanisms not detailed",
+        "Data portability process not specified",
+        "AI training use not explicitly addressed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "Telemetry data retained for 90 days; crash reports kept longer for analysis; users can disable collection"
+    },
+    {
+      "slug": "myfitnesspal",
+      "company": "MyFitnessPal Inc.",
+      "app_or_service": "MyFitnessPal",
+      "category": "Health & Fitness",
+      "policy_url": "https://www.myfitnesspal.com/legal/privacy_policy",
+      "policy_last_updated": "2024-01",
+      "data_types_count": 14,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": true,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": false,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training use not explicitly addressed",
+        "Appeal mechanisms for decisions not detailed",
+        "Independent security audit information not provided",
+        "Specific health data handling standards not detailed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Account and fitness data retained during active subscription. Food logs and exercise data retained indefinitely unless user deletes. Activity data may be aggregated and retained for analytics."
+    },
+    {
+      "slug": "netflix",
+      "company": "Netflix Inc.",
+      "app_or_service": "Netflix Streaming Service",
+      "category": "Streaming & Entertainment",
+      "policy_url": "https://help.netflix.com/legal/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 15,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": null,
+        "shared_for_advertising": true,
+        "cross_site_tracking": null,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": null,
+        "delete_your_data": null,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": null,
+        "mfa_available": null,
+        "breach_notification": null,
+        "independent_audits": null
+      },
+      "gap_count": 13,
+      "gaps": [
+        "sold_to_third_parties not addressed",
+        "cross_site_tracking not mentioned",
+        "AI training not mentioned",
+        "data retention periods not specified",
+        "access and delete rights not mentioned",
+        "correct inaccuracies right not mentioned",
+        "data portability not mentioned",
+        "appeal rights not mentioned",
+        "encryption at rest not specified",
+        "MFA availability not mentioned",
+        "breach notification procedures not detailed",
+        "GPC and DNT signal handling not mentioned",
+        "children's privacy policy not addressed"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "Not stated"
+    },
+    {
+      "slug": "new-york-times",
+      "company": "The New York Times Company",
+      "app_or_service": "NYTimes.com",
+      "category": "News & Media",
+      "policy_url": "https://help.nytimes.com/hc/en-us/articles/115014892108-Privacy-policy",
+      "policy_last_updated": "2024-06",
+      "data_types_count": 10,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "GPC/DNT signal handling not clearly specified",
+        "AI training on news articles not explicitly addressed",
+        "Specific third-party advertising partners not disclosed",
+        "Appeal process for data requests unclear",
+        "Detailed profiling and personalization mechanisms not fully transparent"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "User data retained for as long as needed to provide services; some data retained for legal and business purposes; analytics data may be retained longer"
+    },
+    {
+      "slug": "nextdoor",
+      "company": "Nextdoor Holdings Inc.",
+      "app_or_service": "Nextdoor",
+      "category": "Social Media",
+      "policy_url": "https://help.nextdoor.com/s/article/Privacy-policy",
+      "policy_last_updated": "2024-06 or later",
+      "data_types_count": 12,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "Data portability not mentioned",
+        "AI training practices not addressed",
+        "GPC/DNT support not specified",
+        "Independent audit results not published"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": false,
+      "retention_period": "Until account deletion; neighborhood archives may retain content"
+    },
+    {
+      "slug": "nintendo",
+      "company": "Nintendo of America",
+      "app_or_service": "Nintendo Account",
+      "category": "Gaming",
+      "policy_url": "https://www.nintendo.com/en-US/privacy-policy/",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 8,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": null,
+        "used_for_profiling": null,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": null,
+        "mfa_available": null,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "Cross-site tracking practices not clearly disclosed",
+        "Profiling for behavioral analysis not addressed",
+        "AI training use not explicitly mentioned",
+        "Data portability process not detailed",
+        "Appeal mechanism for decisions not specified"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained as long as account is active; some data retained for legal/business purposes"
+    },
+    {
+      "slug": "noom",
+      "company": "Noom Inc.",
+      "app_or_service": "Noom Health & Weight Loss Platform",
+      "category": "Health & Fitness",
+      "policy_url": "https://www.noom.com/legal/privacy-policy/",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 17,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Specific data retention periods unclear",
+        "Data portability mechanisms not detailed",
+        "AI/ML training use not disclosed",
+        "GPC/DNT signal honoring not stated",
+        "Independent audit information missing",
+        "Appeal process unclear"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained while account is active; can request deletion"
+    },
+    {
+      "slug": "notion",
+      "company": "Notion Labs Inc.",
+      "app_or_service": "Notion",
+      "category": "Productivity",
+      "policy_url": "https://www.notion.so/Privacy-Policy",
+      "policy_last_updated": "2024-10",
+      "data_types_count": 8,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": true,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 4,
+      "gaps": [
+        "GPC/DNT signal handling not clearly stated",
+        "AI training data use policy unclear",
+        "Specific profiling practices not detailed",
+        "Appeal process for data requests not specified"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained while account is active; deleted upon account deletion with some exceptions for legal compliance"
+    },
+    {
+      "slug": "openai",
+      "company": "OpenAI",
+      "app_or_service": "ChatGPT / GPT-4 / API",
+      "category": "AI Consumer Products",
+      "policy_url": "https://openai.com/policies/privacy-policy/",
+      "policy_last_updated": "2024-12",
+      "data_types_count": 9,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": null,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 7,
+      "gaps": [
+        "Cross-site tracking practices not clearly disclosed",
+        "Data correction/update procedures not explicit",
+        "Appeal mechanisms for policy decisions not stated",
+        "Independent security audits not mentioned",
+        "GPC/DNT signal handling not addressed",
+        "Specific retention periods for different data types unclear",
+        "Third-party recipient count and specific names limited"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "User data retained for service operation; conversation data may be retained longer for training purposes"
+    },
+    {
+      "slug": "paypal",
+      "company": "PayPal Holdings Inc.",
+      "app_or_service": "PayPal",
+      "category": "Fintech & Payments",
+      "policy_url": "https://www.paypal.com/us/legalhub/privacy-full",
+      "policy_last_updated": "2024",
+      "data_types_count": 14,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI/machine learning training use not addressed",
+        "Data portability not explicitly offered",
+        "GPC/DNT signal support not mentioned",
+        "Detailed information on independent audit scope not provided"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained for account duration and as required by financial regulations and law; transaction records retained for 7+ years for compliance"
+    },
+    {
+      "slug": "peacock",
+      "company": "NBCUniversal (Comcast)",
+      "app_or_service": "Peacock",
+      "category": "Streaming & Entertainment",
+      "policy_url": "https://www.peacocktv.com/privacy",
+      "policy_last_updated": "2024-01",
+      "data_types_count": 13,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "AI training use not clearly stated",
+        "Data portability not mentioned",
+        "Appeal mechanisms not detailed",
+        "GPC signal honor not stated",
+        "Independent audit information not provided"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Account data retained during active subscription plus limited period after cancellation. Viewing history retained for recommendation and analytics purposes. Duration varies by data type."
+    },
+    {
+      "slug": "peloton",
+      "company": "Peloton Interactive Inc.",
+      "app_or_service": "Peloton Fitness Platform",
+      "category": "Health & Fitness",
+      "policy_url": "https://www.onepeloton.com/legal/privacy-policy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 19,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Specific data retention periods unclear",
+        "Data portability mechanisms not detailed",
+        "AI/ML training use not disclosed",
+        "GPC/DNT signal honoring not stated",
+        "Independent audit information missing",
+        "Appeal process not detailed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "Data retained while account active and then for limited time after cancellation; specific periods vary by data type"
+    },
+    {
+      "slug": "perplexity",
+      "company": "Perplexity AI",
+      "app_or_service": "Perplexity / AI Search Engine",
+      "category": "AI Consumer Products",
+      "policy_url": "https://www.perplexity.ai/hub/legal/privacy-policy",
+      "policy_last_updated": "2024-10",
+      "data_types_count": 10,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": null,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": null,
+        "breach_notification": null,
+        "independent_audits": null
+      },
+      "gap_count": 9,
+      "gaps": [
+        "Data correction procedures not explicit",
+        "MFA availability not documented",
+        "Breach notification procedures not stated",
+        "Independent security certifications not mentioned",
+        "GPC/DNT signal handling not addressed",
+        "Specific retention timelines unclear",
+        "Data portability procedures not explicit",
+        "Appeal mechanisms not stated",
+        "Search data usage for training not fully detailed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "Search queries and conversation data retained for service improvement; specific retention timelines not clearly stated"
+    },
+    {
+      "slug": "philips-hue",
+      "company": "Signify B.V. (Philips Hue)",
+      "app_or_service": "Philips Hue",
+      "category": "Smart Home & IoT",
+      "policy_url": "https://www.philips-hue.com/en-us/support/legal/privacy-policy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 8,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": null,
+        "used_for_profiling": null,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": null,
+        "mfa_available": null,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "Behavioral profiling use unclear",
+        "AI analysis of usage patterns not mentioned",
+        "Cross-site tracking practices not addressed",
+        "MFA availability not specified",
+        "Independent audit information lacking"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "Data retained as long as necessary for service provision and legal compliance; users can request deletion"
+    },
+    {
+      "slug": "pinterest",
+      "company": "Pinterest Inc.",
+      "app_or_service": "Pinterest",
+      "category": "Social Media",
+      "policy_url": "https://policy.pinterest.com/en/privacy-policy",
+      "policy_last_updated": "2024-08 or later",
+      "data_types_count": 11,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training practices not addressed",
+        "GPC/DNT support not specified",
+        "Appeal process not detailed",
+        "Independent audit results not published"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Until account deletion; analytics data retained longer"
+    },
+    {
+      "slug": "plaid",
+      "company": "Plaid Inc.",
+      "app_or_service": "Plaid Financial Data API",
+      "category": "Fintech & Infrastructure",
+      "policy_url": "https://plaid.com/legal/privacy-statement/",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 12,
+      "sensitive_types_count": 5,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": null,
+        "used_for_profiling": null,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": null,
+        "breach_notification": null,
+        "independent_audits": true
+      },
+      "gap_count": 10,
+      "gaps": [
+        "cross_site_tracking not mentioned",
+        "profiling practices not disclosed",
+        "AI training not mentioned",
+        "correct inaccuracies right not mentioned",
+        "data portability not mentioned",
+        "appeal rights not mentioned",
+        "MFA availability not specified",
+        "breach notification procedures not detailed",
+        "GPC and DNT signal handling not mentioned",
+        "children's privacy policy not addressed"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "As long as needed"
+    },
+    {
+      "slug": "poshmark",
+      "company": "Poshmark (Naver Corporation subsidiary)",
+      "app_or_service": "Poshmark",
+      "category": "E-commerce & Marketplace",
+      "policy_url": "https://poshmark.com/privacy",
+      "policy_last_updated": "2023",
+      "data_types_count": 13,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": null,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": null,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Whether data is sold to third parties not clearly stated",
+        "AI/machine learning use not addressed",
+        "Data portability not explicitly offered",
+        "GPC/DNT signal support not mentioned",
+        "International data transfer mechanisms not detailed",
+        "Encryption at rest not disclosed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained for account duration and as necessary for service provision; deleted upon account closure unless required for compliance"
+    },
+    {
+      "slug": "reddit",
+      "company": "Reddit Inc.",
+      "app_or_service": "Reddit",
+      "category": "Social Media & News",
+      "policy_url": "https://www.reddit.com/policies/privacy-policy",
+      "policy_last_updated": "2024-09 or later",
+      "data_types_count": 11,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "Specific GPC/DNT support not addressed",
+        "Independent audit results not published",
+        "Appeal process details limited",
+        "AI training data licensing terms not fully detailed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Indefinite; posts retained even after account deletion (public content)"
+    },
+    {
+      "slug": "ring",
+      "company": "Ring LLC (Amazon subsidiary)",
+      "app_or_service": "Ring",
+      "category": "Smart Home & IoT",
+      "policy_url": "https://ring.com/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 10,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": null,
+        "cross_site_tracking": null,
+        "used_for_profiling": null,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "AI training use not explicitly addressed",
+        "Video metadata use for profiling or behavioral analysis not disclosed",
+        "Cross-site tracking practices unclear",
+        "Data portability mechanisms not detailed",
+        "Independent security audits not mentioned"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "Video data retained based on Ring subscription plan; some metadata retained for account management"
+    },
+    {
+      "slug": "robinhood",
+      "company": "Robinhood Markets Inc.",
+      "app_or_service": "Robinhood",
+      "category": "Fintech & Investing",
+      "policy_url": "https://robinhood.com/us/en/support/articles/our-privacy-policy/",
+      "policy_last_updated": "2024",
+      "data_types_count": 16,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 5,
+      "gaps": [
+        "AI/machine learning training use not addressed",
+        "Data portability not explicitly offered",
+        "GPC/DNT signal support not mentioned",
+        "Detailed scope of SEC audit disclosures not provided",
+        "Cryptocurrency-specific data handling not detailed"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": true,
+      "retention_period": "Data retained for account duration and as required by SEC regulations (typically 6 years); trading records retained longer for regulatory compliance"
+    },
+    {
+      "slug": "roblox",
+      "company": "Roblox Corporation",
+      "app_or_service": "Roblox Platform",
+      "category": "Gaming",
+      "policy_url": "https://en.help.roblox.com/hc/en-us/articles/11500463082",
+      "policy_last_updated": "2024-09",
+      "data_types_count": 13,
+      "sensitive_types_count": 4,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 8,
+      "gaps": [
+        "Data portability not explicitly offered",
+        "GPC signal handling not addressed",
+        "Independent security certifications not mentioned",
+        "AI training data practices not discussed",
+        "Specific retention timelines for different data types unclear",
+        "Third-party recipient specifics limited",
+        "Moderation appeal procedures not detailed",
+        "User-generated content ownership/deletion timing unclear"
+      ],
+      "children_min_age": 9,
+      "coppa_compliant": true,
+      "retention_period": "Account data retained while account active; gameplay data and chat logs retained per platform policies; deleted content may be archived for compliance"
+    },
+    {
+      "slug": "samsung",
+      "company": "Samsung Electronics",
+      "app_or_service": "Samsung Galaxy",
+      "category": "Technology & Smart Home",
+      "policy_url": "https://www.samsung.com/us/account/privacy-policy/",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 13,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 5,
+      "gaps": [
+        "AI training use not clearly stated",
+        "Data portability mechanisms not detailed",
+        "Appeal processes not specified",
+        "GPC signal honoring not stated",
+        "Specific biometric data retention periods unclear"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "Data retained for duration of account or device use; specific retention varies by data type and legal jurisdiction"
+    },
+    {
+      "slug": "shipt",
+      "company": "Shipt, Inc. (Target subsidiary)",
+      "app_or_service": "Shipt Grocery Delivery",
+      "category": "Grocery Delivery",
+      "policy_url": "https://www.shipt.com/privacy-policy/",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 11,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": null,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": null,
+        "encrypted_at_rest": null,
+        "mfa_available": null,
+        "breach_notification": null,
+        "independent_audits": null
+      },
+      "gap_count": 8,
+      "gaps": [
+        "sold_to_third_parties not clearly stated",
+        "AI training not mentioned",
+        "appeal rights not mentioned",
+        "encryption specifications not provided",
+        "MFA availability not mentioned",
+        "breach notification procedures not detailed",
+        "GPC and DNT signal handling not mentioned",
+        "children's privacy policy not addressed"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "As long as needed plus legal requirements"
+    },
+    {
+      "slug": "shopify",
+      "company": "Shopify Inc.",
+      "app_or_service": "Shopify",
+      "category": "E-commerce",
+      "policy_url": "https://www.shopify.com/legal/privacy",
+      "policy_last_updated": "2024",
+      "data_types_count": 13,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": null,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "AI/machine learning training use not addressed",
+        "Data portability not explicitly offered",
+        "GPC/DNT signal support not mentioned",
+        "Encryption at rest not disclosed",
+        "Independent security audits not disclosed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained as long as merchant relationship continues, plus as required by law; transaction records retained for compliance"
+    },
+    {
+      "slug": "signal",
+      "company": "Signal Foundation / Open Whisper Systems",
+      "app_or_service": "Signal",
+      "category": "Messaging",
+      "policy_url": "https://signal.org/legal/",
+      "policy_last_updated": "2024-01",
+      "data_types_count": 5,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": false,
+        "used_for_profiling": false,
+        "used_to_train_ai": false
+      },
+      "tracking_signals": {
+        "honors_gpc": true,
+        "honors_dnt": true
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 2,
+      "gaps": [
+        "Appeal process for legal requests not fully detailed",
+        "Transparency reports availability and scope could be clearer"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Phone number and registration info retained as long as account is active; messages deleted from servers immediately after delivery; minimal metadata retained"
+    },
+    {
+      "slug": "slack",
+      "company": "Salesforce Inc. (Slack subsidiary)",
+      "app_or_service": "Slack",
+      "category": "Email & Productivity",
+      "policy_url": "https://slack.com/intl/en-us/trust/privacy/privacy-policy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 10,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": null,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training use opt-out options not clearly detailed",
+        "Profiling scope and impact not transparent",
+        "GPC and DNT signal handling not addressed",
+        "Appeal mechanism for automated decisions not specified"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "Message data retained based on workspace plan and retention settings; backup copies maintained for recovery; deletion available upon request"
+    },
+    {
+      "slug": "snapchat",
+      "company": "Snap Inc.",
+      "app_or_service": "Snapchat",
+      "category": "Social Media",
+      "policy_url": "https://snap.com/en-US/privacy/privacy-policy",
+      "policy_last_updated": "2024-06 or later",
+      "data_types_count": 12,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "GPC and DNT support not specified",
+        "AI training practices not addressed",
+        "Appeal process not detailed",
+        "Independent audit information not provided"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Varies by content type; typically deleted after 30 days from view"
+    },
+    {
+      "slug": "spotify",
+      "company": "Spotify AB",
+      "app_or_service": "Spotify",
+      "category": "Streaming & Entertainment",
+      "policy_url": "https://www.spotify.com/us/legal/privacy-policy/",
+      "policy_last_updated": "2024-01",
+      "data_types_count": 12,
+      "sensitive_types_count": 1,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 3,
+      "gaps": [
+        "AI training use not explicitly addressed",
+        "GPC signal honor not stated",
+        "Appeal mechanisms for data decisions not detailed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Account data retained during active account use and for reasonable period after deletion. Playback history and preferences may be retained longer for analytics."
+    },
+    {
+      "slug": "square",
+      "company": "Block Inc. / Square",
+      "app_or_service": "Square Payment Platform",
+      "category": "Fintech & Payments",
+      "policy_url": "https://squareup.com/us/en/legal/general/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 10,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": null,
+        "cross_site_tracking": null,
+        "used_for_profiling": null,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": null,
+        "delete_your_data": null,
+        "correct_inaccuracies": null,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": null,
+        "independent_audits": true
+      },
+      "gap_count": 8,
+      "gaps": [
+        "shared_for_advertising practices not addressed",
+        "cross_site_tracking not mentioned",
+        "profiling practices not disclosed",
+        "data retention periods not specified",
+        "user rights not clearly stated (access, delete, correct, portability, appeal)",
+        "breach notification procedures not detailed",
+        "GPC and DNT signal handling not mentioned",
+        "children's privacy policy not addressed"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "Not stated"
+    },
+    {
+      "slug": "steam",
+      "company": "Valve Corporation",
+      "app_or_service": "Steam / Steam Deck",
+      "category": "Gaming",
+      "policy_url": "https://store.steampowered.com/privacy_agreement/",
+      "policy_last_updated": "2024-07",
+      "data_types_count": 13,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 8,
+      "gaps": [
+        "Data portability not explicitly stated",
+        "GPC/DNT signal handling not addressed",
+        "Independent security certifications not mentioned",
+        "AI training data practices not stated",
+        "Specific retention timelines for logs unclear",
+        "Parental controls not clearly documented",
+        "Third-party publisher data sharing scope unclear",
+        "Appeal process procedures not detailed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "Account and purchase data retained indefinitely while account active; some logs retained for security; deleted data may be archived for compliance"
+    },
+    {
+      "slug": "strava",
+      "company": "Strava Inc.",
+      "app_or_service": "Strava Running & Cycling Tracking Platform",
+      "category": "Health & Fitness",
+      "policy_url": "https://www.strava.com/legal/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 16,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Detailed data retention schedules unclear",
+        "AI/ML training use not disclosed",
+        "GPC/DNT signal honoring not stated",
+        "Independent audit information missing",
+        "COPPA compliance status unclear",
+        "Appeal process not detailed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "Activity data retained indefinitely while account active; can delete specific activities or entire account"
+    },
+    {
+      "slug": "stripe",
+      "company": "Stripe Inc.",
+      "app_or_service": "Stripe Payment Platform",
+      "category": "Fintech & Payments",
+      "policy_url": "https://stripe.com/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 11,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": null,
+        "used_for_profiling": null,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": null,
+        "encrypted_at_rest": null,
+        "mfa_available": null,
+        "breach_notification": null,
+        "independent_audits": null
+      },
+      "gap_count": 12,
+      "gaps": [
+        "cross_site_tracking practices not addressed",
+        "profiling practices not disclosed",
+        "AI training data use not addressed",
+        "opt-out of data sharing not clearly stated",
+        "data portability rights not mentioned",
+        "appeal rights not mentioned",
+        "encryption specifications not provided",
+        "MFA availability not specified",
+        "breach notification procedures not detailed",
+        "independent audit information not provided",
+        "GPC and DNT signal handling not mentioned",
+        "children's privacy policy not addressed"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "Varies by data type"
+    },
+    {
+      "slug": "substack",
+      "company": "Substack Inc.",
+      "app_or_service": "Substack",
+      "category": "News & Media",
+      "policy_url": "https://substack.com/privacy",
+      "policy_last_updated": "2024-07",
+      "data_types_count": 9,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": true,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "GPC/DNT signal handling not explicitly stated",
+        "AI content use and training policies not addressed",
+        "Specific profiling practices unclear",
+        "Appeal process for data requests not detailed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained as long as account is active; deleted upon account deletion except where required for legal or financial purposes"
+    },
+    {
+      "slug": "target",
+      "company": "Target Corporation",
+      "app_or_service": "Target.com",
+      "category": "E-commerce & Retail",
+      "policy_url": "https://www.target.com/c/target-privacy-policy/-/N-4sr7l",
+      "policy_last_updated": "2024",
+      "data_types_count": 14,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": null,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "AI/machine learning use not addressed",
+        "Data portability not explicitly offered",
+        "GPC/DNT signal support not mentioned",
+        "Encryption at rest not disclosed",
+        "Independent audit information not provided"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained for account duration and as necessary to provide services; some data retained longer for compliance and fraud prevention"
+    },
+    {
+      "slug": "telegram",
+      "company": "Telegram Messenger LLP",
+      "app_or_service": "Telegram",
+      "category": "Messaging",
+      "policy_url": "https://telegram.org/privacy",
+      "policy_last_updated": "2024-03 or later",
+      "data_types_count": 8,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": false,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": null,
+        "independent_audits": null
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Detailed data retention policy unclear",
+        "Data portability not addressed",
+        "Appeal process not mentioned",
+        "Breach notification procedures not stated",
+        "GPC/DNT support not specified",
+        "Independent audit information not available"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": false,
+      "retention_period": "Indefinite (until account deletion); server-side backups retained longer"
+    },
+    {
+      "slug": "tesla",
+      "company": "Tesla, Inc.",
+      "app_or_service": "Tesla (App & Vehicle)",
+      "category": "Automotive & IoT",
+      "policy_url": "https://www.tesla.com/legal/privacy",
+      "policy_last_updated": "2024-11",
+      "data_types_count": 11,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": null,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Specific data retention periods not disclosed",
+        "Data portability mechanisms not provided",
+        "Third-party sharing details limited",
+        "AI/autonomy training data use not fully transparent",
+        "Camera/video data retention policies unclear",
+        "Opt-out mechanisms for non-essential data collection missing"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": false,
+      "retention_period": "Vehicle data retained for product improvement; specific timelines not clearly stated; historical data accessible in app"
+    },
+    {
+      "slug": "tiktok",
+      "company": "ByteDance Ltd.",
+      "app_or_service": "TikTok",
+      "category": "Social Media",
+      "policy_url": "https://www.tiktok.com/legal/page/us/privacy-policy/en",
+      "policy_last_updated": "2024-09 or later",
+      "data_types_count": 12,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": true,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": false,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": false
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "Detailed third-party vendor list not publicly available",
+        "GPC/DNT support not mentioned",
+        "Independent audit results not published",
+        "Specific data retention period details vary"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Varies by data type; typically 30 days to 3 years"
+    },
+    {
+      "slug": "tinder",
+      "company": "Match Group / Tinder",
+      "app_or_service": "Tinder Dating App",
+      "category": "Dating",
+      "policy_url": "https://policies.tinder.com/privacy/intl/en/",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 17,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 7,
+      "gaps": [
+        "Specific data retention schedules unclear",
+        "Data portability mechanisms not detailed",
+        "AI/ML training use not disclosed",
+        "GPC/DNT signal honoring not stated",
+        "Independent audit information missing",
+        "Appeal process for moderation decisions not detailed",
+        "Biometric data usage terms not fully transparent"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": false,
+      "retention_period": "Profile and message data retained while account active; deleted upon account deletion but some data retained for legal/safety reasons"
+    },
+    {
+      "slug": "tripadvisor",
+      "company": "Tripadvisor Inc.",
+      "app_or_service": "Tripadvisor Travel Review & Booking Platform",
+      "category": "Travel",
+      "policy_url": "https://tripadvisor.mediaroom.com/us-privacy-notice",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 17,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 7,
+      "gaps": [
+        "Specific data retention schedules unclear",
+        "Data portability options not detailed",
+        "AI/ML training use not disclosed",
+        "GPC/DNT signal honoring not stated",
+        "Independent audit information missing",
+        "Review content moderation and appeal process unclear",
+        "User-generated content deletion policies not fully transparent"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": null,
+      "retention_period": "User accounts and reviews retained indefinitely; booking data retained for transaction/legal purposes"
+    },
+    {
+      "slug": "twitch",
+      "company": "Twitch Interactive, Inc. (Amazon subsidiary)",
+      "app_or_service": "Twitch",
+      "category": "Streaming & Entertainment",
+      "policy_url": "https://www.twitch.tv/p/en/legal/privacy-notice/",
+      "policy_last_updated": "2024-01",
+      "data_types_count": 13,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training use not explicitly stated",
+        "Appeal mechanisms for moderation decisions not detailed",
+        "GPC signal honor not mentioned",
+        "Independent security audits not mentioned"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Account data retained during active subscription plus limited period post-deletion. Chat history and stream data retained according to content policies. Log data retained for limited duration."
+    },
+    {
+      "slug": "twitter-x",
+      "company": "X Corp.",
+      "app_or_service": "X (Twitter)",
+      "category": "Social Media",
+      "policy_url": "https://x.com/en/privacy",
+      "policy_last_updated": "2024-12",
+      "data_types_count": 13,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": false,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Specific data retention periods not disclosed",
+        "AI training data practices not transparent",
+        "Complete third-party recipient list not public",
+        "Advertising algorithm details not disclosed",
+        "API partner data usage not detailed",
+        "Public tweet scraping and usage terms vague"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Tweets and content retained indefinitely; user data retained until account deletion"
+    },
+    {
+      "slug": "uber",
+      "company": "Uber Technologies, Inc.",
+      "app_or_service": "Uber",
+      "category": "Ride-share & Delivery",
+      "policy_url": "https://www.uber.com/global/en/privacy/overview/",
+      "policy_last_updated": "2024-11",
+      "data_types_count": 13,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": false,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Detailed retention periods by data type not disclosed",
+        "Complete third-party recipient list not public",
+        "Data portability mechanisms not provided",
+        "AI/ML training data usage not fully transparent",
+        "Pricing algorithm and profiling details not disclosed",
+        "Specific security certifications not listed"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": false,
+      "retention_period": "Trip data retained for 7 years for tax/legal purposes; other data retained as long as account active"
+    },
+    {
+      "slug": "venmo",
+      "company": "PayPal Holdings Inc. (Venmo)",
+      "app_or_service": "Venmo",
+      "category": "Fintech & Payments",
+      "policy_url": "https://venmo.com/legal/us-privacy-policy/",
+      "policy_last_updated": "2024",
+      "data_types_count": 14,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "AI/machine learning training use not addressed",
+        "Data portability not explicitly offered",
+        "GPC/DNT signal support not mentioned",
+        "Independent audit information not disclosed",
+        "Public transaction note visibility and privacy controls not detailed"
+      ],
+      "children_min_age": 18,
+      "coppa_compliant": true,
+      "retention_period": "Data retained for account duration and as required by financial regulations; transaction data retained for 7+ years"
+    },
+    {
+      "slug": "walmart",
+      "company": "Walmart Inc.",
+      "app_or_service": "Walmart.com",
+      "category": "E-commerce & Retail",
+      "policy_url": "https://corporate.walmart.com/privacy-security/walmart-privacy-policy",
+      "policy_last_updated": "2024",
+      "data_types_count": 14,
+      "sensitive_types_count": 3,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": null,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "AI/machine learning training use not addressed",
+        "Data portability not explicitly offered",
+        "GPC/DNT signal support not mentioned",
+        "Encryption at rest not disclosed",
+        "Biometric data use and retention policies not clearly detailed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Data retained for account duration and as long as necessary to provide services; some data retained longer for compliance and legal purposes"
+    },
+    {
+      "slug": "waze",
+      "company": "Google LLC (Waze)",
+      "app_or_service": "Waze",
+      "category": "Navigation",
+      "policy_url": "https://www.waze.com/legal/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 12,
+      "sensitive_types_count": 1,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": true,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training use not clearly stated",
+        "Appeal mechanisms for data decisions not specified",
+        "GPC signal honoring not stated",
+        "Specific third-party count and categories not fully detailed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Location data retained based on user settings; typically 30-180 days for most data; inactive accounts may be deleted"
+    },
+    {
+      "slug": "whatsapp",
+      "company": "Meta Platforms, Inc.",
+      "app_or_service": "WhatsApp",
+      "category": "Social Media & Messaging",
+      "policy_url": "https://www.whatsapp.com/legal/privacy-policy",
+      "policy_last_updated": "2024-12",
+      "data_types_count": 10,
+      "sensitive_types_count": 2,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": null,
+        "cross_site_tracking": null,
+        "used_for_profiling": false,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": false,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": null,
+        "independent_audits": true
+      },
+      "gap_count": 6,
+      "gaps": [
+        "Data sharing with Meta parent company not fully transparent",
+        "AI training use not addressed",
+        "Specific retention periods not stated",
+        "Data portability mechanisms missing",
+        "Breach notification procedures not detailed",
+        "GPC/DNT signal handling not addressed"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Messages deleted after delivery (due to E2E encryption); account data retained until account deletion or inactivity period"
+    },
+    {
+      "slug": "wyze",
+      "company": "Wyze Labs Inc.",
+      "app_or_service": "Wyze",
+      "category": "Smart Home & IoT",
+      "policy_url": "https://www.wyze.com/pages/privacy",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 10,
+      "sensitive_types_count": 1,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": null,
+        "used_for_profiling": null,
+        "used_to_train_ai": null
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": null,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": null
+      },
+      "gap_count": 5,
+      "gaps": [
+        "Biometric data usage and retention not clearly detailed",
+        "AI/ML analysis of video content not addressed",
+        "Cross-site tracking practices not disclosed",
+        "Data portability process unclear",
+        "Independent security audits not mentioned"
+      ],
+      "children_min_age": null,
+      "coppa_compliant": null,
+      "retention_period": "Video recordings and events retained based on subscription plan; analytics and device logs retained for operation period"
+    },
+    {
+      "slug": "youtube",
+      "company": "Google LLC",
+      "app_or_service": "YouTube",
+      "category": "Streaming & Entertainment",
+      "policy_url": "https://policies.google.com/privacy",
+      "policy_last_updated": "2024-01",
+      "data_types_count": 13,
+      "sensitive_types_count": 1,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": true,
+        "cross_site_tracking": true,
+        "used_for_profiling": true,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": false,
+        "honors_dnt": false
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": false,
+        "data_portability": true,
+        "appeal_decisions": true
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 0,
+      "gaps": [],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "YouTube data varies by type. Search history and watch history retained for 3-36 months depending on settings. Account data retained while active plus limited period after deletion."
+    },
+    {
+      "slug": "zoom",
+      "company": "Zoom Video Communications Inc.",
+      "app_or_service": "Zoom",
+      "category": "Productivity & Video",
+      "policy_url": "https://explore.zoom.us/en/privacy/",
+      "policy_last_updated": "Not stated",
+      "data_types_count": 11,
+      "sensitive_types_count": 0,
+      "data_practices": {
+        "sold_to_third_parties": false,
+        "shared_for_advertising": false,
+        "cross_site_tracking": null,
+        "used_for_profiling": null,
+        "used_to_train_ai": true
+      },
+      "tracking_signals": {
+        "honors_gpc": null,
+        "honors_dnt": null
+      },
+      "rights_offered": {
+        "access_your_data": true,
+        "delete_your_data": true,
+        "correct_inaccuracies": true,
+        "opt_out_of_sale_sharing": null,
+        "data_portability": true,
+        "appeal_decisions": null
+      },
+      "security": {
+        "encrypted_in_transit": true,
+        "encrypted_at_rest": true,
+        "mfa_available": true,
+        "breach_notification": true,
+        "independent_audits": true
+      },
+      "gap_count": 4,
+      "gaps": [
+        "AI training opt-out options not clearly disclosed",
+        "GPC and DNT signal handling not addressed",
+        "Profiling practices not detailed",
+        "Appeal mechanism for automated decisions not specified"
+      ],
+      "children_min_age": 13,
+      "coppa_compliant": true,
+      "retention_period": "Cloud recordings retained based on subscription plan; chat messages retained per account settings; metadata retained for account management"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,154 @@
+{
+  "company": "Binance Holdings Limited",
+  "app_or_service": "Binance",
+  "policy_url": "https://www.binance.com/en/privacy",
+  "policy_last_updated": "2024-05",
+  "scraped_date": "2026-03-20",
+  "category": "Crypto & Web3",
+  "data_collected": {
+    "types": [
+      "Full legal name and date of birth",
+      "Government-issued ID and passport information",
+      "Address and contact details",
+      "Email address and phone number",
+      "Financial account and banking information",
+      "Trading activity and transaction history",
+      "IP address and device identifiers",
+      "Cookies and browser data",
+      "Source of funds information",
+      "KYC/AML verification documents"
+    ],
+    "sensitive_types": [
+      "Government-issued ID numbers",
+      "Financial account information",
+      "Biometric data (in some jurisdictions)"
+    ],
+    "count": 10,
+    "sensitive_count": 3,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide trading and exchange services",
+      "Comply with KYC/AML/CFT regulations",
+      "Verify user identity and prevent fraud",
+      "Process transactions and withdrawals",
+      "Risk assessment and compliance monitoring",
+      "Customer support and communications",
+      "Improve services and platform features",
+      "Monitor platform security"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Financial institutions and banks",
+      "Government and regulatory authorities",
+      "Compliance and verification service providers",
+      "Payment processors",
+      "Cloud hosting providers",
+      "Law enforcement (when legally required)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "KYC/AML documents retained for regulatory compliance (typically 5-7 years); transaction records retained as required by law",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 18,
+    "coppa_compliant": true,
+    "notes": "Service restricted to users 18+; requires adult verification; not intended for minors",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "GPC/DNT signal handling not specified",
+    "AI training policies not addressed",
+    "Specific data breach prevention measures not detailed",
+    "Appeal process for regulatory compliance decisions unclear",
+    "Cross-border data transfer mechanisms not fully disclosed"
+  ],
+  "label_notes": "Source: training knowledge. Binance collects extensive sensitive personal and financial data due to regulatory KYC/AML requirements. Does not sell data for advertising. High security standards required for financial services. Note: Regulatory environment varies by jurisdiction; policies may differ by region."
+}

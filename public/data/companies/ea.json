@@ -1,0 +1,166 @@
+{
+  "company": "Electronic Arts Inc.",
+  "app_or_service": "EA / EA Sports / Apex Legends",
+  "policy_url": "https://www.ea.com/legal/privacy-policy",
+  "policy_last_updated": "2024-09",
+  "scraped_date": "2026-03-20",
+  "category": "Gaming",
+  "data_collected": {
+    "types": [
+      "EA account information",
+      "Email address",
+      "Username and profile data",
+      "Payment and billing information",
+      "Game play data and statistics",
+      "In-game purchases and transactions",
+      "Device and hardware information",
+      "System specifications",
+      "IP address",
+      "Location data",
+      "Cookies and tracking identifiers",
+      "Chat and communications",
+      "Third-party account connections (social media)"
+    ],
+    "sensitive_types": [
+      "Financial information (credit/debit card data)",
+      "Location data",
+      "Detailed behavioral gaming patterns"
+    ],
+    "count": 13,
+    "sensitive_count": 3,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide gaming services",
+      "Process in-game purchases and transactions",
+      "Authentication and account management",
+      "Improve games and services",
+      "Personalization and recommendations",
+      "Cross-game progression and connected experiences",
+      "Prevent fraud and abuse",
+      "Performance monitoring",
+      "Targeted advertising",
+      "Analytics and metrics",
+      "Customer support",
+      "Legal compliance"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — EA does not sell personal data"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — data shared with advertising partners"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — tracking across EA games and services"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — player profiling for personalization and ad targeting"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not clearly stated in public policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Payment processors",
+      "Advertising networks",
+      "Analytics providers",
+      "Cloud service providers",
+      "Third-party game platforms",
+      "Social media platforms (if integrated)",
+      "Service providers",
+      "Law enforcement"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Account data retained while account active; gameplay and transaction data retained for service operation and analytics; some data retained longer for legal compliance",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — users can request account data"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — account deletion available"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — profile information can be updated"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Based on training knowledge — opt-out options for targeted advertising"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not clearly stated"
+    },
+    "appeal_decisions": {
+      "value": true,
+      "source_quote": "Based on training knowledge — appeal process for account suspensions"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — HTTPS/TLS encryption standard"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — industry standard encryption"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — two-factor authentication available"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — legal requirement compliance"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not stated in public policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not addressed"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — DNT signals not honored"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": null,
+    "notes": "Service available to users 13+; EA Sports titles may appeal to younger players; parental controls not prominently featured",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Data portability not explicitly offered",
+    "GPC signal handling not addressed",
+    "Independent security certifications not mentioned",
+    "AI training data practices not stated",
+    "Specific retention timelines for gameplay data unclear",
+    "Cross-game data sharing scope not fully transparent",
+    "Third-party advertising partner specifics limited",
+    "Parental controls not well documented"
+  ],
+  "label_notes": "Source: training knowledge (WebFetch blocked 2026-03-20). Based on EA Privacy Policy through mid-2025. Notable: EA operates multiple game franchises with different age demographics. In-game purchases and monetization involve significant financial data collection. Sports games (Madden, FIFA/FC) have younger player bases. Targeted advertising pervasive across EA games. Cross-game progression increases data consolidation."
+}

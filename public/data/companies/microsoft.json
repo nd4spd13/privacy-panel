@@ -1,0 +1,159 @@
+{
+  "company": "Microsoft Corporation",
+  "app_or_service": "Copilot, Office 365, Windows, Outlook",
+  "policy_url": "https://privacy.microsoft.com/en-us/privacystatement",
+  "policy_last_updated": "2025-01",
+  "scraped_date": "2026-03-20",
+  "category": "AI Consumer Products & Productivity",
+  "data_collected": {
+    "types": [
+      "Account credentials and profile information",
+      "Email and calendar data",
+      "Document and file content",
+      "Browsing history (Edge)",
+      "Search queries (Bing)",
+      "Device identification",
+      "Location data",
+      "App usage data",
+      "IP address",
+      "Device sensors (microphone, camera)",
+      "Diagnostic and performance data",
+      "Payment and billing information"
+    ],
+    "sensitive_types": [
+      "Financial account information",
+      "Health and fitness data (Health app)",
+      "Biometric data (Windows Hello)",
+      "Location data (precise geolocation)"
+    ],
+    "count": 12,
+    "sensitive_count": 4,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide services and support",
+      "Improve products and AI models",
+      "Personalize user experience",
+      "Targeted advertising",
+      "Account authentication and security",
+      "Fraud prevention and abuse detection",
+      "Legal compliance",
+      "Product development and testing",
+      "Copilot AI training and refinement"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Microsoft does not sell personal data"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — data used for targeted ads"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — cross-service tracking via Microsoft accounts"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — extensive profiling for personalization and ads"
+    },
+    "used_to_train_ai": {
+      "value": true,
+      "source_quote": "Based on training knowledge — data may be used for Copilot and AI model training"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Service providers and contractors",
+      "Advertising partners",
+      "Analytics providers",
+      "Law enforcement and government agencies",
+      "Business partners and affiliates",
+      "Cloud infrastructure providers"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Varies by data type: email/documents retained per user settings; diagnostic data retained 18 months; advertising data retained 13 months",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — users can access their data via privacy dashboard"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — data deletion options available"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — users can update profile information"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Based on training knowledge — California residents have opt-out rights"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Based on training knowledge — data download available"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not clearly stated in public policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — TLS/HTTPS encryption standard"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — data encrypted at rest"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — multi-factor authentication supported"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — legal requirement compliance"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Based on training knowledge — SOC 2, ISO 27001 certifications"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not clearly addressed in public policy"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — DNT signals not respected"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Service complies with COPPA for users under 13; parental controls available; limited data collection for children",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Cross-service tracking scope not fully detailed",
+    "AI training data practices lack specificity",
+    "Appeal mechanisms for decisions not stated",
+    "GPC signal handling not disclosed",
+    "Specific third-party recipient list incomplete",
+    "Copilot-specific data usage policies unclear"
+  ],
+  "label_notes": "Source: training knowledge (WebFetch blocked 2026-03-20). Based on Microsoft Privacy Statement current through early 2025. Notable: Microsoft collects extensive data across integrated services (Office, Windows, Bing, Edge). Copilot AI training practices are evolving. Cross-service profiling is significant. Many users may not realize extent of data collection across Microsoft ecosystem."
+}

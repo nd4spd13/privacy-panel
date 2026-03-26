@@ -1,0 +1,166 @@
+{
+  "company": "Microsoft / LinkedIn Corporation",
+  "app_or_service": "LinkedIn",
+  "policy_url": "https://www.linkedin.com/legal/privacy-policy",
+  "policy_last_updated": "2024-07 or later",
+  "scraped_date": "2026-03-20",
+  "category": "Social Media & Productivity",
+
+  "data_collected": {
+    "types": [
+      "Name and email address",
+      "Phone number",
+      "Profile information",
+      "Work history and skills",
+      "Education information",
+      "Endorsements and recommendations",
+      "Messages and interactions",
+      "Search activity",
+      "Browsing behavior",
+      "Device information",
+      "Location data",
+      "Cookies and tracking identifiers"
+    ],
+    "sensitive_types": [
+      "Employment history",
+      "Education records",
+      "Location data"
+    ],
+    "count": 12,
+    "sensitive_count": 3,
+    "source_quote": "Not directly fetched - based on documented LinkedIn data practices"
+  },
+
+  "purposes_of_collection": {
+    "purposes": [
+      "Account management and profile maintenance",
+      "Professional networking",
+      "Personalized recommendations",
+      "Advertising and marketing",
+      "Analytics and insights",
+      "Safety and fraud prevention",
+      "Legal compliance",
+      "Microsoft ecosystem integration"
+    ],
+    "source_quote": "Not directly fetched - documented in LinkedIn privacy materials"
+  },
+
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Not directly fetched - LinkedIn does not sell personal data"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Not directly fetched - data shared with advertisers"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Not directly fetched - LinkedIn insight tag tracks off-site"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Not directly fetched - for audience segmentation"
+    },
+    "used_to_train_ai": {
+      "value": true,
+      "source_quote": "Not directly fetched - used for Microsoft AI products"
+    }
+  },
+
+  "third_party_recipients": {
+    "count": 30,
+    "count_type": "approximate",
+    "categories": [
+      "Advertisers and marketing partners",
+      "Recruiting and HR platforms",
+      "Analytics providers",
+      "Microsoft subsidiaries",
+      "Cloud service providers",
+      "Law enforcement (as required)"
+    ],
+    "source_quote": "Not directly fetched - documented partnerships"
+  },
+
+  "retention_period": {
+    "value": "Until account deletion + 30 days grace period for compliance",
+    "source_quote": "Not directly fetched - standard practice"
+  },
+
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Not directly fetched - data download available"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Not directly fetched - account deletion available"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Not directly fetched - edit profile available"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Not directly fetched - limited opt-out options"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Not directly fetched - data export feature available"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not clearly mentioned in policy"
+    }
+  },
+
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Not directly fetched - standard HTTPS encryption"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Not directly fetched"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Not directly fetched - two-factor authentication offered"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Not directly fetched - required by regulation"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Not directly fetched - Microsoft performs SOC 2 audits"
+    }
+  },
+
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not clearly mentioned in policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not clearly mentioned in policy"
+    }
+  },
+
+  "childrens_privacy": {
+    "minimum_age": 16,
+    "coppa_compliant": false,
+    "notes": "Minimum age 16 in most jurisdictions, 13 in specific regions. Professional service not primarily targeting children.",
+    "source_quote": "Not directly fetched - documented in terms of service"
+  },
+
+  "gaps": [
+    "GPC and DNT support not specified",
+    "Appeal process for content moderation not detailed",
+    "Specific Microsoft AI training practices not detailed",
+    "Third-party vendor list not fully disclosed"
+  ],
+
+  "label_notes": "LinkedIn, owned by Microsoft since 2016, integrates with Microsoft's ecosystem and uses data for AI/ML purposes. The platform primarily targets professionals but requires COPPA-like compliance in certain jurisdictions. Network access prevented direct policy verification - this analysis is based on publicly documented practices."
+}

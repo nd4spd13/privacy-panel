@@ -1,0 +1,150 @@
+{
+  "company": "Wyze Labs Inc.",
+  "app_or_service": "Wyze",
+  "policy_url": "https://www.wyze.com/pages/privacy",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Smart Home & IoT",
+  "data_collected": {
+    "types": [
+      "Account information",
+      "Device information and analytics",
+      "Video and audio recordings",
+      "Activity logs and event detection",
+      "Location data",
+      "IP address and device identifiers",
+      "Payment and transaction information",
+      "Customer support communications",
+      "App usage analytics",
+      "Biometric data (from certain devices)"
+    ],
+    "sensitive_types": [
+      "Biometrics"
+    ],
+    "count": 10,
+    "sensitive_count": 1,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Providing and maintaining services",
+      "Device management and control",
+      "Video monitoring and recording",
+      "Service analytics and improvement",
+      "Fraud prevention and security",
+      "Customer support",
+      "Billing and payment processing",
+      "Compliance with legal obligations"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Service providers (hosting, analytics)",
+      "Hardware manufacturers",
+      "Payment processors",
+      "Law enforcement (legal process)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Video recordings and events retained based on subscription plan; analytics and device logs retained for operation period",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": null,
+    "coppa_compliant": null,
+    "notes": "No specific COPPA compliance mentioned; product designed for adult household management.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Biometric data usage and retention not clearly detailed",
+    "AI/ML analysis of video content not addressed",
+    "Cross-site tracking practices not disclosed",
+    "Data portability process unclear",
+    "Independent security audits not mentioned"
+  ],
+  "label_notes": "Source: training knowledge. Wyze offers budget-friendly smart home devices with encrypted cloud storage. Has experienced some security incidents historically. Limited transparency on algorithmic video analysis."
+}

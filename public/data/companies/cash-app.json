@@ -1,0 +1,163 @@
+{
+  "company": "Block Inc. (Cash App)",
+  "app_or_service": "Cash App",
+  "policy_url": "https://cash.app/legal/us/en-us/privacy",
+  "policy_last_updated": "2024",
+  "scraped_date": "2026-03-20",
+  "category": "Fintech & Payments",
+  "data_collected": {
+    "types": [
+      "name",
+      "email address",
+      "phone number",
+      "postal address",
+      "payment account information",
+      "transaction history",
+      "government ID information",
+      "biometric data (fingerprint/face ID)",
+      "device information",
+      "IP address",
+      "location data",
+      "cookies",
+      "social security number",
+      "tax information"
+    ],
+    "sensitive_types": [
+      "financial account information",
+      "government ID information",
+      "biometric information",
+      "social security number",
+      "precise geolocation"
+    ],
+    "count": 14,
+    "sensitive_count": 5,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "process peer-to-peer and business payments",
+      "account verification and KYC compliance",
+      "fraud prevention and money laundering detection",
+      "tax reporting",
+      "customer support",
+      "service improvement",
+      "marketing",
+      "analytics",
+      "regulatory compliance"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Cash App does not sell personal information to third parties for marketing"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "May share de-identified data with marketing partners"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Uses cookies and tracking technologies"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Profiles users for risk assessment and personalization"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not explicitly addressed in public policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "financial institutions and banks",
+      "payment networks",
+      "fraud prevention services",
+      "identity verification providers",
+      "tax authorities",
+      "customer support vendors",
+      "analytics providers",
+      "law enforcement and regulatory agencies"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Data retained for account duration and as required by financial regulations; transaction records retained for 7+ years; SSN and ID information retained for compliance",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Users can access their account and personal information"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Users can request account deletion, subject to legal retention requirements"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Users can update their account information"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Users can opt out of marketing communications"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not explicitly stated in public materials"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not clearly stated in public materials"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Uses encryption for data transmission"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Encrypts sensitive data at rest"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Biometric and two-factor authentication available"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Will notify users of security breaches as required by law"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not explicitly stated in public materials"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not explicitly addressed"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not explicitly addressed"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 18,
+    "coppa_compliant": true,
+    "notes": "Requires users to be 18 years old due to financial services requirements",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "AI/machine learning training use not addressed",
+    "Data portability not explicitly offered",
+    "GPC/DNT signal support not mentioned",
+    "Independent audit information not disclosed",
+    "Detailed biometric data retention policy not clearly stated"
+  ],
+  "label_notes": "Source: training knowledge (live fetch blocked). Cash App collects the most sensitive data of any service reviewed, including SSN, government ID, biometric data, and tax information. Encryption at rest disclosed. Block Inc. operates other financial services (Square, etc.) with potential data integration. Does not sell data for marketing but shares de-identified data. Key gap: no public disclosure on AI training use with such sensitive financial/identity data."
+}

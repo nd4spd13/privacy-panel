@@ -1,0 +1,163 @@
+{
+  "company": "Discord Inc.",
+  "app_or_service": "Discord",
+  "policy_url": "https://discord.com/privacy",
+  "policy_last_updated": "2024-05 or later",
+  "scraped_date": "2026-03-20",
+  "category": "Social Media & Messaging",
+
+  "data_collected": {
+    "types": [
+      "Username and email",
+      "Profile information",
+      "Messages and voice chat content",
+      "Message metadata",
+      "Server and channel activity",
+      "Device information",
+      "IP address",
+      "Cookies and identifiers",
+      "Location data (if permitted)",
+      "Payment information (for premium)"
+    ],
+    "sensitive_types": [
+      "Message content",
+      "Voice chat recordings",
+      "Payment information"
+    ],
+    "count": 10,
+    "sensitive_count": 3,
+    "source_quote": "Not directly fetched - based on documented Discord practices"
+  },
+
+  "purposes_of_collection": {
+    "purposes": [
+      "Service provision and communication",
+      "Account management",
+      "Abuse prevention and moderation",
+      "Safety and security",
+      "Improving services",
+      "Analytics",
+      "Marketing (limited)",
+      "Legal compliance"
+    ],
+    "source_quote": "Not directly fetched - documented in Discord privacy guidance"
+  },
+
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Not directly fetched - Discord claims not to sell data"
+    },
+    "shared_for_advertising": {
+      "value": false,
+      "source_quote": "Not directly fetched - minimal advertising integration"
+    },
+    "cross_site_tracking": {
+      "value": false,
+      "source_quote": "Not directly fetched - limited off-platform tracking"
+    },
+    "used_for_profiling": {
+      "value": false,
+      "source_quote": "Not directly fetched - focuses on community safety"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not clearly mentioned in policy"
+    }
+  },
+
+  "third_party_recipients": {
+    "count": 10,
+    "count_type": "approximate",
+    "categories": [
+      "Analytics providers",
+      "Cloud infrastructure providers",
+      "Payment processors",
+      "Trust and safety partners",
+      "Law enforcement (as required)"
+    ],
+    "source_quote": "Not directly fetched - known partner categories"
+  },
+
+  "retention_period": {
+    "value": "Until account deletion or server removal (messages retained indefinitely by default)",
+    "source_quote": "Not directly fetched - documented Discord behavior"
+  },
+
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Not directly fetched - data access available"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Not directly fetched - account deletion available"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Not directly fetched - edit profile available"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Not directly fetched - no sale/sharing to restrict"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Not directly fetched"
+    },
+    "appeal_decisions": {
+      "value": true,
+      "source_quote": "Not directly fetched - appeal process for bans available"
+    }
+  },
+
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Not directly fetched - standard HTTPS/TLS"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Not directly fetched"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Not directly fetched - two-factor authentication available"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Not directly fetched - standard practice"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not mentioned in public materials"
+    }
+  },
+
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Requires users to be 13+. Community guidelines include protections for younger users. Discord is moderated community and enforces safety policies.",
+    "source_quote": "Not directly fetched - documented in terms of service"
+  },
+
+  "gaps": [
+    "AI training practices not addressed",
+    "GPC/DNT support not specified",
+    "Independent audit results not published",
+    "Message encryption details unclear"
+  ],
+
+  "label_notes": "Discord positions itself as privacy-conscious compared to other platforms, with limited advertising and stated commitment to not selling data. However, message retention is perpetual by default, and parent company Tencent's involvement may raise questions. Network access prevented direct policy verification - this analysis is based on publicly documented practices."
+}

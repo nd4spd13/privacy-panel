@@ -1,0 +1,172 @@
+{
+  "company": "Stripe Inc.",
+  "app_or_service": "Stripe Payment Platform",
+  "policy_url": "https://stripe.com/privacy",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Fintech & Payments",
+
+  "data_collected": {
+    "types": [
+      "name",
+      "email address",
+      "phone number",
+      "billing address",
+      "shipping address",
+      "payment method details",
+      "credit/debit card numbers",
+      "bank account information",
+      "transaction history",
+      "device information",
+      "IP address"
+    ],
+    "sensitive_types": [
+      "payment card numbers",
+      "bank account details",
+      "financial transaction data"
+    ],
+    "count": 11,
+    "sensitive_count": 3,
+    "source_quote": "Name and contact details such as email addresses, phone numbers, and billing/shipping addresses, as well as payment method details like credit/debit card numbers and bank account info."
+  },
+
+  "purposes_of_collection": {
+    "purposes": [
+      "process payments",
+      "prevent fraud",
+      "comply with legal and regulatory requirements",
+      "identity verification",
+      "improve services",
+      "advertising its products and services"
+    ],
+    "source_quote": "Stripe collects customer data to process payments, prevent fraud, and meet regulatory requirements."
+  },
+
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Stripe does not transfer personal data to third parties in exchange for payment."
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Stripe may provide personal data to third party partners, such as advertising partners, analytics providers, and social networks."
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "used_for_profiling": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "third_party_recipients": {
+    "count": 6,
+    "count_type": "category-only",
+    "categories": [
+      "Business Users and authorized partners",
+      "financial partners",
+      "App Marketplace developers",
+      "Stripe affiliates",
+      "advertising partners",
+      "analytics providers",
+      "identity verification services"
+    ],
+    "source_quote": "Third parties that Stripe shares data with include Business Users and their authorized partners, financial partners, App Marketplace developers, Stripe affiliates, and service providers."
+  },
+
+  "retention_period": {
+    "value": "Varies by data type",
+    "source_quote": "Call recordings normally retained for up to 1 year, user support phone calls for 5 years, collection calls for 5 years."
+  },
+
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "You have the right to request access of the Personal Data Stripe holds related to you."
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Following termination of an agreement, Stripe will delete or return personal data except as required by law."
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "You have the right to request rectification of the Personal Data Stripe holds."
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "Not mentioned in policy"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "encrypted_at_rest": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "mfa_available": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "breach_notification": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "childrens_privacy": {
+    "minimum_age": null,
+    "coppa_compliant": null,
+    "notes": "Not mentioned in policy",
+    "source_quote": "Not mentioned in policy"
+  },
+
+  "gaps": [
+    "cross_site_tracking practices not addressed",
+    "profiling practices not disclosed",
+    "AI training data use not addressed",
+    "opt-out of data sharing not clearly stated",
+    "data portability rights not mentioned",
+    "appeal rights not mentioned",
+    "encryption specifications not provided",
+    "MFA availability not specified",
+    "breach notification procedures not detailed",
+    "independent audit information not provided",
+    "GPC and DNT signal handling not mentioned",
+    "children's privacy policy not addressed"
+  ],
+
+  "label_notes": "Stripe's policy emphasizes payment processing and fraud prevention but lacks specificity on data retention beyond call recordings. User rights are partially addressed but data portability and appeal mechanisms are not mentioned. Security measures are not detailed in the privacy policy itself."
+}

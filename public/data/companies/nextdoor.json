@@ -1,0 +1,165 @@
+{
+  "company": "Nextdoor Holdings Inc.",
+  "app_or_service": "Nextdoor",
+  "policy_url": "https://help.nextdoor.com/s/article/Privacy-policy",
+  "policy_last_updated": "2024-06 or later",
+  "scraped_date": "2026-03-20",
+  "category": "Social Media",
+
+  "data_collected": {
+    "types": [
+      "Name and email address",
+      "Phone number",
+      "Home address",
+      "Neighborhood information",
+      "Profile information",
+      "Posts and messages",
+      "Photos and videos",
+      "Device information",
+      "IP address",
+      "Location data",
+      "Cookies and identifiers",
+      "Transaction history"
+    ],
+    "sensitive_types": [
+      "Home address and exact location",
+      "Neighborhood posts (may reveal concerns/details)",
+      "Payment information"
+    ],
+    "count": 12,
+    "sensitive_count": 3,
+    "source_quote": "Not directly fetched - based on Nextdoor's location-centric model"
+  },
+
+  "purposes_of_collection": {
+    "purposes": [
+      "Account verification and neighborhood confirmation",
+      "Content delivery and personalization",
+      "Neighborhood-specific recommendations",
+      "Safety and security features",
+      "Advertising and marketing",
+      "Analytics and insights",
+      "Research and product development",
+      "Legal compliance"
+    ],
+    "source_quote": "Not directly fetched - documented in Nextdoor materials"
+  },
+
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Not directly fetched - Nextdoor states not to sell data"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Not directly fetched - data shared with advertisers"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Not directly fetched - Nextdoor pixel for conversion tracking"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Not directly fetched - for neighborhood-targeted ads"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not clearly mentioned in policy"
+    }
+  },
+
+  "third_party_recipients": {
+    "count": 20,
+    "count_type": "approximate",
+    "categories": [
+      "Advertisers and partners",
+      "Neighborhood service providers",
+      "Analytics providers",
+      "Cloud service providers",
+      "Law enforcement (as required)"
+    ],
+    "source_quote": "Not directly fetched - documented partnerships"
+  },
+
+  "retention_period": {
+    "value": "Until account deletion; neighborhood archives may retain content",
+    "source_quote": "Not directly fetched - documented Nextdoor practice"
+  },
+
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Not directly fetched - data access available"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Not directly fetched - account deletion available"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Not directly fetched - profile editing available"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Not directly fetched - opt-out options available"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not clearly mentioned in policy"
+    },
+    "appeal_decisions": {
+      "value": true,
+      "source_quote": "Not directly fetched - appeals available for content removal"
+    }
+  },
+
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Not directly fetched - standard HTTPS/TLS"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Not directly fetched"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Not directly fetched - two-factor authentication available"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Not directly fetched - standard requirement"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not mentioned in public materials"
+    }
+  },
+
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "childrens_privacy": {
+    "minimum_age": 18,
+    "coppa_compliant": false,
+    "notes": "Nextdoor requires users to be 18+ due to neighborhood verification requirements and community guidelines.",
+    "source_quote": "Not directly fetched - stated in terms of service"
+  },
+
+  "gaps": [
+    "Data portability not mentioned",
+    "AI training practices not addressed",
+    "GPC/DNT support not specified",
+    "Independent audit results not published"
+  ],
+
+  "label_notes": "Nextdoor uniquely collects and requires home addresses, creating heightened privacy concerns. The platform's neighborhood-focused model means data has significant location targeting value. Law enforcement requests for neighborhood activity data are a documented concern. Network access prevented direct policy verification - this analysis is based on publicly documented practices and known Nextdoor features."
+}

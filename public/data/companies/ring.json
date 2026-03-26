@@ -1,0 +1,148 @@
+{
+  "company": "Ring LLC (Amazon subsidiary)",
+  "app_or_service": "Ring",
+  "policy_url": "https://ring.com/privacy",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Smart Home & IoT",
+  "data_collected": {
+    "types": [
+      "Account registration data",
+      "Device information and identifiers",
+      "Video and audio recordings from Ring devices",
+      "Motion and event detection logs",
+      "Location data",
+      "Device usage logs and analytics",
+      "Payment and billing information",
+      "Emergency call data",
+      "Wi-Fi and network information",
+      "Contact list data"
+    ],
+    "sensitive_types": [],
+    "count": 10,
+    "sensitive_count": 0,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Providing Ring services and features",
+      "Device authentication and management",
+      "Video surveillance and monitoring",
+      "Emergency response services",
+      "Device troubleshooting and support",
+      "Fraud and security prevention",
+      "Service improvement and analytics",
+      "Billing and payment processing"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Amazon and Amazon affiliates",
+      "Service providers and contractors",
+      "Emergency services (911)",
+      "Law enforcement (with legal process)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Video data retained based on Ring subscription plan; some metadata retained for account management",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": null,
+    "coppa_compliant": null,
+    "notes": "No specific child privacy protections noted; Ring is designed for household safety monitoring by adults.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "AI training use not explicitly addressed",
+    "Video metadata use for profiling or behavioral analysis not disclosed",
+    "Cross-site tracking practices unclear",
+    "Data portability mechanisms not detailed",
+    "Independent security audits not mentioned"
+  ],
+  "label_notes": "Source: training knowledge. Ring's policy emphasizes video encryption and Amazon integration. Video retention tied to subscription plan. Limited disclosure on algorithmic analysis of video content."
+}

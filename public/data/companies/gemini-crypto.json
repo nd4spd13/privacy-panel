@@ -1,0 +1,156 @@
+{
+  "company": "Gemini Trust Company, LLC",
+  "app_or_service": "Gemini",
+  "policy_url": "https://www.gemini.com/legal/privacy-policy",
+  "policy_last_updated": "2024-03",
+  "scraped_date": "2026-03-20",
+  "category": "Crypto & Web3",
+  "data_collected": {
+    "types": [
+      "Full legal name and date of birth",
+      "Government-issued identification information",
+      "Address and residential information",
+      "Email address and phone number",
+      "Social Security Number (US residents)",
+      "Banking and payment method details",
+      "Trading activity and account history",
+      "IP address and device information",
+      "Cookies and web beacons",
+      "Identity verification documents",
+      "Biometric data (where permitted by law)"
+    ],
+    "sensitive_types": [
+      "Government ID information",
+      "Social Security Number",
+      "Financial account details",
+      "Biometric data"
+    ],
+    "count": 11,
+    "sensitive_count": 4,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide cryptocurrency exchange and trading services",
+      "Comply with KYC (Know Your Customer) requirements",
+      "Prevent money laundering and fraud",
+      "Verify user identity and account ownership",
+      "Process transactions and manage accounts",
+      "Regulatory reporting and compliance",
+      "Risk assessment and monitoring",
+      "Customer support and account management"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Banks and financial institutions",
+      "Regulatory authorities and FinCEN",
+      "KYC/AML service providers",
+      "Payment processors and custodians",
+      "Cloud infrastructure providers",
+      "Law enforcement (when legally mandated)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Customer records and transaction history retained for minimum 5 years per regulatory requirements; longer retention for active accounts",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 18,
+    "coppa_compliant": true,
+    "notes": "Service restricted to users 18 years or older; identity verification required; not intended for minors",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "GPC/DNT signal handling not specified",
+    "AI training and use of customer data not addressed",
+    "Specific biometric data handling procedures unclear",
+    "Appeal process for regulatory decisions not detailed",
+    "International data transfer safeguards not fully explained"
+  ],
+  "label_notes": "Source: training knowledge. Gemini is a regulated cryptocurrency exchange with strict compliance requirements. Collects extensive sensitive data including SSN and biometrics for KYC/AML compliance. Does not engage in data sales or advertising-driven sharing. High security standards required for regulated financial services. Verify current biometric policies and international jurisdiction compliance."
+}

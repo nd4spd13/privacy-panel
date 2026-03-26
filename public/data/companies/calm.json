@@ -1,0 +1,155 @@
+{
+  "company": "Calm.com Inc.",
+  "app_or_service": "Calm",
+  "policy_url": "https://www.calm.com/privacy-policy",
+  "policy_last_updated": "2024-01",
+  "scraped_date": "2026-03-20",
+  "category": "Health & Wellness",
+  "data_collected": {
+    "types": [
+      "Name and email address",
+      "Account credentials and password",
+      "Subscription and payment information",
+      "Date of birth",
+      "Usage data and listening history",
+      "Content preferences and favorites",
+      "Session duration and frequency",
+      "Device type and OS information",
+      "IP address and device identifiers",
+      "Cookies and similar tracking tech",
+      "Crash reports and performance logs",
+      "Newsletter sign-up and preferences",
+      "Support tickets and communications"
+    ],
+    "sensitive_types": [],
+    "count": 13,
+    "sensitive_count": 0,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Service delivery and meditation platform",
+      "Account management and authentication",
+      "Content recommendations and personalization",
+      "Billing and subscription management",
+      "Analytics and usage metrics",
+      "Service improvement and development",
+      "Customer support and communications",
+      "Marketing and promotional content",
+      "Fraud prevention and security"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Advertising networks and partners",
+      "Analytics service providers",
+      "Payment processors",
+      "Cloud infrastructure providers",
+      "Email and marketing services",
+      "Law enforcement (when required)",
+      "Service providers and vendors"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Account data retained during active subscription plus limited period after cancellation. Usage logs and session data retained for analytics. Personal data may be retained longer if legally required.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Calm requires 13+ years old. Parental controls and family plans available. Separate privacy considerations for family subscription members.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "AI training use not clearly stated",
+    "Data portability not mentioned",
+    "Appeal mechanisms not detailed",
+    "GPC signal honor not stated",
+    "Independent audit information not provided"
+  ],
+  "label_notes": "Source: training knowledge. Calm focuses on wellness and meditation content. Privacy policy is relatively straightforward. Data sharing is primarily for analytics and advertising, not for direct sales. Shares with advertising partners for behavioral targeting. Does not honor standard privacy signals."
+}

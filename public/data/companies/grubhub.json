@@ -1,0 +1,170 @@
+{
+  "company": "Grubhub / JustEat",
+  "app_or_service": "Grubhub Food Delivery Platform",
+  "policy_url": "https://www.grubhub.com/legal/privacy-policy",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Food Delivery",
+
+  "data_collected": {
+    "types": [
+      "name",
+      "email address",
+      "phone number",
+      "location data",
+      "payment information",
+      "transaction history",
+      "order data",
+      "device information",
+      "IP address",
+      "call recordings",
+      "call transcripts"
+    ],
+    "sensitive_types": [
+      "geolocation data",
+      "payment information",
+      "call recordings"
+    ],
+    "count": 11,
+    "sensitive_count": 3,
+    "source_quote": "The platform gathers a wide range of data, including identifiers like your name and email, payment information, geolocation data, and even call recordings with customer care."
+  },
+
+  "purposes_of_collection": {
+    "purposes": [
+      "provide delivery services",
+      "merchant operations",
+      "payment processing",
+      "fraud prevention",
+      "comply with legal requirements",
+      "improve services",
+      "marketing"
+    ],
+    "source_quote": "Grubhub may disclose records to merchants, delivery providers, and service providers to provide services, comply with requirements, and enforce rights."
+  },
+
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Grubhub may share information for cross-context behavioral advertising purposes under state privacy laws."
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "used_for_profiling": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "third_party_recipients": {
+    "count": 5,
+    "count_type": "category-only",
+    "categories": [
+      "merchants",
+      "delivery providers",
+      "payment processors",
+      "service providers",
+      "legal and regulatory bodies"
+    ],
+    "source_quote": "Grubhub may disclose records of items you purchased to merchants, delivery providers, payment processors, and other service providers."
+  },
+
+  "retention_period": {
+    "value": "Until no longer needed",
+    "source_quote": "Grubhub and its third party service providers will retain personal information for at least the period reasonably necessary, unless required by law."
+  },
+
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "You may request access or deletion of your personal information through links provided."
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "You may request access or deletion of order data through links provided for both Grubhub and Seamless."
+    },
+    "correct_inaccuracies": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "You have the right to opt out of processing or sharing for online cross-context behavioral advertising."
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "encrypted_at_rest": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "mfa_available": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Grubhub confirmed a security incident and stated it is implementing additional security enhancements."
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Grubhub uses penetration testing, code reviews, architecture analysis, and access control audits."
+    }
+  },
+
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "childrens_privacy": {
+    "minimum_age": null,
+    "coppa_compliant": null,
+    "notes": "Not mentioned in policy",
+    "source_quote": "Not mentioned in policy"
+  },
+
+  "gaps": [
+    "sold_to_third_parties not clearly stated",
+    "cross_site_tracking not mentioned",
+    "profiling practices not disclosed",
+    "AI training not mentioned",
+    "correct inaccuracies right not mentioned",
+    "data portability not mentioned",
+    "appeal rights not mentioned",
+    "encryption specifications not provided",
+    "MFA availability not mentioned",
+    "GPC and DNT signal handling not mentioned",
+    "children's privacy policy not addressed"
+  ],
+
+  "label_notes": "Grubhub collects extensive data including call recordings and geolocation. Shares data with merchants, delivery partners, and payment processors. Experienced security incident in 2026 but taking corrective action. Supports opt-out of behavioral advertising. Biometric data for delivery partners deleted within 3 years. Lacks transparency on encryption and MFA. Data can be transferred internationally with varying protection levels."
+}

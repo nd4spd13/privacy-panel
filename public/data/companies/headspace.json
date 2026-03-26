@@ -1,0 +1,161 @@
+{
+  "company": "Headspace Health",
+  "app_or_service": "Headspace",
+  "policy_url": "https://www.headspace.com/privacy-policy",
+  "policy_last_updated": "2024-01",
+  "scraped_date": "2026-03-20",
+  "category": "Health & Wellness",
+  "data_collected": {
+    "types": [
+      "Name, email address, phone number",
+      "Account credentials and password",
+      "Date of birth",
+      "Health information (mood, stress levels)",
+      "Meditation and session usage data",
+      "Listening history and content preferences",
+      "Progress tracking and goals",
+      "Device information and identifiers",
+      "IP address and location data",
+      "Cookies and similar tracking technologies",
+      "Payment and subscription information",
+      "Crash reports and performance data",
+      "Employer information (for work plans)",
+      "Insurance provider details (if linked)"
+    ],
+    "sensitive_types": [
+      "Health data (mood, stress, wellness tracking)"
+    ],
+    "count": 14,
+    "sensitive_count": 1,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Service delivery and meditation platform",
+      "Account management",
+      "Content personalization and recommendations",
+      "Subscription and billing management",
+      "Health insights and progress tracking",
+      "Employer/insurance program administration",
+      "Analytics and usage measurement",
+      "Service improvement and development",
+      "Marketing and promotional communications",
+      "Legal and compliance purposes"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Advertising and marketing partners",
+      "Analytics providers",
+      "Payment processors",
+      "Cloud and infrastructure providers",
+      "Employers and corporate plans",
+      "Insurance providers and health plans",
+      "Service providers and vendors",
+      "Law enforcement (when required)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Account and subscription data retained during active use. Meditation history and wellness data retained for service delivery and progress tracking. May retain longer for research purposes.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Headspace requires 13+ for standard accounts. Headspace for Work and some insurance-based plans may have different minimum ages.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "AI training use not explicitly stated",
+    "Data portability rights not mentioned",
+    "Appeal mechanisms for decisions not detailed",
+    "GPC signal honor not mentioned",
+    "HIPAA compliance information not clearly stated",
+    "Independent audit information not provided"
+  ],
+  "label_notes": "Source: training knowledge. Headspace Health collects health-related wellness data. Offers employer and insurance-based programs with unique data sharing. Shares data with advertisers for behavioral profiling. Does not explicitly disclose health data handling standards or HIPAA compliance despite collecting health information. Does not honor standard privacy signals."
+}

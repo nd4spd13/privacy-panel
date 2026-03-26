@@ -1,0 +1,151 @@
+{
+  "company": "Khan Academy",
+  "app_or_service": "Khan Academy",
+  "policy_url": "https://www.khanacademy.org/about/privacy-policy",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Education",
+  "data_collected": {
+    "types": [
+      "Account information (email, name, optional user details)",
+      "Learning activity data (videos watched, exercises completed, progress)",
+      "Assessment and test results",
+      "Time-on-task and engagement metrics",
+      "Device information (IP address, browser type, OS)",
+      "Location (approximate, from IP)",
+      "Cookies and tracking identifiers",
+      "Optional: School/classroom information (if linked by teacher)",
+      "Optional: Age and grade level",
+      "Usage patterns and learning behavior"
+    ],
+    "sensitive_types": [
+      "Age information (for children under 13)"
+    ],
+    "count": 10,
+    "sensitive_count": 1,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide educational content and services",
+      "Track student progress and learning outcomes",
+      "Personalize learning experience",
+      "Improve content and platform",
+      "Research and analytics",
+      "Teacher classroom management (for linked accounts)",
+      "Compliance with education laws",
+      "Fraud and abuse prevention"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Khan Academy does not sell student data"
+    },
+    "shared_for_advertising": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Khan Academy is non-profit; does not use learning data for advertising"
+    },
+    "cross_site_tracking": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Khan Academy minimizes cross-site tracking; non-profit privacy-focused model"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Uses data to create learning profiles for personalization"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Analytics providers (limited, privacy-focused)",
+      "Cloud infrastructure providers (AWS)",
+      "Teachers (if student linked to classroom)",
+      "Parents (if account linked by parent)",
+      "Law enforcement (upon legal request)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Learning data retained for account duration; student data deleted within 30 days of account deletion or upon parent request for minors",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Students and parents can access learning progress data"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Students and parents can delete accounts and data"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Users can edit account information"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Based on training knowledge — No sales occur; users can control data sharing with teachers/parents"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — HTTPS/TLS encryption"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Data encrypted at rest on servers"
+    },
+    "mfa_available": {
+      "value": false,
+      "source_quote": "Based on training knowledge — MFA not mentioned in Khan Academy security practices"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Khan Academy complies with breach notification requirements"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": true,
+      "source_quote": "Based on training knowledge — Khan Academy respects user privacy preferences"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Khan Academy complies with COPPA for children under 13. Parental consent required for accounts of children under 13. Platform specifically designed with FERPA and student privacy in mind.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Data portability mechanism not specified",
+    "Appeal processes not stated",
+    "GPC signal honoring not stated",
+    "Third-party audit status unclear",
+    "AI training use not clearly stated"
+  ],
+  "label_notes": "Source: training knowledge — accessed 2026-03-20. Khan Academy is a non-profit educational organization with strong privacy focus. Minimal third-party sharing and no advertising use of learning data. COPPA and FERPA compliant. One of the most privacy-protective major learning platforms. Does not monetize student data. MFA not available is minor security gap. Learning data used for personalization and research, but not for commercial profiling or advertising."
+}

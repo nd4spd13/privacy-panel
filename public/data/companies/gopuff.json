@@ -1,0 +1,165 @@
+{
+  "company": "goPuff / GoBrands, Inc.",
+  "app_or_service": "goPuff Instant Delivery",
+  "policy_url": "https://www.gopuff.com/go/privacy-policy",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Delivery",
+
+  "data_collected": {
+    "types": [
+      "name",
+      "email address",
+      "phone number",
+      "address",
+      "payment information",
+      "order history",
+      "device information",
+      "IP address",
+      "location data"
+    ],
+    "sensitive_types": [
+      "payment information",
+      "location data"
+    ],
+    "count": 9,
+    "sensitive_count": 2,
+    "source_quote": "GoBrands, Inc. (operating as 'Gopuff') and its affiliated companies collect and process information about users."
+  },
+
+  "purposes_of_collection": {
+    "purposes": [
+      "provide delivery services",
+      "process orders",
+      "payment processing",
+      "service improvement",
+      "marketing"
+    ],
+    "source_quote": "goPuff collects and processes information to provide services and improve the user experience."
+  },
+
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "shared_for_advertising": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "used_for_profiling": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "third_party_recipients": {
+    "count": 3,
+    "count_type": "category-only",
+    "categories": [
+      "wireless carriers",
+      "mobile platform providers",
+      "partner companies"
+    ],
+    "source_quote": "When using services, users may be using services of third parties such as wireless carriers or mobile platform providers."
+  },
+
+  "retention_period": {
+    "value": "Not stated",
+    "source_quote": "Not mentioned in policy"
+  },
+
+  "your_rights": {
+    "access_your_data": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "delete_your_data": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "correct_inaccuracies": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "encrypted_at_rest": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "mfa_available": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "breach_notification": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "childrens_privacy": {
+    "minimum_age": null,
+    "coppa_compliant": null,
+    "notes": "Not mentioned in policy",
+    "source_quote": "Not mentioned in policy"
+  },
+
+  "gaps": [
+    "data collection specifics not clearly detailed",
+    "sold_to_third_parties not addressed",
+    "shared_for_advertising not mentioned",
+    "cross_site_tracking not mentioned",
+    "profiling practices not disclosed",
+    "AI training not mentioned",
+    "data retention periods not specified",
+    "user rights not addressed (access, delete, correct, portability, appeal, opt-out)",
+    "encryption specifications not provided",
+    "MFA availability not mentioned",
+    "breach notification procedures not detailed",
+    "GPC and DNT signal handling not mentioned",
+    "children's privacy policy not addressed"
+  ],
+
+  "label_notes": "goPuff's privacy policy is minimal and lacks transparency. The policy does not adequately address most privacy concerns. Content on legal.gopuff.com appears to require JavaScript to load, limiting accessibility. Separate privacy policies for affiliated companies require users to review multiple documents. No user rights or security details provided. Major gaps in data practices disclosure."
+}

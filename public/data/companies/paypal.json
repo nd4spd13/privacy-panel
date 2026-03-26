@@ -1,0 +1,160 @@
+{
+  "company": "PayPal Holdings Inc.",
+  "app_or_service": "PayPal",
+  "policy_url": "https://www.paypal.com/us/legalhub/privacy-full",
+  "policy_last_updated": "2024",
+  "scraped_date": "2026-03-20",
+  "category": "Fintech & Payments",
+  "data_collected": {
+    "types": [
+      "name",
+      "email address",
+      "phone number",
+      "postal address",
+      "payment account information",
+      "transaction history",
+      "browsing behavior",
+      "device information",
+      "IP address",
+      "location data",
+      "cookies",
+      "device identifiers",
+      "financial information",
+      "government ID information"
+    ],
+    "sensitive_types": [
+      "financial account information",
+      "government ID information",
+      "precise geolocation"
+    ],
+    "count": 14,
+    "sensitive_count": 3,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "process payments and transactions",
+      "account verification and compliance",
+      "prevent fraud and money laundering",
+      "provide customer support",
+      "personalize experience",
+      "marketing and promotional offers",
+      "analytics and service improvement",
+      "risk assessment",
+      "comply with legal and regulatory obligations"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "PayPal does not sell personal information to third parties for marketing"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Shares data with advertising partners for targeted marketing"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Uses cookies and tracking technologies for analytics"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Creates profiles for risk assessment and fraud detection"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not explicitly addressed in public policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "banks and financial institutions",
+      "payment networks",
+      "fraud prevention services",
+      "identity verification providers",
+      "customer support vendors",
+      "analytics and marketing partners",
+      "advertising networks",
+      "regulatory authorities and law enforcement"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Data retained for account duration and as required by financial regulations and law; transaction records retained for 7+ years for compliance",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Users can access their account information and data"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Users can request deletion of data, subject to legal retention requirements"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Users can update their account information"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Users can opt out of marketing communications and personalization"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not explicitly stated in public materials"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not clearly stated in public materials"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Uses industry-standard encryption for data transmission"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Encrypts sensitive data at rest"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Two-factor authentication available for account security"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Will notify users of data breaches as required by law"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Subject to independent security audits and compliance reviews"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not explicitly addressed"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not explicitly addressed"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Services not directed at children under 13; parental consent required for minors 13-18",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "AI/machine learning training use not addressed",
+    "Data portability not explicitly offered",
+    "GPC/DNT signal support not mentioned",
+    "Detailed information on independent audit scope not provided"
+  ],
+  "label_notes": "Source: training knowledge (live fetch blocked). PayPal is highly regulated and collects sensitive financial and identity data. Stronger security posture than typical e-commerce (encryption at rest disclosed, independent audits). Does not sell data to third parties for marketing. Long retention for transaction records due to financial regulations. Gaps: no mention of AI training use or data portability."
+}

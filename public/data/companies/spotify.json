@@ -1,0 +1,150 @@
+{
+  "company": "Spotify AB",
+  "app_or_service": "Spotify",
+  "policy_url": "https://www.spotify.com/us/legal/privacy-policy/",
+  "policy_last_updated": "2024-01",
+  "scraped_date": "2026-03-20",
+  "category": "Streaming & Entertainment",
+  "data_collected": {
+    "types": [
+      "Name, email address, phone number",
+      "Birth date, gender",
+      "Payment information",
+      "Account login credentials",
+      "Listening history, favorite songs/artists/playlists",
+      "Playback position and progress",
+      "Cookies and similar identifiers",
+      "IP address, device information",
+      "Geolocation data",
+      "Music preferences and taste profile",
+      "Search history",
+      "Social media profile info (if linked)"
+    ],
+    "sensitive_types": [
+      "Precise geolocation data"
+    ],
+    "count": 12,
+    "sensitive_count": 1,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Service delivery and account management",
+      "Personalization of recommendations",
+      "Advertising and marketing",
+      "Analytics and service improvement",
+      "Content delivery optimization",
+      "Fraud prevention and security",
+      "Legal compliance"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Advertising partners",
+      "Analytics providers",
+      "Payment processors",
+      "Service providers and vendors",
+      "Law enforcement (when required)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Account data retained during active account use and for reasonable period after deletion. Playback history and preferences may be retained longer for analytics.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Spotify requires users to be 13+ years old. Has special protections for younger users where required by law.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "AI training use not explicitly addressed",
+    "GPC signal honor not stated",
+    "Appeal mechanisms for data decisions not detailed"
+  ],
+  "label_notes": "Source: training knowledge. Spotify's policy emphasizes GDPR/CCPA compliance. Shared data is primarily with advertising partners and analytics providers, but policy does not explicitly state data sales. MFA and encryption practices are standard for the industry."
+}

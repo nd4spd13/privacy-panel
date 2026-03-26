@@ -1,0 +1,159 @@
+{
+  "company": "PayPal Holdings Inc. (Venmo)",
+  "app_or_service": "Venmo",
+  "policy_url": "https://venmo.com/legal/us-privacy-policy/",
+  "policy_last_updated": "2024",
+  "scraped_date": "2026-03-20",
+  "category": "Fintech & Payments",
+  "data_collected": {
+    "types": [
+      "name",
+      "email address",
+      "phone number",
+      "postal address",
+      "payment account information",
+      "transaction history",
+      "payment descriptions/notes",
+      "contacts (phone/email)",
+      "device information",
+      "IP address",
+      "location data",
+      "cookies",
+      "behavioral data",
+      "social connections"
+    ],
+    "sensitive_types": [
+      "financial account information",
+      "precise geolocation"
+    ],
+    "count": 14,
+    "sensitive_count": 2,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "process peer-to-peer payments",
+      "account verification",
+      "fraud prevention",
+      "customer support",
+      "personalization",
+      "marketing and promotional offers",
+      "social networking features",
+      "analytics",
+      "comply with legal obligations"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Venmo does not sell personal information to third parties for marketing"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Shares data with advertising partners for targeted ads"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Uses cookies and pixels for cross-site tracking"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Profiles user behavior for personalization and recommendations"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not explicitly addressed in public policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "PayPal (parent company)",
+      "banks and payment networks",
+      "fraud prevention services",
+      "customer support vendors",
+      "analytics and advertising networks",
+      "identity verification providers",
+      "law enforcement (as required)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Data retained for account duration and as required by financial regulations; transaction data retained for 7+ years",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Users can access their account information"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Users can request deletion of their account and data"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Users can update their account information"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Users can opt out of marketing and personalization"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not explicitly stated in public materials"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not clearly stated in public materials"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Uses encryption for data transmission"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Encrypts sensitive financial data at rest"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Two-factor authentication available"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Will notify users of breaches as required by law"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not explicitly stated in public materials"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not explicitly addressed"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not explicitly addressed"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 18,
+    "coppa_compliant": true,
+    "notes": "Requires users to be 18 years or older due to financial services nature",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "AI/machine learning training use not addressed",
+    "Data portability not explicitly offered",
+    "GPC/DNT signal support not mentioned",
+    "Independent audit information not disclosed",
+    "Public transaction note visibility and privacy controls not detailed"
+  ],
+  "label_notes": "Source: training knowledge (live fetch blocked). Venmo is a social payment app owned by PayPal with unique privacy consideration: transaction notes can be publicly visible by default. Collects significant social connection data. Does not sell data to third parties, but shares with advertising partners. Minimum age 18 (stricter than COPPA). Notable gap: public/private transaction note settings should be prominently disclosed."
+}

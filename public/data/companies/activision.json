@@ -1,0 +1,167 @@
+{
+  "company": "Activision Blizzard (Microsoft subsidiary)",
+  "app_or_service": "Call of Duty / Battle.net",
+  "policy_url": "https://www.activision.com/en/legal/privacy-policy",
+  "policy_last_updated": "2024-06",
+  "scraped_date": "2026-03-20",
+  "category": "Gaming",
+  "data_collected": {
+    "types": [
+      "Battle.net account information",
+      "Email address",
+      "Username and profile data",
+      "Payment and billing information",
+      "Game play data and statistics",
+      "Voice and text chat",
+      "In-game behavior and reports",
+      "Device and hardware information",
+      "IP address",
+      "Location data (if enabled)",
+      "Cookies and identifiers",
+      "Social connections and friends",
+      "Support tickets and communication"
+    ],
+    "sensitive_types": [
+      "Financial information (payment cards)",
+      "Voice recordings from in-game chat",
+      "Location data",
+      "Behavioral data (reports, bans)"
+    ],
+    "count": 13,
+    "sensitive_count": 4,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide gaming services",
+      "Process payments and billing",
+      "Authenticate and verify identity",
+      "Monitor and enforce conduct rules",
+      "Prevent cheating and abuse",
+      "Improve game experience",
+      "Cross-game progression",
+      "Personalization",
+      "Analytics and performance metrics",
+      "Customer support",
+      "Anti-cheat and security measures",
+      "Legal compliance"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Activision does not sell personal data"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — data may be shared with Microsoft for advertising"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — cross-game tracking via Battle.net; Microsoft ecosystem tracking"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — profiling for behavior detection and personalization"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not clearly stated; may use data for anti-cheat AI"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Microsoft (parent company)",
+      "Payment processors",
+      "Anti-cheat service providers",
+      "Voice and chat platforms",
+      "Analytics providers",
+      "Law enforcement",
+      "Business partners",
+      "Advertising networks (Microsoft-affiliated)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Account data retained while account active; gameplay logs and reports retained for moderation; voice/chat data retention not clearly specified",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — users can request account data"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — account deletion available"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — profile information can be updated"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": null,
+      "source_quote": "Limited opt-out options; Microsoft integration complicates data sharing"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not clearly stated"
+    },
+    "appeal_decisions": {
+      "value": true,
+      "source_quote": "Based on training knowledge — appeal process for account suspensions/bans"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — HTTPS/TLS encryption"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — industry standard encryption"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — two-factor authentication available"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — legal requirement compliance"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not stated in public policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not clearly addressed"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — DNT signals not honored"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": null,
+    "notes": "Service available to 13+; Call of Duty is rated M for Mature but accessible to minors; limited parental control documentation",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Voice/chat data retention periods not clearly stated",
+    "Microsoft integration data sharing not fully transparent",
+    "Data portability not explicitly offered",
+    "GPC signal handling not addressed",
+    "Independent security audits not mentioned",
+    "Anti-cheat data collection scope unclear",
+    "Behavioral data usage for profiling not detailed",
+    "Appeal procedures not fully documented"
+  ],
+  "label_notes": "Source: training knowledge (WebFetch blocked 2026-03-20). Based on Activision Privacy Policy through mid-2025. Notable: Microsoft acquisition (2023) has implications for data sharing and advertising practices. Extensive behavioral monitoring for anti-cheat. Voice chat data collection significant privacy concern. Call of Duty Mature rating but teen players common; parental controls limited."
+}

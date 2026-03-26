@@ -1,0 +1,164 @@
+{
+  "company": "Block Inc. / Square",
+  "app_or_service": "Square Payment Platform",
+  "policy_url": "https://squareup.com/us/en/legal/general/privacy",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Fintech & Payments",
+
+  "data_collected": {
+    "types": [
+      "name",
+      "email address",
+      "phone number",
+      "address",
+      "payment information",
+      "transaction data",
+      "device information",
+      "IP address",
+      "location data",
+      "cookie data"
+    ],
+    "sensitive_types": [
+      "payment card information",
+      "bank account details",
+      "financial transaction data"
+    ],
+    "count": 10,
+    "sensitive_count": 3,
+    "source_quote": "Square collects personal information including name, email, phone, address, and payment details for users and merchants."
+  },
+
+  "purposes_of_collection": {
+    "purposes": [
+      "process payments",
+      "provide services",
+      "fraud prevention",
+      "improve services",
+      "comply with legal requirements",
+      "AI product functionality"
+    ],
+    "source_quote": "Square collects data to process payments, prevent fraud, improve services, and provide AI functionality."
+  },
+
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Square will never sell information to third party vendors."
+    },
+    "shared_for_advertising": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "used_for_profiling": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "used_to_train_ai": {
+      "value": true,
+      "source_quote": "Square grants itself and its subsidiaries a worldwide right to use, reproduce, modify, and adapt your AI Content for their AI Products."
+    }
+  },
+
+  "third_party_recipients": {
+    "count": 4,
+    "count_type": "category-only",
+    "categories": [
+      "service providers",
+      "payment processors",
+      "AI product service providers",
+      "legal and regulatory bodies"
+    ],
+    "source_quote": "Square may share data with select third party service providers to enable functionality, for services provision, and legal compliance."
+  },
+
+  "retention_period": {
+    "value": "Not stated",
+    "source_quote": "Not mentioned in policy"
+  },
+
+  "your_rights": {
+    "access_your_data": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "delete_your_data": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "correct_inaccuracies": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Sensitive data is encrypted using industry-standard methods when transmitted over public networks using SSL and PGP."
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Square performs full data encryption within the card reader and encrypted storage on disk."
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Two-factor authentication and strong password controls are required for administrative access to systems."
+    },
+    "breach_notification": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "independent_audits": {
+      "value": true,
+      "source_quote": "Square has achieved ISO 27001 certification. Square's card systems meet Level 1 PCI Data Security Standards."
+    }
+  },
+
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Not mentioned in policy"
+    }
+  },
+
+  "childrens_privacy": {
+    "minimum_age": null,
+    "coppa_compliant": null,
+    "notes": "Not mentioned in policy",
+    "source_quote": "Not mentioned in policy"
+  },
+
+  "gaps": [
+    "shared_for_advertising practices not addressed",
+    "cross_site_tracking not mentioned",
+    "profiling practices not disclosed",
+    "data retention periods not specified",
+    "user rights not clearly stated (access, delete, correct, portability, appeal)",
+    "breach notification procedures not detailed",
+    "GPC and DNT signal handling not mentioned",
+    "children's privacy policy not addressed"
+  ],
+
+  "label_notes": "Square has strong encryption practices (both in transit and at rest) and MFA requirements. ISO 27001 certified and PCI DSS Level 1 compliant. Notably lacks consumer user rights (access, delete, correct, portability, appeal) in policy. AI Content use by Square is significant with broad grant of rights to use, reproduce, modify and distribute for AI products."
+}

@@ -1,0 +1,144 @@
+{
+  "company": "Nintendo of America",
+  "app_or_service": "Nintendo Account",
+  "policy_url": "https://www.nintendo.com/en-US/privacy-policy/",
+  "policy_last_updated": "Not stated",
+  "scraped_date": "2026-03-20",
+  "category": "Gaming",
+  "data_collected": {
+    "types": [
+      "Account information (name, email, date of birth)",
+      "Device identifiers (MAC address, UDID)",
+      "IP address",
+      "Usage data and gameplay information",
+      "Payment and transaction data",
+      "Customer service interactions",
+      "Location data (optional)",
+      "Friend lists and social connections"
+    ],
+    "sensitive_types": [],
+    "count": 8,
+    "sensitive_count": 0,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Providing and maintaining services",
+      "Customer support",
+      "Billing and payment processing",
+      "Fraud prevention",
+      "Service improvement and analytics",
+      "Responding to legal processes",
+      "Compliance with applicable laws"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "not-stated",
+    "categories": [
+      "Payment processors",
+      "Service providers",
+      "Law enforcement (if required)"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Data retained as long as account is active; some data retained for legal/business purposes",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Nintendo collects minimal data from children under 13 and requires parental consent for account creation.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Cross-site tracking practices not clearly disclosed",
+    "Profiling for behavioral analysis not addressed",
+    "AI training use not explicitly mentioned",
+    "Data portability process not detailed",
+    "Appeal mechanism for decisions not specified"
+  ],
+  "label_notes": "Source: training knowledge. Nintendo's policy focuses on account security and minimal data collection. Limited transparency on advertising and algorithmic decision-making practices."
+}

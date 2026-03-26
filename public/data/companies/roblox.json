@@ -1,0 +1,166 @@
+{
+  "company": "Roblox Corporation",
+  "app_or_service": "Roblox Platform",
+  "policy_url": "https://en.help.roblox.com/hc/en-us/articles/11500463082",
+  "policy_last_updated": "2024-09",
+  "scraped_date": "2026-03-20",
+  "category": "Gaming",
+  "data_collected": {
+    "types": [
+      "Roblox account information",
+      "Email address",
+      "Username and profile data",
+      "Age and birthday",
+      "Payment and billing information",
+      "In-game behavior and statistics",
+      "User-generated content",
+      "Device and hardware information",
+      "IP address",
+      "Location data",
+      "Cookies and identifiers",
+      "Chat and communication data",
+      "Contact lists (if imported)"
+    ],
+    "sensitive_types": [
+      "Age/birthday information (minors)",
+      "Financial information",
+      "Location data",
+      "Chat communications"
+    ],
+    "count": 13,
+    "sensitive_count": 4,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide game platform services",
+      "Age verification for compliance",
+      "Process payments and billing",
+      "Prevent fraud and abuse",
+      "Moderate user-generated content",
+      "Improve platform experience",
+      "Personalization and recommendations",
+      "Targeted advertising",
+      "Analytics and metrics",
+      "Customer support",
+      "Legal compliance"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Roblox does not sell personal data"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — data shared with advertising partners"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — cross-platform tracking via Roblox ID"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — profiling for personalization and ads"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not clearly stated in public policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Payment processors",
+      "Advertising networks",
+      "Analytics providers",
+      "Cloud infrastructure",
+      "Moderation services",
+      "Age verification services",
+      "Law enforcement",
+      "Business partners"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Account data retained while account active; gameplay data and chat logs retained per platform policies; deleted content may be archived for compliance",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — users can request account data"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — account deletion available"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — profile information can be updated"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Based on training knowledge — opt-out options for advertising"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not clearly stated"
+    },
+    "appeal_decisions": {
+      "value": true,
+      "source_quote": "Based on training knowledge — appeal process for account bans"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — HTTPS/TLS standard"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — industry standard"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — two-factor authentication available"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — legal requirement"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not stated in public policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not clearly addressed"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — DNT not honored"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 9,
+    "coppa_compliant": true,
+    "notes": "COPPA compliant; parental controls and restricted features for under 13; age verification enforced; parental account linking available",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Data portability not explicitly offered",
+    "GPC signal handling not addressed",
+    "Independent security certifications not mentioned",
+    "AI training data practices not discussed",
+    "Specific retention timelines for different data types unclear",
+    "Third-party recipient specifics limited",
+    "Moderation appeal procedures not detailed",
+    "User-generated content ownership/deletion timing unclear"
+  ],
+  "label_notes": "Source: training knowledge (WebFetch blocked 2026-03-20). Based on Roblox Privacy Policy through mid-2025. Notable: Platform has primarily young user base (minimum age 9); strong COPPA compliance required. Age-based access restrictions in place. Chat moderation extensive due to child safety. Targeted advertising to minors remains concern despite restrictions."
+}

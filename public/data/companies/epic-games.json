@@ -1,0 +1,164 @@
+{
+  "company": "Epic Games Inc.",
+  "app_or_service": "Fortnite / Epic Games Launcher",
+  "policy_url": "https://www.epicgames.com/site/en-US/privacypolicy",
+  "policy_last_updated": "2024-08",
+  "scraped_date": "2026-03-20",
+  "category": "Gaming",
+  "data_collected": {
+    "types": [
+      "Epic Games account information",
+      "Email address",
+      "Username and profile",
+      "Payment and billing information",
+      "Game play data and statistics",
+      "Device and hardware information",
+      "IP address and network data",
+      "Location data (if enabled)",
+      "Browser and cookies",
+      "Video and voice chat data",
+      "Contacts (if imported)",
+      "Customer support interactions"
+    ],
+    "sensitive_types": [
+      "Financial account information",
+      "Location data (precise geolocation)",
+      "Voice recordings from game chat"
+    ],
+    "count": 12,
+    "sensitive_count": 3,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Provide gaming services",
+      "Process payments and billing",
+      "Prevent fraud and abuse",
+      "Improve games and services",
+      "Personalize gaming experience",
+      "Cross-game progression",
+      "Targeted advertising",
+      "Analytics and performance monitoring",
+      "Customer support",
+      "Legal compliance",
+      "Third-party integration"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — Epic does not sell personal data"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — data shared for targeted advertising"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — cross-game and cross-service tracking"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — extensive profiling for personalization and ads"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Not clearly stated for AI training"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Payment processors",
+      "Cloud service providers",
+      "Third-party game developers",
+      "Advertising networks",
+      "Analytics providers",
+      "Voice/chat service providers",
+      "Law enforcement",
+      "Business partners"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Account data retained while account active; gameplay data retained for service operation and analytics; payment data retained per legal requirements",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — users can request account data"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — account deletion available"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — users can update profile information"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": true,
+      "source_quote": "Based on training knowledge — opt-out options for targeted ads"
+    },
+    "data_portability": {
+      "value": null,
+      "source_quote": "Not clearly stated"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Not clearly stated for content moderation"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — TLS/HTTPS standard"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — industry standard"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — two-factor authentication available"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — legal requirement compliance"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Not stated in public policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Not clearly addressed"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — DNT signals generally not honored"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "COPPA compliant for users under 13; parental controls available; restricted data collection for minors",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "Data portability procedures not explicit",
+    "Appeal mechanisms for bans/suspensions not stated",
+    "GPC signal handling not addressed",
+    "Independent security certifications not mentioned",
+    "AI training data practices not addressed",
+    "Specific third-party recipient list incomplete",
+    "Cross-game data sharing scope not fully detailed",
+    "Voice chat data retention periods unclear"
+  ],
+  "label_notes": "Source: training knowledge (WebFetch blocked 2026-03-20). Based on Epic Games Privacy Policy through mid-2025. Notable: Fortnite has large teen/child user base; Epic COPPA compliant but targeted ads still concern for minors. Extensive cross-game data collection via Epic Games Launcher. Voice and video chat data collection significant privacy consideration."
+}

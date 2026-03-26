@@ -1,0 +1,154 @@
+{
+  "company": "Twitch Interactive, Inc. (Amazon subsidiary)",
+  "app_or_service": "Twitch",
+  "policy_url": "https://www.twitch.tv/p/en/legal/privacy-notice/",
+  "policy_last_updated": "2024-01",
+  "scraped_date": "2026-03-20",
+  "category": "Streaming & Entertainment",
+  "data_collected": {
+    "types": [
+      "Name, email address, phone number",
+      "Username and account ID",
+      "Password (hashed)",
+      "Date of birth",
+      "Mailing address",
+      "Payment and billing information",
+      "Viewing history and watch time",
+      "Channel subscription and follows",
+      "Chat messages and user-generated content",
+      "IP address and device identifiers",
+      "Cookies and tracking technologies",
+      "Location data (approximate)",
+      "Browser and operating system info"
+    ],
+    "sensitive_types": [],
+    "count": 13,
+    "sensitive_count": 0,
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "purposes_of_collection": {
+    "purposes": [
+      "Service delivery and streaming platform operation",
+      "User authentication and account management",
+      "Content recommendation and personalization",
+      "Advertising and marketing",
+      "Community moderation and enforcement",
+      "Payment and subscription management",
+      "Analytics and service improvement",
+      "Fraud and abuse prevention",
+      "Legal compliance"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "data_practices": {
+    "sold_to_third_parties": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "shared_for_advertising": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "cross_site_tracking": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_for_profiling": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "used_to_train_ai": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "third_party_recipients": {
+    "count": null,
+    "count_type": "category-only",
+    "categories": [
+      "Amazon and Amazon Web Services",
+      "Advertising and analytics partners",
+      "Payment processors and financial institutions",
+      "Service providers and vendors",
+      "Content delivery networks",
+      "Law enforcement and government (when required)",
+      "Third parties when user consents"
+    ],
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "retention_period": {
+    "value": "Account data retained during active subscription plus limited period post-deletion. Chat history and stream data retained according to content policies. Log data retained for limited duration.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "your_rights": {
+    "access_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "delete_your_data": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "correct_inaccuracies": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "opt_out_of_sale_sharing": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "data_portability": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "appeal_decisions": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "security_measures": {
+    "encrypted_in_transit": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "encrypted_at_rest": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "mfa_available": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "breach_notification": {
+      "value": true,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "independent_audits": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "tracking_signals": {
+    "honors_gpc": {
+      "value": null,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    },
+    "honors_dnt": {
+      "value": false,
+      "source_quote": "Based on training knowledge — verify against live policy"
+    }
+  },
+  "childrens_privacy": {
+    "minimum_age": 13,
+    "coppa_compliant": true,
+    "notes": "Twitch requires 13+ years old. Has restricted mode for younger users and account restrictions for under-18.",
+    "source_quote": "Based on training knowledge — verify against live policy"
+  },
+  "gaps": [
+    "AI training use not explicitly stated",
+    "Appeal mechanisms for moderation decisions not detailed",
+    "GPC signal honor not mentioned",
+    "Independent security audits not mentioned"
+  ],
+  "label_notes": "Source: training knowledge. Twitch (Amazon subsidiary) shares user data with Amazon services. Policy covers extensive user-generated content data (chat, streams). Community conduct moderation data collection is significant. Does not honor standard privacy signals."
+}
