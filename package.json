@@ -14,8 +14,8 @@
     "test:extraction": "vitest run tests/core/extraction",
     "test:schema": "vitest run tests/core/schema",
     "test:e2e": "playwright test",
-    "cli": "tsx cli/index.ts",
-    "batch": "tsx cli/index.ts batch"
+    "cli": "tsx --require ./cli/server-only-shim.cjs cli/index.ts",
+    "batch": "tsx --require ./cli/server-only-shim.cjs cli/index.ts batch"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
