@@ -90,7 +90,7 @@ function labelHTML(data: PrivacyFacts, grade: GradeResult): string {
 }
 
 function neutralLabelHTML(data: PrivacyFacts): string {
-  const { dataCollection, dataSharing, retention, consumerRights, signalHonoring, security, metadata } = data;
+  const { dataCollection, dataSharing, retention, consumerRights, signalHonoring, security, metadata, thirdPartyRecipients } = data;
 
   const retLabel = retentionLabel(retention);
 
@@ -100,10 +100,9 @@ function neutralLabelHTML(data: PrivacyFacts): string {
     { label: "Portability", v: consumerRights.rightToPortability.value },
     { label: "Correct", v: consumerRights.rightToCorrect.value },
     { label: "Opt-out", v: consumerRights.rightToOptOut.value },
-    { label: "Non-discrimination", v: consumerRights.rightToNonDiscrimination.value },
   ];
 
-  const measures = security.measures.slice(0, 6);
+  const measures = security.additionalMeasures.slice(0, 6);
 
   return `<div style="width:${W}px;border:2.5px solid #000;font-family:Arial,Helvetica,sans-serif;background:#fff">
   <div style="padding:8px 8px 6px;border-bottom:7px solid #000">
@@ -134,8 +133,8 @@ function neutralLabelHTML(data: PrivacyFacts): string {
     ${practiceRow("Cross-site tracking", dataSharing.crossSiteTracking.value)}
     ${practiceRow("Used for profiling / AI decisions", dataSharing.usedForProfiling.value)}
     ${practiceRow("Used to train AI models", dataSharing.usedToTrainAI.value)}
-    ${dataSharing.thirdPartyCount !== null
-      ? `<div style="font-size:11px;color:#6b7280;padding-top:4px">Third parties: <span style="font-weight:700;color:${dataSharing.thirdPartyCount > 10 ? "#b91c1c" : "#000"}">${dataSharing.thirdPartyCount}</span></div>`
+    ${thirdPartyRecipients.categoryCount !== null
+      ? `<div style="font-size:11px;color:#6b7280;padding-top:4px">Third parties: <span style="font-weight:700;color:${(thirdPartyRecipients.categoryCount ?? 0) > 10 ? "#b91c1c" : "#000"}">${thirdPartyRecipients.categoryCount}</span></div>`
       : ""}
   </div>
 
@@ -168,8 +167,8 @@ function neutralLabelHTML(data: PrivacyFacts): string {
   <div style="padding:4px 8px">
     <div style="font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#6b7280;margin-bottom:4px">Privacy Signals</div>
     <div style="display:flex;gap:12px;flex-wrap:wrap">
-      ${signalPill("GPC", signalHonoring.honorsGPC.value)}
-      ${signalPill("DNT", signalHonoring.honorsDNT.value)}
+      ${signalPill("GPC", signalHonoring.gpcDetail.value)}
+      ${signalPill("DNT", signalHonoring.dntDetail.value)}
     </div>
   </div>
 
@@ -190,17 +189,19 @@ function esc(str: string): string {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-function practiceRow(label: string, value: boolean, critical = false): string {
-  const badge = value
+function practiceRow(label: string, value: boolean | null, critical = false): string {
+  const badge = value === true
     ? `<span style="display:inline-block;background:${critical ? "#b91c1c" : "#000"};color:#fff;font-size:9px;font-weight:800;padding:2px 6px;border-radius:3px;min-width:32px;text-align:center">YES</span>`
+    : value === null
+    ? `<span style="display:inline-block;color:#6b7280;font-size:9px;font-weight:600;padding:2px 6px;border:0.5px solid #6b7280;border-radius:3px;min-width:32px;text-align:center">?</span>`
     : `<span style="display:inline-block;color:#6b7280;font-size:9px;font-weight:600;padding:2px 6px;border:0.5px solid #6b7280;border-radius:3px;min-width:32px;text-align:center">no</span>`;
   return `<div style="display:flex;align-items:center;gap:8px;padding:3px 0">
     ${badge}
-    <span style="font-size:12px;font-weight:${value ? 600 : 400};color:${value && critical ? "#b91c1c" : "#000"}">${esc(label)}</span>
+    <span style="font-size:12px;font-weight:${value === true ? 600 : 400};color:${value === true && critical ? "#b91c1c" : "#000"}">${esc(label)}</span>
   </div>`;
 }
 
-function checkItem(label: string, checked: boolean): string {
+function checkItem(label: string, checked: boolean | null): string {
   const bg = checked ? "#15803d" : "transparent";
   const border = checked ? "#15803d" : "#6b7280";
   const check = checked
@@ -212,9 +213,9 @@ function checkItem(label: string, checked: boolean): string {
   </div>`;
 }
 
-function signalPill(label: string, honored: boolean): string {
-  const bg = honored ? "#15803d" : "#b91c1c";
-  const text = honored ? "honored" : "not honored";
+function signalPill(label: string, honored: boolean | null): string {
+  const bg = honored === true ? "#15803d" : honored === false ? "#b91c1c" : "#6b7280";
+  const text = honored === true ? "honored" : honored === false ? "not honored" : "unknown";
   return `<div style="display:flex;align-items:center;gap:6px">
     <span style="display:inline-block;background:${bg};color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px">${text}</span>
     <span style="font-size:12px">${esc(label)}</span>
@@ -222,11 +223,14 @@ function signalPill(label: string, honored: boolean): string {
 }
 
 function retentionLabel(retention: PrivacyFacts["retention"]): { text: string; color: string } {
-  if (retention.indefinite) return { text: "Indefinite", color: "#b91c1c" };
-  if (retention.retentionDays === null) return { text: "Not specified", color: "#6b7280" };
-  const days = retention.retentionDays;
-  if (days <= 90) return { text: `${days} days`, color: "#15803d" };
-  if (days <= 365) return { text: `${days} days`, color: "#000" };
-  const years = (days / 365).toFixed(1).replace(/\.0$/, "");
-  return { text: `${years} years`, color: days > 365 * 3 ? "#b91c1c" : "#000" };
+  const period = retention.longestStatedPeriod;
+  if (!period || period === "not stated") return { text: "Not specified", color: "#6b7280" };
+  if (period === "indefinitely") return { text: "Indefinite", color: "#b91c1c" };
+  // Try to infer color from the string (> 3 years → red)
+  const yearsMatch = period.match(/^(\d+(?:\.\d+)?)\s*years?$/i);
+  if (yearsMatch) {
+    const y = parseFloat(yearsMatch[1]);
+    return { text: period, color: y > 3 ? "#b91c1c" : y > 1 ? "#000" : "#15803d" };
+  }
+  return { text: period, color: "#000" };
 }

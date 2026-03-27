@@ -446,18 +446,18 @@ function printResults(
   printPractice("Cross-site tracking", data.dataSharing.crossSiteTracking.value);
   printPractice("Used for profiling / AI decisions", data.dataSharing.usedForProfiling.value);
   printPractice("Used to train AI models", data.dataSharing.usedToTrainAI.value);
-  if (data.dataSharing.thirdPartyCount !== null) {
-    console.log(chalk.dim(`    Third parties: ${data.dataSharing.thirdPartyCount}`));
+  if (data.thirdPartyRecipients.categoryCount !== null) {
+    console.log(chalk.dim(`    Third parties: ${data.thirdPartyRecipients.categoryCount}`));
   }
   console.log();
 
   // Retention
   console.log(chalk.bold("  Data Retention"));
-  if (data.retention.indefinite) {
+  const retPeriod = data.retention.longestStatedPeriod;
+  if (retPeriod === "indefinitely") {
     console.log(`    ${chalk.red("Indefinite")}`);
-  } else if (data.retention.retentionDays !== null) {
-    const years = (data.retention.retentionDays / 365).toFixed(1);
-    console.log(`    ${data.retention.retentionDays} days (~${years} years)`);
+  } else if (retPeriod && retPeriod !== "not stated") {
+    console.log(`    ${retPeriod}`);
   } else {
     console.log(chalk.dim("    Not specified"));
   }
@@ -470,21 +470,20 @@ function printResults(
   printRight("Right to portability", data.consumerRights.rightToPortability.value);
   printRight("Right to correct", data.consumerRights.rightToCorrect.value);
   printRight("Right to opt out", data.consumerRights.rightToOptOut.value);
-  printRight("Right to non-discrimination", data.consumerRights.rightToNonDiscrimination.value);
   console.log();
 
   // Signals
   console.log(chalk.bold("  Privacy Signals"));
-  printSignal("Honors GPC", data.signalHonoring.honorsGPC.value);
-  printSignal("Honors DNT", data.signalHonoring.honorsDNT.value);
+  printSignal("GPC", data.signalHonoring.gpcDetail.value);
+  printSignal("DNT", data.signalHonoring.dntDetail.value);
   console.log();
 
   // Security
   console.log(chalk.bold("  Security Measures"));
-  if (data.security.measures.length === 0) {
+  if (data.security.additionalMeasures.length === 0) {
     console.log(chalk.dim("    (none disclosed)"));
   } else {
-    data.security.measures.forEach((m) => console.log(`    ${chalk.green("✓")} ${m.name}`));
+    data.security.additionalMeasures.forEach((m) => console.log(`    ${chalk.green("✓")} ${m.name}`));
   }
   console.log();
 
@@ -508,20 +507,20 @@ function printResults(
   console.log();
 }
 
-function printPractice(label: string, value: boolean, critical = false) {
-  const badge = value
+function printPractice(label: string, value: boolean | null, critical = false) {
+  const badge = value === true
     ? critical ? chalk.bgRed.white(" YES ") : chalk.bgBlack.white(" YES ")
-    : chalk.dim(" no  ");
+    : value === null ? chalk.dim("  ?  ") : chalk.dim(" no  ");
   console.log(`    ${badge}  ${label}`);
 }
 
-function printRight(label: string, value: boolean) {
-  const check = value ? chalk.green("✓") : chalk.dim("✗");
+function printRight(label: string, value: boolean | null) {
+  const check = value === true ? chalk.green("✓") : value === null ? chalk.dim("?") : chalk.dim("✗");
   console.log(`    ${check}  ${label}`);
 }
 
-function printSignal(label: string, honored: boolean) {
-  const badge = honored ? chalk.green("honored") : chalk.red("NOT honored");
+function printSignal(label: string, value: boolean | null) {
+  const badge = value === true ? chalk.green("honored") : value === false ? chalk.red("NOT honored") : chalk.dim("unknown");
   console.log(`    ${badge}  ${label}`);
 }
 

@@ -1,0 +1,183 @@
+version: "2"
+startScore: 100
+
+# Tier weights: core fields get full weight, emerging get half, aspirational are bonus-only
+tiers:
+  core:
+    weight: 1.0
+    description: "Fields addressed by >80% of policies"
+  emerging:
+    weight: 0.5
+    description: "Fields addressed by 45-80% of policies"
+  aspirational:
+    weight: 0.0
+    description: "Fields addressed by <45% of policies — bonus only"
+
+# nullBehavior: what happens when a BooleanPractice value is null (policy silent)
+#   full  = treat null same as triggered (apply full deduction)
+#   half  = apply half the deduction points
+#   skip  = no deduction (null is not penalized)
+
+deductions:
+  # ── CORE TIER ────────────────────────────────────────────────────────────────
+  soldToThirdParties:
+    points: 25
+    tier: core
+    nullBehavior: half
+    label: "Data sold to third parties"
+
+  sharedForAdvertising:
+    points: 10
+    tier: core
+    nullBehavior: half
+    label: "Data shared for advertising"
+
+  usedForProfiling:
+    points: 8
+    tier: core
+    nullBehavior: half
+    label: "Used for profiling / automated decisions"
+
+  collectsPreciseGeolocation:
+    points: 8
+    tier: core
+    nullBehavior: skip
+    label: "Collects precise geolocation"
+
+  collectsBiometricData:
+    points: 8
+    tier: core
+    nullBehavior: skip
+    label: "Collects biometric data"
+
+  collectsHealthData:
+    points: 5
+    tier: core
+    nullBehavior: skip
+    label: "Collects health data"
+
+  collectsFinancialData:
+    points: 3
+    tier: core
+    nullBehavior: skip
+    label: "Collects financial data"
+
+  disclosedToLawEnforcement:
+    points: 3
+    tier: core
+    nullBehavior: skip
+    label: "Data disclosed to law enforcement"
+
+  # ── THIRD-PARTY RECIPIENTS (category-based, mutually exclusive tiers) ────────
+  thirdPartyCategoriesOver5:
+    points: 8
+    tier: core
+    nullBehavior: skip
+    label: "More than 5 third-party recipient categories"
+
+  thirdPartyCategories3To5:
+    points: 4
+    tier: core
+    nullBehavior: skip
+    label: "3–5 third-party recipient categories"
+
+  thirdPartyIncludesAdvertising:
+    points: 5
+    tier: core
+    nullBehavior: skip
+    label: "Third parties include advertising networks"
+
+  # ── RETENTION ────────────────────────────────────────────────────────────────
+  # Note: legallyMandatedRetention=true skips retentionOver3Years
+  retentionIndefinite:
+    points: 10
+    tier: core
+    nullBehavior: full
+    label: "Retention is indefinite"
+
+  retentionNotStated:
+    points: 8
+    tier: core
+    nullBehavior: skip
+    label: "Retention period not disclosed"
+
+  retentionOver3Years:
+    points: 5
+    tier: core
+    nullBehavior: skip
+    label: "Retention longer than 3 years (non-mandated)"
+
+  # ── EMERGING TIER ────────────────────────────────────────────────────────────
+  crossSiteTracking:
+    points: 10
+    tier: emerging
+    nullBehavior: half
+    label: "Cross-site tracking"
+
+  doesNotHonorBrowserPrivacySignals:
+    points: 5
+    tier: emerging
+    nullBehavior: skip
+    label: "Does not honor browser privacy signals (GPC/DNT)"
+
+  # ── ASPIRATIONAL TIER (bonus-only — no deduction applied) ────────────────────
+  usedToTrainAI:
+    points: 8
+    tier: aspirational
+    nullBehavior: skip
+    label: "Used to train AI models"
+
+bonuses:
+  # Per consumer right (null = 0 bonus, not penalized)
+  perConsumerRight:
+    pointsEach: 2
+    maxCount: 5
+    label: "Consumer rights available"
+
+  # Per structured security measure (encrypted transit, encrypted rest, MFA, breach notification)
+  perSecurityMeasure:
+    pointsEach: 2
+    maxCount: 4
+    label: "Security measures in place"
+
+  # Bonus for honoring browser privacy signals
+  honorsBrowserSignals:
+    points: 3
+    label: "Honors browser privacy signals"
+
+  # Bonus for explicitly NOT using data to train AI
+  aiTrainingOptOut:
+    points: 3
+    label: "Does not use data for AI training (explicit)"
+
+  # Bonus for independent security audits
+  independentAudits:
+    points: 2
+    label: "Independent security audits"
+
+grades:
+  A:
+    min: 85
+    max: 100
+    label: "Excellent"
+    color: "#15803d"
+  B:
+    min: 70
+    max: 84
+    label: "Good"
+    color: "#4d7c0f"
+  C:
+    min: 55
+    max: 69
+    label: "Fair"
+    color: "#b45309"
+  D:
+    min: 40
+    max: 54
+    label: "Poor"
+    color: "#c2410c"
+  F:
+    min: 0
+    max: 39
+    label: "Failing"
+    color: "#b91c1c"
