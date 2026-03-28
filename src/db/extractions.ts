@@ -1,7 +1,6 @@
 import { getDb } from "./client";
 import type { PrivacyFacts } from "../core/schema/types";
 import type { GradeResult } from "../core/scoring/engine";
-import { migrateV1ToV2 } from "../core/extraction/validator";
 
 export interface ExtractionRow {
   id: number;
@@ -110,15 +109,7 @@ export function insertExtraction(
 
 function parseRow(row: ExtractionRow): ExtractionRecord {
   const { facts_json, breakdown_json, ...rest } = row;
-  let facts = JSON.parse(facts_json) as PrivacyFacts;
-
-  // Transparently upgrade v1 extractions stored in the DB
-  const schemaVersion = (facts as { metadata?: { schemaVersion?: string } }).metadata?.schemaVersion;
-  if (schemaVersion === "1.0.0") {
-    const migrated = migrateV1ToV2(facts);
-    if (migrated.success) facts = migrated.data;
-  }
-
+  const facts = JSON.parse(facts_json) as PrivacyFacts;
   const breakdown = JSON.parse(breakdown_json);
   return {
     ...rest,
