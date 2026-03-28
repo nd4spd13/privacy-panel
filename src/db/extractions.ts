@@ -1,7 +1,18 @@
+import { join } from "path";
 import { getDb } from "./client";
 import type { PrivacyFacts } from "../core/schema/types";
-import type { GradeResult } from "../core/scoring/engine";
+import { score, type GradeResult } from "../core/scoring/engine";
+import { loadRubricOrThrow, type Rubric } from "../core/scoring/rubric";
 import { migrateV1ToV2 } from "../core/extraction/validator";
+
+// Lazy-loaded v2 rubric — loaded once on first v1 migration, then cached
+let _v2Rubric: Rubric | null = null;
+function getV2Rubric(): Rubric {
+  if (!_v2Rubric) {
+    _v2Rubric = loadRubricOrThrow(join(process.cwd(), "src/core/scoring/rubric.v2.yaml"));
+  }
+  return _v2Rubric;
+}
 
 export interface ExtractionRow {
   id: number;
@@ -112,11 +123,15 @@ function parseRow(row: ExtractionRow): ExtractionRecord {
   const { facts_json, breakdown_json, ...rest } = row;
   let facts = JSON.parse(facts_json) as PrivacyFacts;
 
-  // Transparently upgrade v1 extractions stored in the DB
+  // Transparently upgrade v1 extractions: migrate schema then re-score with v2 rubric
   const schemaVersion = (facts as { metadata?: { schemaVersion?: string } }).metadata?.schemaVersion;
   if (schemaVersion === "1.0.0") {
     const migrated = migrateV1ToV2(facts);
-    if (migrated.success) facts = migrated.data;
+    if (migrated.success) {
+      facts = migrated.data;
+      const v2Grade = score(facts, getV2Rubric());
+      return { ...rest, facts, grade: v2Grade };
+    }
   }
 
   const breakdown = JSON.parse(breakdown_json);

@@ -277,24 +277,28 @@ export function PrivacyFactsLabel({ data, diffFields }: PrivacyFactsLabelProps) 
       </div>
 
       {/* ── Data Collected ───────────────────────────────────────────────── */}
-      <Section pt={6} pb={2}>
+      <Section pt={6} pb={4}>
         <SectionLabel>Data Collected</SectionLabel>
         {dataCollection.items.length === 0 ? (
-          <div style={{ fontSize: 12, color: COLOR.gray, paddingBottom: 4 }}>None disclosed</div>
+          <div style={{ fontSize: 10, color: COLOR.gray }}>None disclosed</div>
         ) : (
-          dataCollection.items.map((item, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 6, paddingTop: 2, paddingBottom: 2 }}>
-              <span style={{ color: item.sensitive ? COLOR.red : COLOR.gray, fontSize: 10, lineHeight: 1 }}>
-                {item.sensitive ? "●" : "○"}
-              </span>
-              <span style={{ fontSize: 12, color: item.sensitive ? COLOR.red : COLOR.black, fontWeight: item.sensitive ? 600 : 400 }}>
-                {item.name}
-              </span>
-              {item.sensitive && (
-                <span style={{ fontSize: 9, color: COLOR.red, fontWeight: 600, marginLeft: 2 }}>sensitive</span>
-              )}
-            </div>
-          ))
+          <div style={{ paddingLeft: 4 }}>
+            {/* Sensitive items first */}
+            {dataCollection.items.filter(i => i.sensitive).map((item, i) => (
+              <div key={`s${i}`} style={{ display: "flex", alignItems: "center", gap: 5, paddingTop: 1.5, paddingBottom: 1.5 }}>
+                <span style={{ color: COLOR.red, fontSize: 9, lineHeight: 1, flexShrink: 0 }}>●</span>
+                <span style={{ fontSize: 10, color: COLOR.red, fontWeight: 600 }}>{item.name}</span>
+                <span style={{ fontSize: 8, color: COLOR.red, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase" as const, marginLeft: 2 }}>sensitive</span>
+              </div>
+            ))}
+            {/* Non-sensitive items */}
+            {dataCollection.items.filter(i => !i.sensitive).map((item, i) => (
+              <div key={`n${i}`} style={{ display: "flex", alignItems: "center", gap: 5, paddingTop: 1.5, paddingBottom: 1.5 }}>
+                <span style={{ color: COLOR.gray, fontSize: 9, lineHeight: 1, flexShrink: 0 }}>○</span>
+                <span style={{ fontSize: 10, color: COLOR.gray }}>{item.name}</span>
+              </div>
+            ))}
+          </div>
         )}
       </Section>
 
