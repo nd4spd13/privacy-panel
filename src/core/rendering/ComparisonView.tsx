@@ -19,14 +19,15 @@ const COMPARABLE_FIELDS: Array<{ key: string; get: (d: PrivacyFacts) => unknown 
   { key: "crossSiteTracking",    get: (d) => d.dataSharing.crossSiteTracking.value },
   { key: "usedForProfiling",     get: (d) => d.dataSharing.usedForProfiling.value },
   { key: "usedToTrainAI",        get: (d) => d.dataSharing.usedToTrainAI.value },
-  { key: "retention",            get: (d) => d.retention.longestStatedPeriod },
-  { key: "honorsGPC",            get: (d) => d.signalHonoring.gpcDetail.value },
-  { key: "honorsDNT",            get: (d) => d.signalHonoring.dntDetail.value },
+  { key: "retention",            get: (d) => d.retention.indefinite ? "indefinite" : d.retention.retentionDays },
+  { key: "honorsGPC",            get: (d) => d.signalHonoring.honorsGPC.value },
+  { key: "honorsDNT",            get: (d) => d.signalHonoring.honorsDNT.value },
   { key: "right_Access",         get: (d) => d.consumerRights.rightToAccess.value },
   { key: "right_Delete",         get: (d) => d.consumerRights.rightToDelete.value },
   { key: "right_Portability",    get: (d) => d.consumerRights.rightToPortability.value },
   { key: "right_Correct",        get: (d) => d.consumerRights.rightToCorrect.value },
   { key: "right_Opt-out",        get: (d) => d.consumerRights.rightToOptOut.value },
+  { key: "right_Non-discrimination", get: (d) => d.consumerRights.rightToNonDiscrimination.value },
 ];
 
 /**

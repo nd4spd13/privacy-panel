@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schemaVersion": "2.0.0",
+    "schemaVersion": "1.0.0",
     "companyName": "Signal",
     "policyUrl": "https://signal.org/legal/privacy-policy/",
     "analyzedAt": "2026-03-21T00:00:00.000Z",
@@ -9,84 +9,120 @@
   },
   "dataCollection": {
     "items": [
-      { "name": "Phone number", "sensitive": false, "sourceQuote": "Signal requires a phone number to register." },
-      { "name": "Message metadata (minimal)", "sensitive": false, "sourceQuote": "Signal is designed to minimize the data we collect." }
+      {
+        "name": "Phone number",
+        "sensitive": false,
+        "sourceQuote": "Signal requires a phone number to register."
+      },
+      {
+        "name": "Message metadata (minimal)",
+        "sensitive": false,
+        "sourceQuote": "Signal is designed to minimize the data we collect."
+      }
     ],
-    "sensitiveTaxonomy": {
-      "preciseGeolocation": false,
-      "financialPaymentData": false,
-      "governmentIds": false,
-      "biometricIdentifiers": false,
-      "healthData": false,
-      "geneticData": false,
-      "sexualOrientationGenderIdentity": false,
-      "racialEthnicOrigin": false,
-      "communicationsContent": false,
-      "childrensData": false
+    "collectsPreciseGeolocation": {
+      "value": false,
+      "confidence": 0.95,
+      "sourceQuote": "Signal does not collect location data."
     },
-    "collectsPreciseGeolocation": { "value": false, "confidence": 0.95, "sourceQuote": "Signal does not collect location data." },
-    "collectsBiometricData": { "value": false, "confidence": 0.95, "sourceQuote": "No biometric data is collected." },
-    "collectsHealthData": { "value": false, "confidence": 0.95, "sourceQuote": "No health data is collected." },
-    "collectsFinancialData": { "value": false, "confidence": 0.9, "sourceQuote": "No financial data is collected from users." }
+    "collectsBiometricData": {
+      "value": false,
+      "confidence": 0.95,
+      "sourceQuote": "No biometric data is collected."
+    },
+    "collectsHealthData": {
+      "value": false,
+      "confidence": 0.95,
+      "sourceQuote": "No health data is collected."
+    },
+    "collectsFinancialData": {
+      "value": false,
+      "confidence": 0.9,
+      "sourceQuote": "No financial data is collected from users."
+    }
   },
   "dataSharing": {
-    "soldToThirdParties": { "value": false, "confidence": 0.98, "sourceQuote": "Signal does not sell, rent, or monetize your personal data or content in any way." },
-    "sharedForAdvertising": { "value": false, "confidence": 0.98, "sourceQuote": "Signal does not work with advertisers." },
-    "crossSiteTracking": { "value": false, "confidence": 0.95, "sourceQuote": "Signal does not track users across websites." },
-    "usedForProfiling": { "value": false, "confidence": 0.95, "sourceQuote": "Signal does not build profiles of its users." },
-    "usedToTrainAI": { "value": false, "confidence": 0.9, "sourceQuote": "Signal does not use user data to train AI models." },
-    "disclosedToLawEnforcement": { "value": false, "confidence": 0.95, "sourceQuote": "Signal cannot provide the contents of your messages or calls to law enforcement because they are end-to-end encrypted." }
-  },
-  "thirdPartyRecipients": {
-    "categoryCount": 0,
-    "categories": [],
-    "includesAdvertising": false,
-    "includesLawEnforcement": false,
-    "sourceQuote": "Signal does not share data with third parties."
-  },
-  "purposes": {
-    "provideCoreService": { "value": true, "confidence": 0.99, "sourceQuote": "Signal uses your data to provide encrypted messaging service." },
-    "securityFraudPrevention": { "value": true, "confidence": 0.9, "sourceQuote": "We may use minimal data to detect abuse." },
-    "legalRegulatoryCompliance": { "value": false, "confidence": 0.8, "sourceQuote": "Signal minimizes legal data obligations by not having access to content." },
-    "advertisingMarketing": { "value": false, "confidence": 0.98, "sourceQuote": "Signal has no advertising." },
-    "personalization": { "value": false, "confidence": 0.95, "sourceQuote": "Signal does not personalize content based on user data." },
-    "analyticsResearch": { "value": null, "confidence": 0.5, "sourceQuote": "Policy does not address analytics." },
-    "serviceImprovement": { "value": null, "confidence": 0.5, "sourceQuote": "Policy does not address service improvement data use." },
-    "paymentProcessing": { "value": false, "confidence": 0.9, "sourceQuote": "Signal accepts donations but does not store payment data." },
-    "aiMlTraining": { "value": false, "confidence": 0.9, "sourceQuote": "Signal does not use data for AI training." },
-    "thirdPartyDataPartnerships": { "value": false, "confidence": 0.98, "sourceQuote": "Signal has no third-party data partnerships." },
-    "other": { "value": null, "description": null, "sourceQuote": "No other purposes stated." }
+    "soldToThirdParties": {
+      "value": false,
+      "confidence": 0.98,
+      "sourceQuote": "Signal does not sell, rent, or monetize your personal data or content in any way."
+    },
+    "sharedForAdvertising": {
+      "value": false,
+      "confidence": 0.98,
+      "sourceQuote": "Signal does not work with advertisers."
+    },
+    "crossSiteTracking": {
+      "value": false,
+      "confidence": 0.95,
+      "sourceQuote": "Signal does not track users across websites."
+    },
+    "usedForProfiling": {
+      "value": false,
+      "confidence": 0.95,
+      "sourceQuote": "Signal does not build profiles of its users."
+    },
+    "usedToTrainAI": {
+      "value": false,
+      "confidence": 0.9,
+      "sourceQuote": "Signal does not use user data to train AI models."
+    },
+    "thirdPartyCount": 0
   },
   "retention": {
-    "longestStatedPeriod": "30 days",
-    "variesByDataType": false,
-    "legallyMandatedRetention": false,
-    "summary": "Messages are stored only until delivered; logs kept up to 30 days.",
+    "retentionDays": 30,
+    "indefinite": false,
     "sourceQuote": "Messages are stored only as long as necessary to deliver them."
   },
   "consumerRights": {
-    "rightToAccess": { "value": true, "confidence": 0.9, "sourceQuote": "You can request a copy of your data." },
-    "rightToDelete": { "value": true, "confidence": 0.95, "sourceQuote": "You can delete your account and all associated data at any time." },
-    "rightToPortability": { "value": true, "confidence": 0.85, "sourceQuote": "Signal supports data export." },
-    "rightToCorrect": { "value": false, "confidence": 0.6, "sourceQuote": "No explicit right to correct mentioned in the policy." },
-    "rightToOptOut": { "value": true, "confidence": 0.95, "sourceQuote": "You may opt out of any data collection by deleting your account." }
+    "rightToAccess": {
+      "value": true,
+      "confidence": 0.9,
+      "sourceQuote": "You can request a copy of your data."
+    },
+    "rightToDelete": {
+      "value": true,
+      "confidence": 0.95,
+      "sourceQuote": "You can delete your account and all associated data at any time."
+    },
+    "rightToPortability": {
+      "value": true,
+      "confidence": 0.85,
+      "sourceQuote": "Signal supports data export."
+    },
+    "rightToCorrect": {
+      "value": false,
+      "confidence": 0.6,
+      "sourceQuote": "No explicit right to correct mentioned in the policy."
+    },
+    "rightToOptOut": {
+      "value": true,
+      "confidence": 0.95,
+      "sourceQuote": "You may opt out of any data collection by deleting your account."
+    },
+    "rightToNonDiscrimination": {
+      "value": false,
+      "confidence": 0.5,
+      "sourceQuote": "No explicit non-discrimination right mentioned."
+    }
   },
   "signalHonoring": {
-    "honorsBrowserPrivacySignals": "yes",
-    "gpcDetail": { "value": true, "confidence": 0.8, "sourceQuote": "Signal respects global privacy control signals." },
-    "dntDetail": { "value": true, "confidence": 0.8, "sourceQuote": "Signal respects Do Not Track browser settings." }
+    "honorsGPC": {
+      "value": true,
+      "confidence": 0.8,
+      "sourceQuote": "Signal respects global privacy control signals."
+    },
+    "honorsDNT": {
+      "value": true,
+      "confidence": 0.8,
+      "sourceQuote": "Signal respects Do Not Track browser settings."
+    }
   },
   "security": {
-    "encryptedInTransit": { "value": true, "confidence": 0.99, "sourceQuote": "All messages are end-to-end encrypted using the Signal Protocol." },
-    "encryptedAtRest": { "value": null, "confidence": 0.5, "sourceQuote": "Policy does not explicitly address encryption at rest for server-side data." },
-    "mfaAvailable": { "value": null, "confidence": 0.5, "sourceQuote": "Policy does not address MFA." },
-    "breachNotification": { "value": null, "confidence": 0.5, "sourceQuote": "Policy does not address breach notification procedures." },
-    "additionalMeasures": [
+    "measures": [
+      { "name": "End-to-end encryption", "sourceQuote": "All messages are end-to-end encrypted." },
       { "name": "Open-source audited protocol", "sourceQuote": "Signal Protocol is open source and independently audited." },
       { "name": "Forward secrecy", "sourceQuote": "Signal uses forward secrecy to protect past communications." }
     ]
-  },
-  "supplementary": {
-    "independentAudits": { "value": true, "confidence": 0.9, "sourceQuote": "Signal Protocol is open source and has undergone independent security audits." }
   }
 }

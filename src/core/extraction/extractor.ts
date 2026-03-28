@@ -246,113 +246,19 @@ function mergeChunkResults(
 ): PrivacyFacts {
   const base = results[0];
 
-  type BP = { value: boolean | null; confidence: number; sourceQuote: string };
-
-  /**
-   * Merge multiple nullable BooleanPractice values.
-   * harmful=true: true > null > false (worst = most consumer-unfavorable)
-   * harmful=false (rights/signals): false < null < true (worst = least consumer-favorable)
-   */
-  function worstBoolPractice(values: BP[], harmful: boolean): BP {
-    if (harmful) {
-      // true > null > false: find first true, else first null, else first false
-      return values.find((v) => v.value === true)
-        ?? values.find((v) => v.value === null)
-        ?? values[0];
-    } else {
-      // false < null < true: find first false, else first null, else first true
-      return values.find((v) => v.value === false)
-        ?? values.find((v) => v.value === null)
-        ?? values[0];
+  function worstBool(key: "dataSharing" | "dataCollection" | "consumerRights" | "signalHonoring", field: string) {
+    // For harmful practices: true is worst. For rights: false is worst.
+    const isRight = key === "consumerRights";
+    const isSignal = key === "signalHonoring";
+    const values = results.map((r) => (r[key] as Record<string, { value: boolean; confidence: number; sourceQuote: string }>)[field]);
+    if (isRight || isSignal) {
+      // Lower is worse (false = fewer rights / doesn't honor)
+      return values.reduce((worst, v) =>
+        !v.value ? v : worst
+      );
     }
-  }
-
-  function worstBool(
-    key: "dataSharing" | "dataCollection" | "consumerRights" | "signalHonoring" | "security" | "supplementary",
-    field: string,
-    harmful = true
-  ): BP {
-    const values = results.map(
-      (r) => (r[key] as Record<string, BP>)[field]
-    );
-    return worstBoolPractice(values, harmful);
-  }
-
-  // Merge retention: "worst" = indefinite > longest stated period > not stated
-  function mergeRetention(): PrivacyFacts["retention"] {
-    const indefiniteResult = results.find((r) =>
-      ["indefinitely", "indefinite"].some((m) => r.retention.longestStatedPeriod.toLowerCase().includes(m))
-    );
-    if (indefiniteResult) return indefiniteResult.retention;
-
-    // Pick longest stated period by parsing days
-    return results.reduce((worst, r) => {
-      const wDays = parseApproxDays(worst.longestStatedPeriod);
-      const rDays = parseApproxDays(r.retention.longestStatedPeriod);
-      return (rDays ?? 0) > (wDays ?? 0) ? r.retention : worst;
-    }, base.retention);
-  }
-
-  // Merge honorsBrowserPrivacySignals: "no" > null > "partial" > "yes"
-  function mergeSignalStatus(): "yes" | "partial" | "no" | null {
-    const statuses = results.map((r) => r.signalHonoring.honorsBrowserPrivacySignals);
-    if (statuses.includes("no")) return "no";
-    if (statuses.includes(null)) return null;
-    if (statuses.includes("partial")) return "partial";
-    return "yes";
-  }
-
-  // Merge sensitiveTaxonomy: OR (true in any chunk wins)
-  function mergeTaxonomy(): PrivacyFacts["dataCollection"]["sensitiveTaxonomy"] {
-    const t = base.dataCollection.sensitiveTaxonomy;
-    const orField = (f: keyof typeof t) => results.some((r) => r.dataCollection.sensitiveTaxonomy[f]);
-    return {
-      preciseGeolocation: orField("preciseGeolocation"),
-      financialPaymentData: orField("financialPaymentData"),
-      governmentIds: orField("governmentIds"),
-      biometricIdentifiers: orField("biometricIdentifiers"),
-      healthData: orField("healthData"),
-      geneticData: orField("geneticData"),
-      sexualOrientationGenderIdentity: orField("sexualOrientationGenderIdentity"),
-      racialEthnicOrigin: orField("racialEthnicOrigin"),
-      communicationsContent: orField("communicationsContent"),
-      childrensData: orField("childrensData"),
-    };
-  }
-
-  // Merge thirdPartyRecipients: max count, union categories
-  function mergeThirdParties(): PrivacyFacts["thirdPartyRecipients"] {
-    const counts = results.map((r) => r.thirdPartyRecipients.categoryCount).filter((c): c is number => c !== null);
-    const allCategories = [...new Set(results.flatMap((r) => r.thirdPartyRecipients.categories))];
-    return {
-      categoryCount: counts.length > 0 ? Math.max(...counts) : null,
-      categories: allCategories,
-      includesAdvertising: results.some((r) => r.thirdPartyRecipients.includesAdvertising),
-      includesLawEnforcement: results.some((r) => r.thirdPartyRecipients.includesLawEnforcement),
-      sourceQuote: base.thirdPartyRecipients.sourceQuote,
-    };
-  }
-
-  // Merge purposes: true in any chunk wins for harmful (advertising, aiML, thirdParty),
-  // take base for others
-  function mergePurposes(): PrivacyFacts["purposes"] {
-    const bpMerge = (field: keyof Omit<PrivacyFacts["purposes"], "other">, harmful: boolean): BP => {
-      const values = results.map((r) => r.purposes[field] as BP);
-      return worstBoolPractice(values, harmful);
-    };
-    return {
-      provideCoreService: bpMerge("provideCoreService", false),
-      securityFraudPrevention: bpMerge("securityFraudPrevention", false),
-      legalRegulatoryCompliance: bpMerge("legalRegulatoryCompliance", false),
-      advertisingMarketing: bpMerge("advertisingMarketing", true),
-      personalization: bpMerge("personalization", true),
-      analyticsResearch: bpMerge("analyticsResearch", true),
-      serviceImprovement: bpMerge("serviceImprovement", false),
-      paymentProcessing: bpMerge("paymentProcessing", false),
-      aiMlTraining: bpMerge("aiMlTraining", true),
-      thirdPartyDataPartnerships: bpMerge("thirdPartyDataPartnerships", true),
-      other: base.purposes.other,
-    };
+    // Higher (true) is worse for harmful practices
+    return values.reduce((worst, v) => (v.value ? v : worst));
   }
 
   return {
@@ -366,7 +272,6 @@ function mergeChunkResults(
     },
     dataCollection: {
       items: deduplicateItems(results.flatMap((r) => r.dataCollection.items)),
-      sensitiveTaxonomy: mergeTaxonomy(),
       collectsPreciseGeolocation: worstBool("dataCollection", "collectsPreciseGeolocation"),
       collectsBiometricData: worstBool("dataCollection", "collectsBiometricData"),
       collectsHealthData: worstBool("dataCollection", "collectsHealthData"),
@@ -378,45 +283,28 @@ function mergeChunkResults(
       crossSiteTracking: worstBool("dataSharing", "crossSiteTracking"),
       usedForProfiling: worstBool("dataSharing", "usedForProfiling"),
       usedToTrainAI: worstBool("dataSharing", "usedToTrainAI"),
-      disclosedToLawEnforcement: worstBool("dataSharing", "disclosedToLawEnforcement"),
+      thirdPartyCount: Math.max(...results.map((r) => r.dataSharing.thirdPartyCount ?? 0)),
     },
-    thirdPartyRecipients: mergeThirdParties(),
-    purposes: mergePurposes(),
-    retention: mergeRetention(),
+    retention: results.find((r) => r.retention.indefinite)?.retention ??
+      results.reduce((worst, r) =>
+        (r.retention.retentionDays ?? 0) > (worst.retention.retentionDays ?? 0) ? r : worst
+      ).retention,
     consumerRights: {
-      rightToAccess: worstBool("consumerRights", "rightToAccess", false),
-      rightToDelete: worstBool("consumerRights", "rightToDelete", false),
-      rightToPortability: worstBool("consumerRights", "rightToPortability", false),
-      rightToCorrect: worstBool("consumerRights", "rightToCorrect", false),
-      rightToOptOut: worstBool("consumerRights", "rightToOptOut", false),
+      rightToAccess: worstBool("consumerRights", "rightToAccess"),
+      rightToDelete: worstBool("consumerRights", "rightToDelete"),
+      rightToPortability: worstBool("consumerRights", "rightToPortability"),
+      rightToCorrect: worstBool("consumerRights", "rightToCorrect"),
+      rightToOptOut: worstBool("consumerRights", "rightToOptOut"),
+      rightToNonDiscrimination: worstBool("consumerRights", "rightToNonDiscrimination"),
     },
     signalHonoring: {
-      honorsBrowserPrivacySignals: mergeSignalStatus(),
-      gpcDetail: worstBool("signalHonoring", "gpcDetail", false),
-      dntDetail: worstBool("signalHonoring", "dntDetail", false),
+      honorsGPC: worstBool("signalHonoring", "honorsGPC"),
+      honorsDNT: worstBool("signalHonoring", "honorsDNT"),
     },
     security: {
-      encryptedInTransit: worstBool("security", "encryptedInTransit", false),
-      encryptedAtRest: worstBool("security", "encryptedAtRest", false),
-      mfaAvailable: worstBool("security", "mfaAvailable", false),
-      breachNotification: worstBool("security", "breachNotification", false),
-      additionalMeasures: deduplicateMeasures(results.flatMap((r) => r.security.additionalMeasures)),
-    },
-    supplementary: {
-      independentAudits: worstBool("supplementary", "independentAudits", false),
+      measures: deduplicateMeasures(results.flatMap((r) => r.security.measures)),
     },
   };
-}
-
-function parseApproxDays(period: string): number | null {
-  const p = period.toLowerCase().trim();
-  const yearMatch = p.match(/(\d+(?:\.\d+)?)\s*year/);
-  if (yearMatch) return parseFloat(yearMatch[1]) * 365;
-  const monthMatch = p.match(/(\d+(?:\.\d+)?)\s*month/);
-  if (monthMatch) return parseFloat(monthMatch[1]) * 30;
-  const dayMatch = p.match(/(\d+(?:\.\d+)?)\s*day/);
-  if (dayMatch) return parseFloat(dayMatch[1]);
-  return null;
 }
 
 function deduplicateItems(items: PrivacyFacts["dataCollection"]["items"]) {
@@ -429,7 +317,7 @@ function deduplicateItems(items: PrivacyFacts["dataCollection"]["items"]) {
   });
 }
 
-function deduplicateMeasures(measures: PrivacyFacts["security"]["additionalMeasures"]) {
+function deduplicateMeasures(measures: PrivacyFacts["security"]["measures"]) {
   const seen = new Set<string>();
   return measures.filter((m) => {
     const key = m.name.toLowerCase();

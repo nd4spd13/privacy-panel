@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schemaVersion": "2.0.0",
+    "schemaVersion": "1.0.0",
     "companyName": "TypicalSaaS",
     "policyUrl": "https://typicalsaas.example.com/privacy",
     "analyzedAt": "2026-03-21T00:00:00.000Z",
@@ -14,78 +14,109 @@
       { "name": "Usage data", "sensitive": false, "sourceQuote": "We collect data about how you use our service." },
       { "name": "Payment information", "sensitive": true, "sourceQuote": "We collect payment card information for billing." }
     ],
-    "sensitiveTaxonomy": {
-      "preciseGeolocation": false,
-      "financialPaymentData": true,
-      "governmentIds": false,
-      "biometricIdentifiers": false,
-      "healthData": false,
-      "geneticData": false,
-      "sexualOrientationGenderIdentity": false,
-      "racialEthnicOrigin": false,
-      "communicationsContent": false,
-      "childrensData": false
+    "collectsPreciseGeolocation": {
+      "value": false,
+      "confidence": 0.8,
+      "sourceQuote": "We collect approximate location from IP address but not precise GPS location."
     },
-    "collectsPreciseGeolocation": { "value": false, "confidence": 0.8, "sourceQuote": "We collect approximate location from IP address but not precise GPS location." },
-    "collectsBiometricData": { "value": false, "confidence": 0.9, "sourceQuote": "We do not collect biometric data." },
-    "collectsHealthData": { "value": false, "confidence": 0.9, "sourceQuote": "We do not collect health data." },
-    "collectsFinancialData": { "value": true, "confidence": 0.95, "sourceQuote": "We collect payment card information for billing." }
+    "collectsBiometricData": {
+      "value": false,
+      "confidence": 0.9,
+      "sourceQuote": "We do not collect biometric data."
+    },
+    "collectsHealthData": {
+      "value": false,
+      "confidence": 0.9,
+      "sourceQuote": "We do not collect health data."
+    },
+    "collectsFinancialData": {
+      "value": true,
+      "confidence": 0.95,
+      "sourceQuote": "We collect payment card information for billing."
+    }
   },
   "dataSharing": {
-    "soldToThirdParties": { "value": false, "confidence": 0.85, "sourceQuote": "We do not sell your personal information to third parties." },
-    "sharedForAdvertising": { "value": true, "confidence": 0.85, "sourceQuote": "We may share your data with advertising partners to deliver relevant ads." },
-    "crossSiteTracking": { "value": true, "confidence": 0.8, "sourceQuote": "We use cookies and tracking pixels that may track you across websites." },
-    "usedForProfiling": { "value": true, "confidence": 0.8, "sourceQuote": "We build user profiles to improve our product recommendations." },
-    "usedToTrainAI": { "value": false, "confidence": 0.7, "sourceQuote": "We may use aggregated, anonymized data to improve our AI features but do not use personal data for model training." },
-    "disclosedToLawEnforcement": { "value": true, "confidence": 0.9, "sourceQuote": "We may disclose your information in response to subpoenas, court orders, or other legal process." }
-  },
-  "thirdPartyRecipients": {
-    "categoryCount": 4,
-    "categories": ["Advertising networks", "Analytics providers", "Payment processors", "Security vendors"],
-    "includesAdvertising": true,
-    "includesLawEnforcement": false,
-    "sourceQuote": "We share data with advertising networks, analytics providers, payment processors, and security vendors."
-  },
-  "purposes": {
-    "provideCoreService": { "value": true, "confidence": 0.99, "sourceQuote": "We use your data to provide and improve our service." },
-    "securityFraudPrevention": { "value": true, "confidence": 0.9, "sourceQuote": "We use data to detect and prevent fraud." },
-    "legalRegulatoryCompliance": { "value": true, "confidence": 0.9, "sourceQuote": "We may use data to comply with legal obligations." },
-    "advertisingMarketing": { "value": true, "confidence": 0.85, "sourceQuote": "We use data to serve targeted advertising." },
-    "personalization": { "value": true, "confidence": 0.85, "sourceQuote": "We personalize your experience based on your usage data." },
-    "analyticsResearch": { "value": true, "confidence": 0.9, "sourceQuote": "We use analytics to understand how our service is used." },
-    "serviceImprovement": { "value": true, "confidence": 0.9, "sourceQuote": "We use data to improve our service." },
-    "paymentProcessing": { "value": true, "confidence": 0.95, "sourceQuote": "We process payments for subscriptions." },
-    "aiMlTraining": { "value": false, "confidence": 0.7, "sourceQuote": "We do not use personal data to train AI models." },
-    "thirdPartyDataPartnerships": { "value": true, "confidence": 0.85, "sourceQuote": "We share data with advertising and analytics partners." },
-    "other": { "value": null, "description": null, "sourceQuote": "No other purposes stated." }
+    "soldToThirdParties": {
+      "value": false,
+      "confidence": 0.85,
+      "sourceQuote": "We do not sell your personal information to third parties."
+    },
+    "sharedForAdvertising": {
+      "value": true,
+      "confidence": 0.85,
+      "sourceQuote": "We may share your data with advertising partners to deliver relevant ads."
+    },
+    "crossSiteTracking": {
+      "value": true,
+      "confidence": 0.8,
+      "sourceQuote": "We use cookies and tracking pixels that may track you across websites."
+    },
+    "usedForProfiling": {
+      "value": true,
+      "confidence": 0.8,
+      "sourceQuote": "We build user profiles to improve our product recommendations."
+    },
+    "usedToTrainAI": {
+      "value": false,
+      "confidence": 0.7,
+      "sourceQuote": "We may use aggregated, anonymized data to improve our AI features."
+    },
+    "thirdPartyCount": 8
   },
   "retention": {
-    "longestStatedPeriod": "3 years",
-    "variesByDataType": false,
-    "legallyMandatedRetention": false,
-    "summary": "Data retained for up to 3 years after account closure.",
+    "retentionDays": 1095,
+    "indefinite": false,
     "sourceQuote": "We retain your data for up to 3 years after account closure."
   },
   "consumerRights": {
-    "rightToAccess": { "value": true, "confidence": 0.9, "sourceQuote": "You may request a copy of your personal data." },
-    "rightToDelete": { "value": true, "confidence": 0.9, "sourceQuote": "You may request deletion of your personal data." },
-    "rightToPortability": { "value": true, "confidence": 0.85, "sourceQuote": "You may request your data in a portable format." },
-    "rightToCorrect": { "value": true, "confidence": 0.85, "sourceQuote": "You may request correction of inaccurate data." },
-    "rightToOptOut": { "value": true, "confidence": 0.9, "sourceQuote": "You may opt out of marketing communications." }
+    "rightToAccess": {
+      "value": true,
+      "confidence": 0.9,
+      "sourceQuote": "You may request a copy of your personal data."
+    },
+    "rightToDelete": {
+      "value": true,
+      "confidence": 0.9,
+      "sourceQuote": "You may request deletion of your personal data."
+    },
+    "rightToPortability": {
+      "value": true,
+      "confidence": 0.85,
+      "sourceQuote": "You may request your data in a portable format."
+    },
+    "rightToCorrect": {
+      "value": true,
+      "confidence": 0.85,
+      "sourceQuote": "You may request correction of inaccurate data."
+    },
+    "rightToOptOut": {
+      "value": true,
+      "confidence": 0.9,
+      "sourceQuote": "You may opt out of marketing communications."
+    },
+    "rightToNonDiscrimination": {
+      "value": false,
+      "confidence": 0.6,
+      "sourceQuote": "No explicit non-discrimination right mentioned."
+    }
   },
   "signalHonoring": {
-    "honorsBrowserPrivacySignals": "no",
-    "gpcDetail": { "value": false, "confidence": 0.7, "sourceQuote": "We do not currently respond to Global Privacy Control signals." },
-    "dntDetail": { "value": false, "confidence": 0.75, "sourceQuote": "We do not alter our data collection in response to Do Not Track signals." }
+    "honorsGPC": {
+      "value": false,
+      "confidence": 0.7,
+      "sourceQuote": "We do not currently respond to Global Privacy Control signals."
+    },
+    "honorsDNT": {
+      "value": false,
+      "confidence": 0.75,
+      "sourceQuote": "We do not alter our data collection in response to Do Not Track signals."
+    }
   },
   "security": {
-    "encryptedInTransit": { "value": true, "confidence": 0.95, "sourceQuote": "All data is encrypted in transit using TLS." },
-    "encryptedAtRest": { "value": true, "confidence": 0.9, "sourceQuote": "Data at rest is protected using AES-256 encryption." },
-    "mfaAvailable": { "value": null, "confidence": 0.5, "sourceQuote": "Policy does not address MFA availability." },
-    "breachNotification": { "value": null, "confidence": 0.5, "sourceQuote": "Policy does not explicitly address breach notification timelines." },
-    "additionalMeasures": []
-  },
-  "supplementary": {
-    "independentAudits": { "value": true, "confidence": 0.9, "sourceQuote": "We are SOC 2 Type II certified." }
+    "measures": [
+      { "name": "TLS encryption in transit", "sourceQuote": "All data is encrypted in transit using TLS." },
+      { "name": "AES-256 encryption at rest", "sourceQuote": "Data at rest is protected using AES-256 encryption." },
+      { "name": "SOC 2 Type II certified", "sourceQuote": "We are SOC 2 Type II certified." }
+    ]
   }
 }

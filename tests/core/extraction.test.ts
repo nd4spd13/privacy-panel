@@ -163,7 +163,7 @@ describe("requiresChunking()", () => {
 describe("buildSystemPrompt()", () => {
   it("includes the schema version", () => {
     const prompt = buildSystemPrompt();
-    expect(prompt).toContain("2.0.0");
+    expect(prompt).toContain("1.0.0");
   });
 
   it("includes the company name when provided", () => {
@@ -326,7 +326,7 @@ describe("extract() — mocked Claude API", () => {
     if (result.success) {
       expect(result.data.dataSharing.soldToThirdParties.value).toBe(true);
       expect(result.data.dataSharing.usedToTrainAI.value).toBe(true);
-      expect(result.data.retention.longestStatedPeriod).toBe("indefinitely");
+      expect(result.data.retention.indefinite).toBe(true);
     }
   });
 });
