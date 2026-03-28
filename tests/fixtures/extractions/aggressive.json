@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "schemaVersion": "1.0.0",
+    "schemaVersion": "2.0.0",
     "companyName": "AggressiveCollector",
     "policyUrl": "https://aggressive.example.com/privacy",
     "analyzedAt": "2026-03-21T00:00:00.000Z",
@@ -18,105 +18,84 @@
       { "name": "Browsing history", "sensitive": true, "sourceQuote": "We collect your full browsing history via our SDK." },
       { "name": "Contacts", "sensitive": true, "sourceQuote": "We collect your contacts list." }
     ],
-    "collectsPreciseGeolocation": {
-      "value": true,
-      "confidence": 0.98,
-      "sourceQuote": "We collect your precise GPS location in real time."
+    "sensitiveTaxonomy": {
+      "preciseGeolocation": true,
+      "financialPaymentData": true,
+      "governmentIds": false,
+      "biometricIdentifiers": true,
+      "healthData": true,
+      "geneticData": false,
+      "sexualOrientationGenderIdentity": false,
+      "racialEthnicOrigin": false,
+      "communicationsContent": false,
+      "childrensData": false
     },
-    "collectsBiometricData": {
-      "value": true,
-      "confidence": 0.98,
-      "sourceQuote": "We collect face recognition data for identity verification."
-    },
-    "collectsHealthData": {
-      "value": true,
-      "confidence": 0.97,
-      "sourceQuote": "We collect health and fitness information from connected devices."
-    },
-    "collectsFinancialData": {
-      "value": true,
-      "confidence": 0.97,
-      "sourceQuote": "We collect bank account and credit card information."
-    }
+    "collectsPreciseGeolocation": { "value": true, "confidence": 0.98, "sourceQuote": "We collect your precise GPS location in real time." },
+    "collectsBiometricData": { "value": true, "confidence": 0.98, "sourceQuote": "We collect face recognition data for identity verification." },
+    "collectsHealthData": { "value": true, "confidence": 0.97, "sourceQuote": "We collect health and fitness information from connected devices." },
+    "collectsFinancialData": { "value": true, "confidence": 0.97, "sourceQuote": "We collect bank account and credit card information." }
   },
   "dataSharing": {
-    "soldToThirdParties": {
-      "value": true,
-      "confidence": 0.95,
-      "sourceQuote": "We may sell your personal information to third-party data brokers and marketing partners."
-    },
-    "sharedForAdvertising": {
-      "value": true,
-      "confidence": 0.97,
-      "sourceQuote": "We share your data with advertising networks for cross-context behavioral advertising."
-    },
-    "crossSiteTracking": {
-      "value": true,
-      "confidence": 0.95,
-      "sourceQuote": "Our advertising partners track you across websites and apps."
-    },
-    "usedForProfiling": {
-      "value": true,
-      "confidence": 0.95,
-      "sourceQuote": "We use automated decision-making and profiling to personalize your experience and make credit decisions."
-    },
-    "usedToTrainAI": {
-      "value": true,
-      "confidence": 0.9,
-      "sourceQuote": "We may use your data to train our AI and machine learning models."
-    },
-    "thirdPartyCount": 15
+    "soldToThirdParties": { "value": true, "confidence": 0.95, "sourceQuote": "We may sell your personal information to third-party data brokers and marketing partners." },
+    "sharedForAdvertising": { "value": true, "confidence": 0.97, "sourceQuote": "We share your data with advertising networks for cross-context behavioral advertising." },
+    "crossSiteTracking": { "value": true, "confidence": 0.95, "sourceQuote": "Our advertising partners track you across websites and apps." },
+    "usedForProfiling": { "value": true, "confidence": 0.95, "sourceQuote": "We use automated decision-making and profiling to personalize your experience and make credit decisions." },
+    "usedToTrainAI": { "value": true, "confidence": 0.9, "sourceQuote": "We may use your data to train our AI and machine learning models." },
+    "disclosedToLawEnforcement": { "value": true, "confidence": 0.9, "sourceQuote": "We will share your data with law enforcement upon request, including without a court order in emergency situations." }
+  },
+  "thirdPartyRecipients": {
+    "categoryCount": 15,
+    "categories": [
+      "Data brokers", "Advertising networks", "Marketing partners",
+      "Analytics providers", "Credit bureaus", "Insurance providers",
+      "Employers", "Healthcare partners", "Financial services",
+      "Government agencies", "Law enforcement", "Research organizations",
+      "Social media platforms", "Identity verification services", "Payment processors"
+    ],
+    "includesAdvertising": true,
+    "includesLawEnforcement": true,
+    "sourceQuote": "We share data with a broad range of third parties including data brokers, advertisers, and government agencies."
+  },
+  "purposes": {
+    "provideCoreService": { "value": true, "confidence": 0.9, "sourceQuote": "We use data to provide our service." },
+    "securityFraudPrevention": { "value": true, "confidence": 0.7, "sourceQuote": "We use data for fraud prevention." },
+    "legalRegulatoryCompliance": { "value": true, "confidence": 0.9, "sourceQuote": "We comply with legal obligations." },
+    "advertisingMarketing": { "value": true, "confidence": 0.97, "sourceQuote": "We use data for targeted advertising and marketing." },
+    "personalization": { "value": true, "confidence": 0.95, "sourceQuote": "We personalize your experience extensively." },
+    "analyticsResearch": { "value": true, "confidence": 0.9, "sourceQuote": "We use data for analytics and research." },
+    "serviceImprovement": { "value": true, "confidence": 0.9, "sourceQuote": "We use data to improve our services." },
+    "paymentProcessing": { "value": true, "confidence": 0.95, "sourceQuote": "We process payments." },
+    "aiMlTraining": { "value": true, "confidence": 0.9, "sourceQuote": "We use your data to train our AI models." },
+    "thirdPartyDataPartnerships": { "value": true, "confidence": 0.95, "sourceQuote": "We share data broadly with third-party partners." },
+    "other": { "value": true, "description": "Sold to data brokers and credit bureaus", "sourceQuote": "We may sell data to data brokers and credit bureaus." }
   },
   "retention": {
-    "retentionDays": null,
-    "indefinite": true,
+    "longestStatedPeriod": "indefinitely",
+    "variesByDataType": false,
+    "legallyMandatedRetention": false,
+    "summary": "Data retained indefinitely unless deletion is requested.",
     "sourceQuote": "We retain your data indefinitely unless you request deletion."
   },
   "consumerRights": {
-    "rightToAccess": {
-      "value": false,
-      "confidence": 0.8,
-      "sourceQuote": "No explicit right to access mentioned in the policy."
-    },
-    "rightToDelete": {
-      "value": false,
-      "confidence": 0.8,
-      "sourceQuote": "We may retain data even after an account deletion request for legal and business purposes."
-    },
-    "rightToPortability": {
-      "value": false,
-      "confidence": 0.85,
-      "sourceQuote": "No data portability right mentioned."
-    },
-    "rightToCorrect": {
-      "value": false,
-      "confidence": 0.85,
-      "sourceQuote": "No right to correct mentioned."
-    },
-    "rightToOptOut": {
-      "value": false,
-      "confidence": 0.8,
-      "sourceQuote": "You cannot opt out of core data sharing as it is required to use the service."
-    },
-    "rightToNonDiscrimination": {
-      "value": false,
-      "confidence": 0.85,
-      "sourceQuote": "No non-discrimination right mentioned."
-    }
+    "rightToAccess": { "value": false, "confidence": 0.8, "sourceQuote": "No explicit right to access mentioned in the policy." },
+    "rightToDelete": { "value": false, "confidence": 0.8, "sourceQuote": "We may retain data even after an account deletion request for legal and business purposes." },
+    "rightToPortability": { "value": false, "confidence": 0.85, "sourceQuote": "No data portability right mentioned." },
+    "rightToCorrect": { "value": false, "confidence": 0.85, "sourceQuote": "No right to correct mentioned." },
+    "rightToOptOut": { "value": false, "confidence": 0.8, "sourceQuote": "You cannot opt out of core data sharing as it is required to use the service." }
   },
   "signalHonoring": {
-    "honorsGPC": {
-      "value": false,
-      "confidence": 0.9,
-      "sourceQuote": "We do not honor Global Privacy Control signals."
-    },
-    "honorsDNT": {
-      "value": false,
-      "confidence": 0.9,
-      "sourceQuote": "We do not honor Do Not Track browser signals."
-    }
+    "honorsBrowserPrivacySignals": "no",
+    "gpcDetail": { "value": false, "confidence": 0.9, "sourceQuote": "We do not honor Global Privacy Control signals." },
+    "dntDetail": { "value": false, "confidence": 0.9, "sourceQuote": "We do not honor Do Not Track browser signals." }
   },
   "security": {
-    "measures": []
+    "encryptedInTransit": { "value": null, "confidence": 0.3, "sourceQuote": "Policy does not address encryption in transit." },
+    "encryptedAtRest": { "value": null, "confidence": 0.3, "sourceQuote": "Policy does not address encryption at rest." },
+    "mfaAvailable": { "value": null, "confidence": 0.3, "sourceQuote": "Policy does not address MFA." },
+    "breachNotification": { "value": null, "confidence": 0.3, "sourceQuote": "Policy does not address breach notification." },
+    "additionalMeasures": []
+  },
+  "supplementary": {
+    "independentAudits": { "value": false, "confidence": 0.8, "sourceQuote": "No independent security audits mentioned." }
   }
 }

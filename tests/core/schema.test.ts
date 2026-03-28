@@ -20,8 +20,8 @@ function loadFixture(name: string): unknown {
 // ─── SCHEMA_VERSION ───────────────────────────────────────────────────────────
 
 describe("SCHEMA_VERSION", () => {
-  it("is 1.0.0", () => {
-    expect(SCHEMA_VERSION).toBe("1.0.0");
+  it("is 2.0.0", () => {
+    expect(SCHEMA_VERSION).toBe("2.0.0");
   });
 });
 
@@ -34,6 +34,7 @@ describe("PrivacyFactsSchema — fixture validation", () => {
     if (result.success) {
       expect(result.data.metadata.companyName).toBe("Signal");
       expect(result.data.dataSharing.soldToThirdParties.value).toBe(false);
+      expect(result.data.thirdPartyRecipients.categoryCount).toBe(0);
     }
   });
 
@@ -44,6 +45,8 @@ describe("PrivacyFactsSchema — fixture validation", () => {
       expect(result.data.metadata.companyName).toBe("TypicalSaaS");
       expect(result.data.dataSharing.sharedForAdvertising.value).toBe(true);
       expect(result.data.dataSharing.soldToThirdParties.value).toBe(false);
+      expect(result.data.thirdPartyRecipients.categoryCount).toBe(4);
+      expect(result.data.thirdPartyRecipients.includesAdvertising).toBe(true);
     }
   });
 
@@ -52,8 +55,8 @@ describe("PrivacyFactsSchema — fixture validation", () => {
     expect(result.success).toBe(true);
     if (result.success) {
       expect(result.data.dataSharing.soldToThirdParties.value).toBe(true);
-      expect(result.data.retention.indefinite).toBe(true);
-      expect(result.data.retention.retentionDays).toBeNull();
+      expect(result.data.retention.longestStatedPeriod).toBe("indefinitely");
+      expect(result.data.thirdPartyRecipients.categoryCount).toBe(15);
     }
   });
 });
@@ -92,12 +95,23 @@ describe("BooleanPractice fields", () => {
         },
       },
     };
-    const result = validate(broken);
-    expect(result.success).toBe(false);
+    expect(validate(broken).success).toBe(false);
+  });
+
+  it("accepts null as a valid BooleanPractice value", () => {
+    const base = loadFixture("minimal") as Record<string, unknown>;
+    const withNull = {
+      ...base,
+      dataSharing: {
+        ...(base.dataSharing as object),
+        soldToThirdParties: { value: null, confidence: 0.3, sourceQuote: "Not addressed." },
+      },
+    };
+    expect(validate(withNull).success).toBe(true);
   });
 });
 
-// ─── dataCollected items ──────────────────────────────────────────────────────
+// ─── dataCollection.items ──────────────────────────────────────────────────────
 
 describe("dataCollection.items", () => {
   it("accepts an empty items array", () => {
@@ -121,30 +135,41 @@ describe("dataCollection.items", () => {
         items: [{ name: "Email" }], // missing sensitive + sourceQuote
       },
     };
-    const result = validate(broken);
-    expect(result.success).toBe(false);
+    expect(validate(broken).success).toBe(false);
   });
 });
 
-// ─── Retention ────────────────────────────────────────────────────────────────
+// ─── Retention (v2 structure) ─────────────────────────────────────────────────
 
-describe("retention", () => {
-  it("allows retentionDays to be null (indefinite)", () => {
-    const result = validate(loadFixture("aggressive"));
+describe("retention (v2)", () => {
+  it("has longestStatedPeriod, variesByDataType, legallyMandatedRetention", () => {
+    const result = validate(loadFixture("minimal"));
     expect(result.success).toBe(true);
     if (result.success) {
-      expect(result.data.retention.retentionDays).toBeNull();
-      expect(result.data.retention.indefinite).toBe(true);
+      expect(result.data.retention.longestStatedPeriod).toBe("30 days");
+      expect(result.data.retention.variesByDataType).toBe(false);
+      expect(result.data.retention.legallyMandatedRetention).toBe(false);
     }
   });
 
-  it("rejects negative retentionDays", () => {
+  it("accepts 'indefinitely' as longestStatedPeriod", () => {
+    const result = validate(loadFixture("aggressive"));
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.retention.longestStatedPeriod).toBe("indefinitely");
+    }
+  });
+
+  it("rejects missing longestStatedPeriod", () => {
     const base = loadFixture("minimal") as Record<string, unknown>;
     const broken = {
       ...base,
       retention: {
-        ...(base.retention as object),
-        retentionDays: -1,
+        variesByDataType: false,
+        legallyMandatedRetention: false,
+        summary: "x",
+        sourceQuote: "x",
+        // missing longestStatedPeriod
       },
     };
     expect(validate(broken).success).toBe(false);
@@ -158,10 +183,7 @@ describe("metadata", () => {
     const base = loadFixture("minimal") as Record<string, unknown>;
     const broken = {
       ...base,
-      metadata: {
-        ...(base.metadata as object),
-        policyUrl: "not-a-url",
-      },
+      metadata: { ...(base.metadata as object), policyUrl: "not-a-url" },
     };
     expect(validate(broken).success).toBe(false);
   });
@@ -170,10 +192,7 @@ describe("metadata", () => {
     const base = loadFixture("minimal") as Record<string, unknown>;
     const broken = {
       ...base,
-      metadata: {
-        ...(base.metadata as object),
-        policyHash: "abc123", // too short
-      },
+      metadata: { ...(base.metadata as object), policyHash: "abc123" },
     };
     expect(validate(broken).success).toBe(false);
   });
@@ -182,10 +201,7 @@ describe("metadata", () => {
     const base = loadFixture("minimal") as Record<string, unknown>;
     const broken = {
       ...base,
-      metadata: {
-        ...(base.metadata as object),
-        schemaVersion: "2.0.0",
-      },
+      metadata: { ...(base.metadata as object), schemaVersion: "1.0.0" },
     };
     expect(validate(broken).success).toBe(false);
   });
@@ -194,10 +210,7 @@ describe("metadata", () => {
     const base = loadFixture("minimal") as Record<string, unknown>;
     const broken = {
       ...base,
-      metadata: {
-        ...(base.metadata as object),
-        analyzedAt: "not-a-date",
-      },
+      metadata: { ...(base.metadata as object), analyzedAt: "not-a-date" },
     };
     expect(validate(broken).success).toBe(false);
   });
@@ -210,8 +223,7 @@ describe("validate()", () => {
     const result = validate(loadFixture("minimal"));
     expect(result.success).toBe(true);
     if (result.success) {
-      // TypeScript should narrow to PrivacyFacts here
-      expect(result.data.metadata.schemaVersion).toBe("1.0.0");
+      expect(result.data.metadata.schemaVersion).toBe("2.0.0");
     }
   });
 
@@ -234,67 +246,133 @@ describe("validate()", () => {
   });
 });
 
-// ─── Security measures ────────────────────────────────────────────────────────
+// ─── Security (v2 structured fields) ─────────────────────────────────────────
 
-describe("security.measures", () => {
-  it("accepts an empty measures array (aggressive fixture)", () => {
-    const result = validate(loadFixture("aggressive"));
-    expect(result.success).toBe(true);
-    if (result.success) {
-      expect(result.data.security.measures).toHaveLength(0);
-    }
-  });
-
-  it("accepts multiple measures (minimal fixture)", () => {
+describe("security (v2)", () => {
+  it("has structured BooleanPractice fields and additionalMeasures", () => {
     const result = validate(loadFixture("minimal"));
     expect(result.success).toBe(true);
     if (result.success) {
-      expect(result.data.security.measures.length).toBeGreaterThan(0);
-      result.data.security.measures.forEach((m) => {
-        expect(typeof m.name).toBe("string");
-        expect(typeof m.sourceQuote).toBe("string");
-      });
+      expect(result.data.security.encryptedInTransit.value).toBe(true);
+      expect(result.data.security.encryptedAtRest.value).toBeNull();
+      expect(Array.isArray(result.data.security.additionalMeasures)).toBe(true);
+      expect(result.data.security.additionalMeasures.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("accepts all-null security fields (aggressive fixture)", () => {
+    const result = validate(loadFixture("aggressive"));
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.security.encryptedInTransit.value).toBeNull();
+      expect(result.data.security.additionalMeasures).toHaveLength(0);
     }
   });
 });
 
-// ─── thirdPartyCount ─────────────────────────────────────────────────────────
+// ─── thirdPartyRecipients ─────────────────────────────────────────────────────
 
-describe("dataSharing.thirdPartyCount", () => {
-  it("can be 0 (minimal fixture)", () => {
+describe("thirdPartyRecipients", () => {
+  it("categoryCount can be 0 (minimal fixture)", () => {
     const result = validate(loadFixture("minimal"));
     expect(result.success).toBe(true);
-    if (result.success) expect(result.data.dataSharing.thirdPartyCount).toBe(0);
+    if (result.success) expect(result.data.thirdPartyRecipients.categoryCount).toBe(0);
   });
 
-  it("can be a positive integer (aggressive fixture)", () => {
+  it("categoryCount can be a positive integer (aggressive fixture)", () => {
     const result = validate(loadFixture("aggressive"));
     expect(result.success).toBe(true);
     if (result.success)
-      expect(result.data.dataSharing.thirdPartyCount).toBeGreaterThan(0);
+      expect(result.data.thirdPartyRecipients.categoryCount).toBeGreaterThan(0);
   });
 
-  it("can be null", () => {
+  it("categoryCount can be null", () => {
     const base = loadFixture("minimal") as Record<string, unknown>;
     const modified = {
       ...base,
-      dataSharing: {
-        ...(base.dataSharing as object),
-        thirdPartyCount: null,
+      thirdPartyRecipients: {
+        ...(base.thirdPartyRecipients as object),
+        categoryCount: null,
       },
     };
     expect(validate(modified).success).toBe(true);
   });
 
-  it("rejects negative values", () => {
+  it("rejects negative categoryCount", () => {
     const base = loadFixture("minimal") as Record<string, unknown>;
     const broken = {
       ...base,
-      dataSharing: {
-        ...(base.dataSharing as object),
-        thirdPartyCount: -1,
+      thirdPartyRecipients: {
+        ...(base.thirdPartyRecipients as object),
+        categoryCount: -1,
       },
     };
     expect(validate(broken).success).toBe(false);
+  });
+
+  it("has includesAdvertising and includesLawEnforcement booleans", () => {
+    const result = validate(loadFixture("aggressive"));
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.thirdPartyRecipients.includesAdvertising).toBe(true);
+      expect(result.data.thirdPartyRecipients.includesLawEnforcement).toBe(true);
+    }
+  });
+});
+
+// ─── signalHonoring (v2) ─────────────────────────────────────────────────────
+
+describe("signalHonoring (v2)", () => {
+  it("accepts 'yes' | 'partial' | 'no' | null for honorsBrowserPrivacySignals", () => {
+    const base = loadFixture("minimal") as Record<string, unknown>;
+    const bp = (v: boolean | null) => ({ value: v, confidence: 0.8, sourceQuote: "test" });
+
+    for (const val of ["yes", "partial", "no", null] as const) {
+      const modified = {
+        ...base,
+        signalHonoring: {
+          ...(base.signalHonoring as object),
+          honorsBrowserPrivacySignals: val,
+        },
+      };
+      expect(validate(modified).success).toBe(true);
+    }
+  });
+
+  it("rejects invalid honorsBrowserPrivacySignals value", () => {
+    const base = loadFixture("minimal") as Record<string, unknown>;
+    const broken = {
+      ...base,
+      signalHonoring: {
+        ...(base.signalHonoring as object),
+        honorsBrowserPrivacySignals: "maybe", // invalid
+      },
+    };
+    expect(validate(broken).success).toBe(false);
+  });
+});
+
+// ─── purposes ─────────────────────────────────────────────────────────────────
+
+describe("purposes", () => {
+  it("is present and has standard purpose fields", () => {
+    const result = validate(loadFixture("minimal"));
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.purposes.provideCoreService.value).toBe(true);
+      expect(result.data.purposes.advertisingMarketing.value).toBe(false);
+    }
+  });
+});
+
+// ─── supplementary ────────────────────────────────────────────────────────────
+
+describe("supplementary", () => {
+  it("has independentAudits BooleanPractice", () => {
+    const result = validate(loadFixture("minimal"));
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.supplementary.independentAudits.value).toBe(true);
+    }
   });
 });

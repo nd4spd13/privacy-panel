@@ -133,15 +133,15 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
                   { label: "Cross-site tracking", field: facts.dataSharing.crossSiteTracking },
                   { label: "Used for profiling", field: facts.dataSharing.usedForProfiling },
                   { label: "Used to train AI", field: facts.dataSharing.usedToTrainAI },
-                  { label: "Honors GPC", field: facts.signalHonoring.honorsGPC },
-                  { label: "Honors DNT", field: facts.signalHonoring.honorsDNT },
+                  { label: "Honors GPC", field: facts.signalHonoring.gpcDetail },
+                  { label: "Honors DNT", field: facts.signalHonoring.dntDetail },
                 ].map(({ label, field }) => (
                   <div key={label} className="bg-white border border-gray-200 rounded-lg px-4 py-3">
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="text-xs font-semibold text-gray-600">{label}</span>
                       <div className="flex items-center gap-2">
-                        <span className={`text-xs font-bold px-2 py-0.5 rounded ${field.value ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-500"}`}>
-                          {field.value ? "YES" : "no"}
+                        <span className={`text-xs font-bold px-2 py-0.5 rounded ${field.value === true ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-500"}`}>
+                          {field.value === true ? "YES" : field.value === null ? "?" : "no"}
                         </span>
                         <span className="text-xs text-gray-400">
                           {Math.round(field.confidence * 100)}% confidence
