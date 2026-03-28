@@ -5,6 +5,7 @@ export interface Policy {
   company_id: number;
   url: string;
   content_hash: string;
+  raw_text: string | null;
   fetched_at: string;
   created_at: string;
 }
@@ -27,15 +28,30 @@ export function insertPolicy(
   companyId: number,
   url: string,
   contentHash: string,
-  fetchedAt: string
+  fetchedAt: string,
+  rawText?: string
 ): Policy {
   const db = getDb();
   const result = db
     .prepare(
-      "INSERT INTO policies (company_id, url, content_hash, fetched_at) VALUES (?, ?, ?, ?)"
+      "INSERT INTO policies (company_id, url, content_hash, raw_text, fetched_at) VALUES (?, ?, ?, ?, ?)"
     )
-    .run(companyId, url, contentHash, fetchedAt);
+    .run(companyId, url, contentHash, rawText ?? null, fetchedAt);
   return db
     .prepare("SELECT * FROM policies WHERE id = ?")
     .get(result.lastInsertRowid) as Policy;
+}
+
+export function updatePolicyRawText(policyId: number, rawText: string): void {
+  getDb()
+    .prepare("UPDATE policies SET raw_text = ? WHERE id = ?")
+    .run(rawText, policyId);
+}
+
+export function getPolicyWithText(companyId: number): Policy | null {
+  return getDb()
+    .prepare(
+      "SELECT * FROM policies WHERE company_id = ? AND raw_text IS NOT NULL ORDER BY fetched_at DESC LIMIT 1"
+    )
+    .get(companyId) as Policy | null;
 }

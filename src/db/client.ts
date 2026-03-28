@@ -20,6 +20,15 @@ export function getDb(): Database.Database {
 function applySchema(db: Database.Database): void {
   const schema = readFileSync(SCHEMA_PATH, "utf-8");
   db.exec(schema);
+  applyMigrations(db);
+}
+
+function applyMigrations(db: Database.Database): void {
+  // v2 migration: add raw_text column to policies if it doesn't exist
+  const cols = db.prepare("PRAGMA table_info(policies)").all() as { name: string }[];
+  if (!cols.some(c => c.name === "raw_text")) {
+    db.exec("ALTER TABLE policies ADD COLUMN raw_text TEXT");
+  }
 }
 
 /** Close the database connection (useful in tests). */

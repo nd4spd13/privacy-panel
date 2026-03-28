@@ -2,6 +2,75 @@ import { z } from "zod";
 
 export const SCHEMA_VERSION = "2.0.0";
 
+// ─── Data Category Taxonomy ───────────────────────────────────────────────────
+
+/**
+ * Standardized data-category taxonomy for Privacy Facts labels.
+ * Derived from CCPA/CPRA, GDPR Art.4/9, VCDPA, CPA, CTDPA, COPPA,
+ * Apple App Privacy Labels, and Google Play Data Safety.
+ *
+ * 17 categories: 9 sensitive, 8 non-sensitive.
+ */
+export const DATA_CATEGORIES = [
+  // Non-sensitive
+  "contact_info",
+  "identifiers",
+  "purchase_history",
+  "browsing_activity",
+  "usage_analytics",
+  "contacts_address_book",
+  "photos_videos_audio",
+  "employment_education",
+  // Sensitive
+  "financial_info",
+  "precise_location",
+  "health_fitness",
+  "biometric_data",
+  "genetic_data",
+  "government_ids",
+  "demographic_protected",
+  "communications_content",
+  "childrens_data",
+] as const;
+
+export type DataCategory = typeof DATA_CATEGORIES[number];
+
+const DataCategoryEnum = z.enum(DATA_CATEGORIES);
+
+/** Categories that are always considered sensitive. */
+export const SENSITIVE_CATEGORIES: ReadonlySet<DataCategory> = new Set([
+  "financial_info",
+  "precise_location",
+  "health_fitness",
+  "biometric_data",
+  "genetic_data",
+  "government_ids",
+  "demographic_protected",
+  "communications_content",
+  "childrens_data",
+]);
+
+/** Consumer-friendly display labels for each category. */
+export const CATEGORY_LABELS: Record<DataCategory, string> = {
+  contact_info: "Contact Info",
+  identifiers: "Device & Online IDs",
+  purchase_history: "Purchases & Transactions",
+  browsing_activity: "Browsing & Search History",
+  usage_analytics: "App Usage & Diagnostics",
+  contacts_address_book: "Contacts / Address Book",
+  photos_videos_audio: "Photos, Videos & Audio",
+  employment_education: "Employment & Education",
+  financial_info: "Financial & Payment Data",
+  precise_location: "Precise Location",
+  health_fitness: "Health & Fitness",
+  biometric_data: "Biometric Data",
+  genetic_data: "Genetic Data",
+  government_ids: "Government IDs",
+  demographic_protected: "Race, Religion & Demographics",
+  communications_content: "Message & Email Content",
+  childrens_data: "Children's Data",
+};
+
 // ─── Reusable primitives ──────────────────────────────────────────────────────
 
 /**
@@ -14,8 +83,9 @@ const BooleanPractice = z.object({
   sourceQuote: z.string(),
 });
 
-/** A data type collected, with sensitivity flag and supporting evidence. */
+/** A data type collected, classified into a standardized category. */
 const DataItem = z.object({
+  category: DataCategoryEnum,
   name: z.string().min(1),
   sensitive: z.boolean(),
   sourceQuote: z.string(),

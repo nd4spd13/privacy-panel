@@ -1,5 +1,6 @@
-import { validate, SCHEMA_VERSION } from "../schema/privacy-facts.schema";
+import { validate, SCHEMA_VERSION, SENSITIVE_CATEGORIES } from "../schema/privacy-facts.schema";
 import type { PrivacyFacts } from "../schema/types";
+import type { DataCategory } from "../schema/privacy-facts.schema";
 
 export interface ValidationSuccess {
   success: true;
@@ -69,6 +70,38 @@ function stripCodeFences(text: string): string {
   return text;
 }
 
+// ─── Data category classifier (best-effort for v1 items) ─────────────────────
+
+const CATEGORY_KEYWORDS: [DataCategory, RegExp][] = [
+  // Sensitive categories first (more specific patterns)
+  ["government_ids", /\b(ssn|social security|passport|driver'?s? licen[cs]e?|national id|tax id|government.?id|identification documents?|identity verification)\b/i],
+  ["biometric_data", /\b(biometric|fingerprint|face geometry|facial geometry|face recognition|voiceprint|retina|iris scan|faceprint)\b/i],
+  ["genetic_data", /\b(genetic|dna|genom)/i],
+  ["health_fitness", /\b(health|medical|fitness|prescription|diagnos|menstrual|mental health|physical condition|bmi|heart rate|step count)\b/i],
+  ["financial_info", /\b(payment|credit card|debit card|bank account|financial|credit score|income|billing|payment card|account numbers?|routing number|password|credentials?)\b/i],
+  ["precise_location", /\b(gps|precise location|exact location|real-?time location|geolocation|location data)\b/i],
+  ["demographic_protected", /\b(race|racial|ethnic|religion|religious|political|sexual orientation|gender identity|disability|union membership|citizenship|immigration)\b/i],
+  ["communications_content", /\b(email content|message content|chat content|text message|sms content|voicemail|private message|direct message)\b/i],
+  ["childrens_data", /\b(child(ren)?'?s? data|minor'?s? data|coppa|under 13|under 16)\b/i],
+  // Non-sensitive categories (ordered from specific to general)
+  ["photos_videos_audio", /\b(photos?|videos?|audio|images?|voice recording|camera|user.?content|user.?generated content|listing.*(descriptions?|photos?|images?)|livestreams?)\b/i],
+  ["contacts_address_book", /\b(address book|contact list|phone contacts|contacts you import)\b/i],
+  ["browsing_activity", /\b(browsing|search histor(y|ies)|cookies?|tracking data|web.?beac|pixel|page.?views?|referr)\b/i],
+  ["usage_analytics", /\b(crash|diagnostic|analytics|app.?usage|feature usage|session|telemetry|performance data|log data|device data)\b/i],
+  ["purchase_history", /\b(purchase|transaction|order histor|shopping|commercial)\b/i],
+  ["employment_education", /\b(employ|job title|occupation|profession|education|school|university|degree|student)\b/i],
+  ["identifiers", /\b(device id|user.?id|advertis.* id|ip address|account info(rmation)?|username|unique id|online id|cookie id|identifiers?|device|social media accounts?)\b/i],
+  ["contact_info", /\b(^name$|email.?address|phone.?number|mailing.?address|postal|contact info(rmation)?|shipping address)\b/i],
+];
+
+/** Classify a free-text data item name into the best-matching category. */
+export function classifyDataItem(name: string): DataCategory {
+  for (const [category, pattern] of CATEGORY_KEYWORDS) {
+    if (pattern.test(name)) return category;
+  }
+  return "contact_info"; // fallback for unclassifiable items
+}
+
 // ─── v1 → v2 migration ────────────────────────────────────────────────────────
 
 /**
@@ -117,7 +150,6 @@ export function migrateV1ToV2(v1Raw: unknown): MigrationResult | { success: fals
     "dataSharing.disclosedToLawEnforcement",
     "supplementary",
     "dataCollection.sensitiveTaxonomy",
-    "security (structured fields)",
   ];
 
   const bpNull = () => ({ value: null as null, confidence: 0.1, sourceQuote: "Not available — requires re-extraction." });
@@ -166,8 +198,34 @@ export function migrateV1ToV2(v1Raw: unknown): MigrationResult | { success: fals
   // Migrate third-party count
   const tpCount = ds["thirdPartyCount"] as number | null | undefined;
 
-  // Migrate security measures (free-form → additionalMeasures, structured fields all null)
+  // Migrate security measures (free-form → additionalMeasures + best-effort structured mapping)
   const oldMeasures = (sec["measures"] as { name: string; sourceQuote: string }[] | undefined) ?? [];
+  const measureNames = oldMeasures.map(m => m.name.toLowerCase());
+
+  const bpInferred = (sourceQuote: string) => ({ value: true as const, confidence: 0.6, sourceQuote });
+
+  const encryptedInTransit = measureNames.some(n =>
+    (n.includes("encrypt") && (n.includes("transit") || n.includes("tls") || n.includes("ssl") || n.includes("https")))
+    || n.includes("transport layer security") || n.includes("secure socket")
+    || n.includes("end-to-end encrypt")
+  ) ? bpInferred("Inferred from v1 security measures") : bpNull();
+
+  // "data encryption" or "encryption" alone → assume at-rest (transit is more specific)
+  const encryptedAtRest = measureNames.some(n =>
+    (n.includes("encrypt") && (n.includes("rest") || n.includes("storage") || n.includes("stored")))
+    || n.includes("aes") || n.includes("secure storage")
+    || (n.includes("data encrypt") && !n.includes("transit") && !n.includes("end-to-end"))
+  ) ? bpInferred("Inferred from v1 security measures") : bpNull();
+
+  const mfaAvailable = measureNames.some(n =>
+    n.includes("mfa") || n.includes("multi-factor") || n.includes("two-factor") || n.includes("2fa")
+    || n.includes("two-step verification")
+  ) ? bpInferred("Inferred from v1 security measures") : bpNull();
+
+  const breachNotification = measureNames.some(n =>
+    n.includes("breach") || (n.includes("incident") && n.includes("notif"))
+    || n.includes("breach notification")
+  ) ? bpInferred("Inferred from v1 security measures") : bpNull();
 
   const v2: PrivacyFacts = {
     metadata: {
@@ -175,7 +233,10 @@ export function migrateV1ToV2(v1Raw: unknown): MigrationResult | { success: fals
       schemaVersion: SCHEMA_VERSION,
     },
     dataCollection: {
-      items: (dc["items"] as { name: string; sensitive: boolean; sourceQuote: string }[]) ?? [],
+      items: ((dc["items"] as { name: string; sensitive: boolean; sourceQuote: string }[]) ?? []).map(item => ({
+        ...item,
+        category: classifyDataItem(item.name),
+      })),
       sensitiveTaxonomy: {
         preciseGeolocation: false,
         financialPaymentData: false,
@@ -242,10 +303,10 @@ export function migrateV1ToV2(v1Raw: unknown): MigrationResult | { success: fals
       dntDetail: bpFromV1(sh["honorsDNT"]),
     },
     security: {
-      encryptedInTransit: bpNull(),
-      encryptedAtRest: bpNull(),
-      mfaAvailable: bpNull(),
-      breachNotification: bpNull(),
+      encryptedInTransit,
+      encryptedAtRest,
+      mfaAvailable,
+      breachNotification,
       additionalMeasures: oldMeasures,
     },
     supplementary: {

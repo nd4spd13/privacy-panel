@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS policies (
   company_id   INTEGER NOT NULL REFERENCES companies (id) ON DELETE CASCADE,
   url          TEXT    NOT NULL,
   content_hash TEXT    NOT NULL,   -- SHA-256 of raw policy text
+  raw_text     TEXT,               -- Full extracted policy text (added v2)
   fetched_at   TEXT    NOT NULL,
   created_at   TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now'))
 );

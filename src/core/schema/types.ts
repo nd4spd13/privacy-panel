@@ -1,6 +1,10 @@
 import { z } from "zod";
 import { PrivacyFactsSchema } from "./privacy-facts.schema";
 
+// Re-export taxonomy constants for convenience
+export type { DataCategory } from "./privacy-facts.schema";
+export { DATA_CATEGORIES, SENSITIVE_CATEGORIES, CATEGORY_LABELS } from "./privacy-facts.schema";
+
 // ─── Inferred types ───────────────────────────────────────────────────────────
 
 export type PrivacyFacts = z.infer<typeof PrivacyFactsSchema>;
