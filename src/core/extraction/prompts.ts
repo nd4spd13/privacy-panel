@@ -22,6 +22,29 @@ CRITICAL RULES:
    - null  = policy does NOT address this topic at all (genuinely silent)
    DO NOT default to true/false when the policy is silent — use null.
 5. sourceQuote must be a verbatim excerpt from the policy, or a brief explanation if the policy is silent (e.g., "Policy does not mention this topic.").
+6. For dataCollection.items[].name: use sentence case (capitalize first letter only, e.g. "Email address", "Payment information"). Deduplicate overlapping items — e.g. "credit card information" and "payment card information" should be a single item "Payment card information".
+7. For dataCollection.items[].category: classify each item into exactly one of the 17 DataCategory values listed below. Use the most specific matching category. When in doubt, prefer the sensitive category.
+
+DATA CATEGORIES (17 total — assign one per item):
+  Non-sensitive:
+    "contact_info"          — Name, email address, phone number, mailing/postal address, shipping address
+    "identifiers"           — Device IDs, user IDs, advertising IDs, IP address, account information, usernames, cookie IDs, social media accounts
+    "purchase_history"      — Purchases, transactions, order history, shopping activity
+    "browsing_activity"     — Browsing history, search history, cookies, tracking data, page views, referrers
+    "usage_analytics"       — Crash logs, diagnostics, analytics, app usage, session data, telemetry, device data, log data
+    "contacts_address_book" — Imported contacts, address book, phone contacts
+    "photos_videos_audio"   — Photos, videos, audio, images, voice recordings, camera data, user-generated content, livestreams
+    "employment_education"  — Employment status, job title, occupation, education, school, university, degree
+  Sensitive:
+    "financial_info"        — Payment info, credit/debit cards, bank accounts, credit scores, income, billing, account numbers
+    "precise_location"      — GPS, precise/exact/real-time location, geolocation
+    "health_fitness"        — Health, medical, fitness, prescriptions, diagnoses, mental health, heart rate, step count
+    "biometric_data"        — Fingerprints, face geometry, voiceprints, retina/iris scans, faceprints
+    "genetic_data"          — Genetic data, DNA, genomic information
+    "government_ids"        — SSN, passport, driver's license, national ID, tax ID, identification documents
+    "demographic_protected" — Race, ethnicity, religion, political affiliation, sexual orientation, gender identity, disability, citizenship
+    "communications_content"— Email content, message/chat content, SMS content, voicemail, private/direct messages
+    "childrens_data"        — Data specifically collected from children, COPPA-related data
 
 SCHEMA (schemaVersion must be exactly "${SCHEMA_VERSION}"):
 {
@@ -34,7 +57,7 @@ SCHEMA (schemaVersion must be exactly "${SCHEMA_VERSION}"):
     "policyEffectiveDate": "optional string or null"
   },
   "dataCollection": {
-    "items": [{ "name": "string", "sensitive": boolean, "sourceQuote": "string" }],
+    "items": [{ "category": "DataCategory", "name": "string (sentence case, e.g. 'Email address', 'Payment information')", "sensitive": boolean, "sourceQuote": "string" }],
     "sensitiveTaxonomy": {
       "preciseGeolocation": boolean,
       "financialPaymentData": boolean,

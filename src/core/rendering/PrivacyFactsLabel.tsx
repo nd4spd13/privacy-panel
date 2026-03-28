@@ -1,5 +1,7 @@
 import React from "react";
-import type { PrivacyFacts } from "../schema/types";
+import type { PrivacyFacts, DataItem } from "../schema/types";
+import { CATEGORY_LABELS, SENSITIVE_CATEGORIES } from "../schema/types";
+import type { DataCategory } from "../schema/types";
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
 
@@ -194,6 +196,73 @@ function SignalStatusPill({ status }: { status: "yes" | "partial" | "no" | null 
   );
 }
 
+// ─── Data items grouped by category ──────────────────────────────────────────
+
+function DataCollectedByCategory({ items }: { items: DataItem[] }) {
+  // Group items by category, sensitive categories first
+  const grouped = new Map<DataCategory, DataItem[]>();
+  for (const item of items) {
+    const cat = item.category;
+    if (!grouped.has(cat)) grouped.set(cat, []);
+    grouped.get(cat)!.push(item);
+  }
+
+  // Sort: sensitive categories first, then non-sensitive
+  const sortedCategories = [...grouped.keys()].sort((a, b) => {
+    const aSens = SENSITIVE_CATEGORIES.has(a) ? 0 : 1;
+    const bSens = SENSITIVE_CATEGORIES.has(b) ? 0 : 1;
+    return aSens - bSens;
+  });
+
+  return (
+    <div style={{ paddingLeft: 4 }}>
+      {sortedCategories.map((category) => {
+        const catItems = grouped.get(category)!;
+        const isSensitive = SENSITIVE_CATEGORIES.has(category);
+        const label = CATEGORY_LABELS[category];
+
+        return (
+          <div key={category} style={{ marginBottom: 4 }}>
+            <div style={{
+              fontSize: 10,
+              fontWeight: 700,
+              color: isSensitive ? COLOR.red : COLOR.black,
+              paddingTop: 3,
+              paddingBottom: 1,
+              display: "flex",
+              alignItems: "center",
+              gap: 4,
+            }}>
+              <span style={{ fontSize: 9, lineHeight: 1, flexShrink: 0 }}>
+                {isSensitive ? "●" : "○"}
+              </span>
+              {label}
+              {isSensitive && (
+                <span style={{ fontSize: 7, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase" as const }}>
+                  sensitive
+                </span>
+              )}
+            </div>
+            <div style={{ paddingLeft: 13 }}>
+              {catItems.map((item, i) => (
+                <div key={i} style={{
+                  fontSize: 10,
+                  color: isSensitive ? COLOR.red : COLOR.gray,
+                  paddingTop: 0.5,
+                  paddingBottom: 0.5,
+                  fontWeight: isSensitive ? 500 : 400,
+                }}>
+                  {item.name}
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export interface PrivacyFactsLabelProps {
@@ -282,23 +351,7 @@ export function PrivacyFactsLabel({ data, diffFields }: PrivacyFactsLabelProps) 
         {dataCollection.items.length === 0 ? (
           <div style={{ fontSize: 10, color: COLOR.gray }}>None disclosed</div>
         ) : (
-          <div style={{ paddingLeft: 4 }}>
-            {/* Sensitive items first */}
-            {dataCollection.items.filter(i => i.sensitive).map((item, i) => (
-              <div key={`s${i}`} style={{ display: "flex", alignItems: "center", gap: 5, paddingTop: 1.5, paddingBottom: 1.5 }}>
-                <span style={{ color: COLOR.red, fontSize: 9, lineHeight: 1, flexShrink: 0 }}>●</span>
-                <span style={{ fontSize: 10, color: COLOR.red, fontWeight: 600 }}>{item.name}</span>
-                <span style={{ fontSize: 8, color: COLOR.red, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase" as const, marginLeft: 2 }}>sensitive</span>
-              </div>
-            ))}
-            {/* Non-sensitive items */}
-            {dataCollection.items.filter(i => !i.sensitive).map((item, i) => (
-              <div key={`n${i}`} style={{ display: "flex", alignItems: "center", gap: 5, paddingTop: 1.5, paddingBottom: 1.5 }}>
-                <span style={{ color: COLOR.gray, fontSize: 9, lineHeight: 1, flexShrink: 0 }}>○</span>
-                <span style={{ fontSize: 10, color: COLOR.gray }}>{item.name}</span>
-              </div>
-            ))}
-          </div>
+          <DataCollectedByCategory items={dataCollection.items} />
         )}
       </Section>
 
@@ -309,6 +362,22 @@ export function PrivacyFactsLabel({ data, diffFields }: PrivacyFactsLabelProps) 
         <SectionLabel>Data Sharing &amp; Use</SectionLabel>
         <div style={highlightStyle("soldToThirdParties")}>
           <PracticeRow label="Sold to third parties" value={dataSharing.soldToThirdParties.value} critical />
+          {/* Third-party recipient categories — subordinate detail under "Sold" */}
+          {(thirdPartyRecipients.categoryCount !== null || thirdPartyRecipients.categories.length > 0) && (
+            <div style={{ fontSize: 10, color: COLOR.gray, paddingLeft: 46, paddingBottom: 2, lineHeight: 1.4, marginTop: -2 }}>
+              <span style={{
+                fontWeight: 700,
+                color: (thirdPartyRecipients.categoryCount ?? 0) > 5 ? COLOR.red : COLOR.black,
+              }}>
+                {thirdPartyRecipients.categoryCount !== null ? thirdPartyRecipients.categoryCount : thirdPartyRecipients.categories.length}
+              </span>
+              <span> recipient {(thirdPartyRecipients.categoryCount ?? thirdPartyRecipients.categories.length) === 1 ? "category" : "categories"}</span>
+              {thirdPartyRecipients.categories.length > 0 && (
+                <span style={{ color: COLOR.gray }}> ({thirdPartyRecipients.categories.slice(0, 3).join(", ")}
+                {thirdPartyRecipients.categories.length > 3 ? ", …" : ""})</span>
+              )}
+            </div>
+          )}
         </div>
         <div style={highlightStyle("sharedForAdvertising")}>
           <PracticeRow label="Shared for advertising" value={dataSharing.sharedForAdvertising.value} />
@@ -325,23 +394,6 @@ export function PrivacyFactsLabel({ data, diffFields }: PrivacyFactsLabelProps) 
         <div style={highlightStyle("disclosedToLawEnforcement")}>
           <PracticeRow label="Disclosed to law enforcement" value={dataSharing.disclosedToLawEnforcement.value} />
         </div>
-
-        {/* Third-party recipients */}
-        {(thirdPartyRecipients.categoryCount !== null || thirdPartyRecipients.categories.length > 0) && (
-          <div style={{ fontSize: 11, color: COLOR.gray, paddingTop: 4, lineHeight: 1.5 }}>
-            <span>Third-party categories: </span>
-            <span style={{
-              fontWeight: 700,
-              color: (thirdPartyRecipients.categoryCount ?? 0) > 5 ? COLOR.red : COLOR.black,
-            }}>
-              {thirdPartyRecipients.categoryCount !== null ? thirdPartyRecipients.categoryCount : thirdPartyRecipients.categories.length}
-            </span>
-            {thirdPartyRecipients.categories.length > 0 && (
-              <span style={{ color: COLOR.gray }}> ({thirdPartyRecipients.categories.slice(0, 4).join(", ")}
-              {thirdPartyRecipients.categories.length > 4 ? ", …" : ""})</span>
-            )}
-          </div>
-        )}
       </Section>
 
       <Rule weight="thick" />
