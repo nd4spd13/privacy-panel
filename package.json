@@ -32,6 +32,16 @@
     "server-only": "^0.0.1",
     "zod": "^3.25.76"
   },
+  "overrides": {
+    "picomatch@<2.3.2": "2.3.2",
+    "picomatch@>=4.0.0 <4.0.4": "4.0.4"
+  },
+  "pnpm": {
+    "overrides": {
+      "picomatch@<2.3.2": "2.3.2",
+      "picomatch@>=4.0.0 <4.0.4": "4.0.4"
+    }
+  },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
     "@types/better-sqlite3": "^7.6.13",
