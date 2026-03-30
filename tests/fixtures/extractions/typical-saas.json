@@ -8,11 +8,11 @@
   },
   "dataCollection": {
     "items": [
-      { "name": "Email address", "sensitive": false, "sourceQuote": "We collect your email address when you register." },
-      { "name": "Name", "sensitive": false, "sourceQuote": "We collect your name." },
-      { "name": "IP address", "sensitive": false, "sourceQuote": "We log IP addresses for security purposes." },
-      { "name": "Usage data", "sensitive": false, "sourceQuote": "We collect data about how you use our service." },
-      { "name": "Payment information", "sensitive": true, "sourceQuote": "We collect payment card information for billing." }
+      { "category": "contact_info", "name": "Email address", "sensitive": false, "sourceQuote": "We collect your email address when you register." },
+      { "category": "contact_info", "name": "Name", "sensitive": false, "sourceQuote": "We collect your name." },
+      { "category": "identifiers", "name": "IP address", "sensitive": false, "sourceQuote": "We log IP addresses for security purposes." },
+      { "category": "usage_analytics", "name": "Usage data", "sensitive": false, "sourceQuote": "We collect data about how you use our service." },
+      { "category": "financial_info", "name": "Payment information", "sensitive": true, "sourceQuote": "We collect payment card information for billing." }
     ],
     "sensitiveTaxonomy": {
       "preciseGeolocation": false,

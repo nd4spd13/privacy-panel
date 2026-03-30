@@ -9,8 +9,8 @@
   },
   "dataCollection": {
     "items": [
-      { "name": "Phone number", "sensitive": false, "sourceQuote": "Signal requires a phone number to register." },
-      { "name": "Message metadata (minimal)", "sensitive": false, "sourceQuote": "Signal is designed to minimize the data we collect." }
+      { "category": "contact_info", "name": "Phone number", "sensitive": false, "sourceQuote": "Signal requires a phone number to register." },
+      { "category": "usage_analytics", "name": "Message metadata (minimal)", "sensitive": false, "sourceQuote": "Signal is designed to minimize the data we collect." }
     ],
     "sensitiveTaxonomy": {
       "preciseGeolocation": false,
