@@ -8,15 +8,15 @@
   },
   "dataCollection": {
     "items": [
-      { "name": "Name", "sensitive": false, "sourceQuote": "We collect your full name." },
-      { "name": "Email address", "sensitive": false, "sourceQuote": "We collect your email address." },
-      { "name": "Phone number", "sensitive": false, "sourceQuote": "We collect your phone number." },
-      { "name": "Precise GPS location", "sensitive": true, "sourceQuote": "We collect your precise GPS location in real time." },
-      { "name": "Biometric data", "sensitive": true, "sourceQuote": "We collect face recognition data for identity verification." },
-      { "name": "Health data", "sensitive": true, "sourceQuote": "We collect health and fitness information from connected devices." },
-      { "name": "Financial data", "sensitive": true, "sourceQuote": "We collect bank account and credit card information." },
-      { "name": "Browsing history", "sensitive": true, "sourceQuote": "We collect your full browsing history via our SDK." },
-      { "name": "Contacts", "sensitive": true, "sourceQuote": "We collect your contacts list." }
+      { "category": "contact_info", "name": "Name", "sensitive": false, "sourceQuote": "We collect your full name." },
+      { "category": "contact_info", "name": "Email address", "sensitive": false, "sourceQuote": "We collect your email address." },
+      { "category": "contact_info", "name": "Phone number", "sensitive": false, "sourceQuote": "We collect your phone number." },
+      { "category": "precise_location", "name": "Precise GPS location", "sensitive": true, "sourceQuote": "We collect your precise GPS location in real time." },
+      { "category": "biometric_data", "name": "Biometric data", "sensitive": true, "sourceQuote": "We collect face recognition data for identity verification." },
+      { "category": "health_fitness", "name": "Health data", "sensitive": true, "sourceQuote": "We collect health and fitness information from connected devices." },
+      { "category": "financial_info", "name": "Financial data", "sensitive": true, "sourceQuote": "We collect bank account and credit card information." },
+      { "category": "browsing_activity", "name": "Browsing history", "sensitive": true, "sourceQuote": "We collect your full browsing history via our SDK." },
+      { "category": "contacts_address_book", "name": "Contacts", "sensitive": true, "sourceQuote": "We collect your contacts list." }
     ],
     "sensitiveTaxonomy": {
       "preciseGeolocation": true,

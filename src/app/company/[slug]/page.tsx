@@ -1,8 +1,9 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Header } from "@/components/Header";
-import { GradedLabel } from "@/core/rendering/GradedLabel";
+import { GradeBadge } from "@/components/GradeBadge";
 import { LabelScaler } from "@/components/LabelScaler";
+import { PrivacyFactsLabel } from "@/core/rendering/PrivacyFactsLabel";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
 import { FEATURE_DISPUTES } from "@/lib/flags";
@@ -35,11 +36,19 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
           <span className="text-gray-700">{company.name}</span>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-10 items-start">
-          {/* ── Left: Label ──────────────────────────────────────────────── */}
+        <h1 className="text-3xl font-black text-gray-900 mb-1">{company.name}</h1>
+        {company.domain && (
+          <a href={`https://${company.domain}`} target="_blank" className="text-sm text-gray-400 hover:text-gray-700">
+            {company.domain} ↗
+          </a>
+        )}
+
+        <div className="flex flex-col lg:flex-row gap-10 items-start mt-8">
+          {/* ── Left: Neutral Privacy Facts Label ────────────────────────── */}
           <div className="w-full lg:w-auto lg:flex-shrink-0">
+            <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Privacy Facts Label</div>
             <LabelScaler>
-              <GradedLabel data={facts} grade={grade} />
+              <PrivacyFactsLabel data={facts} />
             </LabelScaler>
             <div className="mt-4 flex gap-2 text-xs">
               <a
@@ -62,19 +71,40 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
                 Compare
               </Link>
             </div>
+            <p className="mt-3 text-xs text-gray-400 leading-relaxed max-w-[380px]">
+              This label summarizes privacy practices as disclosed in the company's privacy policy.
+              It is a neutral, factual restatement — not an evaluation.{" "}
+              <Link href="/label" className="underline hover:text-gray-600">What is this?</Link>
+            </p>
           </div>
 
-          {/* ── Right: Details ───────────────────────────────────────────── */}
+          {/* ── Right: Privacy Score ─────────────────────────────────────── */}
           <div className="flex-1 min-w-0">
-            <h1 className="text-3xl font-black text-gray-900 mb-1">{company.name}</h1>
-            {company.domain && (
-              <a href={`https://${company.domain}`} target="_blank" className="text-sm text-gray-400 hover:text-gray-700">
-                {company.domain} ↗
-              </a>
-            )}
+            <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Privacy Score</div>
+
+            {/* Grade display */}
+            <div className="bg-white border border-gray-200 rounded-xl p-5 mb-4 flex items-center gap-5">
+              <GradeBadge letter={grade.letter} score={grade.score} size="lg" />
+              <div>
+                <div className="text-2xl font-black text-gray-900">
+                  {grade.score}<span className="text-base font-normal text-gray-400">/100</span>
+                </div>
+                <div className="text-sm text-gray-600 mt-0.5">{grade.label}</div>
+                <div className="text-xs text-gray-400 mt-1">
+                  Rubric v{grade.rubricVersion} · <Link href="/rubric" className="underline hover:text-gray-600">How is this calculated?</Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-xs text-gray-500 leading-relaxed mb-6 bg-amber-50 border border-amber-100 rounded-lg px-4 py-3">
+              The score reflects Privacy Facts' assessment based on our{" "}
+              <Link href="/rubric" className="underline hover:text-amber-700">published rubric</Link>.
+              It is our opinion — not a legal determination. Grades measure disclosed practices,
+              not actual behavior.
+            </div>
 
             {/* Score breakdown */}
-            <div className="mt-8">
+            <div className="mb-8">
               <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">Score Breakdown</h2>
               <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
                 <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 bg-gray-50">
@@ -123,8 +153,8 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
               </div>
             </div>
 
-            {/* Source quotes */}
-            <div className="mt-8">
+            {/* Source evidence */}
+            <div className="mb-8">
               <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">Source Evidence</h2>
               <div className="space-y-3">
                 {[
@@ -157,7 +187,7 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
             </div>
 
             {/* Analysis metadata */}
-            <div className="mt-8 pt-6 border-t border-gray-100 text-xs text-gray-400 space-y-1">
+            <div className="pt-6 border-t border-gray-100 text-xs text-gray-400 space-y-1">
               <p>Analyzed {new Date(extraction.created_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
               <p>Model: {extraction.model} · {extraction.input_tokens?.toLocaleString()} input tokens</p>
               <p>Rubric version {grade.rubricVersion} · <Link href="/rubric" className="underline hover:text-gray-600">View full rubric</Link></p>
