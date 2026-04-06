@@ -368,6 +368,20 @@ Build the consumer-facing Next.js pages.
 - Use fixture files for policy texts and expected extractions
 - Extraction tests should use mocked Claude API responses (don't hit the API in CI)
 
+## Error Handling Philosophy: Fail Loud, Never Fake
+Prefer a visible failure over a silent fallback.
+- Never silently swallow errors to keep things "working."
+  Surface the error. Don't substitute placeholder data.
+- Fallbacks are acceptable only when disclosed. Show a
+  banner, log a warning, annotate the output.
+- Design for debuggability, not cosmetic stability.
+Priority order:
+1. Works correctly with real data
+2. Falls back visibly — clearly signals degraded mode
+3. Fails with a clear error message
+4. Silently degrades to look "fine" — never do this
+
+
 ### Legal Disclaimers
 Every rendered label must include:
 - "This label summarizes privacy practices as disclosed in the company's privacy policy."
