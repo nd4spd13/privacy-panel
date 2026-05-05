@@ -57,6 +57,9 @@ Thumbs.db
 *.swp
 *.swo
 
+# ── Hosting ─────────────────────────────────────────────────────────────
+/privacypanel.org-ssl-bundle/
+
 # ── Test coverage ─────────────────────────────────────────────────────────────
 coverage/
 .nyc_output/
