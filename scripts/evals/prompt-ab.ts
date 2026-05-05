@@ -12,19 +12,19 @@ import { extract } from "../../src/core/extraction/extractor";
 import { buildSystemPrompt, buildSystemPromptEvalVariantB } from "../../src/core/extraction/prompts";
 import { score } from "../../src/core/scoring/engine";
 import { loadRubricOrThrow } from "../../src/core/scoring/rubric";
-import { SCHEMA_VERSION } from "../../src/core/schema/privacy-facts.schema";
+import { SCHEMA_VERSION } from "../../src/core/schema/privacy-panel.schema";
 import { MODEL } from "../../src/lib/anthropic";
 import { CANONICAL_POLICY_IDS, loadGoldExtraction, loadPolicyText } from "../../evals/lib/dataset";
 import { diffWatchedPaths, WATCHED_EXTRACTION_PATHS } from "../../evals/lib/extraction-diff";
 import { buildRunManifest, ensureResultsDir, rubricVersionFromYaml } from "../../evals/lib/manifest";
 import { mean, percentile, sortedCopy } from "../../evals/lib/percentiles";
 import { writeEvalArtifacts, type EvalReportInput, type PerPolicyBlock } from "../../evals/lib/report";
-import type { PrivacyFacts } from "../../src/core/schema/types";
+import type { PrivacyPanel } from "../../src/core/schema/types";
 
 const repoRoot = join(__dirname, "../..");
 const rubricPath = join(repoRoot, "src/core/scoring/rubric.v2.yaml");
 
-function watchedAgreementFraction(a: PrivacyFacts, b: PrivacyFacts): number {
+function watchedAgreementFraction(a: PrivacyPanel, b: PrivacyPanel): number {
   const diffs = diffWatchedPaths(a, b);
   return 1 - diffs.length / WATCHED_EXTRACTION_PATHS.length;
 }

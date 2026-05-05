@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { GradeBadge } from "@/components/GradeBadge";
 import { LabelScaler } from "@/components/LabelScaler";
-import { PrivacyFactsLabel } from "@/core/rendering/PrivacyFactsLabel";
+import { PrivacyPanelLabel } from "@/core/rendering/PrivacyPanelLabel";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
 import { FEATURE_DISPUTES } from "@/lib/flags";
@@ -44,11 +44,11 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
         )}
 
         <div className="flex flex-col lg:flex-row gap-10 items-start mt-8">
-          {/* ── Left: Neutral Privacy Facts Label ────────────────────────── */}
+          {/* ── Left: Neutral Privacy Panel Label ────────────────────────── */}
           <div className="w-full lg:w-auto lg:flex-shrink-0">
-            <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Privacy Facts Label</div>
+            <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Privacy Panel Label</div>
             <LabelScaler>
-              <PrivacyFactsLabel data={facts} />
+              <PrivacyPanelLabel data={facts} />
             </LabelScaler>
             <div className="mt-4 flex gap-2 text-xs">
               <a
@@ -97,7 +97,7 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
             </div>
 
             <div className="text-xs text-gray-500 leading-relaxed mb-6 bg-amber-50 border border-amber-100 rounded-lg px-4 py-3">
-              The score reflects Privacy Facts' assessment based on our{" "}
+              The score reflects Privacy Panel' assessment based on our{" "}
               <Link href="/rubric" className="underline hover:text-amber-700">published rubric</Link>.
               It is our opinion — not a legal determination. Grades measure disclosed practices,
               not actual behavior.

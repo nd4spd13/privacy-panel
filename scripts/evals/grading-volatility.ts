@@ -11,18 +11,18 @@ import { join } from "path";
 import { score } from "../../src/core/scoring/engine";
 import { loadRubricOrThrow } from "../../src/core/scoring/rubric";
 import type { V2Rubric } from "../../src/core/scoring/rubric";
-import { SCHEMA_VERSION } from "../../src/core/schema/privacy-facts.schema";
+import { SCHEMA_VERSION } from "../../src/core/schema/privacy-panel.schema";
 import { buildSystemPrompt } from "../../src/core/extraction/prompts";
 import { MODEL } from "../../src/lib/anthropic";
 import { CANONICAL_POLICY_IDS, loadGoldExtraction } from "../../evals/lib/dataset";
 import { buildRunManifest, ensureResultsDir, rubricVersionFromYaml } from "../../evals/lib/manifest";
 import { writeEvalArtifacts, type EvalReportInput, type PerPolicyBlock } from "../../evals/lib/report";
-import type { PrivacyFacts } from "../../src/core/schema/types";
+import type { PrivacyPanel } from "../../src/core/schema/types";
 
 const repoRoot = join(__dirname, "../..");
 const rubricPath = join(repoRoot, "src/core/scoring/rubric.v2.yaml");
 
-const DATA_SHARING_KEYS: (keyof PrivacyFacts["dataSharing"])[] = [
+const DATA_SHARING_KEYS: (keyof PrivacyPanel["dataSharing"])[] = [
   "soldToThirdParties",
   "sharedForAdvertising",
   "crossSiteTracking",

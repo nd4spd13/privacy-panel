@@ -1,4 +1,4 @@
-# Privacy Facts — evaluation harness
+# Privacy Panel — evaluation harness
 
 This folder documents **canonical evaluation datasets** and how to run human-readable extraction and grading checks.
 
@@ -14,7 +14,7 @@ All offline and most live/A/B runs use the same three policy texts and gold extr
 
 **Rubric for scripted evals:** [`src/core/scoring/rubric.v2.yaml`](../src/core/scoring/rubric.v2.yaml) (same as [`tests/core/scoring.test.ts`](../tests/core/scoring.test.ts) expectations).
 
-**Schema:** [`src/core/schema/privacy-facts.schema.ts`](../src/core/schema/privacy-facts.schema.ts) — `SCHEMA_VERSION` is stamped in manifests.
+**Schema:** [`src/core/schema/privacy-panel.schema.ts`](../src/core/schema/privacy-panel.schema.ts) — `SCHEMA_VERSION` is stamped in manifests.
 
 ## Existing automated coverage (baseline)
 

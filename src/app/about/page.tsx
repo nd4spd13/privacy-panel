@@ -7,7 +7,7 @@ export default function AboutPage() {
       <Header />
       <main className="max-w-3xl mx-auto px-6 py-12">
         {/* ── Title ───────────────────────────────────────────────────────── */}
-        <h1 className="text-4xl font-black text-gray-900 mb-3">About Privacy Facts</h1>
+        <h1 className="text-4xl font-black text-gray-900 mb-3">About Privacy Panel</h1>
         <p className="text-lg text-gray-500 leading-relaxed mb-12">
           An open-source project that brings transparency to privacy policies —
           one company at a time.
@@ -18,7 +18,7 @@ export default function AboutPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">Mission</h2>
           <p className="text-gray-600 leading-relaxed mb-3">
             Privacy policies are long, deliberately opaque, and written by lawyers for lawyers.
-            Most consumers never read them. Privacy Facts changes that by doing the reading for you
+            Most consumers never read them. Privacy Panel changes that by doing the reading for you
             and presenting the findings in a format anyone can understand — like an FDA Nutrition
             Facts label, but for your data.
           </p>
@@ -40,7 +40,7 @@ export default function AboutPage() {
               {
                 step: "1",
                 title: "Policy ingestion",
-                body: "We fetch the company's public privacy policy URL using a responsible bot (PrivacyFacts/1.0) that respects robots.txt. The page is parsed with Mozilla's Readability library to strip navigation and extract the policy text.",
+                body: "We fetch the company's public privacy policy URL using a responsible bot (PrivacyPanel/1.0) that respects robots.txt. The page is parsed with Mozilla's Readability library to strip navigation and extract the policy text.",
               },
               {
                 step: "2",
@@ -83,7 +83,7 @@ export default function AboutPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">Legal disclaimers</h2>
           <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
             <p>
-              <strong>Not legal advice.</strong> Privacy Facts is an informational tool, not legal advice.
+              <strong>Not legal advice.</strong> Privacy Panel is an informational tool, not legal advice.
               Nothing on this site should be construed as legal advice about your rights under any privacy law.
             </p>
             <p>
@@ -104,7 +104,7 @@ export default function AboutPage() {
               what we measure and why.
             </p>
             <p>
-              <strong>No affiliation.</strong> Privacy Facts is an independent project. We are not affiliated
+              <strong>No affiliation.</strong> Privacy Panel is an independent project. We are not affiliated
               with any company we analyze, any privacy advocacy organization, or any law firm.
             </p>
           </div>
@@ -114,13 +114,13 @@ export default function AboutPage() {
         <section className="mb-10">
           <h2 className="text-xl font-bold text-gray-900 mb-3">Open source</h2>
           <p className="text-gray-600 leading-relaxed mb-3">
-            Privacy Facts is fully open source. The scoring rubric, extraction prompts, schema, and
+            Privacy Panel is fully open source. The scoring rubric, extraction prompts, schema, and
             all application code are publicly available. We believe transparency in our methodology
             is essential to the project's credibility.
           </p>
           <div className="flex flex-wrap gap-3 text-sm">
             <a
-              href="https://github.com/privacyfacts/privacy-scorer"
+              href="https://github.com/privacypanel/privacy-panel"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 border border-gray-300 rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors font-medium"
@@ -162,7 +162,7 @@ export default function AboutPage() {
             <p>
               To report a security vulnerability, open an issue on{" "}
               <a
-                href="https://github.com/csabba/privacy-scorer"
+                href="https://github.com/privacypanel/privacy-panel"
                 className="underline hover:text-gray-900"
                 target="_blank"
                 rel="noopener noreferrer"

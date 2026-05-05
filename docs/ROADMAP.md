@@ -1,4 +1,4 @@
-# Privacy Facts — Roadmap
+# Privacy Panel — Roadmap
 
 ## Planned: Migrate from SQLite to Postgres
 
@@ -89,10 +89,10 @@ psql $DATABASE_URL < seed.sql
 
 ```bash
 # Before (SQLite)
-DATABASE_URL=./data/privacyfacts.db
+DATABASE_URL=./data/privacypanel.db
 
 # After (Postgres)
-DATABASE_URL=postgresql://user:password@host:5432/privacyfacts
+DATABASE_URL=postgresql://user:password@host:5432/privacypanel
 ```
 
 The `src/db/client.ts` factory function already reads from `DATABASE_URL` — update it to detect the protocol and instantiate the right client, or just replace it outright.

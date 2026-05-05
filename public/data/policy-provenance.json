@@ -1,6 +1,6 @@
 {
   "_schema_version": "1.0",
-  "_description": "Provenance log for Privacy Facts Label policy data. Each entry records when a company's privacy policy was analyzed, the URL used, the source method, and (once implemented) a path to a stored snapshot of the exact document. company_slug is a foreign key to companies.json.",
+  "_description": "Provenance log for Privacy Panel Label policy data. Each entry records when a company's privacy policy was analyzed, the URL used, the source method, and (once implemented) a path to a stored snapshot of the exact document. company_slug is a foreign key to companies.json.",
   "generated_at": "2026-03-20T00:00:00Z",
   "total_records": 100,
   "snapshot_storage_note": "snapshot_path will reference files in policies/snapshots/ once live fetching is implemented.",

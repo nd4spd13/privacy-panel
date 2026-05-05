@@ -11,7 +11,7 @@ import { extract } from "../../src/core/extraction/extractor";
 import { buildSystemPrompt } from "../../src/core/extraction/prompts";
 import { score } from "../../src/core/scoring/engine";
 import { loadRubricOrThrow } from "../../src/core/scoring/rubric";
-import { SCHEMA_VERSION } from "../../src/core/schema/privacy-facts.schema";
+import { SCHEMA_VERSION } from "../../src/core/schema/privacy-panel.schema";
 import { MODEL } from "../../src/lib/anthropic";
 import {
   CANONICAL_POLICY_IDS,
@@ -26,7 +26,7 @@ import { getAtPath, WATCHED_EXTRACTION_PATHS, formatValue } from "../../evals/li
 import { buildRunManifest, ensureResultsDir, rubricVersionFromYaml } from "../../evals/lib/manifest";
 import { mean, percentile, sortedCopy, stddev } from "../../evals/lib/percentiles";
 import { writeEvalArtifacts, type EvalReportInput, type PerPolicyBlock } from "../../evals/lib/report";
-import type { PrivacyFacts } from "../../src/core/schema/types";
+import type { PrivacyPanel } from "../../src/core/schema/types";
 import { join } from "path";
 
 const repoRoot = join(__dirname, "../..");
@@ -60,7 +60,7 @@ function gradeVolatilityRate(letters: string[]): number {
   return disagree / letters.length;
 }
 
-function fieldAgreementRate(runs: PrivacyFacts[], path: string): number {
+function fieldAgreementRate(runs: PrivacyPanel[], path: string): number {
   if (runs.length === 0) return 0;
   const vals = runs.map((r) => formatValue(getAtPath(r, path)));
   const mode = (() => {
@@ -107,7 +107,7 @@ async function main(): Promise<void> {
     const url = gold.metadata.policyUrl;
     const company = gold.metadata.companyName;
 
-    const runExtractions: PrivacyFacts[] = [];
+    const runExtractions: PrivacyPanel[] = [];
     const letters: string[] = [];
     const scores: number[] = [];
     const policyLatencies: number[] = [];

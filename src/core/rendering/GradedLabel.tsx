@@ -1,7 +1,7 @@
 import React from "react";
-import type { PrivacyFacts } from "../schema/types";
+import type { PrivacyPanel } from "../schema/types";
 import type { GradeResult } from "../scoring/engine";
-import { PrivacyFactsLabel } from "./PrivacyFactsLabel";
+import { PrivacyPanelLabel } from "./PrivacyPanelLabel";
 
 const GRADE_BG: Record<string, string> = {
   A: "#15803d",
@@ -12,7 +12,7 @@ const GRADE_BG: Record<string, string> = {
 };
 
 export interface GradedLabelProps {
-  data: PrivacyFacts;
+  data: PrivacyPanel;
   grade: GradeResult;
   diffFields?: Set<string>;
 }
@@ -77,7 +77,7 @@ export function GradedLabel({ data, grade, diffFields }: GradedLabelProps) {
 
       {/* ── The label itself (no top border-radius since header is flush above) */}
       <div style={{ border: "2.5px solid #000", borderTop: "none" }}>
-        <PrivacyFactsLabelInner data={data} diffFields={diffFields} />
+        <PrivacyPanelLabelInner data={data} diffFields={diffFields} />
       </div>
 
       {/* ── Grade disclaimer ─────────────────────────────────────────────── */}
@@ -91,18 +91,18 @@ export function GradedLabel({ data, grade, diffFields }: GradedLabelProps) {
           borderTop: "none",
         }}
       >
-        The grade reflects Privacy Facts' assessment based on our published rubric (v{grade.rubricVersion}). It is our opinion.
+        The grade reflects Privacy Panel' assessment based on our published rubric (v{grade.rubricVersion}). It is our opinion.
       </div>
     </div>
   );
 }
 
 /**
- * Internal version of PrivacyFactsLabel that renders without its own outer border
+ * Internal version of PrivacyPanelLabel that renders without its own outer border
  * (the border is owned by GradedLabel when used in that context).
  */
-function PrivacyFactsLabelInner({ data, diffFields }: { data: PrivacyFacts; diffFields?: Set<string> }) {
-  // Re-use PrivacyFactsLabel but override the outer border style via a wrapper
+function PrivacyPanelLabelInner({ data, diffFields }: { data: PrivacyPanel; diffFields?: Set<string> }) {
+  // Re-use PrivacyPanelLabel but override the outer border style via a wrapper
   return (
     <div
       style={{
@@ -112,7 +112,7 @@ function PrivacyFactsLabelInner({ data, diffFields }: { data: PrivacyFacts; diff
         overflow: "hidden",
       }}
     >
-      <PrivacyFactsLabel data={data} diffFields={diffFields} />
+      <PrivacyPanelLabel data={data} diffFields={diffFields} />
     </div>
   );
 }

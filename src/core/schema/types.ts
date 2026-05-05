@@ -1,25 +1,25 @@
 import { z } from "zod";
-import { PrivacyFactsSchema } from "./privacy-facts.schema";
+import { PrivacyPanelSchema } from "./privacy-panel.schema";
 
 // Re-export taxonomy constants for convenience
-export type { DataCategory } from "./privacy-facts.schema";
-export { DATA_CATEGORIES, SENSITIVE_CATEGORIES, CATEGORY_LABELS } from "./privacy-facts.schema";
+export type { DataCategory } from "./privacy-panel.schema";
+export { DATA_CATEGORIES, SENSITIVE_CATEGORIES, CATEGORY_LABELS } from "./privacy-panel.schema";
 
 // ─── Inferred types ───────────────────────────────────────────────────────────
 
-export type PrivacyFacts = z.infer<typeof PrivacyFactsSchema>;
+export type PrivacyPanel = z.infer<typeof PrivacyPanelSchema>;
 
-export type PrivacyFactsMetadata = PrivacyFacts["metadata"];
-export type DataCollection = PrivacyFacts["dataCollection"];
+export type PrivacyPanelMetadata = PrivacyPanel["metadata"];
+export type DataCollection = PrivacyPanel["dataCollection"];
 export type DataItem = DataCollection["items"][number];
 export type BooleanPractice = DataCollection["collectsPreciseGeolocation"];
-export type DataSharing = PrivacyFacts["dataSharing"];
-export type ThirdPartyRecipients = PrivacyFacts["thirdPartyRecipients"];
-export type Purposes = PrivacyFacts["purposes"];
+export type DataSharing = PrivacyPanel["dataSharing"];
+export type ThirdPartyRecipients = PrivacyPanel["thirdPartyRecipients"];
+export type Purposes = PrivacyPanel["purposes"];
 export type SensitiveTaxonomy = DataCollection["sensitiveTaxonomy"];
-export type Retention = PrivacyFacts["retention"];
-export type ConsumerRights = PrivacyFacts["consumerRights"];
-export type SignalHonoring = PrivacyFacts["signalHonoring"];
-export type Security = PrivacyFacts["security"];
+export type Retention = PrivacyPanel["retention"];
+export type ConsumerRights = PrivacyPanel["consumerRights"];
+export type SignalHonoring = PrivacyPanel["signalHonoring"];
+export type Security = PrivacyPanel["security"];
 export type SecurityMeasure = Security["additionalMeasures"][number];
-export type Supplementary = PrivacyFacts["supplementary"];
+export type Supplementary = PrivacyPanel["supplementary"];

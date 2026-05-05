@@ -1,8 +1,8 @@
 import type Anthropic from "@anthropic-ai/sdk";
-import type { PrivacyFacts } from "../../src/core/schema/types";
+import type { PrivacyPanel } from "../../src/core/schema/types";
 
 /** Minimal Anthropic client stub that returns fixed JSON extraction text. */
-export function makeAnthropicFixtureClient(fixture: PrivacyFacts): Anthropic {
+export function makeAnthropicFixtureClient(fixture: PrivacyPanel): Anthropic {
   const text = JSON.stringify(fixture);
   return {
     messages: {

@@ -12,8 +12,8 @@ import { extract } from "../../src/core/extraction/extractor";
 import { buildSystemPrompt } from "../../src/core/extraction/prompts";
 import { score } from "../../src/core/scoring/engine";
 import { loadRubricOrThrow } from "../../src/core/scoring/rubric";
-import { validate } from "../../src/core/schema/privacy-facts.schema";
-import { SCHEMA_VERSION } from "../../src/core/schema/privacy-facts.schema";
+import { validate } from "../../src/core/schema/privacy-panel.schema";
+import { SCHEMA_VERSION } from "../../src/core/schema/privacy-panel.schema";
 import { MODEL } from "../../src/lib/anthropic";
 import {
   CANONICAL_POLICY_IDS,

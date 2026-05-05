@@ -2,7 +2,7 @@ import Database from "better-sqlite3";
 import { readFileSync } from "fs";
 import { join } from "path";
 
-const DB_PATH = process.env.DATABASE_URL ?? join(process.cwd(), "data/privacyfacts.db");
+const DB_PATH = process.env.DATABASE_URL ?? join(process.cwd(), "data/privacypanel.db");
 const SCHEMA_PATH = join(process.cwd(), "src/db/schema.sql");
 
 let _db: Database.Database | null = null;

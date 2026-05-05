@@ -1,8 +1,8 @@
-# Privacy Facts
+# Privacy Panel
 
-Open-source privacy policy analyzer. We parse company privacy policies, extract structured data with Claude, generate FDA Nutrition Facts-style "Privacy Facts" labels, and assign A–F letter grades using a published, deterministic rubric.
+Open-source privacy policy analyzer. We parse company privacy policies, extract structured data with Claude, generate FDA Nutrition Facts-style "Privacy Panel" labels, and assign A–F letter grades using a published, deterministic rubric.
 
-**Live site:** https://privacyfacts.org
+**Live site:** https://privacypanel.org
 **Rubric:** [public/rubric/v1.yaml](public/rubric/v1.yaml)
 **Schema:** [public/schema/v1.json](public/schema/v1.json)
 
@@ -13,7 +13,7 @@ Open-source privacy policy analyzer. We parse company privacy policies, extract 
 1. **Fetch** — We download a company's public privacy policy
 2. **Extract** — Claude reads the policy and extracts structured facts (what's collected, shared, retained, and for how long) with source quotes
 3. **Score** — A deterministic rubric converts the facts into a 0–100 score and A–F letter grade
-4. **Label** — The score is rendered as a standardized "Privacy Facts" panel
+4. **Label** — The score is rendered as a standardized "Privacy Panel" panel
 
 The three layers are architecturally separate: extraction is factual restatement; the grade is clearly labeled as opinion based on a published methodology.
 
@@ -81,7 +81,7 @@ npx tsx cli/index.ts analyze <url>          Fetch, extract, score, and print
   --label                                   Output SVG label to stdout
 
 npx tsx cli/index.ts score <json-file>      Score an existing extraction JSON
-npx tsx cli/index.ts validate <json-file>   Validate a Privacy Facts JSON file
+npx tsx cli/index.ts validate <json-file>   Validate a Privacy Panel JSON file
 npx tsx cli/index.ts batch <csv-file>       Analyze multiple URLs from a CSV
 npx tsx cli/index.ts ingest-snapshots       Extract from local PDF snapshots
 ```
@@ -126,12 +126,12 @@ The `ANTHROPIC_API_KEY` is a server-only environment variable — it is never bu
 
 MIT. See [LICENSE](LICENSE) for details.
 
-The Privacy Facts label design, rubric, and methodology are open-source. You are free to use them, adapt them, or build on them — but please preserve attribution and do not misrepresent grades as official regulatory determinations.
+The Privacy Panel label design, rubric, and methodology are open-source. You are free to use them, adapt them, or build on them — but please preserve attribution and do not misrepresent grades as official regulatory determinations.
 
 ---
 
 ## Legal
 
-Privacy Facts grades are **opinion**, not legal determinations. The scoring rubric is publicly documented. We summarize what companies disclose in their own policies — we do not make factual claims beyond what is stated in those documents.
+Privacy Panel grades are **opinion**, not legal determinations. The scoring rubric is publicly documented. We summarize what companies disclose in their own policies — we do not make factual claims beyond what is stated in those documents.
 
-See [docs/privacy-facts-architecture.md](docs/privacy-facts-architecture.md) for full methodology and legal considerations.
+See [docs/privacy-panel-architecture.md](docs/privacy-panel-architecture.md) for full methodology and legal considerations.

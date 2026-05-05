@@ -2,10 +2,10 @@ import { describe, it, expect } from "vitest";
 import { readFileSync } from "fs";
 import { join } from "path";
 import {
-  PrivacyFactsSchema,
+  PrivacyPanelSchema,
   validate,
   SCHEMA_VERSION,
-} from "../../src/core/schema/privacy-facts.schema";
+} from "../../src/core/schema/privacy-panel.schema";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -27,7 +27,7 @@ describe("SCHEMA_VERSION", () => {
 
 // ─── Fixture round-trips ──────────────────────────────────────────────────────
 
-describe("PrivacyFactsSchema — fixture validation", () => {
+describe("PrivacyPanelSchema — fixture validation", () => {
   it("accepts the minimal (Signal-like) fixture", () => {
     const result = validate(loadFixture("minimal"));
     expect(result.success).toBe(true);

@@ -1,4 +1,4 @@
-import type { PrivacyFacts } from "../../src/core/schema/types";
+import type { PrivacyPanel } from "../../src/core/schema/types";
 
 /** Watched paths for regression reporting (boolean practice `.value` or enum). */
 export const WATCHED_EXTRACTION_PATHS: string[] = [
@@ -41,7 +41,7 @@ export interface FieldMismatch {
   impact: string;
 }
 
-export function diffWatchedPaths(expected: PrivacyFacts, actual: PrivacyFacts): FieldMismatch[] {
+export function diffWatchedPaths(expected: PrivacyPanel, actual: PrivacyPanel): FieldMismatch[] {
   const out: FieldMismatch[] = [];
   for (const path of WATCHED_EXTRACTION_PATHS) {
     const e = getAtPath(expected, path);
@@ -68,12 +68,12 @@ function impactLine(path: string): string {
 }
 
 /** Strip volatile metadata for stable JSON comparison. */
-export function normalizeForCompare(p: PrivacyFacts): PrivacyFacts {
+export function normalizeForCompare(p: PrivacyPanel): PrivacyPanel {
   const c = structuredClone(p);
   c.metadata.analyzedAt = "";
   return c;
 }
 
-export function extractionJsonEquals(a: PrivacyFacts, b: PrivacyFacts): boolean {
+export function extractionJsonEquals(a: PrivacyPanel, b: PrivacyPanel): boolean {
   return JSON.stringify(normalizeForCompare(a)) === JSON.stringify(normalizeForCompare(b));
 }

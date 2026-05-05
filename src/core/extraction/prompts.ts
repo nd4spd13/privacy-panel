@@ -1,9 +1,9 @@
 import "server-only"; // System prompts are internal — must never ship to the browser
-import { SCHEMA_VERSION } from "../schema/privacy-facts.schema";
+import { SCHEMA_VERSION } from "../schema/privacy-panel.schema";
 
 /**
  * The system prompt sent to Claude for privacy policy extraction (v2 schema).
- * Engineered to produce valid PrivacyFacts JSON with no preamble.
+ * Engineered to produce valid PrivacyPanel JSON with no preamble.
  */
 export function buildSystemPrompt(companyName?: string): string {
   const company = companyName ? `The company is "${companyName}".` : "";

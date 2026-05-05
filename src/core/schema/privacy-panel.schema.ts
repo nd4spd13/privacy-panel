@@ -5,7 +5,7 @@ export const SCHEMA_VERSION = "2.0.0";
 // ─── Data Category Taxonomy ───────────────────────────────────────────────────
 
 /**
- * Standardized data-category taxonomy for Privacy Facts labels.
+ * Standardized data-category taxonomy for Privacy Panel labels.
  * Derived from CCPA/CPRA, GDPR Art.4/9, VCDPA, CPA, CTDPA, COPPA,
  * Apple App Privacy Labels, and Google Play Data Safety.
  *
@@ -222,7 +222,7 @@ const MetadataSchema = z.object({
 
 // ─── Root schema ─────────────────────────────────────────────────────────────
 
-export const PrivacyFactsSchema = z.object({
+export const PrivacyPanelSchema = z.object({
   metadata: MetadataSchema,
   dataCollection: DataCollectionSchema,
   dataSharing: DataSharingSchema,
@@ -241,7 +241,7 @@ export { ThirdPartyRecipientsSchema, SensitiveTaxonomySchema, RetentionSchema, S
 
 // ─── Validation helper ────────────────────────────────────────────────────────
 
-type ValidationSuccess = { success: true; data: z.infer<typeof PrivacyFactsSchema> };
+type ValidationSuccess = { success: true; data: z.infer<typeof PrivacyPanelSchema> };
 type ValidationFailure = {
   success: false;
   error: z.ZodError;
@@ -251,7 +251,7 @@ type ValidationFailure = {
 export type ValidationResult = ValidationSuccess | ValidationFailure;
 
 export function validate(input: unknown): ValidationResult {
-  const result = PrivacyFactsSchema.safeParse(input);
+  const result = PrivacyPanelSchema.safeParse(input);
   if (result.success) {
     return { success: true, data: result.data };
   }
