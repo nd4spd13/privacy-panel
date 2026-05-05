@@ -1,0 +1,70 @@
+name: Evals and tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      run_live:
+        description: "Run live API evals (requires ANTHROPIC_API_KEY secret)"
+        type: boolean
+        default: false
+
+jobs:
+  offline-and-unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install
+        run: pnpm install
+
+      - name: Offline eval + Vitest
+        run: pnpm eval:ci
+
+      - name: Upload eval report (if generated)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-report
+          path: evals/results/**/eval-report.md
+          if-no-files-found: ignore
+
+  live-consistency:
+    if: github.event_name == 'workflow_dispatch' && inputs.run_live == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - run: pnpm install
+
+      - name: Live consistency (low run count for CI cost)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: pnpm exec tsx --require ./cli/server-only-shim.cjs scripts/evals/live-consistency.ts --runs 3
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-live-report
+          path: evals/results/**/eval-report.md
+          if-no-files-found: ignore
