@@ -1,5 +1,6 @@
 import "server-only"; // Extraction calls Claude — must never run in the browser
 import { createHash } from "crypto";
+import type Anthropic from "@anthropic-ai/sdk";
 import { getAnthropicClient, MODEL } from "../../lib/anthropic";
 import { buildSystemPrompt } from "./prompts";
 import { chunkPolicy, requiresChunking } from "./chunker";
@@ -8,6 +9,14 @@ import type { PrivacyPanel } from "../schema/types";
 import { SCHEMA_VERSION } from "../schema/privacy-panel.schema";
 
 // ─── Public types ─────────────────────────────────────────────────────────────
+
+/** Optional overrides for tests and offline evaluation harnesses. */
+export interface ExtractOptions {
+  /** When set, API calls use this client instead of the shared SDK singleton. */
+  anthropicClient?: Anthropic;
+  /** Full system prompt replacement (e.g. A/B prompt experiments). */
+  systemPromptOverride?: string;
+}
 
 export interface ExtractionMetadata {
   model: string;
@@ -50,7 +59,8 @@ const BASE_DELAY_MS = 1_000;
 export async function extract(
   policyText: string,
   companyName?: string,
-  policyUrl = "https://unknown"
+  policyUrl = "https://unknown",
+  options?: ExtractOptions
 ): Promise<ExtractionResult> {
   const startMs = Date.now();
   const policyHash = sha256(policyText);
@@ -63,11 +73,11 @@ export async function extract(
 
   // For chunked policies, extract each chunk then merge
   if (chunked) {
-    return extractChunked(chunks, companyName, policyUrl, policyHash, startMs);
+    return extractChunked(chunks, companyName, policyUrl, policyHash, startMs, options);
   }
 
   // Single-chunk (the common path)
-  const systemPrompt = buildSystemPrompt(companyName);
+  const systemPrompt = options?.systemPromptOverride ?? buildSystemPrompt(companyName);
   const userMessage = buildUserMessage(policyText, companyName, policyUrl, policyHash);
 
   let lastError = "";
@@ -79,7 +89,7 @@ export async function extract(
     }
 
     try {
-      const client = getAnthropicClient();
+      const client = options?.anthropicClient ?? getAnthropicClient();
       const response = await client.messages.create({
         model: MODEL,
         max_tokens: 8192,
@@ -173,7 +183,8 @@ async function extractChunked(
   companyName: string | undefined,
   policyUrl: string,
   policyHash: string,
-  startMs: number
+  startMs: number,
+  options?: ExtractOptions
 ): Promise<ExtractionResult> {
   // Extract each chunk independently and merge: take the most conservative
   // (consumer-unfavorable) boolean value across chunks for each field.
@@ -181,8 +192,10 @@ async function extractChunked(
   let totalInputTokens = 0;
   let totalOutputTokens = 0;
 
+  const client = options?.anthropicClient ?? getAnthropicClient();
+  const systemPrompt = options?.systemPromptOverride ?? buildSystemPrompt(companyName);
+
   for (const chunk of chunks) {
-    const systemPrompt = buildSystemPrompt(companyName);
     const userMessage = buildUserMessage(
       chunk.text,
       companyName,
@@ -190,8 +203,6 @@ async function extractChunked(
       policyHash,
       `(Part ${chunk.index + 1} of ${chunks.length})`
     );
-
-    const client = getAnthropicClient();
     const response = await client.messages.create({
       model: MODEL,
       max_tokens: 8192,

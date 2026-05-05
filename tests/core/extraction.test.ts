@@ -12,7 +12,7 @@ vi.mock("../../src/lib/anthropic", () => ({
 import { extract } from "../../src/core/extraction/extractor";
 import { validateExtractionOutput } from "../../src/core/extraction/validator";
 import { chunkPolicy, requiresChunking, MAX_CHUNK_CHARS } from "../../src/core/extraction/chunker";
-import { buildSystemPrompt } from "../../src/core/extraction/prompts";
+import { buildSystemPrompt, buildSystemPromptEvalVariantB } from "../../src/core/extraction/prompts";
 import { getAnthropicClient } from "../../src/lib/anthropic";
 import type { PrivacyPanel } from "../../src/core/schema/types";
 
@@ -190,6 +190,16 @@ describe("buildSystemPrompt()", () => {
     expect(prompt).toContain("train our");
     expect(prompt).toContain("GPC");
     expect(prompt).toContain("DNT");
+  });
+});
+
+describe("buildSystemPromptEvalVariantB()", () => {
+  it("extends the baseline prompt with the eval-only A/B addendum", () => {
+    const base = buildSystemPrompt("Acme");
+    const variant = buildSystemPromptEvalVariantB("Acme");
+    expect(variant.startsWith(base)).toBe(true);
+    expect(variant).toContain("A/B ADDENDUM");
+    expect(variant).toContain("sharedForAdvertising");
   });
 });
 

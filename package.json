@@ -15,7 +15,12 @@
     "test:schema": "vitest run tests/core/schema",
     "test:e2e": "playwright test",
     "cli": "tsx --require ./cli/server-only-shim.cjs cli/index.ts",
-    "batch": "tsx --require ./cli/server-only-shim.cjs cli/index.ts batch"
+    "batch": "tsx --require ./cli/server-only-shim.cjs cli/index.ts batch",
+    "eval:offline": "tsx --require ./cli/server-only-shim.cjs scripts/evals/offline-regression.ts",
+    "eval:live": "tsx --require ./cli/server-only-shim.cjs scripts/evals/live-consistency.ts",
+    "eval:volatility": "tsx --require ./cli/server-only-shim.cjs scripts/evals/grading-volatility.ts",
+    "eval:ab": "tsx --require ./cli/server-only-shim.cjs scripts/evals/prompt-ab.ts",
+    "eval:ci": "pnpm eval:offline && pnpm eval:volatility && pnpm test"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",

@@ -40,6 +40,7 @@ data/
 
 # ── Batch/debug output ────────────────────────────────────────────────────────
 results/
+evals/results/
 *.log
 /tmp/
 

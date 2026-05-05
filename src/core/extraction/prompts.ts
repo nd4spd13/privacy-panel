@@ -239,3 +239,17 @@ Example 4 — "We retain data for as long as your account is active, and may ret
 
 Now analyze the privacy policy text provided by the user and return the JSON.`;
 }
+
+/**
+ * Alternate extraction instructions for prompt A/B evaluation runs only.
+ * Not used in production CLI; pair with `extract(..., { systemPromptOverride: buildSystemPromptEvalVariantB(...) })`.
+ */
+export function buildSystemPromptEvalVariantB(companyName?: string): string {
+  return (
+    `${buildSystemPrompt(companyName)}\n\n` +
+    `--- OPTIONAL A/B ADDENDUM (EVAL ONLY) ---\n` +
+    `If the policy language is ambiguous between "service providers / processors" and broader advertising or marketing partners, ` +
+    `set sharedForAdvertising.value to true unless the policy clearly limits sharing to non-advertising subprocessors only. ` +
+    `Still use null when the topic is entirely absent from the policy.`
+  );
+}

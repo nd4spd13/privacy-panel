@@ -13,7 +13,7 @@ Open-source privacy policy analyzer. We parse company privacy policies, extract 
 1. **Fetch** — We download a company's public privacy policy
 2. **Extract** — Claude reads the policy and extracts structured facts (what's collected, shared, retained, and for how long) with source quotes
 3. **Score** — A deterministic rubric converts the facts into a 0–100 score and A–F letter grade
-4. **Label** — The score is rendered as a standardized "Privacy Panel" label
+4. **Label** — The score is rendered as a standardized "Privacy Panel" panel
 
 The three layers are architecturally separate: extraction is factual restatement; the grade is clearly labeled as opinion based on a published methodology.
 
