@@ -18,6 +18,14 @@ data/
 *.db-wal
 *.sqlite
 
+# ── TLS / SSL certificates and keys (NEVER commit) ───────────────────────────
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*-ssl-bundle/
+
 # ── Environment variables (NEVER commit real credentials) ─────────────────────
 .env
 .env.local
