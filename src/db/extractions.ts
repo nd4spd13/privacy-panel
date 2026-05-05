@@ -1,6 +1,6 @@
 import { join } from "path";
 import { getDb } from "./client";
-import type { PrivacyFacts } from "../core/schema/types";
+import type { PrivacyPanel } from "../core/schema/types";
 import { score, type GradeResult } from "../core/scoring/engine";
 import { loadRubricOrThrow, type Rubric } from "../core/scoring/rubric";
 import { migrateV1ToV2 } from "../core/extraction/validator";
@@ -34,7 +34,7 @@ export interface ExtractionRow {
 }
 
 export interface ExtractionRecord extends Omit<ExtractionRow, "facts_json" | "breakdown_json"> {
-  facts: PrivacyFacts;
+  facts: PrivacyPanel;
   grade: GradeResult;
 }
 
@@ -82,7 +82,7 @@ export function listExtractionsByScore(order: "asc" | "desc" = "desc", limit = 1
 export function insertExtraction(
   policyId: number,
   companyId: number,
-  facts: PrivacyFacts,
+  facts: PrivacyPanel,
   grade: GradeResult,
   meta: {
     model: string;
@@ -121,7 +121,7 @@ export function insertExtraction(
 
 function parseRow(row: ExtractionRow): ExtractionRecord {
   const { facts_json, breakdown_json, ...rest } = row;
-  let facts = JSON.parse(facts_json) as PrivacyFacts;
+  let facts = JSON.parse(facts_json) as PrivacyPanel;
 
   // Transparently upgrade v1 extractions: migrate schema then re-score with v2 rubric
   const schemaVersion = (facts as { metadata?: { schemaVersion?: string } }).metadata?.schemaVersion;

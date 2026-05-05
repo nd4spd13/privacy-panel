@@ -1,8 +1,8 @@
-# Privacy Facts — Product Architecture & Claude Code Bootstrap
+# Privacy Panel — Product Architecture & Claude Code Bootstrap
 
 ## Product Vision
 
-**Privacy Facts** is an open-source tool that parses company privacy policies, extracts structured data into a standardized format, generates a consumer-facing "Privacy Facts" label (neutral disclosure), and applies a transparent rubric to produce a letter grade (A–F). Think of it as "Nutrition Facts + Energy Star rating for privacy policies."
+**Privacy Panel** is an open-source tool that parses company privacy policies, extracts structured data into a standardized format, generates a consumer-facing "Privacy Panel" label (neutral disclosure), and applies a transparent rubric to produce a letter grade (A–F). Think of it as "Nutrition Facts + Energy Star rating for privacy policies."
 
 ---
 
@@ -50,7 +50,7 @@
 - URL → fetch and extract page text (readability extraction)
 - Raw text paste
 - PDF upload → text extraction
-- `.well-known/privacy-facts.json` (if company publishes structured data)
+- `.well-known/privacy-panel.json` (if company publishes structured data)
 
 **Output:** Raw policy text stored with metadata (company name, URL, fetch timestamp, content hash for change detection).
 
@@ -58,7 +58,7 @@
 
 ### 2. Extraction Pipeline (AI-powered)
 
-**Purpose:** Parse unstructured privacy policy text into the Privacy Facts JSON schema.
+**Purpose:** Parse unstructured privacy policy text into the Privacy Panel JSON schema.
 
 **Approach:** Use Claude API to extract structured data from the raw policy text. This is the core AI agent — a single-purpose extraction agent that maps natural language to a fixed schema.
 
@@ -67,7 +67,7 @@
 **Pipeline steps:**
 1. **Chunk** the policy if it exceeds context limits
 2. **Extract** structured fields via Claude with a strict system prompt and JSON output schema
-3. **Validate** the extracted JSON against the Privacy Facts schema
+3. **Validate** the extracted JSON against the Privacy Panel schema
 4. **Confidence score** each field (Claude returns confidence alongside each extraction)
 5. **Human review queue** for low-confidence extractions
 
@@ -180,11 +180,11 @@ grades:
   F: { min: 0,  label: "Failing" }
 ```
 
-**Why separate rubric from extraction:** The factual label (Privacy Facts) is defensible regardless of the rubric. The grade is opinion. Keeping them architecturally separate means you can iterate the rubric, version it, accept community input on weightings, and even let users apply their own rubric — all without touching the factual extraction layer.
+**Why separate rubric from extraction:** The factual label (Privacy Panel) is defensible regardless of the rubric. The grade is opinion. Keeping them architecturally separate means you can iterate the rubric, version it, accept community input on weightings, and even let users apply their own rubric — all without touching the factual extraction layer.
 
 ### 4. Label Renderer
 
-**Purpose:** Generate the visual Privacy Facts label and optional grade badge.
+**Purpose:** Generate the visual Privacy Panel label and optional grade badge.
 
 **Output formats:**
 - **SVG** — for web embedding, pixel-perfect at any size
@@ -194,7 +194,7 @@ grades:
 - **JSON** — machine-readable (the raw schema output)
 
 **Two rendering modes:**
-1. **Neutral label** (Privacy Facts) — black and white, no grade, just facts
+1. **Neutral label** (Privacy Panel) — black and white, no grade, just facts
 2. **Graded label** — includes the letter grade header with color
 
 **Tech:** React component (reuse what we already built) for HTML/interactive. Server-side rendering via Puppeteer or `@react-pdf/renderer` for PDF/PNG. Pure SVG template for the embeddable widget.
@@ -258,7 +258,7 @@ policies
 
 extractions
   - id, policy_id, schema_version, rubric_version
-  - extracted_data (JSONB — the full Privacy Facts schema)
+  - extracted_data (JSONB — the full Privacy Panel schema)
   - overall_confidence, model_used
   - extracted_at, reviewed_by, reviewed_at
 
@@ -280,11 +280,11 @@ disputes
 ## Development Phases
 
 ### Phase 1: Core Engine (MVP)
-- Privacy Facts JSON schema + validation
+- Privacy Panel JSON schema + validation
 - Claude-powered extraction pipeline (URL → structured JSON)
 - Deterministic scoring engine + rubric v1
 - React label renderer (neutral + graded)
-- Simple CLI: `privacyfacts analyze https://example.com/privacy`
+- Simple CLI: `privacypanel analyze https://example.com/privacy`
 
 ### Phase 2: Web App
 - Next.js app with search, company profiles, comparison
@@ -322,7 +322,7 @@ disputes
 
 1. **Source quotes on every extraction** — traceable to the company's own language
 2. **Rubric published and versioned** — anyone can reproduce the score
-3. **Grade clearly labeled as opinion** — "This grade represents Privacy Facts' assessment..."
+3. **Grade clearly labeled as opinion** — "This grade represents Privacy Panel' assessment..."
 4. **Dispute mechanism** — companies can contest and corrections are logged
 5. **Open source** — community can audit methodology
 6. **No false statements of fact** — factual layer is derived from company disclosures

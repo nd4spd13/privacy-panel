@@ -4,8 +4,8 @@ import { getAnthropicClient, MODEL } from "../../lib/anthropic";
 import { buildSystemPrompt } from "./prompts";
 import { chunkPolicy, requiresChunking } from "./chunker";
 import { validateExtractionOutput } from "./validator";
-import type { PrivacyFacts } from "../schema/types";
-import { SCHEMA_VERSION } from "../schema/privacy-facts.schema";
+import type { PrivacyPanel } from "../schema/types";
+import { SCHEMA_VERSION } from "../schema/privacy-panel.schema";
 
 // ─── Public types ─────────────────────────────────────────────────────────────
 
@@ -21,7 +21,7 @@ export interface ExtractionMetadata {
 
 export interface ExtractionSuccess {
   success: true;
-  data: PrivacyFacts;
+  data: PrivacyPanel;
   meta: ExtractionMetadata;
 }
 
@@ -41,7 +41,7 @@ const BASE_DELAY_MS = 1_000;
 // ─── Main entry point ─────────────────────────────────────────────────────────
 
 /**
- * Extract a PrivacyFacts object from raw privacy policy text.
+ * Extract a PrivacyPanel object from raw privacy policy text.
  *
  * @param policyText - The full plain-text content of the privacy policy
  * @param companyName - Optional company name hint for the prompt
@@ -177,7 +177,7 @@ async function extractChunked(
 ): Promise<ExtractionResult> {
   // Extract each chunk independently and merge: take the most conservative
   // (consumer-unfavorable) boolean value across chunks for each field.
-  const results: PrivacyFacts[] = [];
+  const results: PrivacyPanel[] = [];
   let totalInputTokens = 0;
   let totalOutputTokens = 0;
 
@@ -234,16 +234,16 @@ async function extractChunked(
 }
 
 /**
- * Merge multiple PrivacyFacts chunk results into one.
+ * Merge multiple PrivacyPanel chunk results into one.
  * Uses the most consumer-unfavorable (worst-case) value for booleans.
  * Unions data items and security measures across chunks.
  */
 function mergeChunkResults(
-  results: PrivacyFacts[],
+  results: PrivacyPanel[],
   policyUrl: string,
   policyHash: string,
   companyName?: string
-): PrivacyFacts {
+): PrivacyPanel {
   const base = results[0];
 
   type BP = { value: boolean | null; confidence: number; sourceQuote: string };
@@ -279,7 +279,7 @@ function mergeChunkResults(
   }
 
   // Merge retention: "worst" = indefinite > longest stated period > not stated
-  function mergeRetention(): PrivacyFacts["retention"] {
+  function mergeRetention(): PrivacyPanel["retention"] {
     const indefiniteResult = results.find((r) =>
       ["indefinitely", "indefinite"].some((m) => r.retention.longestStatedPeriod.toLowerCase().includes(m))
     );
@@ -303,7 +303,7 @@ function mergeChunkResults(
   }
 
   // Merge sensitiveTaxonomy: OR (true in any chunk wins)
-  function mergeTaxonomy(): PrivacyFacts["dataCollection"]["sensitiveTaxonomy"] {
+  function mergeTaxonomy(): PrivacyPanel["dataCollection"]["sensitiveTaxonomy"] {
     const t = base.dataCollection.sensitiveTaxonomy;
     const orField = (f: keyof typeof t) => results.some((r) => r.dataCollection.sensitiveTaxonomy[f]);
     return {
@@ -321,7 +321,7 @@ function mergeChunkResults(
   }
 
   // Merge thirdPartyRecipients: max count, union categories
-  function mergeThirdParties(): PrivacyFacts["thirdPartyRecipients"] {
+  function mergeThirdParties(): PrivacyPanel["thirdPartyRecipients"] {
     const counts = results.map((r) => r.thirdPartyRecipients.categoryCount).filter((c): c is number => c !== null);
     const allCategories = [...new Set(results.flatMap((r) => r.thirdPartyRecipients.categories))];
     return {
@@ -335,8 +335,8 @@ function mergeChunkResults(
 
   // Merge purposes: true in any chunk wins for harmful (advertising, aiML, thirdParty),
   // take base for others
-  function mergePurposes(): PrivacyFacts["purposes"] {
-    const bpMerge = (field: keyof Omit<PrivacyFacts["purposes"], "other">, harmful: boolean): BP => {
+  function mergePurposes(): PrivacyPanel["purposes"] {
+    const bpMerge = (field: keyof Omit<PrivacyPanel["purposes"], "other">, harmful: boolean): BP => {
       const values = results.map((r) => r.purposes[field] as BP);
       return worstBoolPractice(values, harmful);
     };
@@ -419,7 +419,7 @@ function parseApproxDays(period: string): number | null {
   return null;
 }
 
-function deduplicateItems(items: PrivacyFacts["dataCollection"]["items"]) {
+function deduplicateItems(items: PrivacyPanel["dataCollection"]["items"]) {
   const seen = new Set<string>();
   return items.filter((item) => {
     const key = item.name.toLowerCase();
@@ -429,7 +429,7 @@ function deduplicateItems(items: PrivacyFacts["dataCollection"]["items"]) {
   });
 }
 
-function deduplicateMeasures(measures: PrivacyFacts["security"]["additionalMeasures"]) {
+function deduplicateMeasures(measures: PrivacyPanel["security"]["additionalMeasures"]) {
   const seen = new Set<string>();
   return measures.filter((m) => {
     const key = m.name.toLowerCase();
@@ -448,7 +448,7 @@ async function attemptRepair(
   badOutput: string,
   validationError: string
 ): Promise<
-  | { success: true; data: PrivacyFacts; inputTokens: number; outputTokens: number }
+  | { success: true; data: PrivacyPanel; inputTokens: number; outputTokens: number }
   | { success: false }
 > {
   try {

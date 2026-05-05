@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS extractions (
   id              INTEGER PRIMARY KEY AUTOINCREMENT,
   policy_id       INTEGER NOT NULL REFERENCES policies (id) ON DELETE CASCADE,
   company_id      INTEGER NOT NULL REFERENCES companies (id) ON DELETE CASCADE,
-  -- Full Privacy Facts JSON stored as text
+  -- Full Privacy Panel JSON stored as text
   facts_json      TEXT    NOT NULL,
   -- Scoring output
   score           INTEGER NOT NULL,

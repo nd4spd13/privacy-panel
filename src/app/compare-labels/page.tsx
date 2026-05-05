@@ -5,7 +5,7 @@ import { migrateV1ToV2 } from "@/core/extraction/validator";
 import { score } from "@/core/scoring/engine";
 import { loadRubricOrThrow } from "@/core/scoring/rubric";
 import { GradedLabel } from "@/core/rendering/GradedLabel";
-import { PrivacyFactsLabelV1 } from "@/core/rendering/PrivacyFactsLabelV1";
+import { PrivacyPanelLabelV1 } from "@/core/rendering/PrivacyPanelLabelV1";
 import type { GradeResult } from "@/core/scoring/engine";
 
 export const dynamic = "force-dynamic";
@@ -87,7 +87,7 @@ export default function CompareLabelPage() {
             </div>
             <div style={{ width: 380 }}>
               <GradeHeader grade={v1Grade} />
-              <PrivacyFactsLabelV1 data={v1Facts} />
+              <PrivacyPanelLabelV1 data={v1Facts} />
             </div>
           </div>
 

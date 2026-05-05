@@ -1,4 +1,4 @@
-import type { PrivacyFacts } from "../schema/types";
+import type { PrivacyPanel } from "../schema/types";
 import type { Rubric, V1Rubric, V2Rubric, GradeLetter } from "./rubric";
 import { isV2Rubric } from "./rubric";
 
@@ -24,11 +24,11 @@ export interface GradeResult {
 // ─── Pure scoring function ────────────────────────────────────────────────────
 
 /**
- * Score a PrivacyFacts extraction against a rubric.
+ * Score a PrivacyPanel extraction against a rubric.
  * Supports both v1 (legacy) and v2 rubrics.
  * Pure function — no side effects, no I/O. Same inputs always produce same output.
  */
-export function score(extraction: PrivacyFacts, rubric: Rubric): GradeResult {
+export function score(extraction: PrivacyPanel, rubric: Rubric): GradeResult {
   if (isV2Rubric(rubric)) {
     return scoreV2(extraction, rubric);
   }
@@ -37,7 +37,7 @@ export function score(extraction: PrivacyFacts, rubric: Rubric): GradeResult {
 
 // ─── v2 scoring ───────────────────────────────────────────────────────────────
 
-function scoreV2(extraction: PrivacyFacts, rubric: V2Rubric): GradeResult {
+function scoreV2(extraction: PrivacyPanel, rubric: V2Rubric): GradeResult {
   const breakdown: BreakdownItem[] = [];
   let running = rubric.startScore;
 
@@ -277,7 +277,7 @@ interface RetentionAnalysis {
  * Parse a human-readable retention period string into scoreable flags.
  * Examples: "3 years", "indefinitely", "not stated", "90 days", "7 years"
  */
-function scoreRetentionV2(retention: PrivacyFacts["retention"]): RetentionAnalysis {
+function scoreRetentionV2(retention: PrivacyPanel["retention"]): RetentionAnalysis {
   const period = retention.longestStatedPeriod.trim().toLowerCase();
 
   // Explicit indefinite markers
@@ -331,7 +331,7 @@ function parsePeriodToDays(period: string): number | null {
 
 // ─── v1 scoring (preserved for backward compatibility) ────────────────────────
 
-function scoreV1(extraction: PrivacyFacts, rubric: V1Rubric): GradeResult {
+function scoreV1(extraction: PrivacyPanel, rubric: V1Rubric): GradeResult {
   const breakdown: BreakdownItem[] = [];
   let running = rubric.startScore;
 

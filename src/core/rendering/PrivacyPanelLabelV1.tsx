@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /**
- * V1 Privacy Facts label — archived for comparison purposes.
+ * V1 Privacy Panel label — archived for comparison purposes.
  * Reads from the v1 schema shape (retention.retentionDays, signalHonoring.honorsGPC, etc.)
  * Uses `any` intentionally since v1 types are no longer in the live codebase.
  */
@@ -114,7 +114,7 @@ function SignalPill({ label, honored }: { label: string; honored: boolean }) {
   );
 }
 
-export function PrivacyFactsLabelV1({ data }: { data: any }) {
+export function PrivacyPanelLabelV1({ data }: { data: any }) {
   const { dataCollection, dataSharing, retention, consumerRights, signalHonoring, security, metadata } = data;
 
   const retentionLabel = (() => {
@@ -148,7 +148,7 @@ export function PrivacyFactsLabelV1({ data }: { data: any }) {
     }}>
       {/* Title */}
       <div style={{ padding: "8px 8px 6px 8px", borderBottom: RULE.thick }}>
-        <div style={{ fontSize: 34, fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1.05 }}>Privacy Facts</div>
+        <div style={{ fontSize: 34, fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1.05 }}>Privacy Panel</div>
         <div style={{ fontSize: 12, color: COLOR.gray, marginTop: 2 }}>{metadata.companyName}</div>
       </div>
 

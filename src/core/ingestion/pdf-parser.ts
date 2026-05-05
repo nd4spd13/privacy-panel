@@ -43,7 +43,7 @@ export async function fetchAndParsePdf(url: string): Promise<PdfParseResult | Pd
   try {
     const res = await fetch(url, {
       headers: {
-        "User-Agent": "PrivacyFacts/1.0 (+https://privacyfacts.org/bot)",
+        "User-Agent": "PrivacyPanel/1.0 (+https://privacypanel.org/bot)",
         Accept: "application/pdf",
       },
       redirect: "follow",

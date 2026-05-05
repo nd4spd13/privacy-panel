@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({
     version: rubric.version,
     rubric,
-    description: "Privacy Facts scoring rubric. Scores start at 100, deductions are applied for harmful practices, bonuses for consumer-friendly ones.",
-    methodology: "https://privacyfacts.org/rubric",
+    description: "Privacy Panel scoring rubric. Scores start at 100, deductions are applied for harmful practices, bonuses for consumer-friendly ones.",
+    methodology: "https://privacypanel.org/rubric",
   });
 }

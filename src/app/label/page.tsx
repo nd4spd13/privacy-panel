@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 const LABEL_SECTIONS = [
   {
     id: "title",
-    heading: "Privacy Facts",
+    heading: "Privacy Panel",
     color: "bg-gray-900 text-white",
     description:
       "The label title — modeled on the FDA Nutrition Facts panel. It signals a standardized, consistent format for reading about how a company handles your personal data.",
@@ -77,9 +77,9 @@ export default async function LabelPage({
       <main className="max-w-4xl mx-auto px-6 py-10">
         {/* ── Title ──────────────────────────────────────────────────────── */}
         <div className="mb-10">
-          <h1 className="text-3xl font-black text-gray-900 mb-3">The Privacy Facts Label</h1>
+          <h1 className="text-3xl font-black text-gray-900 mb-3">The Privacy Panel Label</h1>
           <p className="text-gray-600 leading-relaxed max-w-2xl">
-            Privacy Facts generates a standardized disclosure label for any company's privacy policy —
+            Privacy Panel generates a standardized disclosure label for any company's privacy policy —
             modeled on the FDA Nutrition Facts panel. The label is <strong>factual and neutral</strong>:
             it restates what the policy actually says, without scoring or judgment.
           </p>
@@ -179,7 +179,7 @@ export default async function LabelPage({
         <div className="mb-10">
           <h2 className="text-2xl font-black text-gray-900 mb-2">What's on the label</h2>
           <p className="text-gray-500 mb-8 text-sm leading-relaxed max-w-2xl">
-            Each section of the Privacy Facts label corresponds to a specific category of privacy practice.
+            Each section of the Privacy Panel label corresponds to a specific category of privacy practice.
             Here's what each one means and why it matters.
           </p>
 
@@ -222,7 +222,7 @@ export default async function LabelPage({
         <div className="border border-amber-200 bg-amber-50 rounded-xl p-6">
           <h3 className="font-bold text-amber-900 mb-2">Label vs. Score</h3>
           <p className="text-sm text-amber-800 leading-relaxed mb-3">
-            The Privacy Facts label is separate from the Privacy Score. The label is a neutral factual
+            The Privacy Panel label is separate from the Privacy Score. The label is a neutral factual
             disclosure — it doesn't judge whether practices are good or bad. The score applies a
             published rubric to produce a letter grade, and is clearly labeled as our opinion.
           </p>

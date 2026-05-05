@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Privacy Facts",
+  title: "Privacy Panel",
   description: "Transparent privacy policy analysis — like a Nutrition Facts label for your data.",
 };
 

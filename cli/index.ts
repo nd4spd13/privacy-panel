@@ -10,8 +10,8 @@ import { join } from "path";
 const rubricPath = join(__dirname, "../src/core/scoring/rubric.v1.yaml");
 
 program
-  .name("privacyfacts")
-  .description("Privacy policy analyzer — extract, score, and display Privacy Facts labels")
+  .name("privacypanel")
+  .description("Privacy policy analyzer — extract, score, and display Privacy Panel labels")
   .version("0.1.0");
 
 // ─── analyze command ──────────────────────────────────────────────────────────
@@ -91,7 +91,7 @@ program
     // Locate provenance file
     const provenancePath = opts.provenance
       ? resolve(opts.provenance)
-      : resolve("/Users/csb/Documents/Claude/Projects/Privacy Facts Label/policy-provenance.json");
+      : resolve("/Users/csb/Documents/Claude/Projects/Privacy Panel Label/policy-provenance.json");
 
     if (!existsSync(provenancePath)) {
       console.error(chalk.red(`✗ Provenance file not found: ${provenancePath}`));
@@ -344,10 +344,10 @@ program
 
 program
   .command("score <json-file>")
-  .description("Score an existing Privacy Facts JSON extraction")
+  .description("Score an existing Privacy Panel JSON extraction")
   .action(async (filePath: string) => {
     const { readFileSync } = await import("fs");
-    const { validate } = await import("../src/core/schema/privacy-facts.schema");
+    const { validate } = await import("../src/core/schema/privacy-panel.schema");
     const rubric = loadRubricOrThrow(rubricPath);
 
     let raw: unknown;
@@ -360,7 +360,7 @@ program
 
     const validation = validate(raw);
     if (!validation.success) {
-      console.error(chalk.red("✗ Invalid Privacy Facts JSON:"));
+      console.error(chalk.red("✗ Invalid Privacy Panel JSON:"));
       validation.issues.forEach((i) => console.error(chalk.red(`  ${i.path.join(".")}: ${i.message}`)));
       process.exit(1);
     }
@@ -373,10 +373,10 @@ program
 
 program
   .command("validate <json-file>")
-  .description("Validate a Privacy Facts JSON file against the schema")
+  .description("Validate a Privacy Panel JSON file against the schema")
   .action(async (filePath: string) => {
     const { readFileSync } = await import("fs");
-    const { validate } = await import("../src/core/schema/privacy-facts.schema");
+    const { validate } = await import("../src/core/schema/privacy-panel.schema");
 
     let raw: unknown;
     try {
@@ -388,7 +388,7 @@ program
 
     const result = validate(raw);
     if (result.success) {
-      console.log(chalk.green("✓ Valid Privacy Facts JSON"));
+      console.log(chalk.green("✓ Valid Privacy Panel JSON"));
       console.log(chalk.dim(`  Company: ${result.data.metadata.companyName}`));
       console.log(chalk.dim(`  Schema version: ${result.data.metadata.schemaVersion}`));
     } else {
@@ -401,7 +401,7 @@ program
 // ─── Print helpers ────────────────────────────────────────────────────────────
 
 function printResults(
-  data: import("../src/core/schema/types").PrivacyFacts,
+  data: import("../src/core/schema/types").PrivacyPanel,
   gradeResult: import("../src/core/scoring/engine").GradeResult
 ) {
   const gradeColor = (letter: string) => {
@@ -417,7 +417,7 @@ function printResults(
 
   console.log();
   console.log(chalk.bold("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
-  console.log(chalk.bold("  Privacy Facts"));
+  console.log(chalk.bold("  Privacy Panel"));
   console.log(chalk.dim(`  ${data.metadata.companyName}  ·  ${data.metadata.policyUrl}`));
   console.log(chalk.bold("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"));
   console.log();
@@ -502,7 +502,7 @@ function printResults(
 
   // Disclaimer
   console.log(chalk.dim("  This label summarizes privacy practices as disclosed in the company's"));
-  console.log(chalk.dim("  privacy policy. The grade is Privacy Facts' opinion based on our"));
+  console.log(chalk.dim("  privacy policy. The grade is Privacy Panel' opinion based on our"));
   console.log(chalk.dim(`  published rubric (v${gradeResult.rubricVersion}). This is not legal advice.`));
   console.log();
 }
