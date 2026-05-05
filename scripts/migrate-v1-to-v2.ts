@@ -24,7 +24,7 @@ import type { GradeResult } from "../src/core/scoring/engine";
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes("--dry-run");
 const EXPORT_SEED = args.includes("--export-seed");
-const DB_PATH = process.env.DATABASE_URL ?? join(process.cwd(), "data/privacyfacts.db");
+const DB_PATH = process.env.DATABASE_URL ?? join(process.cwd(), "data/privacypanel.db");
 const RUBRIC_PATH = join(process.cwd(), "src/core/scoring/rubric.v2.yaml");
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
@@ -49,7 +49,7 @@ interface ExtractionRow {
 }
 
 async function main() {
-  console.log(`\n=== Privacy Facts v1 → v2 Migration ===`);
+  console.log(`\n=== Privacy Panel v1 → v2 Migration ===`);
   console.log(`Database:   ${DB_PATH}`);
   console.log(`Rubric:     ${RUBRIC_PATH}`);
   console.log(`Mode:       ${DRY_RUN ? "DRY RUN (no writes)" : "LIVE"}\n`);
@@ -168,7 +168,7 @@ async function main() {
     const lines: string[] = [
       "-- Auto-generated seed.sql (v2 schema)",
       `-- Generated: ${new Date().toISOString()}`,
-      "-- Run: sqlite3 data/privacyfacts.db < scripts/seed.sql",
+      "-- Run: sqlite3 data/privacypanel.db < scripts/seed.sql",
       "",
       "DELETE FROM extractions;",
       "DELETE FROM policies;",

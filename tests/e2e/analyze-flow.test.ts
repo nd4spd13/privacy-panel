@@ -113,7 +113,7 @@ test("rubric simulator updates score when checkbox toggled", async ({ page }) =>
 
 test("about page loads with all sections", async ({ page }) => {
   await page.goto("/about");
-  await expect(page.getByRole("heading", { name: "About Privacy Facts" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "About Privacy Panel" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Mission" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Methodology" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Legal disclaimers" })).toBeVisible();
@@ -170,5 +170,5 @@ test("GET /schema/v1.json returns JSON Schema", async ({ request }) => {
   expect(res.status()).toBe(200);
   const body = await res.json();
   expect(body["$schema"]).toContain("json-schema.org");
-  expect(body.title).toBe("Privacy Facts");
+  expect(body.title).toBe("Privacy Panel");
 });

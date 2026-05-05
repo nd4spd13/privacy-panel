@@ -23,7 +23,7 @@ export interface FetchFailure {
 
 export type FetchResult = FetchSuccess | FetchFailure;
 
-const USER_AGENT = "PrivacyFacts/1.0 (+https://privacyfacts.org/bot)";
+const USER_AGENT = "PrivacyPanel/1.0 (+https://privacypanel.org/bot)";
 
 /**
  * Fetch a privacy policy page and return clean plain text.
@@ -51,7 +51,7 @@ export async function fetchPolicy(url: string): Promise<FetchResult> {
     const contentType = response.headers.get("content-type") ?? "";
 
     if (contentType.includes("application/pdf")) {
-      return { success: false, error: "PDF policies require the pdf-parser module (not yet implemented). Download the PDF and use `privacyfacts analyze --file policy.pdf`." };
+      return { success: false, error: "PDF policies require the pdf-parser module (not yet implemented). Download the PDF and use `privacypanel analyze --file policy.pdf`." };
     }
 
     html = await response.text();

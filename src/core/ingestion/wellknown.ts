@@ -1,17 +1,17 @@
 /**
- * wellknown.ts — Check for a .well-known/privacy-facts.json at a domain.
+ * wellknown.ts — Check for a .well-known/privacy-panel.json at a domain.
  *
- * If a company hosts a pre-built Privacy Facts JSON at the well-known URL,
+ * If a company hosts a pre-built Privacy Panel JSON at the well-known URL,
  * we can skip AI extraction entirely and use it directly.
  * This lets companies self-host their own verified label.
  */
 
-import { validate } from "../schema/privacy-facts.schema";
-import type { PrivacyFacts } from "../schema/types";
+import { validate } from "../schema/privacy-panel.schema";
+import type { PrivacyPanel } from "../schema/types";
 
 export interface WellKnownResult {
   success: true;
-  data: PrivacyFacts;
+  data: PrivacyPanel;
   url: string;
 }
 
@@ -22,8 +22,8 @@ export interface WellKnownMiss {
 }
 
 /**
- * Try to fetch .well-known/privacy-facts.json for the given domain/URL.
- * Returns the parsed PrivacyFacts if valid, otherwise a miss result.
+ * Try to fetch .well-known/privacy-panel.json for the given domain/URL.
+ * Returns the parsed PrivacyPanel if valid, otherwise a miss result.
  */
 export async function checkWellKnown(policyUrl: string): Promise<WellKnownResult | WellKnownMiss> {
   const wellKnownUrl = buildWellKnownUrl(policyUrl);
@@ -34,7 +34,7 @@ export async function checkWellKnown(policyUrl: string): Promise<WellKnownResult
   try {
     const res = await fetch(wellKnownUrl, {
       headers: {
-        "User-Agent": "PrivacyFacts/1.0 (+https://privacyfacts.org/bot)",
+        "User-Agent": "PrivacyPanel/1.0 (+https://privacypanel.org/bot)",
         Accept: "application/json",
       },
       signal: AbortSignal.timeout(5_000), // 5s timeout — don't slow down the pipeline
@@ -73,12 +73,12 @@ export async function checkWellKnown(policyUrl: string): Promise<WellKnownResult
 
 /**
  * Build the .well-known URL from any URL in the same domain.
- * e.g. https://signal.org/legal/privacy/ → https://signal.org/.well-known/privacy-facts.json
+ * e.g. https://signal.org/legal/privacy/ → https://signal.org/.well-known/privacy-panel.json
  */
 export function buildWellKnownUrl(anyUrl: string): string | null {
   try {
     const parsed = new URL(anyUrl);
-    return `${parsed.protocol}//${parsed.host}/.well-known/privacy-facts.json`;
+    return `${parsed.protocol}//${parsed.host}/.well-known/privacy-panel.json`;
   } catch {
     return null;
   }

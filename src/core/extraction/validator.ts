@@ -1,10 +1,10 @@
-import { validate, SCHEMA_VERSION, SENSITIVE_CATEGORIES } from "../schema/privacy-facts.schema";
-import type { PrivacyFacts } from "../schema/types";
-import type { DataCategory } from "../schema/privacy-facts.schema";
+import { validate, SCHEMA_VERSION, SENSITIVE_CATEGORIES } from "../schema/privacy-panel.schema";
+import type { PrivacyPanel } from "../schema/types";
+import type { DataCategory } from "../schema/privacy-panel.schema";
 
 export interface ValidationSuccess {
   success: true;
-  data: PrivacyFacts;
+  data: PrivacyPanel;
 }
 
 export interface ValidationFailure {
@@ -105,7 +105,7 @@ export function classifyDataItem(name: string): DataCategory {
 // ─── v1 → v2 migration ────────────────────────────────────────────────────────
 
 /**
- * Best-effort migration from v1 to v2 PrivacyFacts format.
+ * Best-effort migration from v1 to v2 PrivacyPanel format.
  *
  * v1 shape uses:
  *   - schemaVersion: "1.0.0"
@@ -120,7 +120,7 @@ export function classifyDataItem(name: string): DataCategory {
  */
 export interface MigrationResult {
   success: true;
-  data: PrivacyFacts;
+  data: PrivacyPanel;
   /** Fields that could not be migrated and need re-extraction. */
   needsReExtraction: string[];
 }
@@ -227,7 +227,7 @@ export function migrateV1ToV2(v1Raw: unknown): MigrationResult | { success: fals
     || n.includes("breach notification")
   ) ? bpInferred("Inferred from v1 security measures") : bpNull();
 
-  const v2: PrivacyFacts = {
+  const v2: PrivacyPanel = {
     metadata: {
       ...(meta as { schemaVersion: string; companyName: string; policyUrl: string; analyzedAt: string; policyHash: string }),
       schemaVersion: SCHEMA_VERSION,

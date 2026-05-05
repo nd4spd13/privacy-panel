@@ -14,7 +14,7 @@ import { validateExtractionOutput } from "../../src/core/extraction/validator";
 import { chunkPolicy, requiresChunking, MAX_CHUNK_CHARS } from "../../src/core/extraction/chunker";
 import { buildSystemPrompt } from "../../src/core/extraction/prompts";
 import { getAnthropicClient } from "../../src/lib/anthropic";
-import type { PrivacyFacts } from "../../src/core/schema/types";
+import type { PrivacyPanel } from "../../src/core/schema/types";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -205,7 +205,7 @@ describe("extract() — mocked Claude API", () => {
   });
 
   it("returns extraction success with valid mock response", async () => {
-    const fixture = loadExtractionFixture("minimal") as PrivacyFacts;
+    const fixture = loadExtractionFixture("minimal") as PrivacyPanel;
     vi.mocked(getAnthropicClient).mockReturnValue(makeMockClient(fixture) as never);
 
     const result = await extract(loadPolicy("minimal"), "Signal", "https://signal.org/legal/privacy-policy/");
@@ -220,7 +220,7 @@ describe("extract() — mocked Claude API", () => {
   });
 
   it("returns correct extraction data from mock response", async () => {
-    const fixture = loadExtractionFixture("minimal") as PrivacyFacts;
+    const fixture = loadExtractionFixture("minimal") as PrivacyPanel;
     vi.mocked(getAnthropicClient).mockReturnValue(makeMockClient(fixture) as never);
 
     const result = await extract(loadPolicy("minimal"), "Signal");
@@ -247,7 +247,7 @@ describe("extract() — mocked Claude API", () => {
   });
 
   it("handles code-fenced response (strips fences)", async () => {
-    const fixture = loadExtractionFixture("typical-saas") as PrivacyFacts;
+    const fixture = loadExtractionFixture("typical-saas") as PrivacyPanel;
     const fencedClient = {
       messages: {
         create: vi.fn().mockResolvedValue({
@@ -277,7 +277,7 @@ describe("extract() — mocked Claude API", () => {
   });
 
   it("retries on transient server errors", async () => {
-    const fixture = loadExtractionFixture("minimal") as PrivacyFacts;
+    const fixture = loadExtractionFixture("minimal") as PrivacyPanel;
     const flakyClient = {
       messages: {
         create: vi
@@ -306,7 +306,7 @@ describe("extract() — mocked Claude API", () => {
   });
 
   it("includes latencyMs in metadata", async () => {
-    const fixture = loadExtractionFixture("minimal") as PrivacyFacts;
+    const fixture = loadExtractionFixture("minimal") as PrivacyPanel;
     vi.mocked(getAnthropicClient).mockReturnValue(makeMockClient(fixture) as never);
 
     const result = await extract("Policy text.");
@@ -318,7 +318,7 @@ describe("extract() — mocked Claude API", () => {
   });
 
   it("aggressive fixture mock produces correct booleans", async () => {
-    const fixture = loadExtractionFixture("aggressive") as PrivacyFacts;
+    const fixture = loadExtractionFixture("aggressive") as PrivacyPanel;
     vi.mocked(getAnthropicClient).mockReturnValue(makeMockClient(fixture) as never);
 
     const result = await extract(loadPolicy("aggressive"), "AggressiveCollector");
@@ -335,7 +335,7 @@ describe("extract() — mocked Claude API", () => {
 
 describe("extract() — chunked path", () => {
   it("invokes the API once per chunk for long policies", async () => {
-    const fixture = loadExtractionFixture("minimal") as PrivacyFacts;
+    const fixture = loadExtractionFixture("minimal") as PrivacyPanel;
     const mockClient = makeMockClient(fixture);
     vi.mocked(getAnthropicClient).mockReturnValue(mockClient as never);
 

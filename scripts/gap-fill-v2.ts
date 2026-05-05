@@ -20,8 +20,8 @@ import { migrateV1ToV2 } from "../src/core/extraction/validator";
 import { score } from "../src/core/scoring/engine";
 import { loadRubricOrThrow } from "../src/core/scoring/rubric";
 import { join } from "path";
-import { SCHEMA_VERSION } from "../src/core/schema/privacy-facts.schema";
-import type { PrivacyFacts } from "../src/core/schema/types";
+import { SCHEMA_VERSION } from "../src/core/schema/privacy-panel.schema";
+import type { PrivacyPanel } from "../src/core/schema/types";
 
 const DRY_RUN = process.argv.includes("--dry-run");
 const RESUME = process.argv.includes("--resume");
@@ -94,7 +94,7 @@ async function main() {
     }
 
     // Parse existing extraction and migrate to v2 if needed
-    let existingFacts: PrivacyFacts;
+    let existingFacts: PrivacyPanel;
     const rawFacts = JSON.parse(company.facts_json);
     if (rawFacts.metadata?.schemaVersion === "1.0.0") {
       const migrated = migrateV1ToV2(rawFacts);
@@ -105,7 +105,7 @@ async function main() {
       }
       existingFacts = migrated.data;
     } else {
-      existingFacts = rawFacts as PrivacyFacts;
+      existingFacts = rawFacts as PrivacyPanel;
     }
 
     if (DRY_RUN) {

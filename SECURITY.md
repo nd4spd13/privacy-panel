@@ -2,13 +2,13 @@
 
 ## Scope
 
-This policy covers the Privacy Facts web application and CLI tool in this repository.
+This policy covers the Privacy Panel web application and CLI tool in this repository.
 
 ## Reporting a vulnerability
 
 Please **do not** open a public GitHub issue for security vulnerabilities.
 
-Email **security@privacyfacts.org** with:
+Email **security@privacypanel.org** with:
 - A description of the vulnerability and its potential impact
 - Steps to reproduce (proof-of-concept code or screenshots are helpful)
 - Any suggested mitigations you have in mind
@@ -29,7 +29,7 @@ You can expect an acknowledgement within 48 hours and a resolution timeline with
 The following are **not** vulnerabilities:
 - The scoring rubric and its weights (intentionally transparent)
 - The system prompts used for extraction (`src/core/extraction/prompts.ts`) — these are deliberately open-source
-- The Privacy Facts JSON schema (`public/schema/v1.json`)
+- The Privacy Panel JSON schema (`public/schema/v1.json`)
 - Company scores and extraction data (summaries of public privacy policies)
 
 ## Security design notes

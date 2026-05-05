@@ -1,5 +1,5 @@
 import React from "react";
-import type { PrivacyFacts, DataItem } from "../schema/types";
+import type { PrivacyPanel, DataItem } from "../schema/types";
 import { CATEGORY_LABELS, SENSITIVE_CATEGORIES } from "../schema/types";
 import type { DataCategory } from "../schema/types";
 
@@ -265,13 +265,13 @@ function DataCollectedByCategory({ items }: { items: DataItem[] }) {
 
 // ─── Main component ───────────────────────────────────────────────────────────
 
-export interface PrivacyFactsLabelProps {
-  data: PrivacyFacts;
+export interface PrivacyPanelLabelProps {
+  data: PrivacyPanel;
   /** Highlight fields that differ from a reference label (used in ComparisonView) */
   diffFields?: Set<string>;
 }
 
-export function PrivacyFactsLabel({ data, diffFields }: PrivacyFactsLabelProps) {
+export function PrivacyPanelLabel({ data, diffFields }: PrivacyPanelLabelProps) {
   const { dataCollection, dataSharing, retention, consumerRights, signalHonoring, security, thirdPartyRecipients, supplementary, metadata, purposes } = data;
 
   function highlightStyle(field: string): React.CSSProperties {
@@ -338,7 +338,7 @@ export function PrivacyFactsLabel({ data, diffFields }: PrivacyFactsLabelProps) 
       {/* ── Title ─────────────────────────────────────────────────────────── */}
       <div style={{ padding: "8px 8px 6px 8px", borderBottom: RULE.thick }}>
         <div style={{ fontSize: 34, fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1.05 }}>
-          Privacy Facts
+          Privacy Panel
         </div>
         <div style={{ fontSize: 12, color: COLOR.gray, marginTop: 2 }}>
           {metadata.companyName}

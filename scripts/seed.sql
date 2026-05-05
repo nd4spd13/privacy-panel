@@ -1,4 +1,4 @@
--- Privacy Facts seed data (auto-generated)
+-- Privacy Panel seed data (auto-generated)
 -- Safe to apply on every boot — INSERT OR IGNORE skips rows that already exist
 
 INSERT OR IGNORE INTO companies (id, slug, name, domain, created_at, updated_at) VALUES (1, 'signal', 'Signal', 'signal.org', '2026-03-21T05:18:53Z', '2026-03-21T05:18:53Z');

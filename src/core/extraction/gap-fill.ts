@@ -1,6 +1,6 @@
 import { getAnthropicClient, MODEL } from "../../lib/anthropic";
 import { chunkPolicy, requiresChunking } from "./chunker";
-import type { PrivacyFacts } from "../schema/types";
+import type { PrivacyPanel } from "../schema/types";
 import { z } from "zod";
 
 // ─── Gap-fill schema (only the v2-only fields) ──────────────────────────────
@@ -342,9 +342,9 @@ export async function extractGapFill(
   };
 }
 
-// ─── Merge gap-fill data into existing PrivacyFacts ──────────────────────────
+// ─── Merge gap-fill data into existing PrivacyPanel ──────────────────────────
 
-export function mergeGapFill(existing: PrivacyFacts, gapFill: GapFillData): PrivacyFacts {
+export function mergeGapFill(existing: PrivacyPanel, gapFill: GapFillData): PrivacyPanel {
   return {
     ...existing,
     purposes: gapFill.purposes,

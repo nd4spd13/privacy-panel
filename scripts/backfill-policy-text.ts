@@ -22,7 +22,7 @@ import { join, basename } from "path";
 import { getDb, closeDb } from "../src/db/client";
 import { parsePdfBuffer } from "../src/core/ingestion/pdf-parser";
 
-const SNAPSHOTS_DIR = "/Users/csb/Documents/Claude/Projects/Privacy Facts Label/policies/snapshots";
+const SNAPSHOTS_DIR = "/Users/csb/Documents/Claude/Projects/Privacy Panel Label/policies/snapshots";
 const DRY_RUN = process.argv.includes("--dry-run");
 
 async function main() {

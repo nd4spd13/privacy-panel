@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://privacyfacts.org/schema/v1.json",
-  "title": "Privacy Facts",
+  "$id": "https://privacypanel.org/schema/v1.json",
+  "title": "Privacy Panel",
   "description": "Structured representation of a company's privacy practices as extracted from their privacy policy.",
   "version": "1.0.0",
   "type": "object",

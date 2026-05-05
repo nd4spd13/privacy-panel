@@ -1,10 +1,10 @@
 import React from "react";
-import type { PrivacyFacts } from "../schema/types";
+import type { PrivacyPanel } from "../schema/types";
 import type { GradeResult } from "../scoring/engine";
 import { GradedLabel } from "./GradedLabel";
 
 export interface ComparisonEntry {
-  data: PrivacyFacts;
+  data: PrivacyPanel;
   grade: GradeResult;
 }
 
@@ -13,7 +13,7 @@ export interface ComparisonViewProps {
 }
 
 // Fields that can differ and should be highlighted
-const COMPARABLE_FIELDS: Array<{ key: string; get: (d: PrivacyFacts) => unknown }> = [
+const COMPARABLE_FIELDS: Array<{ key: string; get: (d: PrivacyPanel) => unknown }> = [
   { key: "soldToThirdParties",   get: (d) => d.dataSharing.soldToThirdParties.value },
   { key: "sharedForAdvertising", get: (d) => d.dataSharing.sharedForAdvertising.value },
   { key: "crossSiteTracking",    get: (d) => d.dataSharing.crossSiteTracking.value },

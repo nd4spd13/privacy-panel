@@ -4,12 +4,12 @@ import { join } from "path";
 import { score } from "../../src/core/scoring/engine";
 import { loadRubricOrThrow } from "../../src/core/scoring/rubric";
 import type { V2Rubric } from "../../src/core/scoring/rubric";
-import { validate } from "../../src/core/schema/privacy-facts.schema";
-import type { PrivacyFacts } from "../../src/core/schema/types";
+import { validate } from "../../src/core/schema/privacy-panel.schema";
+import type { PrivacyPanel } from "../../src/core/schema/types";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-function loadFixture(name: string): PrivacyFacts {
+function loadFixture(name: string): PrivacyPanel {
   const raw = JSON.parse(
     readFileSync(
       join(__dirname, "../fixtures/extractions", `${name}.json`),
@@ -205,7 +205,7 @@ describe("retention deductions", () => {
 
   it("applies retentionNotStated for 'not stated' period", () => {
     const fixture = loadFixture("minimal");
-    const withUnknownRetention: PrivacyFacts = {
+    const withUnknownRetention: PrivacyPanel = {
       ...fixture,
       retention: {
         longestStatedPeriod: "not stated",
@@ -222,7 +222,7 @@ describe("retention deductions", () => {
 
   it("skips retentionOver3Years deduction when legallyMandatedRetention=true", () => {
     const fixture = loadFixture("minimal");
-    const withMandatedRetention: PrivacyFacts = {
+    const withMandatedRetention: PrivacyPanel = {
       ...fixture,
       retention: {
         longestStatedPeriod: "7 years",
@@ -251,7 +251,7 @@ describe("null BooleanPractice handling", () => {
 
   it("null soldToThirdParties with nullBehavior:half applies half deduction (13pts)", () => {
     const fixture = loadFixture("minimal");
-    const withNullSold: PrivacyFacts = {
+    const withNullSold: PrivacyPanel = {
       ...fixture,
       dataSharing: { ...fixture.dataSharing, soldToThirdParties: bpNull() },
     };
@@ -264,7 +264,7 @@ describe("null BooleanPractice handling", () => {
 
   it("null crossSiteTracking with nullBehavior:half applies half deduction (3pts at emerging tier)", () => {
     const fixture = loadFixture("minimal");
-    const withNullCrossSite: PrivacyFacts = {
+    const withNullCrossSite: PrivacyPanel = {
       ...fixture,
       dataSharing: { ...fixture.dataSharing, crossSiteTracking: bpNull() },
     };
@@ -279,7 +279,7 @@ describe("null BooleanPractice handling", () => {
 
   it("null collectsPreciseGeolocation with nullBehavior:skip applies no deduction", () => {
     const fixture = loadFixture("minimal");
-    const withNullGeo: PrivacyFacts = {
+    const withNullGeo: PrivacyPanel = {
       ...fixture,
       dataCollection: { ...fixture.dataCollection, collectsPreciseGeolocation: bpNull() },
     };
@@ -295,7 +295,7 @@ describe("null BooleanPractice handling", () => {
     // An empty period string → treated as notStated (separate path), so let's test
     // a company that is truly silent (empty string → notStated)
     const fixture = loadFixture("minimal");
-    const withEmptyRetention: PrivacyFacts = {
+    const withEmptyRetention: PrivacyPanel = {
       ...fixture,
       retention: {
         longestStatedPeriod: "",
@@ -314,7 +314,7 @@ describe("null BooleanPractice handling", () => {
   it("company with all null boolean practices scores in a middle range (not 0 or 100)", () => {
     const fixture = loadFixture("minimal");
     const bp = (v: boolean | null) => ({ value: v, confidence: 0.3, sourceQuote: "n/a" });
-    const allNullPractices: PrivacyFacts = {
+    const allNullPractices: PrivacyPanel = {
       ...fixture,
       dataSharing: {
         soldToThirdParties: bp(null),
@@ -384,7 +384,7 @@ describe("browser privacy signal scoring", () => {
   it("null triggers neither deduction nor bonus", () => {
     const fixture = loadFixture("minimal");
     const bp = (v: boolean | null) => ({ value: v, confidence: 0.3, sourceQuote: "n/a" });
-    const withNullSignal: PrivacyFacts = {
+    const withNullSignal: PrivacyPanel = {
       ...fixture,
       signalHonoring: {
         honorsBrowserPrivacySignals: null,
@@ -404,7 +404,7 @@ describe("browser privacy signal scoring", () => {
   it("'partial' triggers bonus and no deduction", () => {
     const fixture = loadFixture("minimal");
     const bp = (v: boolean | null) => ({ value: v, confidence: 0.8, sourceQuote: "partial" });
-    const withPartial: PrivacyFacts = {
+    const withPartial: PrivacyPanel = {
       ...fixture,
       signalHonoring: {
         honorsBrowserPrivacySignals: "partial",
@@ -442,7 +442,7 @@ describe("AI training opt-out bonus", () => {
 
   it("null earns no bonus", () => {
     const fixture = loadFixture("minimal");
-    const withNullAI: PrivacyFacts = {
+    const withNullAI: PrivacyPanel = {
       ...fixture,
       dataSharing: {
         ...fixture.dataSharing,
@@ -460,7 +460,7 @@ describe("AI training opt-out bonus", () => {
 describe("bonus caps", () => {
   it("caps consumer rights bonus at 5 rights (+10)", () => {
     const fixture = loadFixture("minimal");
-    const allRights: PrivacyFacts = {
+    const allRights: PrivacyPanel = {
       ...fixture,
       consumerRights: {
         rightToAccess: { value: true, confidence: 1, sourceQuote: "yes" },
@@ -477,7 +477,7 @@ describe("bonus caps", () => {
 
   it("caps security measures bonus at 4 measures (+8)", () => {
     const fixture = loadFixture("minimal");
-    const allSecurity: PrivacyFacts = {
+    const allSecurity: PrivacyPanel = {
       ...fixture,
       security: {
         encryptedInTransit: { value: true, confidence: 1, sourceQuote: "yes" },
@@ -494,7 +494,7 @@ describe("bonus caps", () => {
 
   it("null rights count as 0 for bonus purposes (no penalty)", () => {
     const fixture = loadFixture("minimal");
-    const noRights: PrivacyFacts = {
+    const noRights: PrivacyPanel = {
       ...fixture,
       consumerRights: {
         rightToAccess: { value: null, confidence: 0.3, sourceQuote: "n/a" },
@@ -532,7 +532,7 @@ describe("grade boundaries", () => {
    * Build a clean base fixture with no deductions and no bonuses active.
    * Starting score = 100.
    */
-  function cleanBase(): PrivacyFacts {
+  function cleanBase(): PrivacyPanel {
     const base = loadFixture("minimal");
     const bp = (v: boolean | null) => ({ value: v, confidence: 1, sourceQuote: v ? "yes" : v === false ? "no" : "n/a" });
     return {
@@ -604,7 +604,7 @@ describe("grade boundaries", () => {
   it("score 85 → A (bottom of A range)", () => {
     // crossSiteTracking(-5) + sharedForAdv(-10) = -15 → 85
     const bp = (v: boolean | null) => ({ value: v, confidence: 1, sourceQuote: v ? "yes" : "no" });
-    const f: PrivacyFacts = {
+    const f: PrivacyPanel = {
       ...cleanBase(),
       dataSharing: {
         soldToThirdParties: bp(false),
@@ -623,7 +623,7 @@ describe("grade boundaries", () => {
   it("score 84 → B (top of B range)", () => {
     // usedForProfiling(-8) + crossSiteTracking(-5) + noSignals(-3) = -16 → 84
     const bp = (v: boolean | null) => ({ value: v, confidence: 1, sourceQuote: v ? "yes" : "no" });
-    const f: PrivacyFacts = {
+    const f: PrivacyPanel = {
       ...cleanBase(),
       dataSharing: {
         soldToThirdParties: bp(false),
@@ -647,7 +647,7 @@ describe("grade boundaries", () => {
   it("score 70 → B (bottom of B range)", () => {
     // soldToThirdParties(-25) + crossSiteTracking(-5) = -30 → 70
     const bp = (v: boolean | null) => ({ value: v, confidence: 1, sourceQuote: v ? "yes" : "no" });
-    const f: PrivacyFacts = {
+    const f: PrivacyPanel = {
       ...cleanBase(),
       dataSharing: {
         soldToThirdParties: bp(true),
@@ -666,7 +666,7 @@ describe("grade boundaries", () => {
   it("score 69 → C (top of C range)", () => {
     // soldToThirdParties(-25) + financial(-3) + lawEnf(-3) = -31 → 69
     const bp = (v: boolean | null) => ({ value: v, confidence: 1, sourceQuote: v ? "yes" : "no" });
-    const f: PrivacyFacts = {
+    const f: PrivacyPanel = {
       ...cleanBase(),
       dataSharing: {
         soldToThirdParties: bp(true),
@@ -689,7 +689,7 @@ describe("grade boundaries", () => {
   it("score 55 → C (bottom of C range)", () => {
     // soldToThirdParties(-25) + sharedForAdv(-10) + health(-5) + crossSite(-5) = -45 → 55
     const bp = (v: boolean | null) => ({ value: v, confidence: 1, sourceQuote: v ? "yes" : "no" });
-    const f: PrivacyFacts = {
+    const f: PrivacyPanel = {
       ...cleanBase(),
       dataSharing: {
         soldToThirdParties: bp(true),
@@ -712,7 +712,7 @@ describe("grade boundaries", () => {
   it("score 54 → D (top of D range)", () => {
     // soldToThirdParties(-25) + sharedForAdv(-10) + profiling(-8) + noSignals(-3) = -46 → 54
     const bp = (v: boolean | null) => ({ value: v, confidence: 1, sourceQuote: v ? "yes" : "no" });
-    const f: PrivacyFacts = {
+    const f: PrivacyPanel = {
       ...cleanBase(),
       dataSharing: {
         soldToThirdParties: bp(true),
@@ -736,7 +736,7 @@ describe("grade boundaries", () => {
   it("score 39 → F (top of F range)", () => {
     // soldToThirdParties(-25) + sharedForAdv(-10) + profiling(-8) + over5cats(-8) + tpAdv(-5) + crossSite(-5) = -61 → 39
     const bp = (v: boolean | null) => ({ value: v, confidence: 1, sourceQuote: v ? "yes" : "no" });
-    const f: PrivacyFacts = {
+    const f: PrivacyPanel = {
       ...cleanBase(),
       dataSharing: {
         soldToThirdParties: bp(true),

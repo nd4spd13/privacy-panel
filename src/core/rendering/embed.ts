@@ -1,12 +1,12 @@
 /**
- * embed.ts — Generate self-contained HTML/SVG strings for Privacy Facts labels.
+ * embed.ts — Generate self-contained HTML/SVG strings for Privacy Panel labels.
  *
  * Deliberately does NOT import react-dom/server to stay compatible with
  * Next.js App Router's webpack restrictions. HTML is generated via string
- * templates that mirror the PrivacyFactsLabel / GradedLabel component output.
+ * templates that mirror the PrivacyPanelLabel / GradedLabel component output.
  */
 
-import type { PrivacyFacts } from "../schema/types";
+import type { PrivacyPanel } from "../schema/types";
 import type { GradeResult } from "../scoring/engine";
 
 const W = 380;
@@ -21,13 +21,13 @@ const GRADE_BG: Record<string, string> = {
 
 // ─── HTML generator ───────────────────────────────────────────────────────────
 
-export function renderToHTML(data: PrivacyFacts, grade: GradeResult): string {
+export function renderToHTML(data: PrivacyPanel, grade: GradeResult): string {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Privacy Facts — ${esc(data.metadata.companyName)}</title>
+  <title>Privacy Panel — ${esc(data.metadata.companyName)}</title>
   <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,Helvetica,sans-serif;background:#f9fafb;padding:16px}</style>
 </head>
 <body>
@@ -36,12 +36,12 @@ export function renderToHTML(data: PrivacyFacts, grade: GradeResult): string {
 </html>`;
 }
 
-export function renderNeutralToHTML(data: PrivacyFacts): string {
+export function renderNeutralToHTML(data: PrivacyPanel): string {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>Privacy Facts — ${esc(data.metadata.companyName)}</title>
+  <title>Privacy Panel — ${esc(data.metadata.companyName)}</title>
   <style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,Helvetica,sans-serif;background:#f9fafb;padding:16px}</style>
 </head>
 <body>
@@ -50,7 +50,7 @@ export function renderNeutralToHTML(data: PrivacyFacts): string {
 </html>`;
 }
 
-export function renderToSVG(data: PrivacyFacts, grade: GradeResult): string {
+export function renderToSVG(data: PrivacyPanel, grade: GradeResult): string {
   const inner = labelHTML(data, grade);
   const h = 860;
   return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml" width="${W}" height="${h}" viewBox="0 0 ${W} ${h}">
@@ -63,15 +63,15 @@ export function renderToSVG(data: PrivacyFacts, grade: GradeResult): string {
 </svg>`;
 }
 
-export function renderEmbedSnippet(data: PrivacyFacts, grade: GradeResult, baseUrl = "https://privacyfacts.org"): string {
+export function renderEmbedSnippet(data: PrivacyPanel, grade: GradeResult, baseUrl = "https://privacypanel.org"): string {
   const slug = data.metadata.companyName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-  return `<!-- Privacy Facts widget for ${esc(data.metadata.companyName)} -->
-<iframe src="${baseUrl}/embed/${slug}" width="${W}" height="860" style="border:none;overflow:hidden" title="Privacy Facts — ${esc(data.metadata.companyName)} — Grade ${grade.letter}" loading="lazy"></iframe>`;
+  return `<!-- Privacy Panel widget for ${esc(data.metadata.companyName)} -->
+<iframe src="${baseUrl}/embed/${slug}" width="${W}" height="860" style="border:none;overflow:hidden" title="Privacy Panel — ${esc(data.metadata.companyName)} — Grade ${grade.letter}" loading="lazy"></iframe>`;
 }
 
 // ─── HTML builders ────────────────────────────────────────────────────────────
 
-function labelHTML(data: PrivacyFacts, grade: GradeResult): string {
+function labelHTML(data: PrivacyPanel, grade: GradeResult): string {
   const bg = GRADE_BG[grade.letter] ?? "#374151";
   return `<div style="width:${W}px;font-family:Arial,Helvetica,sans-serif">
   <div style="background:${bg};color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:4px 4px 0 0">
@@ -84,12 +84,12 @@ function labelHTML(data: PrivacyFacts, grade: GradeResult): string {
   </div>
   ${neutralLabelHTML(data)}
   <div style="font-size:9px;color:#6b7280;padding:4px 8px 6px;line-height:1.5;border:2.5px solid #000;border-top:none">
-    The grade reflects Privacy Facts' assessment based on our published rubric (v${esc(grade.rubricVersion)}). It is our opinion.
+    The grade reflects Privacy Panel' assessment based on our published rubric (v${esc(grade.rubricVersion)}). It is our opinion.
   </div>
 </div>`;
 }
 
-function neutralLabelHTML(data: PrivacyFacts): string {
+function neutralLabelHTML(data: PrivacyPanel): string {
   const { dataCollection, dataSharing, retention, consumerRights, signalHonoring, security, metadata, thirdPartyRecipients } = data;
 
   const retLabel = retentionLabel(retention);
@@ -106,7 +106,7 @@ function neutralLabelHTML(data: PrivacyFacts): string {
 
   return `<div style="width:${W}px;border:2.5px solid #000;font-family:Arial,Helvetica,sans-serif;background:#fff">
   <div style="padding:8px 8px 6px;border-bottom:7px solid #000">
-    <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.05">Privacy Facts</div>
+    <div style="font-size:34px;font-weight:900;letter-spacing:-0.02em;line-height:1.05">Privacy Panel</div>
     <div style="font-size:12px;color:#6b7280;margin-top:2px">${esc(metadata.companyName)}</div>
   </div>
 
@@ -222,7 +222,7 @@ function signalPill(label: string, honored: boolean | null): string {
   </div>`;
 }
 
-function retentionLabel(retention: PrivacyFacts["retention"]): { text: string; color: string } {
+function retentionLabel(retention: PrivacyPanel["retention"]): { text: string; color: string } {
   const period = retention.longestStatedPeriod;
   if (!period || period === "not stated") return { text: "Not specified", color: "#6b7280" };
   if (period === "indefinitely") return { text: "Indefinite", color: "#b91c1c" };

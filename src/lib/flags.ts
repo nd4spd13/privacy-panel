@@ -5,7 +5,7 @@
 
 /** Compare page — disabled until the side-by-side label view is complete.
  * TODO: Fix compare page — currently shows a basic table but lacks the
- *       full PrivacyFactsLabel side-by-side rendering. Re-enable once
+ *       full PrivacyPanelLabel side-by-side rendering. Re-enable once
  *       ComparisonView component is wired up and the layout is polished.
  */
 export const FEATURE_COMPARE = false;
