@@ -190,7 +190,7 @@ export default async function LabelPage({
                   <span className="text-xs font-bold text-gray-400 bg-white/60 rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0">
                     {i + 1}
                   </span>
-                  <span className="font-black text-gray-900 text-sm">{section.heading}</span>
+                  <span className="font-black text-sm">{section.heading}</span>
                 </div>
                 <div className="px-5 py-4 bg-white">
                   <p className="text-sm text-gray-600 leading-relaxed">{section.description}</p>
