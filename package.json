@@ -20,7 +20,7 @@
     "eval:live": "tsx --require ./cli/server-only-shim.cjs scripts/evals/live-consistency.ts",
     "eval:volatility": "tsx --require ./cli/server-only-shim.cjs scripts/evals/grading-volatility.ts",
     "eval:ab": "tsx --require ./cli/server-only-shim.cjs scripts/evals/prompt-ab.ts",
-    "eval:ci": "pnpm eval:offline && pnpm eval:volatility && pnpm test"
+    "eval:ci": "npm run eval:offline && npm run eval:volatility && npm test"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.80.0",
