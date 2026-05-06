@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" width="640" height="128" font-family="Inter Tight, -apple-system, system-ui, sans-serif">
+  
+  <g>
+    <rect x="4" y="4" width="26.5" height="16.667" rx="6" fill="currentColor"></rect>
+    <rect x="33.5" y="4" width="26.5" height="16.667" rx="6" fill="currentColor"></rect>
+    <rect x="4" y="23.667" width="26.5" height="16.667" rx="6" fill="currentColor"></rect>
+    <rect x="33.5" y="23.667" width="26.5" height="16.667" rx="6" fill="currentColor"></rect>
+    <rect x="4" y="43.333" width="26.5" height="16.667" rx="6" fill="currentColor"></rect>
+    <rect x="35" y="44.833" width="23.5" height="13.667" rx="4.5" stroke="currentColor" stroke-width="3" fill="none"></rect>
+  </g>
+  <text x="80" y="44" font-size="36" font-weight="700" letter-spacing="-0.72" fill="currentColor">Privacy Panel</text>
+</svg>
