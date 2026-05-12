@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
-import { checkRateLimit, getRateLimitHeaders } from "@/lib/rate-limit";
+import { checkRateLimit, getRateLimitHeaders, getClientIp } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
@@ -9,7 +9,7 @@ export async function GET(
   req: NextRequest,
   { params }: { params: { slug: string } }
 ) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
+  const ip = getClientIp(req);
   const { allowed, remaining, resetAt } = checkRateLimit(ip);
   const rlHeaders = getRateLimitHeaders(ip);
   if (!allowed) {

@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
-import { checkRateLimit } from "@/lib/rate-limit";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function GET(
   req: NextRequest,
   { params }: { params: { slug: string } }
 ) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
+  const ip = getClientIp(req);
   const { allowed, remaining, resetAt } = checkRateLimit(ip);
   const rlHeaders = {
     "X-RateLimit-Limit": "100",
