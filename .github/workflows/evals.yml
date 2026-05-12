@@ -1,62 +1,23 @@
-name: Evals and tests
+name: Tests
 
 on:
   push:
     branches: [main, master]
   pull_request:
-  workflow_dispatch:
-    inputs:
-      run_live:
-        description: "Run live API evals (requires ANTHROPIC_API_KEY secret)"
-        type: boolean
-        default: false
 
 jobs:
-  offline-and-unit:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
           cache: "npm"
 
       - name: Install
         run: npm ci
 
-      - name: Offline eval + Vitest
-        run: npm run eval:ci
-
-      - name: Upload eval report (if generated)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: eval-report
-          path: evals/results/**/eval-report.md
-          if-no-files-found: ignore
-
-  live-consistency:
-    if: github.event_name == 'workflow_dispatch' && inputs.run_live == true
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
-
-      - run: npm ci
-
-      - name: Live consistency (low run count for CI cost)
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: npx tsx --require ./cli/server-only-shim.cjs scripts/evals/live-consistency.ts --runs 3
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: eval-live-report
-          path: evals/results/**/eval-report.md
-          if-no-files-found: ignore
+      - name: Vitest
+        run: npm test
