@@ -7,6 +7,7 @@ import { PrivacyPanelLabel } from "@/core/rendering/PrivacyPanelLabel";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
 import { FEATURE_DISPUTES } from "@/lib/flags";
+import { PlausibleEvent } from "@/components/PlausibleEvent";
 
 export const dynamic = "force-dynamic";
 
@@ -25,6 +26,7 @@ export default function CompanyPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      <PlausibleEvent name="View Company" props={{ company: company.name }} />
       <Header />
       <main className="max-w-6xl mx-auto px-6 py-10">
         {/* ── Breadcrumb ───────────────────────────────────────────────────── */}
