@@ -15,6 +15,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="bg-gray-50 text-gray-900 antialiased">
         {children}
+        <footer className="border-t border-gray-200 mt-16 py-6">
+          <div className="max-w-6xl mx-auto px-6 flex items-center justify-between text-xs text-gray-400">
+            <span>© {new Date().getFullYear()} Privacy Panel</span>
+            <nav className="flex gap-5">
+              <a href="https://github.com/crspy-inc/privacy-panel" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700">GitHub</a>
+              <a href="/about" className="hover:text-gray-700">About</a>
+              <a href="/privacy" className="hover:text-gray-700">Privacy Policy</a>
+            </nav>
+          </div>
+        </footer>
         <Script src="https://analytics.privacypanel.org/js/pa-pxHaq3rZuu3N4OiymZaTX.js" strategy="afterInteractive" />
         <Script id="plausible-init" strategy="afterInteractive">
           {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`}

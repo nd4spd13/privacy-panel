@@ -7,6 +7,27 @@
  * - Returns standard headers for all responses
  */
 
+import type { NextRequest } from "next/server";
+
+/**
+ * Extract the real client IP from a request.
+ *
+ * Takes the rightmost IP in X-Forwarded-For (appended by our trusted reverse
+ * proxy, not spoofable by the client) or falls back to X-Real-IP. Taking the
+ * leftmost value — as many naive implementations do — allows anyone to bypass
+ * rate limiting by rotating X-Forwarded-For headers.
+ */
+export function getClientIp(req: NextRequest): string {
+  const realIp = req.headers.get("x-real-ip");
+  if (realIp) return realIp.trim();
+  const xff = req.headers.get("x-forwarded-for");
+  if (xff) {
+    const last = xff.split(",").at(-1)?.trim();
+    if (last) return last;
+  }
+  return "unknown";
+}
+
 interface Window {
   count: number;
   resetAt: number;

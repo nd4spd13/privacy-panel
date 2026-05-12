@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { loadRubricOrThrow } from "@/core/scoring/rubric";
-import { checkRateLimit, getRateLimitHeaders } from "@/lib/rate-limit";
+import { checkRateLimit, getRateLimitHeaders, getClientIp } from "@/lib/rate-limit";
 import { join } from "path";
 
 const rubric = loadRubricOrThrow(join(process.cwd(), "src/core/scoring/rubric.v1.yaml"));
 
 export async function GET(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0].trim() ?? "unknown";
+  const ip = getClientIp(req);
   const { allowed } = checkRateLimit(ip);
   if (!allowed) {
     return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429, headers: getRateLimitHeaders(ip) });
