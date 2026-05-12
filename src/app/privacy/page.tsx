@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { LabelScaler } from "@/components/LabelScaler";
 import { PrivacyPanelLabel } from "@/core/rendering/PrivacyPanelLabel";
 import type { PrivacyPanel } from "@/core/schema/types";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy — Privacy Panel",
+  description: "How Privacy Panel collects and uses data — with a Privacy Label for our own site so you can see exactly what we do.",
+};
 
 // Handcrafted disclosure for privacypanel.org — not AI-extracted.
 // Update this object if our data practices change.
@@ -77,7 +83,7 @@ const SELF_DATA: PrivacyPanel = {
     sourceQuote: "Plausible CE retains aggregate analytics data with no per-user records.",
   },
   consumerRights: {
-    rightToAccess: { value: true, confidence: 1, sourceQuote: "Email christopher.stevens.brown@gmail.com to request a data inquiry." },
+    rightToAccess: { value: true, confidence: 1, sourceQuote: "Email hello@privacypanel.org to request a data inquiry." },
     rightToDelete: { value: true, confidence: 1, sourceQuote: "Email us to request deletion of any data." },
     rightToPortability: { value: null, confidence: 0.5, sourceQuote: "" },
     rightToCorrect: { value: null, confidence: 0.5, sourceQuote: "" },
@@ -208,8 +214,8 @@ export default function PrivacyPage() {
               </li>
               <li>
                 <strong>Access or deletion</strong> — email{" "}
-                <a href="mailto:christopher.stevens.brown@gmail.com" className="underline hover:text-gray-900">
-                  christopher.stevens.brown@gmail.com
+                <a href="mailto:hello@privacypanel.org" className="underline hover:text-gray-900">
+                  hello@privacypanel.org
                 </a>{" "}
                 to request a data inquiry or deletion
               </li>
@@ -248,8 +254,8 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-bold text-gray-900 mb-4">Contact</h2>
             <p className="text-gray-600 leading-relaxed">
-              <a href="mailto:christopher.stevens.brown@gmail.com" className="underline hover:text-gray-900">
-                christopher.stevens.brown@gmail.com
+              <a href="mailto:hello@privacypanel.org" className="underline hover:text-gray-900">
+                hello@privacypanel.org
               </a>
             </p>
           </section>
