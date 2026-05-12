@@ -17,6 +17,8 @@ export function SearchBar({ placeholder = "Search companies…", size = "default
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!query.trim()) return;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (window as any).plausible?.("Company Search", { props: { query: query.trim() } });
     startTransition(() => {
       router.push(`/directory?q=${encodeURIComponent(query.trim())}`);
     });
