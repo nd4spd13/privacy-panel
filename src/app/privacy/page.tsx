@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { LabelScaler } from "@/components/LabelScaler";
 import { PrivacyPanelLabel } from "@/core/rendering/PrivacyPanelLabel";
 import type { PrivacyPanel } from "@/core/schema/types";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy — Privacy Panel",
+  description: "How Privacy Panel collects and uses data — with a Privacy Label for our own site so you can see exactly what we do.",
+};
 
 // Handcrafted disclosure for privacypanel.org — not AI-extracted.
 // Update this object if our data practices change.
