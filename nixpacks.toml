@@ -2,7 +2,7 @@
 # Ensures Python and build tools are available for better-sqlite3's native addon
 
 [phases.setup]
-nixPkgs = ["python3", "gcc", "gnumake", "nodejs_20"]
+nixPkgs = ["python3", "gcc", "gnumake", "nodejs_24"]
 
 [phases.install]
 cmds = ["npm ci"]
