@@ -13,12 +13,12 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // Next.js requires inline scripts in dev
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://analytics.privacypanel.org", // Next.js requires inline scripts in dev
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data: blob:",
               "font-src 'self'",
-              // connect-src: only allow same-origin — blocks fetch to api.anthropic.com etc.
-              "connect-src 'self'",
+              // connect-src: only allow same-origin plus analytics — blocks fetch to api.anthropic.com etc.
+              "connect-src 'self' https://analytics.privacypanel.org",
               "frame-ancestors 'none'",
               "form-action 'self'",
               "base-uri 'self'",
