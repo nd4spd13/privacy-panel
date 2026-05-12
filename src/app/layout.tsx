@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className="bg-gray-50 text-gray-900 antialiased">
         {children}
-        <Script src="https://analytics.privacypanel.org/js/pa-WGrikHqHl4tZaezpWxKbI.js" strategy="afterInteractive" />
+        <Script src="https://analytics.privacypanel.org/js/pa-pxHaq3rZuu3N4OiymZaTX.js" strategy="afterInteractive" />
         <Script id="plausible-init" strategy="afterInteractive">
           {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`}
         </Script>
