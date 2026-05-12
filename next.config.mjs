@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Keep native modules out of the webpack bundle
-  serverExternalPackages: ["better-sqlite3"],
+  // Keep native modules out of the webpack bundle (Next.js 14 syntax)
+  experimental: {
+    serverComponentsExternalPackages: ["better-sqlite3"],
+  },
 
   async headers() {
     return [
