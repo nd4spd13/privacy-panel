@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import Script from "next/script";
 import "./globals.css";
 
@@ -10,7 +11,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <html lang="en">
       <body className="bg-gray-50 text-gray-900 antialiased">
@@ -25,8 +28,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </nav>
           </div>
         </footer>
-        <Script src="https://analytics.privacypanel.org/js/pa-pxHaq3rZuu3N4OiymZaTX.js" strategy="afterInteractive" />
-        <Script id="plausible-init" strategy="afterInteractive">
+        <Script
+          src="https://analytics.privacypanel.org/js/pa-pxHaq3rZuu3N4OiymZaTX.js"
+          strategy="afterInteractive"
+          nonce={nonce}
+        />
+        <Script id="plausible-init" strategy="afterInteractive" nonce={nonce}>
           {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()`}
         </Script>
       </body>

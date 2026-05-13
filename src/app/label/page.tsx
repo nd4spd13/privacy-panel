@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { searchCompanies } from "@/db/companies";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 const LABEL_SECTIONS = [
   {
@@ -66,9 +66,10 @@ const LABEL_SECTIONS = [
 export default async function LabelPage({
   searchParams,
 }: {
-  searchParams: { q?: string };
+  searchParams: Promise<{ q?: string }>;
 }) {
-  const query = searchParams.q?.trim() ?? "";
+  const sp = await searchParams;
+  const query = sp.q?.trim() ?? "";
   const results = query.length >= 2 ? searchCompanies(query, 8) : [];
 
   return (

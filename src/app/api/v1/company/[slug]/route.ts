@@ -2,10 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { isValidPublicSlug } from "@/lib/slug";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   const ip = getClientIp(req);
   const { allowed, remaining, resetAt } = checkRateLimit(ip);
@@ -19,7 +20,12 @@ export async function GET(
     return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429, headers: rlHeaders });
   }
 
-  const company = getCompanyBySlug(params.slug);
+  const { slug } = await params;
+  if (!isValidPublicSlug(slug)) {
+    return NextResponse.json({ error: "Invalid slug" }, { status: 400, headers: rlHeaders });
+  }
+
+  const company = getCompanyBySlug(slug);
   if (!company) {
     return NextResponse.json({ error: "Company not found" }, { status: 404, headers: rlHeaders });
   }

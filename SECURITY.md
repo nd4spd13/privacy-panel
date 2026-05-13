@@ -37,7 +37,7 @@ The following are **not** vulnerabilities:
 - **API key isolation:** `ANTHROPIC_API_KEY` is a server-only environment variable. It has no `NEXT_PUBLIC_` prefix and is guarded by `import "server-only"` in `src/lib/anthropic.ts`. It cannot be accessed from client-side JavaScript.
 - **No user-triggered extraction:** The `/api/v1/analyze` endpoint does not exist in this build. All analyses are pre-loaded by administrators using the CLI.
 - **Content Security Policy:** The app sets `connect-src 'self'` to prevent any client-side JavaScript from making outbound fetch calls to external APIs.
-- **Rate limiting:** All API routes enforce a sliding-window rate limit (100 req/hr per IP by default; the `/api/v1/analyze` endpoint, if ever re-enabled, enforces 10 req/hr).
+- **Rate limiting:** All API routes enforce a sliding-window rate limit (100 requests per hour per IP by default).
 - **SQL injection:** All database queries use `better-sqlite3` prepared statements with bound parameters. No raw string interpolation into SQL.
 
 ## Supported versions

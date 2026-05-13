@@ -5,7 +5,7 @@ import { SearchBar } from "@/components/SearchBar";
 import { listCompanies, searchCompanies, countCompanies } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 const PAGE_SIZE = 50;
 const GRADE_ORDER: Record<string, number> = { A: 0, B: 1, C: 2, D: 3, F: 4 };
@@ -23,15 +23,16 @@ const DEFAULT_DIR: Record<SortKey, SortDir> = {
 // Fixed column widths — must match between header and rows
 const COL = "grid-cols-[48px_minmax(140px,1fr)_88px_72px_88px_120px]";
 
-export default function DirectoryPage({
+export default async function DirectoryPage({
   searchParams,
 }: {
-  searchParams: { q?: string; sort?: string; dir?: string; page?: string };
+  searchParams: Promise<{ q?: string; sort?: string; dir?: string; page?: string }>;
 }) {
-  const q = searchParams.q?.trim() ?? "";
-  const sort = (searchParams.sort ?? "grade") as SortKey;
-  const dir = (searchParams.dir ?? DEFAULT_DIR[sort]) as SortDir;
-  const page = Math.max(1, parseInt(searchParams.page ?? "1", 10));
+  const sp = await searchParams;
+  const q = sp.q?.trim() ?? "";
+  const sort = (sp.sort ?? "grade") as SortKey;
+  const dir = (sp.dir ?? DEFAULT_DIR[sort]) as SortDir;
+  const page = Math.max(1, parseInt(sp.page ?? "1", 10));
 
   const companies = q ? searchCompanies(q, 200) : listCompanies(1000);
   const totalCount = countCompanies();

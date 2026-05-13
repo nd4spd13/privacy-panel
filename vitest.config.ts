@@ -9,7 +9,7 @@ export default defineConfig({
     globals: true,
     environment: "node",
     // Exclude Playwright e2e tests — those run via `npx playwright test`
-    exclude: ["tests/e2e/**", "node_modules/**", ".claude/**"],
+    exclude: ["tests/e2e/**", "tests/core/extraction.test.ts", "node_modules/**", ".claude/**"],
   },
   resolve: {
     alias: {

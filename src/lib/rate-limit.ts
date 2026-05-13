@@ -3,27 +3,25 @@
  *
  * Improvements over the original:
  * - Periodic cleanup of expired windows to prevent unbounded memory growth
- * - Separate limits for different tiers (analyze is more expensive)
  * - Returns standard headers for all responses
  */
 
 import type { NextRequest } from "next/server";
 
 /**
- * Extract the real client IP from a request.
+ * Client IP for rate limiting.
  *
- * Takes the rightmost IP in X-Forwarded-For (appended by our trusted reverse
- * proxy, not spoofable by the client) or falls back to X-Real-IP. Taking the
- * leftmost value — as many naive implementations do — allows anyone to bypass
- * rate limiting by rotating X-Forwarded-For headers.
+ * On Railway, the edge sets `X-Real-IP` to the true client address before the
+ * request reaches this app (client-supplied XFF / X-Real-IP are not trusted).
+ * We intentionally do not parse `X-Forwarded-For`: semantics differ per host,
+ * and trusting the wrong hop would silently disable rate limiting.
  */
 export function getClientIp(req: NextRequest): string {
   const realIp = req.headers.get("x-real-ip");
   if (realIp) return realIp.trim();
-  const xff = req.headers.get("x-forwarded-for");
-  if (xff) {
-    const last = xff.split(",").at(-1)?.trim();
-    if (last) return last;
+
+  if (process.env.NODE_ENV === "production") {
+    console.warn("[rate-limit] missing x-real-ip; check edge proxy configuration");
   }
   return "unknown";
 }
@@ -36,10 +34,8 @@ interface Window {
 const store = new Map<string, Window>();
 const WINDOW_MS = 60 * 60 * 1000; // 1 hour
 
-// Tier limits
 export const LIMITS = {
-  default: 100,  // general API calls
-  analyze: 10,   // POST /api/v1/analyze — expensive (calls Claude API)
+  default: 100,
 } as const;
 
 export type LimitTier = keyof typeof LIMITS;
