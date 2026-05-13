@@ -31,6 +31,8 @@ interface Window {
   resetAt: number;
 }
 
+// NOTE: in-process store — resets on every redeploy. Acceptable while data is
+// public and deploys are infrequent. Replace with Redis if that changes.
 const store = new Map<string, Window>();
 const WINDOW_MS = 60 * 60 * 1000; // 1 hour
 
