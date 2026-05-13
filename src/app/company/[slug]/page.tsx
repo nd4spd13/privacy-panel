@@ -9,10 +9,11 @@ import { getLatestExtractionForCompany } from "@/db/extractions";
 import { FEATURE_DISPUTES } from "@/lib/flags";
 import { PlausibleEvent } from "@/components/PlausibleEvent";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
-export default function CompanyPage({ params }: { params: { slug: string } }) {
-  const company = getCompanyBySlug(params.slug);
+export default async function CompanyPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const company = getCompanyBySlug(slug);
   if (!company) notFound();
 
   const extraction = getLatestExtractionForCompany(company.id);

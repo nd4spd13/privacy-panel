@@ -16,8 +16,13 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429, headers: rlHeaders });
   }
 
-  const q = req.nextUrl.searchParams.get("q")?.trim() ?? "";
-  const limit = Math.min(Number(req.nextUrl.searchParams.get("limit") ?? "20"), 50);
+  const q = (req.nextUrl.searchParams.get("q") ?? "").trim().slice(0, 200);
+
+  const limitParam = Number(req.nextUrl.searchParams.get("limit") ?? "20");
+  const limit =
+    Number.isFinite(limitParam) && limitParam > 0
+      ? Math.min(Math.floor(limitParam), 50)
+      : 20;
 
   const companies = q ? searchCompanies(q, limit) : listCompanies(limit);
 

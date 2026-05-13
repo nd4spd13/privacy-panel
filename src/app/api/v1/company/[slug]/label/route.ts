@@ -2,28 +2,34 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
 import { checkRateLimit, getRateLimitHeaders, getClientIp } from "@/lib/rate-limit";
+import { isValidPublicSlug } from "@/lib/slug";
 
 export const runtime = "nodejs";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   const ip = getClientIp(req);
-  const { allowed, remaining, resetAt } = checkRateLimit(ip);
+  const { allowed } = checkRateLimit(ip);
   const rlHeaders = getRateLimitHeaders(ip);
   if (!allowed) {
     return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429, headers: rlHeaders });
   }
 
-  const company = getCompanyBySlug(params.slug);
+  const { slug } = await params;
+  if (!isValidPublicSlug(slug)) {
+    return new NextResponse("Invalid slug", { status: 400, headers: rlHeaders });
+  }
+
+  const company = getCompanyBySlug(slug);
   if (!company) {
-    return new NextResponse("Company not found", { status: 404 });
+    return new NextResponse("Company not found", { status: 404, headers: rlHeaders });
   }
 
   const extraction = getLatestExtractionForCompany(company.id);
   if (!extraction) {
-    return new NextResponse("No analysis available", { status: 404 });
+    return new NextResponse("No analysis available", { status: 404, headers: rlHeaders });
   }
 
   const format = req.nextUrl.searchParams.get("format") ?? "svg";

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
+import { isValidPublicSlug } from "@/lib/slug";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function GET(req: NextRequest) {
@@ -17,7 +18,7 @@ export async function GET(req: NextRequest) {
   }
 
   // Accept ?slugs=signal,typicalsaas,aggressive (2-3 slugs)
-  const slugsParam = req.nextUrl.searchParams.get("slugs") ?? "";
+  const slugsParam = (req.nextUrl.searchParams.get("slugs") ?? "").slice(0, 500);
   const slugs = slugsParam.split(",").map((s) => s.trim()).filter(Boolean).slice(0, 3);
 
   if (slugs.length < 2) {
@@ -25,6 +26,10 @@ export async function GET(req: NextRequest) {
       { error: "Provide 2–3 company slugs via ?slugs=slug1,slug2[,slug3]" },
       { status: 400, headers: rlHeaders }
     );
+  }
+
+  if (slugs.some((s) => !isValidPublicSlug(s))) {
+    return NextResponse.json({ error: "Invalid slug" }, { status: 400, headers: rlHeaders });
   }
 
   const results = slugs.map((slug) => {
