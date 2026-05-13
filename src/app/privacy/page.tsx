@@ -305,10 +305,24 @@ export default function PrivacyPage() {
                     </td>
                   </tr>
                   <tr className="border-t border-gray-200">
-                    <td className="px-3 py-2"><strong>Email provider</strong></td>
-                    <td className="px-3 py-2">Receives correspondence sent to <code className="text-xs bg-gray-100 px-1 rounded">hello@privacypanel.org</code></td>
+                    <td className="px-3 py-2"><strong>Porkbun</strong></td>
+                    <td className="px-3 py-2">Domain registrar; forwards mail addressed to <code className="text-xs bg-gray-100 px-1 rounded">hello@privacypanel.org</code> to a personal mailbox</td>
                     <td className="px-3 py-2">United States</td>
-                    <td className="px-3 py-2 text-gray-500">Available on request</td>
+                    <td className="px-3 py-2">
+                      <a href="https://porkbun.com/policy/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-900">
+                        porkbun.com/policy/privacy
+                      </a>
+                    </td>
+                  </tr>
+                  <tr className="border-t border-gray-200">
+                    <td className="px-3 py-2"><strong>Google (Gmail)</strong></td>
+                    <td className="px-3 py-2">Receives forwarded mail; used to read and reply to correspondence sent to <code className="text-xs bg-gray-100 px-1 rounded">hello@privacypanel.org</code>. Replies are sent from a personal Gmail address.</td>
+                    <td className="px-3 py-2">United States</td>
+                    <td className="px-3 py-2">
+                      <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-900">
+                        policies.google.com/privacy
+                      </a>
+                    </td>
                   </tr>
                   <tr className="border-t border-gray-200">
                     <td className="px-3 py-2"><strong>GitHub</strong></td>
