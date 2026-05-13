@@ -29,7 +29,7 @@ export default async function DirectoryPage({
   searchParams: Promise<{ q?: string; sort?: string; dir?: string; page?: string }>;
 }) {
   const sp = await searchParams;
-  const q = sp.q?.trim() ?? "";
+  const q = (sp.q ?? "").trim().slice(0, 200);
   const sort = (sp.sort ?? "grade") as SortKey;
   const dir = (sp.dir ?? DEFAULT_DIR[sort]) as SortDir;
   const page = Math.max(1, parseInt(sp.page ?? "1", 10));

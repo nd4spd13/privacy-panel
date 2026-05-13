@@ -69,7 +69,7 @@ export default async function LabelPage({
   searchParams: Promise<{ q?: string }>;
 }) {
   const sp = await searchParams;
-  const query = sp.q?.trim() ?? "";
+  const query = (sp.q ?? "").trim().slice(0, 200);
   const results = query.length >= 2 ? searchCompanies(query, 8) : [];
 
   return (
