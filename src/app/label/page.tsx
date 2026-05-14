@@ -156,14 +156,14 @@ export default async function LabelPage({
           <div className="bg-gray-50 border border-gray-100 rounded-xl p-5">
             <div className="text-lg font-black text-gray-900 mb-2">Standardized</div>
             <p className="text-sm text-gray-600 leading-relaxed">
-              Every label uses the same format and structure. You don't need to read 20 pages of legalese —
-              the relevant information is always in the same place.
+              Every label uses the same format and structure. You don't need to read 20 pages of legalese.
+              The relevant information is always in the same place.
             </p>
           </div>
           <div className="bg-gray-50 border border-gray-100 rounded-xl p-5">
             <div className="text-lg font-black text-gray-900 mb-2">Factual</div>
             <p className="text-sm text-gray-600 leading-relaxed">
-              The label is a restatement of public disclosures — not an opinion or grade.
+              The label is a restatement of public disclosures, not an opinion or grade.
               Every item links back to the exact quote from the privacy policy that supports it.
             </p>
           </div>

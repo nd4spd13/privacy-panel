@@ -5,7 +5,7 @@ import type { DataCategory } from "../schema/types";
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
 
-const W = 380; // fixed label width (px)
+const W = 480; // fixed label width (px)
 
 const COLOR = {
   black: "#000000",

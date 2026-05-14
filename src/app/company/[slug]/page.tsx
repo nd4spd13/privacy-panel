@@ -99,7 +99,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
           {/* ── Left: Neutral Privacy Panel Label ────────────────────────── */}
           <div className="w-full lg:w-auto lg:flex-shrink-0">
             <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Privacy Panel Label</div>
-            <LabelScaler>
+            <LabelScaler labelWidth={480}>
               <PrivacyPanelLabel data={facts} />
             </LabelScaler>
             <div className="mt-4 flex gap-2 text-xs">
@@ -123,7 +123,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
                 Compare
               </Link>
             </div>
-            <p className="mt-3 text-xs text-gray-400 leading-relaxed max-w-[380px]">
+            <p className="mt-3 text-xs text-gray-400 leading-relaxed max-w-[480px]">
               This label summarizes privacy practices as disclosed in the company's privacy policy.
               It is a neutral, factual restatement — not an evaluation.{" "}
               <Link href="/label" className="underline hover:text-gray-600">What is this?</Link>
@@ -136,7 +136,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
 
             {/* Grade display */}
             <div className="bg-white border border-gray-200 rounded-xl p-5 mb-4 flex items-center gap-5">
-              <GradeBadge letter={grade.letter} score={grade.score} size="lg" />
+              <GradeBadge letter={grade.letter} size="lg" />
               <div>
                 <div className="text-2xl font-black text-gray-900">
                   {grade.score}<span className="text-base font-normal text-gray-400">/100</span>

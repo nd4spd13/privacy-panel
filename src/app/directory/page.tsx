@@ -10,7 +10,7 @@ export const revalidate = 300;
 const PAGE_SIZE = 50;
 const GRADE_ORDER: Record<string, number> = { A: 0, B: 1, C: 2, D: 3, F: 4 };
 
-type SortKey = "grade" | "name" | "date" | "retention";
+type SortKey = "grade" | "name" | "date" | "retention" | "sold" | "trainsAI";
 type SortDir = "asc" | "desc";
 
 // Default sort direction for each column
@@ -19,6 +19,8 @@ const DEFAULT_DIR: Record<SortKey, SortDir> = {
   name: "asc",
   date: "desc",
   retention: "desc",
+  sold: "desc",
+  trainsAI: "desc",
 };
 
 // Fixed column widths — must match between header and rows
@@ -64,6 +66,14 @@ export default async function DirectoryPage({
     let cmp = 0;
     if (sort === "name") cmp = a.company.name.localeCompare(b.company.name);
     else if (sort === "date") cmp = a.analyzedAt.localeCompare(b.analyzedAt);
+    else if (sort === "sold") {
+      const boolRank = (v: boolean | null) => v === true ? 0 : v === false ? 2 : 1;
+      cmp = boolRank(a.sold) - boolRank(b.sold);
+    }
+    else if (sort === "trainsAI") {
+      const boolRank = (v: boolean | null) => v === true ? 0 : v === false ? 2 : 1;
+      cmp = boolRank(a.trainsAI) - boolRank(b.trainsAI);
+    }
     else if (sort === "retention") {
       const retentionRank = (r: string | null) => {
         if (!r) return 99;
@@ -159,11 +169,15 @@ export default async function DirectoryPage({
                   <Link href={sortHref("grade")} className={`text-right hover:text-gray-700 transition-colors ${sort === "grade" ? "text-gray-700" : ""}`}>
                     Score{sortArrow("grade")}
                   </Link>
-                  <div className="text-center">Sold</div>
+                  <Link href={sortHref("sold")} className={`text-center hover:text-gray-700 transition-colors ${sort === "sold" ? "text-gray-700" : ""}`}>
+                    Sold{sortArrow("sold")}
+                  </Link>
                   <Link href={sortHref("retention")} className={`text-center hover:text-gray-700 transition-colors ${sort === "retention" ? "text-gray-700" : ""}`}>
                     Retention{sortArrow("retention")}
                   </Link>
-                  <div className="text-center">Trains AI</div>
+                  <Link href={sortHref("trainsAI")} className={`text-center hover:text-gray-700 transition-colors ${sort === "trainsAI" ? "text-gray-700" : ""}`}>
+                    Trains AI{sortArrow("trainsAI")}
+                  </Link>
                   <Link href={sortHref("date")} className={`text-right hover:text-gray-700 transition-colors ${sort === "date" ? "text-gray-700" : ""}`}>
                     Analyzed{sortArrow("date")}
                   </Link>

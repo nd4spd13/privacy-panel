@@ -9,7 +9,7 @@ export default function AboutPage() {
         {/* ── Title ───────────────────────────────────────────────────────── */}
         <h1 className="text-4xl font-black text-gray-900 mb-3">About Privacy Panel</h1>
         <p className="text-lg text-gray-500 leading-relaxed mb-12">
-          An open-source project that brings transparency to privacy policies, one company at a time.
+          An independent project that brings transparency to privacy policies, one company at a time.
         </p>
 
         {/* ── Mission ─────────────────────────────────────────────────────── */}
@@ -33,7 +33,7 @@ export default function AboutPage() {
               {
                 step: "1",
                 title: "We fetch the policy",
-                body: "We fetch the company's public privacy policy URL using a responsible bot (PrivacyPanel/1.0) that respects robots.txt. The page is parsed with Mozilla's Readability library to strip navigation and extract the policy text.",
+                body: "We download the company's public privacy policy and extract the plain text.",
               },
               {
                 step: "2",

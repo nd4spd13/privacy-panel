@@ -105,9 +105,6 @@ export default function RubricPage() {
 
   return (
     <>
-      {openPopover && (
-        <div className="fixed inset-0 z-10" onClick={() => setOpenPopover(null)} />
-      )}
       <Header />
       <main className="max-w-5xl mx-auto px-6 py-10">
         {/* ── Title ──────────────────────────────────────────────────────── */}
@@ -151,7 +148,7 @@ export default function RubricPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* ── Left: Simulator ──────────────────────────────────────────── */}
           <div className="lg:col-span-2 space-y-6">
             <div className="bg-white border border-gray-200 rounded-xl p-6">
@@ -186,14 +183,13 @@ export default function RubricPage() {
                               className="rounded"
                             />
                             <span className="text-sm text-gray-700">{d.label}</span>
+                            {!["retentionIndefinite", "retentionNotStated", "retentionOver3Years"].includes(d.key) && (
                             <div className="relative">
                               <button
                                 type="button"
-                                onClick={(e) => {
-                                  e.preventDefault();
-                                  e.stopPropagation();
-                                  setOpenPopover(openPopover === d.key ? null : d.key);
-                                }}
+                                onMouseEnter={() => setOpenPopover(d.key)}
+                                onMouseLeave={() => setOpenPopover(null)}
+                                onClick={(e) => { e.preventDefault(); e.stopPropagation(); setOpenPopover(openPopover === d.key ? null : d.key); }}
                                 className="w-3.5 h-3.5 rounded-full bg-gray-200 text-gray-500 text-[10px] font-bold flex items-center justify-center leading-none hover:bg-gray-300"
                                 aria-label={`Null behavior for ${d.label}`}
                               >
@@ -218,6 +214,7 @@ export default function RubricPage() {
                                 </div>
                               )}
                             </div>
+                            )}
                             {d.tier === "emerging" && (
                               <span className="text-xs bg-blue-100 text-blue-700 font-semibold px-1.5 py-0.5 rounded">½ weight</span>
                             )}
