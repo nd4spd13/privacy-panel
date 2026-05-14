@@ -13,29 +13,30 @@ const DEDUCTIONS: Array<{
   effectivePoints: number;
   tier: "core" | "emerging";
   group: string;
+  nullBehavior: "full" | "half" | "skip";
   supersedesKey?: string; // this item is skipped if that key is checked
 }> = [
   // Data Sharing — core
-  { key: "soldToThirdParties",          label: "Data sold to third parties",                   effectivePoints: 25, tier: "core",     group: "Data Sharing" },
-  { key: "sharedForAdvertising",        label: "Data shared for advertising",                  effectivePoints: 10, tier: "core",     group: "Data Sharing" },
-  { key: "usedForProfiling",            label: "Used for profiling / automated decisions",     effectivePoints: 8,  tier: "core",     group: "Data Sharing" },
-  { key: "disclosedToLawEnforcement",   label: "Disclosed to law enforcement",                 effectivePoints: 3,  tier: "core",     group: "Data Sharing" },
-  { key: "crossSiteTracking",           label: "Cross-site tracking",                          effectivePoints: 5,  tier: "emerging", group: "Data Sharing" },
+  { key: "soldToThirdParties",          label: "Data sold to third parties",                   effectivePoints: 25, tier: "core",     group: "Data Sharing",     nullBehavior: "half" },
+  { key: "sharedForAdvertising",        label: "Data shared for advertising",                  effectivePoints: 10, tier: "core",     group: "Data Sharing",     nullBehavior: "half" },
+  { key: "usedForProfiling",            label: "Used for profiling / automated decisions",     effectivePoints: 8,  tier: "core",     group: "Data Sharing",     nullBehavior: "half" },
+  { key: "disclosedToLawEnforcement",   label: "Disclosed to law enforcement",                 effectivePoints: 3,  tier: "core",     group: "Data Sharing",     nullBehavior: "skip" },
+  { key: "crossSiteTracking",           label: "Cross-site tracking",                          effectivePoints: 5,  tier: "emerging", group: "Data Sharing",     nullBehavior: "half" },
   // Data Collection — core
-  { key: "collectsPreciseGeolocation",  label: "Collects precise geolocation",                 effectivePoints: 8,  tier: "core",     group: "Data Collection" },
-  { key: "collectsBiometricData",       label: "Collects biometric data",                      effectivePoints: 8,  tier: "core",     group: "Data Collection" },
-  { key: "collectsHealthData",          label: "Collects health data",                         effectivePoints: 5,  tier: "core",     group: "Data Collection" },
-  { key: "collectsFinancialData",       label: "Collects financial data",                      effectivePoints: 3,  tier: "core",     group: "Data Collection" },
+  { key: "collectsPreciseGeolocation",  label: "Collects precise geolocation",                 effectivePoints: 8,  tier: "core",     group: "Data Collection",  nullBehavior: "skip" },
+  { key: "collectsBiometricData",       label: "Collects biometric data",                      effectivePoints: 8,  tier: "core",     group: "Data Collection",  nullBehavior: "skip" },
+  { key: "collectsHealthData",          label: "Collects health data",                         effectivePoints: 5,  tier: "core",     group: "Data Collection",  nullBehavior: "skip" },
+  { key: "collectsFinancialData",       label: "Collects financial data",                      effectivePoints: 3,  tier: "core",     group: "Data Collection",  nullBehavior: "skip" },
   // Third Parties — core, mutually exclusive tiers
-  { key: "thirdPartyCategoriesOver5",   label: "More than 5 third-party recipient categories", effectivePoints: 8,  tier: "core",     group: "Third Parties" },
-  { key: "thirdPartyCategories3To5",    label: "3–5 third-party recipient categories",         effectivePoints: 4,  tier: "core",     group: "Third Parties", supersedesKey: "thirdPartyCategoriesOver5" },
-  { key: "thirdPartyIncludesAds",       label: "Third parties include advertising networks",   effectivePoints: 5,  tier: "core",     group: "Third Parties" },
+  { key: "thirdPartyCategoriesOver5",   label: "More than 5 third-party recipient categories", effectivePoints: 8,  tier: "core",     group: "Third Parties",    nullBehavior: "skip" },
+  { key: "thirdPartyCategories3To5",    label: "3–5 third-party recipient categories",         effectivePoints: 4,  tier: "core",     group: "Third Parties",    nullBehavior: "skip", supersedesKey: "thirdPartyCategoriesOver5" },
+  { key: "thirdPartyIncludesAds",       label: "Third parties include advertising networks",   effectivePoints: 5,  tier: "core",     group: "Third Parties",    nullBehavior: "skip" },
   // Retention — core, mutually exclusive tiers
-  { key: "retentionIndefinite",         label: "Retention is indefinite",                      effectivePoints: 10, tier: "core",     group: "Data Retention" },
-  { key: "retentionNotStated",          label: "Retention period not disclosed",               effectivePoints: 8,  tier: "core",     group: "Data Retention", supersedesKey: "retentionIndefinite" },
-  { key: "retentionOver3Years",         label: "Retention longer than 3 years",                effectivePoints: 5,  tier: "core",     group: "Data Retention", supersedesKey: "retentionIndefinite" },
+  { key: "retentionIndefinite",         label: "Retention is indefinite",                      effectivePoints: 10, tier: "core",     group: "Data Retention",   nullBehavior: "full" },
+  { key: "retentionNotStated",          label: "Retention period not disclosed",               effectivePoints: 8,  tier: "core",     group: "Data Retention",   nullBehavior: "skip", supersedesKey: "retentionIndefinite" },
+  { key: "retentionOver3Years",         label: "Retention longer than 3 years",                effectivePoints: 5,  tier: "core",     group: "Data Retention",   nullBehavior: "skip", supersedesKey: "retentionIndefinite" },
   // Privacy Signals — emerging
-  { key: "doesNotHonorBrowserSignals",  label: "Does not honor browser privacy signals (GPC/DNT)", effectivePoints: 3, tier: "emerging", group: "Privacy Signals" },
+  { key: "doesNotHonorBrowserSignals",  label: "Does not honor browser privacy signals (GPC/DNT)", effectivePoints: 3, tier: "emerging", group: "Privacy Signals", nullBehavior: "skip" },
 ];
 
 const GRADE_BANDS = [
@@ -59,12 +60,13 @@ function letterFromScore(score: number): string {
 // ── Page component ─────────────────────────────────────────────────────────
 
 export default function RubricPage() {
-  const [checked, setChecked]       = useState<Set<string>>(new Set());
-  const [rights, setRights]         = useState(0);
-  const [security, setSecurity]     = useState(0);
-  const [honorsSignals, setHonors]  = useState(false);
-  const [aiOptOut, setAiOptOut]     = useState(false);
-  const [audits, setAudits]         = useState(false);
+  const [checked, setChecked]           = useState<Set<string>>(new Set());
+  const [rights, setRights]             = useState(0);
+  const [security, setSecurity]         = useState(0);
+  const [honorsSignals, setHonors]      = useState(false);
+  const [aiOptOut, setAiOptOut]         = useState(false);
+  const [audits, setAudits]             = useState(false);
+  const [openPopover, setOpenPopover]   = useState<string | null>(null);
 
   function toggle(key: string) {
     setChecked((prev) => {
@@ -103,12 +105,15 @@ export default function RubricPage() {
 
   return (
     <>
+      {openPopover && (
+        <div className="fixed inset-0 z-10" onClick={() => setOpenPopover(null)} />
+      )}
       <Header />
       <main className="max-w-5xl mx-auto px-6 py-10">
         {/* ── Title ──────────────────────────────────────────────────────── */}
         <div className="mb-8">
           <h1 className="text-3xl font-black text-gray-900 mb-2">Scoring Rubric v2</h1>
-          <p className="text-gray-500 leading-relaxed max-w-2xl">
+          <p className="text-gray-500 leading-relaxed max-w-3xl">
             Every score starts at 100. Deductions are applied for privacy-negative practices.
             Bonuses reward companies that proactively protect users.
             The rubric uses tiered weights: core practices apply fully; emerging practices apply at half weight.
@@ -181,6 +186,38 @@ export default function RubricPage() {
                               className="rounded"
                             />
                             <span className="text-sm text-gray-700">{d.label}</span>
+                            <div className="relative">
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  e.stopPropagation();
+                                  setOpenPopover(openPopover === d.key ? null : d.key);
+                                }}
+                                className="w-3.5 h-3.5 rounded-full bg-gray-200 text-gray-500 text-[10px] font-bold flex items-center justify-center leading-none hover:bg-gray-300"
+                                aria-label={`Null behavior for ${d.label}`}
+                              >
+                                i
+                              </button>
+                              {openPopover === d.key && (
+                                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-1 z-20 w-72 bg-gray-900 text-white rounded-lg p-3 text-left shadow-lg">
+                                  <p className="text-xs font-bold mb-1 text-white">
+                                    {d.nullBehavior === "full"
+                                      ? "Full deduction if silent"
+                                      : d.nullBehavior === "half"
+                                      ? "Half deduction if silent"
+                                      : "No deduction if silent"}
+                                  </p>
+                                  <p className="text-xs text-gray-300 leading-relaxed">
+                                    {d.nullBehavior === "full"
+                                      ? "Used for high-stakes facts that companies are generally expected to disclose if true."
+                                      : d.nullBehavior === "half"
+                                      ? "The conservative-default rule: silence on a high-stakes question is itself a signal, but we don't penalize as harshly as a confirmed yes."
+                                      : "Used for narrow or opt-in practices where silence is genuinely informative."}
+                                  </p>
+                                </div>
+                              )}
+                            </div>
                             {d.tier === "emerging" && (
                               <span className="text-xs bg-blue-100 text-blue-700 font-semibold px-1.5 py-0.5 rounded">½ weight</span>
                             )}
@@ -243,8 +280,8 @@ export default function RubricPage() {
           </div>
 
           {/* ── Right: Live score ─────────────────────────────────────────── */}
-          <div className="space-y-6">
-            <div className="bg-white border border-gray-200 rounded-xl p-6 text-center sticky top-20">
+          <div className="space-y-6 sticky top-20">
+            <div className="bg-white border border-gray-200 rounded-xl p-6 text-center">
               <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-4">Live Score</div>
               <GradeBadge letter={letter} score={score} size="lg" />
               <div className="mt-4 text-4xl font-black text-gray-900">{score}</div>
