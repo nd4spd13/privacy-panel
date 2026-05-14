@@ -10,7 +10,7 @@ export const revalidate = 300;
 const PAGE_SIZE = 50;
 const GRADE_ORDER: Record<string, number> = { A: 0, B: 1, C: 2, D: 3, F: 4 };
 
-type SortKey = "grade" | "name" | "date";
+type SortKey = "grade" | "name" | "date" | "retention";
 type SortDir = "asc" | "desc";
 
 // Default sort direction for each column
@@ -18,10 +18,11 @@ const DEFAULT_DIR: Record<SortKey, SortDir> = {
   grade: "desc",
   name: "asc",
   date: "desc",
+  retention: "desc",
 };
 
 // Fixed column widths — must match between header and rows
-const COL = "grid-cols-[48px_minmax(140px,1fr)_88px_72px_88px_120px]";
+const COL = "grid-cols-[48px_minmax(140px,1fr)_72px_56px_88px_72px_104px]";
 
 export default async function DirectoryPage({
   searchParams,
@@ -46,21 +47,37 @@ export default async function DirectoryPage({
         grade: ext.grade,
         analyzedAt: ext.created_at,
         sold: ext.facts.dataSharing.soldToThirdParties.value,
-        tracking: ext.facts.dataSharing.crossSiteTracking.value,
+        retention: ext.facts.retention?.longestStatedPeriod ?? null,
+        trainsAI: ext.facts.dataSharing.usedToTrainAI?.value ?? null,
       };
     })
     .filter(Boolean) as Array<{
     company: (typeof companies)[0];
     grade: { letter: string; score: number; label: string };
     analyzedAt: string;
-    sold: boolean;
-    tracking: boolean;
+    sold: boolean | null;
+    retention: string | null;
+    trainsAI: boolean | null;
   }>;
 
   const sorted = [...rows].sort((a, b) => {
     let cmp = 0;
     if (sort === "name") cmp = a.company.name.localeCompare(b.company.name);
     else if (sort === "date") cmp = a.analyzedAt.localeCompare(b.analyzedAt);
+    else if (sort === "retention") {
+      const retentionRank = (r: string | null) => {
+        if (!r) return 99;
+        const lower = r.toLowerCase();
+        if (lower.includes("indefinite")) return 0;
+        const match = lower.match(/^(\d+)\s*years?/i);
+        if (match) {
+          const years = parseInt(match[1]);
+          return years > 3 ? 1 : 2;
+        }
+        return 3;
+      };
+      cmp = retentionRank(a.retention) - retentionRank(b.retention);
+    }
     else {
       if (a.grade.score !== b.grade.score) cmp = a.grade.score - b.grade.score;
       else cmp = (GRADE_ORDER[a.grade.letter] ?? 9) - (GRADE_ORDER[b.grade.letter] ?? 9);
@@ -132,7 +149,7 @@ export default async function DirectoryPage({
           <>
             {/* overflow-x-auto lets the fixed-width table scroll on narrow viewports */}
             <div className="overflow-x-auto rounded-xl border border-gray-200">
-              <div className="bg-white min-w-[560px]">
+              <div className="bg-white min-w-[660px]">
                 {/* Table header */}
                 <div className={`grid ${COL} items-center px-4 py-2.5 bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-400 uppercase tracking-wide gap-4`}>
                   <div className="w-12" />
@@ -143,14 +160,17 @@ export default async function DirectoryPage({
                     Score{sortArrow("grade")}
                   </Link>
                   <div className="text-center">Sold</div>
-                  <div className="text-center">Tracking</div>
+                  <Link href={sortHref("retention")} className={`text-center hover:text-gray-700 transition-colors ${sort === "retention" ? "text-gray-700" : ""}`}>
+                    Retention{sortArrow("retention")}
+                  </Link>
+                  <div className="text-center">Trains AI</div>
                   <Link href={sortHref("date")} className={`text-right hover:text-gray-700 transition-colors ${sort === "date" ? "text-gray-700" : ""}`}>
                     Analyzed{sortArrow("date")}
                   </Link>
                 </div>
 
                 {/* Rows */}
-                {pageRows.map(({ company, grade, analyzedAt, sold, tracking }) => (
+                {pageRows.map(({ company, grade, analyzedAt, sold, retention, trainsAI }) => (
                   <Link
                     key={company.slug}
                     href={`/company/${company.slug}`}
@@ -166,13 +186,32 @@ export default async function DirectoryPage({
                       <span className="text-xs text-gray-400">/100</span>
                     </div>
                     <div className="text-center">
-                      {sold
+                      {sold === true
                         ? <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">YES</span>
                         : <span className="text-xs text-gray-300">—</span>}
                     </div>
+                    <div className="text-center text-xs">
+                      {(() => {
+                        if (!retention) return <span className="text-gray-300">—</span>;
+                        const lower = retention.toLowerCase();
+                        if (lower.includes("indefinite")) {
+                          return <span className="font-bold text-red-600">Indefinite</span>;
+                        }
+                        const match = retention.match(/^(\d+)\s*years?/i);
+                        if (match) {
+                          const years = parseInt(match[1]);
+                          return years > 3
+                            ? <span className="font-semibold text-red-600">{years} yr</span>
+                            : <span className="text-gray-500">{years} yr</span>;
+                        }
+                        return <span className="text-gray-400">{retention.slice(0, 12)}</span>;
+                      })()}
+                    </div>
                     <div className="text-center">
-                      {tracking
-                        ? <span className="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-0.5 rounded">YES</span>
+                      {trainsAI === true
+                        ? <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">YES</span>
+                        : trainsAI === null
+                        ? <span className="text-xs font-semibold text-amber-600">?</span>
                         : <span className="text-xs text-gray-300">—</span>}
                     </div>
                     <div className="text-right text-xs text-gray-400 whitespace-nowrap">
