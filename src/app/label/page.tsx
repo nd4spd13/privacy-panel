@@ -8,7 +8,7 @@ const LABEL_SECTIONS = [
   {
     id: "title",
     heading: "Privacy Panel",
-    color: "bg-gray-900 text-white",
+    color: "bg-slate-100 border-slate-200",
     description:
       "The label title — modeled on the FDA Nutrition Facts panel. It signals a standardized, consistent format for reading about how a company handles your personal data.",
   },
@@ -79,9 +79,9 @@ export default async function LabelPage({
         {/* ── Title ──────────────────────────────────────────────────────── */}
         <div className="mb-10">
           <h1 className="text-3xl font-black text-gray-900 mb-3">The Privacy Panel Label</h1>
-          <p className="text-gray-600 leading-relaxed max-w-2xl">
-            Privacy Panel generates a standardized disclosure label for any company's privacy policy —
-            modeled on the FDA Nutrition Facts panel. The label is <strong>factual and neutral</strong>:
+          <p className="text-gray-600 leading-relaxed max-w-3xl">
+            Privacy Panel generates a standardized disclosure label for any company's privacy policy.
+            The format is modeled on the FDA Nutrition Facts panel. The label is factual and neutral:
             it restates what the policy actually says, without scoring or judgment.
           </p>
         </div>
@@ -205,13 +205,13 @@ export default async function LabelPage({
         <div className="bg-gray-50 border border-gray-100 rounded-xl p-6 mb-8">
           <h3 className="font-bold text-gray-900 mb-3">How the label is generated</h3>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
-            Privacy policies are parsed by an AI model (Claude by Anthropic) that extracts structured
+            Privacy policies are parsed by an AI model (an AI extraction model) that extracts structured
             data from the raw policy text. For each field, the model provides the specific quote from
             the policy that supports its determination, along with a confidence score.
           </p>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
-            The label reflects what the policy <em>discloses</em> — not what the company actually does.
-            A company may have excellent practices that aren't reflected in a vague policy, or vice versa.
+            The label reflects what the policy discloses. A company may have excellent practices
+            that aren't reflected in a vague policy, or vice versa.
           </p>
           <p className="text-xs text-gray-400 leading-relaxed">
             This label summarizes privacy practices as disclosed in the company's privacy policy.
@@ -222,18 +222,10 @@ export default async function LabelPage({
         {/* ── Separation from scoring ──────────────────────────────────────── */}
         <div className="border border-amber-200 bg-amber-50 rounded-xl p-6">
           <h3 className="font-bold text-amber-900 mb-2">Label vs. Score</h3>
-          <p className="text-sm text-amber-800 leading-relaxed mb-3">
-            The Privacy Panel label is separate from the Privacy Score. The label is a neutral factual
-            disclosure — it doesn't judge whether practices are good or bad. The score applies a
-            published rubric to produce a letter grade, and is clearly labeled as our opinion.
-          </p>
           <p className="text-sm text-amber-800 leading-relaxed">
-            You can use the label to draw your own conclusions, independent of our scoring.
-            The rubric and scoring methodology are{" "}
-            <Link href="/rubric" className="underline hover:text-amber-900">
-              fully transparent and published
-            </Link>
-            .
+            The label is descriptive: it restates what the policy says and flags sensitive items in red.
+            The score is evaluative: it weighs those practices against the rubric and produces a letter grade.
+            You can read either one independently.
           </p>
         </div>
       </main>
