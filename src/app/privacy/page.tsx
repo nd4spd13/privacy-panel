@@ -99,7 +99,7 @@ const SELF_DATA: PrivacyPanel = {
     variesByDataType: true,
     legallyMandatedRetention: false,
     summary:
-      "Aggregate analytics: indefinite (no per-user records). Server access logs: per Railway's retention (typically days to weeks). Rate-limit IP entries: 1 hour, in memory only. Email correspondence: kept as long as needed to support you.",
+      "Analytics: indefinite (aggregate). Logs: weeks via Railway. Rate-limit: 1hr in memory.",
     sourceQuote:
       "Plausible aggregates retained indefinitely with no per-user records. Server logs at Railway retained per Railway's retention policies.",
   },
@@ -171,19 +171,15 @@ export default function PrivacyPage() {
           {/* ── Who we are ───────────────────────────────────────────────────── */}
           <section className="mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Who we are</h2>
-            <p className="text-gray-600 leading-relaxed mb-3">
-              Privacy Panel is an independent, open-source project that publishes
-              standardized privacy disclosures (&quot;labels&quot;) for consumer-facing companies.
-              The site is operated by <strong>Christopher Brown</strong> as the data controller
-              for purposes of GDPR and similar laws. We have no investors, no advertisers, and
-              no commercial relationship with any company we analyze.
-            </p>
             <p className="text-gray-600 leading-relaxed">
-              You can reach us at{" "}
+              Privacy Panel is published as an independent, non-commercial project. We have no investors,
+              advertisers, or commercial relationship with any company we analyze. The data controller is
+              the natural person who operates this site; their identity and a postal address are available
+              on written request to{" "}
               <a href="mailto:hello@privacypanel.org" className="underline hover:text-gray-900">
                 hello@privacypanel.org
               </a>
-              . A postal address is available on request.
+              .
             </p>
           </section>
 
@@ -363,22 +359,26 @@ export default function PrivacyPage() {
             <h3 className="text-base font-semibold text-gray-800 mt-2 mb-2">Everyone</h3>
             <ul className="list-disc list-inside text-gray-600 space-y-2 text-sm leading-relaxed mb-4">
               <li>
-                <strong>Opt out of analytics</strong> — install a content blocker (e.g.{" "}
+                <strong>Browser privacy signals (primary):</strong>{" "}
+                Enable Global Privacy Control (GPC) or Do Not Track (DNT) in your browser.
+                Plausible CE respects both by default. Analytics will not record visits where these
+                signals are set. Most modern browsers offer GPC in their privacy settings.
+              </li>
+              <li>
+                <strong>Content blocker (fallback):</strong>{" "}
+                Install a content blocker (e.g.{" "}
                 <a href="https://ublockorigin.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-900">
                   uBlock Origin
                 </a>
-                ) and our Plausible script will not load
+                ) and our Plausible script will not load.
               </li>
               <li>
-                <strong>Request access or deletion</strong> — email{" "}
+                <strong>Request access or deletion:</strong>{" "}
+                email{" "}
                 <a href="mailto:hello@privacypanel.org" className="underline hover:text-gray-900">
                   hello@privacypanel.org
                 </a>{" "}
-                with your request
-              </li>
-              <li>
-                <strong>Browser signals</strong> — Plausible CE respects Global Privacy Control (GPC)
-                and Do Not Track (DNT) by default
+                with your request.
               </li>
             </ul>
 
@@ -439,29 +439,29 @@ export default function PrivacyPage() {
               will reflect the most recent change. Material changes will additionally be noted in
               a banner on the homepage for at least 30 days. The full revision history is visible
               in our{" "}
-              <a href="https://github.com/crspy-inc/privacy-panel/commits/main/src/app/privacy/page.tsx" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-900">
+              <a href="https://github.com/nd4spd13/privacy-panel/commits/main/src/app/privacy/page.tsx" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-900">
                 public commit log
               </a>
               .
             </p>
           </section>
 
-          {/* ── Open source ──────────────────────────────────────────────────── */}
+          {/* ── Open methodology ─────────────────────────────────────────────── */}
           <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Open source</h2>
-            <p className="text-gray-600 leading-relaxed">
-              Privacy Panel is open source at{" "}
-              <a
-                href="https://github.com/crspy-inc/privacy-panel"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-gray-900"
-              >
-                github.com/crspy-inc/privacy-panel
-              </a>
-              . You can inspect exactly how the site works and what data it accesses. If you
-              believe this policy is inaccurate or incomplete, please open an issue or email us.
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Open methodology</h2>
+            <p className="text-gray-600 leading-relaxed mb-3">
+              The scoring rubric, JSON schema, and web application code are public. The extraction
+              pipeline (AI prompts and policy fetching) is private. You can audit how grades are
+              produced and reproduce any score from a stored extraction.
             </p>
+            <a
+              href="https://github.com/nd4spd13/privacy-panel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-gray-900"
+            >
+              github.com/nd4spd13/privacy-panel
+            </a>
           </section>
 
           {/* ── Governing law ────────────────────────────────────────────────── */}
@@ -469,7 +469,7 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-bold text-gray-900 mb-4">Governing law</h2>
             <p className="text-gray-600 leading-relaxed">
               This policy is governed by the laws of the United States and the State of
-              California, without regard to conflict-of-laws principles, except that EU/UK
+              New York, without regard to conflict-of-laws principles, except that EU/UK
               visitors retain all rights conferred by their local data-protection laws.
             </p>
           </section>
