@@ -119,6 +119,55 @@ export function insertExtraction(
   return getExtractionById(result.lastInsertRowid as number)!;
 }
 
+export interface HomePageCard {
+  company: { id: number; slug: string; name: string; domain: string | null };
+  grade: { letter: string; score: number; label: string };
+  analyzedAt: string;
+}
+
+export function listHomePageMix(n = 6): HomePageCard[] {
+  const db = getDb();
+
+  type RawRow = { id: number; slug: string; name: string; domain: string | null; letter: string; score: number; grade_label: string; created_at: string };
+
+  const recentRows = db
+    .prepare(
+      `SELECT c.id, c.slug, c.name, c.domain, e.letter, e.score, e.grade_label, e.created_at
+       FROM extractions e
+       JOIN companies c ON e.company_id = c.id
+       WHERE e.id IN (SELECT MAX(id) FROM extractions GROUP BY company_id)
+       ORDER BY e.created_at DESC
+       LIMIT ?`
+    )
+    .all(n) as RawRow[];
+
+  const randomRows = db
+    .prepare(
+      `SELECT c.id, c.slug, c.name, c.domain, e.letter, e.score, e.grade_label, e.created_at
+       FROM extractions e
+       JOIN companies c ON e.company_id = c.id
+       WHERE e.id IN (SELECT MAX(id) FROM extractions GROUP BY company_id)
+       ORDER BY RANDOM()
+       LIMIT ?`
+    )
+    .all(n) as RawRow[];
+
+  const seen = new Set<number>();
+  const merged: RawRow[] = [];
+  for (const row of recentRows) {
+    if (!seen.has(row.id)) { seen.add(row.id); merged.push(row); }
+  }
+  for (const row of randomRows) {
+    if (!seen.has(row.id) && merged.length < n) { seen.add(row.id); merged.push(row); }
+  }
+
+  return merged.map((row) => ({
+    company: { id: row.id, slug: row.slug, name: row.name, domain: row.domain },
+    grade: { letter: row.letter, score: row.score, label: row.grade_label },
+    analyzedAt: row.created_at,
+  }));
+}
+
 function parseRow(row: ExtractionRow): ExtractionRecord {
   const { facts_json, breakdown_json, ...rest } = row;
   let facts = JSON.parse(facts_json) as PrivacyPanel;
