@@ -6,10 +6,51 @@ import { LabelScaler } from "@/components/LabelScaler";
 import { PrivacyPanelLabel } from "@/core/rendering/PrivacyPanelLabel";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
-import { FEATURE_DISPUTES } from "@/lib/flags";
 import { PlausibleEvent } from "@/components/PlausibleEvent";
 
 export const revalidate = 300;
+
+function EvidenceCard({
+  label,
+  field,
+  companyName,
+}: {
+  label: string;
+  field: { value: boolean | null; confidence: number; sourceQuote: string };
+  companyName: string;
+}) {
+  const isInferred = /does not mention|no mention|policy is silent|not stated|not specified|not addressed|silent on this/i.test(
+    field.sourceQuote
+  );
+  return (
+    <div className="bg-white border border-gray-200 rounded-lg px-4 py-3">
+      <div className="flex items-center justify-between mb-1.5">
+        <span className="text-xs font-semibold text-gray-600">{label}</span>
+        <div className="flex items-center gap-2">
+          <span className={`text-xs font-bold px-2 py-0.5 rounded ${field.value === true ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-500"}`}>
+            {field.value === true ? "YES" : field.value === null ? "?" : "no"}
+          </span>
+          <span className="text-xs text-gray-400">{Math.round(field.confidence * 100)}% confidence</span>
+        </div>
+      </div>
+      {isInferred ? (
+        <p className="text-xs text-gray-400 leading-relaxed">(policy is silent on this)</p>
+      ) : (
+        <blockquote className="text-xs text-gray-500 italic border-l-2 border-gray-200 pl-3 leading-relaxed">
+          {field.sourceQuote}
+        </blockquote>
+      )}
+      <div className="mt-2 text-right">
+        <a
+          href={`mailto:hello@privacypanel.org?subject=${encodeURIComponent(`Issue with ${companyName} — ${label}`)}&body=${encodeURIComponent(`Quote: "${field.sourceQuote}"\n\nYour observation:`)}`}
+          className="text-xs text-gray-400 hover:text-gray-700"
+        >
+          Dispute this finding →
+        </a>
+      </div>
+    </div>
+  );
+}
 
 export default async function CompanyPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -21,6 +62,11 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
 
   const { facts, grade } = extraction;
   const bd = grade.breakdown;
+
+  const nameMatch = company.name.match(/^(.+?)\s*\(([^()]+(?:\([^()]+\))*[^()]*)\)\s*$/);
+  const displayName = nameMatch ? nameMatch[1].trim() : company.name;
+  const parentCompany = nameMatch ? nameMatch[2].trim() : null;
+  const showParent = parentCompany !== null && parentCompany !== displayName;
 
   const deductions = bd.filter((b) => b.triggered && b.points < 0);
   const bonuses = bd.filter((b) => b.triggered && b.points > 0);
@@ -36,10 +82,13 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
           <span className="mx-2">/</span>
           <Link href="/directory" className="hover:text-gray-700">Directory</Link>
           <span className="mx-2">/</span>
-          <span className="text-gray-700">{company.name}</span>
+          <span className="text-gray-700">{displayName}</span>
         </div>
 
-        <h1 className="text-3xl font-black text-gray-900 mb-1">{company.name}</h1>
+        <h1 className="text-3xl font-black text-gray-900 mb-1">{displayName}</h1>
+        {showParent && (
+          <p className="text-sm text-gray-500 mt-1">Owned by {parentCompany}</p>
+        )}
         {company.domain && (
           <a href={`https://${company.domain}`} target="_blank" className="text-sm text-gray-400 hover:text-gray-700">
             {company.domain} ↗
@@ -100,9 +149,9 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
             </div>
 
             <div className="text-xs text-gray-500 leading-relaxed mb-6 bg-amber-50 border border-amber-100 rounded-lg px-4 py-3">
-              The score reflects Privacy Panel' assessment based on our{" "}
+              The score reflects Privacy Panel's assessment based on our{" "}
               <Link href="/rubric" className="underline hover:text-amber-700">published rubric</Link>.
-              It is our opinion — not a legal determination. Grades measure disclosed practices,
+              It is our opinion. Not a legal determination. Grades measure disclosed practices,
               not actual behavior.
             </div>
 
@@ -158,54 +207,57 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
 
             {/* Source evidence */}
             <div className="mb-8">
-              <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">Source Evidence</h2>
-              <div className="space-y-3">
-                {[
-                  { label: "Sold to third parties", field: facts.dataSharing.soldToThirdParties },
-                  { label: "Shared for advertising", field: facts.dataSharing.sharedForAdvertising },
-                  { label: "Cross-site tracking", field: facts.dataSharing.crossSiteTracking },
-                  { label: "Used for profiling", field: facts.dataSharing.usedForProfiling },
-                  { label: "Used to train AI", field: facts.dataSharing.usedToTrainAI },
-                  { label: "Honors GPC", field: facts.signalHonoring.gpcDetail },
-                  { label: "Honors DNT", field: facts.signalHonoring.dntDetail },
-                ].map(({ label, field }) => (
-                  <div key={label} className="bg-white border border-gray-200 rounded-lg px-4 py-3">
-                    <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-xs font-semibold text-gray-600">{label}</span>
-                      <div className="flex items-center gap-2">
-                        <span className={`text-xs font-bold px-2 py-0.5 rounded ${field.value === true ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-500"}`}>
-                          {field.value === true ? "YES" : field.value === null ? "?" : "no"}
-                        </span>
-                        <span className="text-xs text-gray-400">
-                          {Math.round(field.confidence * 100)}% confidence
-                        </span>
-                      </div>
-                    </div>
-                    <blockquote className="text-xs text-gray-500 italic border-l-2 border-gray-200 pl-3 leading-relaxed">
-                      {field.sourceQuote}
-                    </blockquote>
-                  </div>
-                ))}
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-widest">Source Evidence</h2>
+                <a
+                  href={`mailto:hello@privacypanel.org?subject=${encodeURIComponent(`Issue with ${displayName} analysis`)}`}
+                  className="text-xs text-gray-500 hover:text-gray-800 border border-gray-200 rounded-lg px-3 py-1.5 hover:bg-gray-50 transition-colors"
+                >
+                  Report an issue
+                </a>
+              </div>
+
+              <div className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 mb-4 text-xs text-gray-600 leading-relaxed">
+                Disputes are about findings, not grades. The grade is our opinion based on a{" "}
+                <Link href="/rubric" className="underline hover:text-gray-800">published rubric</Link>.
+                If a specific extraction below looks wrong (the quote does not match the policy, or the
+                YES/no is misinterpreted), use the per-finding flag to help us improve.
+              </div>
+
+              <div className="mb-4">
+                <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">What's on the label</div>
+                <div className="space-y-3">
+                  {[
+                    { label: "Sold to third parties", field: facts.dataSharing.soldToThirdParties },
+                    { label: "Shared for advertising", field: facts.dataSharing.sharedForAdvertising },
+                    { label: "Cross-site tracking", field: facts.dataSharing.crossSiteTracking },
+                    { label: "Used for profiling", field: facts.dataSharing.usedForProfiling },
+                    { label: "Used to train AI", field: facts.dataSharing.usedToTrainAI },
+                  ].map(({ label, field }) => (
+                    <EvidenceCard key={label} label={label} field={field} companyName={displayName} />
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Signals & rights</div>
+                <div className="space-y-3">
+                  {[
+                    { label: "Honors GPC", field: facts.signalHonoring.gpcDetail },
+                    { label: "Honors DNT", field: facts.signalHonoring.dntDetail },
+                  ].map(({ label, field }) => (
+                    <EvidenceCard key={label} label={label} field={field} companyName={displayName} />
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* Analysis metadata */}
             <div className="pt-6 border-t border-gray-100 text-xs text-gray-400 space-y-1">
               <p>Analyzed {new Date(extraction.created_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
-              <p>Model: {extraction.model} · {extraction.input_tokens?.toLocaleString()} input tokens</p>
               <p>Rubric version {grade.rubricVersion} · <Link href="/rubric" className="underline hover:text-gray-600">View full rubric</Link></p>
             </div>
 
-            {/* Dispute */}
-            {FEATURE_DISPUTES && (
-              <div className="mt-6 bg-gray-50 border border-gray-200 rounded-xl p-4">
-                <h3 className="text-sm font-semibold text-gray-700 mb-1">Dispute this analysis</h3>
-                <p className="text-xs text-gray-500 leading-relaxed">
-                  If you represent {company.name} and believe a finding is inaccurate, you can submit a dispute with
-                  supporting evidence. We review all disputes and update analyses when warranted.
-                </p>
-              </div>
-            )}
           </div>
         </div>
       </main>
