@@ -9,23 +9,16 @@ export default function AboutPage() {
         {/* ── Title ───────────────────────────────────────────────────────── */}
         <h1 className="text-4xl font-black text-gray-900 mb-3">About Privacy Panel</h1>
         <p className="text-lg text-gray-500 leading-relaxed mb-12">
-          An open-source project that brings transparency to privacy policies —
-          one company at a time.
+          An open-source project that brings transparency to privacy policies, one company at a time.
         </p>
 
         {/* ── Mission ─────────────────────────────────────────────────────── */}
         <section className="mb-10">
           <h2 className="text-xl font-bold text-gray-900 mb-3">Mission</h2>
-          <p className="text-gray-600 leading-relaxed mb-3">
-            Privacy policies are long, deliberately opaque, and written by lawyers for lawyers.
-            Most consumers never read them. Privacy Panel changes that by doing the reading for you
-            and presenting the findings in a format anyone can understand — like an FDA Nutrition
-            Facts label, but for your data.
-          </p>
           <p className="text-gray-600 leading-relaxed">
-            We believe consumers deserve to know, clearly and without jargon: Does this company sell
-            my data? Does it track me across the web? Can I delete my data if I want to? Our tool
-            answers these questions directly, with the exact language from the policy as evidence.
+            Privacy policies are long, deliberately opaque, and written by lawyers for lawyers.
+            Privacy Panel translates them into a standardized label that anyone can read in 30 seconds,
+            and grades them against a transparent, published rubric.
           </p>
         </section>
 
@@ -33,24 +26,29 @@ export default function AboutPage() {
         <section className="mb-10">
           <h2 className="text-xl font-bold text-gray-900 mb-3">Methodology</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            Every analysis follows the same three-step process:
+            Every analysis follows the same four-step process:
           </p>
           <div className="space-y-4">
             {[
               {
                 step: "1",
-                title: "Policy ingestion",
+                title: "We fetch the policy",
                 body: "We fetch the company's public privacy policy URL using a responsible bot (PrivacyPanel/1.0) that respects robots.txt. The page is parsed with Mozilla's Readability library to strip navigation and extract the policy text.",
               },
               {
                 step: "2",
-                title: "AI extraction",
-                body: "Claude (Anthropic's AI) reads the policy and extracts structured data: what data is collected, how it's shared, how long it's retained, what consumer rights are available, and whether privacy signals like GPC and DNT are honored. Each finding includes the source quote from the policy and a confidence score.",
+                title: "AI extracts the facts",
+                body: "An AI extraction model reads the policy and extracts structured data: what data is collected, how it's shared, how long it's retained, what consumer rights are available, and whether privacy signals like GPC and DNT are honored. Each finding includes the source quote from the policy.",
               },
               {
                 step: "3",
-                title: "Deterministic grading",
-                body: "A published, versioned rubric converts the structured data into a numeric score (0–100) and letter grade (A–F). The rubric is open-source — every point added or deducted is visible and explainable. The same extraction always produces the same score.",
+                title: "We render the label",
+                body: "We render the facts into a standardized Privacy Panel label modeled on FDA Nutrition Facts.",
+              },
+              {
+                step: "4",
+                title: "We score it against the rubric",
+                body: "We apply a published, deterministic rubric to produce a numeric score (0–100) and letter grade (A–F). Every point added or deducted is visible and reproducible.",
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
@@ -112,21 +110,13 @@ export default function AboutPage() {
 
         {/* ── Open source ─────────────────────────────────────────────────── */}
         <section className="mb-10">
-          <h2 className="text-xl font-bold text-gray-900 mb-3">Open source</h2>
-          <p className="text-gray-600 leading-relaxed mb-3">
-            Privacy Panel is fully open source. The scoring rubric, extraction prompts, schema, and
-            all application code are publicly available. We believe transparency in our methodology
-            is essential to the project's credibility.
+          <h2 className="text-xl font-bold text-gray-900 mb-3">Open methodology</h2>
+          <p className="text-gray-600 leading-relaxed mb-4">
+            The scoring rubric and the JSON schema are public. Anyone can audit how grades are produced
+            or reproduce a score from a stored extraction. The web application code is also public for
+            transparency. The extraction pipeline (AI prompts and policy fetching) is private.
           </p>
           <div className="flex flex-wrap gap-3 text-sm">
-            <a
-              href="https://github.com/privacypanel/privacy-panel"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 border border-gray-300 rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors font-medium"
-            >
-              GitHub →
-            </a>
             <Link
               href="/rubric"
               className="inline-flex items-center gap-1.5 border border-gray-300 rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors font-medium"
@@ -140,29 +130,32 @@ export default function AboutPage() {
             >
               Download rubric YAML →
             </a>
-            <a
-              href="/schema/v1.json"
-              target="_blank"
-              className="inline-flex items-center gap-1.5 border border-gray-300 rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors font-medium"
-            >
-              Download schema JSON →
-            </a>
           </div>
         </section>
 
         {/* ── Contact ─────────────────────────────────────────────────────── */}
         <section>
           <h2 className="text-xl font-bold text-gray-900 mb-3">Contact</h2>
-          <div className="text-sm text-gray-600 space-y-1">
+          <div className="text-sm text-gray-600 space-y-2">
             <p>
-              To report an error in a company&apos;s label, use the{" "}
-              <span className="font-medium text-gray-800">Dispute</span> link on
-              any company page.
+              <a href="mailto:hello@privacypanel.org" className="font-medium text-gray-800 underline hover:text-gray-900">
+                hello@privacypanel.org
+              </a>
             </p>
             <p>
-              To report a security vulnerability, open an issue on{" "}
+              To report an issue with a specific company&apos;s analysis, use the{" "}
+              <span className="font-medium text-gray-800">Dispute</span> link on that company&apos;s page.
+              For anything else (including reporting a security vulnerability or asking a methodology question),
+              email{" "}
+              <a href="mailto:hello@privacypanel.org" className="underline hover:text-gray-900">
+                hello@privacypanel.org
+              </a>
+              .
+            </p>
+            <p>
+              To report a security vulnerability via GitHub, open an issue on{" "}
               <a
-                href="https://github.com/privacypanel/privacy-panel"
+                href="https://github.com/nd4spd13/privacy-panel"
                 className="underline hover:text-gray-900"
                 target="_blank"
                 rel="noopener noreferrer"
