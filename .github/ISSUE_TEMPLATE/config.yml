@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/nd4spd13/privacy-panel/security/policy
+    about: Please do NOT open a public issue for security reports. Email security@privacypanel.org instead.
+  - name: Live site
+    url: https://privacypanel.org
+    about: Browse the directory and view labels.

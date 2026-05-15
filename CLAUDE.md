@@ -11,7 +11,7 @@ The project has three layers:
 
 These layers are architecturally separate. The factual layer is legally defensible as restatement of public disclosures. The grade is clearly labeled as opinion based on a transparent methodology.
 
-> **Note:** The AI extraction pipeline (Anthropic API calls, policy fetching, ingestion scripts, evals) was extracted into a separate local-only repo at `../privacy-pipeline`. This web app is now a read-only presentation layer that serves pre-computed data from SQLite. No Anthropic API calls happen in the web app.
+> **Note:** The AI extraction pipeline (Anthropic API calls, policy fetching, ingestion scripts, evals) lives in a separate, non-public repository. This web app is a read-only presentation layer that serves pre-computed data from SQLite. No Anthropic API calls happen in the web app at runtime.
 
 ## Tech Stack
 

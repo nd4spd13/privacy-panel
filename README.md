@@ -1,21 +1,26 @@
 # Privacy Panel
 
-Open-source privacy policy analyzer. We parse company privacy policies, extract structured data with Claude, generate FDA Nutrition Facts-style "Privacy Panel" labels, and assign A–F letter grades using a published, deterministic rubric.
+[![Tests](https://github.com/nd4spd13/privacy-panel/actions/workflows/ci.yml/badge.svg)](https://github.com/nd4spd13/privacy-panel/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+Open-source privacy policy analyzer. Privacy policies are parsed offline by Claude into a standardized JSON schema, rendered as FDA Nutrition Facts-style "Privacy Panel" labels, and graded A–F using a published, deterministic rubric.
 
 **Live site:** https://privacypanel.org
-**Rubric:** [public/rubric/v1.yaml](public/rubric/v1.yaml)
-**Schema:** [public/schema/v1.json](public/schema/v1.json)
+**Rubric:** [src/core/scoring/rubric.v2.yaml](src/core/scoring/rubric.v2.yaml)
+**Schema:** [src/core/schema/types.ts](src/core/schema/types.ts)
 
 ---
 
 ## How it works
 
-1. **Fetch** — We download a company's public privacy policy
-2. **Extract** — Claude reads the policy and extracts structured facts (what's collected, shared, retained, and for how long) with source quotes
+1. **Fetch** — A company's public privacy policy is downloaded
+2. **Extract** — Claude reads the policy and extracts structured facts (what's collected, shared, retained, and for how long) along with source quotes
 3. **Score** — A deterministic rubric converts the facts into a 0–100 score and A–F letter grade
 4. **Label** — The score is rendered as a standardized "Privacy Panel" panel
 
 The three layers are architecturally separate: extraction is factual restatement; the grade is clearly labeled as opinion based on a published methodology.
+
+> **Note:** This repository contains the public-facing web app and label renderer only. It is a read-only presentation layer that serves pre-computed extractions from a SQLite database. The Anthropic-API ingestion pipeline that produces those extractions lives in a separate repository and is not part of this codebase. The web app makes no Claude API calls at runtime.
 
 ---
 
@@ -25,92 +30,55 @@ The three layers are architecturally separate: extraction is factual restatement
 # 1. Install dependencies
 npm install
 
-# 2. Configure environment
+# 2. (Optional) Configure environment
 cp .env.example .env.local
-# Edit .env.local and add your ANTHROPIC_API_KEY
+# Defaults work out of the box; only NEXT_PUBLIC_BASE_URL needs editing for production
 
-# 3. Create the database directory
-mkdir -p data
-
-# 4. Run the dev server
+# 3. Run the dev server
 npm run dev
+```
 
-# 5. Analyze a privacy policy via CLI
-npx tsx cli/index.ts analyze https://signal.org/legal/ --company Signal
+The database is created and seeded automatically on first boot from [`scripts/seed.sql`](scripts/seed.sql), which contains the canonical set of analyzed companies. No API keys are required to run the site locally.
+
+To re-seed the "Privacy Panel" self-entry after editing `SELF_DATA` in `src/app/privacy/page.tsx`:
+
+```bash
+DATABASE_URL=./data/privacyfacts.db npx tsx scripts/seed-self-as-company.ts
 ```
 
 ---
 
-## Populating the database
+## Public API
 
-The database is not committed to this repo (it's a binary SQLite file). To populate it:
-
-**Option A — CLI (one at a time):**
-```bash
-npx tsx cli/index.ts analyze https://example.com/privacy --company "Example Co"
-```
-
-**Option B — Batch from a CSV file (url,company per line):**
-```bash
-npx tsx cli/index.ts batch urls.csv --concurrency 3
-```
-
-**Option C — Ingest from pre-fetched PDF snapshots:**
-```bash
-# First fetch snapshots (requires Python 3.9+)
-pip install requests html2text reportlab
-python3 fetch_snapshots.py --delay 1.5
-
-# Then extract + score them
-npx tsx cli/index.ts ingest-snapshots \
-  --provenance policy-provenance.json \
-  --concurrency 3 \
-  --skip-existing
-```
-
-A `urls.csv` with 100 major consumer-facing companies is included.
-
----
-
-## CLI reference
-
-```
-npx tsx cli/index.ts analyze <url>          Fetch, extract, score, and print
-  --company <name>                          Override company name
-  --json                                    Output raw JSON
-  --label                                   Output SVG label to stdout
-
-npx tsx cli/index.ts score <json-file>      Score an existing extraction JSON
-npx tsx cli/index.ts validate <json-file>   Validate a Privacy Panel JSON file
-npx tsx cli/index.ts batch <csv-file>       Analyze multiple URLs from a CSV
-npx tsx cli/index.ts ingest-snapshots       Extract from local PDF snapshots
-```
-
----
-
-## API
-
-All endpoints are read-only (no user-submitted analysis).
+All endpoints are read-only.
 
 | Endpoint | Description |
 |---|---|
 | `GET /api/v1/company/:slug` | Full facts + grade + metadata |
-| `GET /api/v1/company/:slug/label` | SVG or HTML label (`?format=html`) |
+| `GET /api/v1/company/:slug/label` | SVG or HTML label (`?format=html`, optional `?width=`) |
 | `GET /api/v1/search?q=` | Search companies by name |
 | `GET /api/v1/compare?slugs=a,b,c` | Compare 2–3 companies |
 | `GET /api/v1/rubric` | Current rubric JSON |
 
-Rate limit: 100 requests/hour per IP.
+Rate limit: 100 requests / hour / IP.
 
 ---
 
 ## Tech stack
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 15 (App Router)
 - **Database:** SQLite via `better-sqlite3`
-- **AI extraction:** Anthropic Claude (`claude-sonnet-4-20250514`)
 - **Styling:** Tailwind CSS
 - **Testing:** Vitest (unit), Playwright (e2e)
+- **Hosting:** Railway
+
+---
+
+## Contributing
+
+Issues and pull requests welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the workflow and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for community expectations.
+
+If you spot a problem with a specific extraction (the source quote doesn't match the policy, or a YES/no looks wrong), use the **"Dispute this finding"** link on any company page or open an issue with the *Dispute a finding* template.
 
 ---
 
@@ -118,20 +86,20 @@ Rate limit: 100 requests/hour per IP.
 
 See [SECURITY.md](SECURITY.md) for the vulnerability disclosure policy.
 
-The `ANTHROPIC_API_KEY` is a server-only environment variable — it is never bundled into client-side JavaScript and cannot be accessed from the browser. The website has no endpoint for users to trigger Claude API calls.
+The web app holds no Anthropic API key at runtime. The presentation layer reads pre-computed extractions from SQLite; there is no endpoint that triggers Claude API calls from a browser request.
 
 ---
 
 ## License
 
-MIT. See [LICENSE](LICENSE) for details.
+[MIT](LICENSE).
 
-The Privacy Panel label design, rubric, and methodology are open-source. You are free to use them, adapt them, or build on them — but please preserve attribution and do not misrepresent grades as official regulatory determinations.
+The Privacy Panel label design, rubric, and methodology are open. You are free to use, adapt, or build on them — please preserve attribution and do not misrepresent grades as official regulatory determinations.
 
 ---
 
 ## Legal
 
-Privacy Panel grades are **opinion**, not legal determinations. The scoring rubric is publicly documented. We summarize what companies disclose in their own policies — we do not make factual claims beyond what is stated in those documents.
+Privacy Panel grades are **opinion**, not legal determinations. The scoring rubric is publicly documented. Companies' disclosures are summarized as stated in their own policies — no factual claims are made beyond what is in those documents.
 
-See [docs/privacy-panel-architecture.md](docs/privacy-panel-architecture.md) for full methodology and legal considerations.
+See [docs/privacy-panel-architecture.md](docs/privacy-panel-architecture.md) for full methodology.
