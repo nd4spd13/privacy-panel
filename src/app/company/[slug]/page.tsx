@@ -104,7 +104,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
             </LabelScaler>
             <div className="mt-4 flex gap-2 text-xs">
               <a
-                href={`/api/v1/company/${company.slug}/label`}
+                href={`/api/v1/company/${company.slug}/label?width=480`}
                 target="_blank"
                 className="text-gray-500 hover:text-gray-800 underline"
               >
@@ -112,7 +112,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
               </a>
               <span className="text-gray-300">·</span>
               <a
-                href={`/api/v1/company/${company.slug}/label?format=html`}
+                href={`/api/v1/company/${company.slug}/label?format=html&width=480`}
                 target="_blank"
                 className="text-gray-500 hover:text-gray-800 underline"
               >

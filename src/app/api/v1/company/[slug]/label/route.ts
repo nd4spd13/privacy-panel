@@ -33,17 +33,19 @@ export async function GET(
   }
 
   const format = req.nextUrl.searchParams.get("format") ?? "svg";
+  const widthParam = parseInt(req.nextUrl.searchParams.get("width") ?? "380", 10);
+  const width = Number.isFinite(widthParam) && widthParam >= 200 && widthParam <= 1200 ? widthParam : 380;
   const { renderToSVG, renderToHTML } = await import("@/core/rendering/embed");
 
   if (format === "html") {
-    const html = renderToHTML(extraction.facts, extraction.grade);
+    const html = renderToHTML(extraction.facts, extraction.grade, width);
     return new NextResponse(html, {
       headers: { "Content-Type": "text/html; charset=utf-8" },
     });
   }
 
   // Default: SVG
-  const svg = renderToSVG(extraction.facts, extraction.grade);
+  const svg = renderToSVG(extraction.facts, extraction.grade, width);
   return new NextResponse(svg, {
     headers: {
       "Content-Type": "image/svg+xml",

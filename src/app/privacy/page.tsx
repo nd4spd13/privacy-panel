@@ -159,8 +159,8 @@ export default function PrivacyPage() {
           </div>
 
           <div className="flex justify-center">
-            <LabelScaler>
-              <PrivacyPanelLabel data={SELF_DATA} />
+            <LabelScaler labelWidth={480}>
+              <PrivacyPanelLabel data={SELF_DATA} width={480} />
             </LabelScaler>
           </div>
         </div>

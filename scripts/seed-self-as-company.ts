@@ -142,12 +142,13 @@ function main() {
   } else {
     const result = db
       .prepare(
-        "INSERT INTO policies (company_id, url, content_hash) VALUES (?, ?, ?)"
+        "INSERT INTO policies (company_id, url, content_hash, fetched_at) VALUES (?, ?, ?, ?)"
       )
       .run(
         company.id,
         "https://privacypanel.org/privacy",
-        "0000000000000000000000000000000000000000000000000000000000000000"
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        new Date().toISOString()
       );
     policyId = result.lastInsertRowid as number;
   }
