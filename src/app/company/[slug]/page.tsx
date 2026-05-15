@@ -19,7 +19,7 @@ function EvidenceCard({
   field: { value: boolean | null; confidence: number; sourceQuote: string };
   companyName: string;
 }) {
-  const isInferred = /does not mention|no mention|no explicit mention|policy is silent|not stated|not specified|not addressed|silent on this/i.test(
+  const isInferred = /consumer-unfavorable|failed to load|not available|defaulting to|does not mention|no mention|no explicit mention|policy is silent|not stated|not specified|not addressed|silent on this/i.test(
     field.sourceQuote
   );
   return (

@@ -40,6 +40,11 @@ export default async function DirectoryPage({
   const companies = q ? searchCompanies(q, 200) : listCompanies(1000);
   const totalCount = countCompanies();
 
+  const INFERRED_QUOTE_RE = /consumer-unfavorable|failed to load|not available|does not mention|no mention|no explicit mention|policy is silent|not stated|not specified|not addressed|silent on this|defaulting to/i;
+  function isInferredQuote(quote: string): boolean {
+    return INFERRED_QUOTE_RE.test(quote);
+  }
+
   const rows = companies
     .map((c) => {
       const ext = getLatestExtractionForCompany(c.id);
@@ -49,8 +54,10 @@ export default async function DirectoryPage({
         grade: ext.grade,
         analyzedAt: ext.created_at,
         sold: ext.facts.dataSharing.soldToThirdParties.value,
+        soldSourceQuote: ext.facts.dataSharing.soldToThirdParties.sourceQuote,
         retention: ext.facts.retention?.longestStatedPeriod ?? null,
         trainsAI: ext.facts.dataSharing.usedToTrainAI?.value ?? null,
+        trainsAISourceQuote: ext.facts.dataSharing.usedToTrainAI?.sourceQuote ?? "",
       };
     })
     .filter(Boolean) as Array<{
@@ -58,8 +65,10 @@ export default async function DirectoryPage({
     grade: { letter: string; score: number; label: string };
     analyzedAt: string;
     sold: boolean | null;
+    soldSourceQuote: string;
     retention: string | null;
     trainsAI: boolean | null;
+    trainsAISourceQuote: string;
   }>;
 
   const sorted = [...rows].sort((a, b) => {
@@ -184,7 +193,7 @@ export default async function DirectoryPage({
                 </div>
 
                 {/* Rows */}
-                {pageRows.map(({ company, grade, analyzedAt, sold, retention, trainsAI }) => (
+                {pageRows.map(({ company, grade, analyzedAt, sold, soldSourceQuote, retention, trainsAI, trainsAISourceQuote }) => (
                   <Link
                     key={company.slug}
                     href={`/company/${company.slug}`}
@@ -201,7 +210,7 @@ export default async function DirectoryPage({
                     </div>
                     <div className="text-center">
                       {sold === true
-                        ? <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">YES</span>
+                        ? <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">{isInferredQuote(soldSourceQuote) ? "YES*" : "YES"}</span>
                         : sold === false
                         ? <span className="text-xs font-semibold text-gray-500">no</span>
                         : <span className="text-xs text-gray-300">—</span>}
@@ -225,7 +234,7 @@ export default async function DirectoryPage({
                     </div>
                     <div className="text-center">
                       {trainsAI === true
-                        ? <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">YES</span>
+                        ? <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">{isInferredQuote(trainsAISourceQuote) ? "YES*" : "YES"}</span>
                         : trainsAI === false
                         ? <span className="text-xs font-semibold text-gray-500">no</span>
                         : <span className="text-xs font-semibold text-amber-600">?</span>}
@@ -237,6 +246,8 @@ export default async function DirectoryPage({
                 ))}
               </div>
             </div>
+
+            <p className="mt-2 text-xs text-gray-400">* Inferred — the policy did not explicitly confirm this practice.</p>
 
             {/* ── Pagination ──────────────────────────────────────────────── */}
             {totalPages > 1 && (
