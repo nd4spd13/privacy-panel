@@ -28,7 +28,6 @@ You can expect an acknowledgement within 48 hours and a resolution timeline with
 
 The following are **not** vulnerabilities:
 - The scoring rubric and its weights (intentionally transparent)
-- The system prompts used for extraction (`src/core/extraction/prompts.ts`) — these are deliberately open-source
 - The Privacy Panel JSON schema (`public/schema/v1.json`)
 - Company scores and extraction data (summaries of public privacy policies)
 
