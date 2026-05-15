@@ -39,7 +39,7 @@ The database is created and seeded automatically on first boot from `scripts/see
 
 ## Disputing an extraction (this is not a code contribution)
 
-If a specific extraction looks wrong (the source quote doesn't match the policy text, or a YES/no is misread), use the **"Dispute this finding"** link on the relevant company page, or open an issue with the *Dispute a finding* template. These are routed to the people who maintain the extraction pipeline.
+If a specific extraction looks wrong (the source quote doesn't match the policy text, or a YES/no is misread), use the **"Dispute this finding"** link on the relevant company page, or open an issue with the *Dispute a finding* template. These are routed to be addressed inside the extraction pipeline.
 
 Disputes are about **findings**, not grades. The grade is opinion based on a [published rubric](src/core/scoring/rubric.v2.yaml) — if you disagree with the methodology, that's a separate kind of issue, and welcome too.
 
