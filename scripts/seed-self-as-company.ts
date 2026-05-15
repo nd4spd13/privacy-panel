@@ -91,7 +91,7 @@ const SELF_DATA: PrivacyPanel = {
     longestStatedPeriod: "Indefinite (aggregate analytics)",
     variesByDataType: true,
     legallyMandatedRetention: false,
-    summary: "Analytics: indefinite (aggregate). Logs: weeks via Railway. Rate-limit: 1hr in memory.",
+    summary: "Analytics: indefinite (aggregate). Logs: weeks via Railway. Rate-limit: 1hr.",
     sourceQuote: "Plausible aggregates retained indefinitely with no per-user records.",
   },
   consumerRights: {

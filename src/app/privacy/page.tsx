@@ -6,15 +6,15 @@ import { PrivacyPanelLabel } from "@/core/rendering/PrivacyPanelLabel";
 import type { PrivacyPanel } from "@/core/schema/types";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Privacy Panel",
+  title: "Privacy Policy | Privacy Panel",
   description:
-    "How Privacy Panel collects and uses data — with a Privacy Label for our own site so you can see exactly what we do.",
+    "How Privacy Panel collects and uses data, with a Privacy Label for our own site so you can see exactly what we do.",
 };
 
 const EFFECTIVE_DATE = "May 12, 2026";
 const LAST_UPDATED = "May 12, 2026";
 
-// Handcrafted disclosure for privacypanel.org — not AI-extracted.
+// Handcrafted disclosure for privacypanel.org: not AI-extracted.
 // Update this object if our data practices change, then bump LAST_UPDATED above.
 // policyHash is intentionally zeroed: this policy is not derived from a fetched document.
 const SELF_DATA: PrivacyPanel = {
@@ -33,7 +33,7 @@ const SELF_DATA: PrivacyPanel = {
         name: "App Usage & Diagnostics",
         sensitive: false,
         sourceQuote:
-          "Self-managed Plausible CE captures page views, referrers, and a 'View Company' event. Aggregate only — no per-user records.",
+          "Self-managed Plausible CE captures page views, referrers, and a 'View Company' event. Aggregate only; no per-user records.",
       },
       {
         category: "identifiers",
@@ -99,7 +99,7 @@ const SELF_DATA: PrivacyPanel = {
     variesByDataType: true,
     legallyMandatedRetention: false,
     summary:
-      "Analytics: indefinite (aggregate). Logs: weeks via Railway. Rate-limit: 1hr in memory.",
+      "Analytics: indefinite (aggregate). Logs: weeks via Railway. Rate-limit: 1hr.",
     sourceQuote:
       "Plausible aggregates retained indefinitely with no per-user records. Server logs at Railway retained per Railway's retention policies.",
   },
@@ -107,7 +107,7 @@ const SELF_DATA: PrivacyPanel = {
     rightToAccess: { value: true, confidence: 1, sourceQuote: "Email hello@privacypanel.org to request a data inquiry." },
     rightToDelete: { value: true, confidence: 1, sourceQuote: "Email hello@privacypanel.org to request deletion." },
     rightToPortability: { value: true, confidence: 0.9, sourceQuote: "We hold so little individual data that portability is trivially honored on request." },
-    rightToCorrect: { value: true, confidence: 0.9, sourceQuote: "Email us — we will correct any data we hold about you." },
+    rightToCorrect: { value: true, confidence: 0.9, sourceQuote: "Email us and we will correct any data we hold about you." },
     rightToOptOut: { value: true, confidence: 1, sourceQuote: "Use a content blocker (e.g. uBlock Origin) to opt out of analytics entirely." },
   },
   signalHonoring: {
@@ -151,7 +151,7 @@ export default function PrivacyPage() {
           <div className="bg-indigo-50 border border-indigo-200 rounded-xl p-5 mb-6">
             <p className="text-sm font-semibold text-indigo-900 mb-1">We practice what we preach</p>
             <p className="text-sm text-indigo-800 leading-relaxed">
-              Below is a Privacy Panel label for <strong>Privacy Panel itself</strong> — the same
+              Below is a Privacy Panel label for <strong>Privacy Panel itself</strong>, the same
               format we generate for every company on this site. Unlike our other labels, this one
               was handcrafted by us, not AI-extracted. It reflects our actual data practices,
               including disclosure of our hosting provider as a sub-processor.
@@ -345,10 +345,10 @@ export default function PrivacyPage() {
           <section className="mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">How long we keep it</h2>
             <ul className="list-disc list-inside text-gray-600 space-y-1 text-sm leading-relaxed">
-              <li><strong>Aggregate analytics</strong> — indefinite (no individual records to retain)</li>
-              <li><strong>Server access logs</strong> — per Railway&apos;s retention policy (typically days to weeks)</li>
-              <li><strong>Rate-limit IP entries</strong> — up to 1 hour, in memory only, never persisted</li>
-              <li><strong>Email correspondence</strong> — as long as needed to respond and maintain an issue record</li>
+              <li><strong>Aggregate analytics:</strong> indefinite (no individual records to retain)</li>
+              <li><strong>Server access logs:</strong> per Railway&apos;s retention policy (typically days to weeks)</li>
+              <li><strong>Rate-limit IP entries:</strong> up to 1 hour, in memory only, never persisted</li>
+              <li><strong>Email correspondence:</strong> as long as needed to respond and maintain an issue record</li>
             </ul>
           </section>
 

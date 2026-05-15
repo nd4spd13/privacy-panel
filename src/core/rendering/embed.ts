@@ -84,7 +84,7 @@ function labelHTML(data: PrivacyPanel, grade: GradeResult): string {
   </div>
   ${neutralLabelHTML(data)}
   <div style="font-size:9px;color:#6b7280;padding:4px 8px 6px;line-height:1.5;border:2.5px solid #000;border-top:none">
-    The grade reflects Privacy Panel' assessment based on our published rubric (v${esc(grade.rubricVersion)}). It is our opinion.
+    The grade reflects Privacy Panel's assessment based on our published rubric (v${esc(grade.rubricVersion)}). It is our opinion.
   </div>
 </div>`;
 }
@@ -102,7 +102,12 @@ function neutralLabelHTML(data: PrivacyPanel): string {
     { label: "Opt-out", v: consumerRights.rightToOptOut.value },
   ];
 
-  const measures = security.additionalMeasures.slice(0, 6);
+  const securityItems = [
+    { label: "Encrypted in transit", v: security.encryptedInTransit.value },
+    { label: "Encrypted at rest", v: security.encryptedAtRest.value },
+    { label: "MFA available", v: security.mfaAvailable.value },
+    { label: "Breach notification", v: security.breachNotification.value },
+  ];
 
   return `<div style="width:${W}px;border:2.5px solid #000;font-family:Arial,Helvetica,sans-serif;background:#fff">
   <div style="padding:8px 8px 6px;border-bottom:7px solid #000">
@@ -155,9 +160,7 @@ function neutralLabelHTML(data: PrivacyPanel): string {
       </div>
       <div style="flex:1;border-left:0.5px solid #000;padding-left:12px">
         <div style="font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:#6b7280;margin-bottom:4px">Security</div>
-        ${measures.length === 0
-          ? `<div style="font-size:11px;color:#6b7280">None disclosed</div>`
-          : measures.map((m) => checkItem(m.name, true)).join("")}
+        ${securityItems.map((m) => checkItem(m.label, m.v)).join("")}
       </div>
     </div>
   </div>

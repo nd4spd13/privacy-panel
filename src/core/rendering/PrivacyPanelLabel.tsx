@@ -5,8 +5,6 @@ import type { DataCategory } from "../schema/types";
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
 
-const W = 480; // fixed label width (px)
-
 const COLOR = {
   black: "#000000",
   white: "#ffffff",
@@ -27,19 +25,21 @@ const RULE = {
   thinGray: "0.5px solid #d1d5db",
 };
 
+type Scale = (n: number) => number;
+
 // ─── Primitive layout helpers ─────────────────────────────────────────────────
 
 function Rule({ weight = "thin" }: { weight?: "thick" | "medium" | "thin" | "thinGray" }) {
   return <div style={{ borderTop: RULE[weight], margin: 0 }} />;
 }
 
-function Section({ children, pt = 4, pb = 4 }: { children: React.ReactNode; pt?: number; pb?: number }) {
-  return <div style={{ paddingTop: pt, paddingBottom: pb, paddingLeft: 8, paddingRight: 8 }}>{children}</div>;
+function Section({ children, pt = 4, pb = 4, f }: { children: React.ReactNode; pt?: number; pb?: number; f: Scale }) {
+  return <div style={{ paddingTop: f(pt), paddingBottom: f(pb), paddingLeft: f(8), paddingRight: f(8) }}>{children}</div>;
 }
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function SectionLabel({ children, f }: { children: React.ReactNode; f: Scale }) {
   return (
-    <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", color: COLOR.gray, marginBottom: 4 }}>
+    <div style={{ fontSize: f(11), fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", color: COLOR.gray, marginBottom: f(4) }}>
       {children}
     </div>
   );
@@ -48,20 +48,20 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 // ─── Practice value badge ─────────────────────────────────────────────────────
 
 /** Renders YES (red/black), no, or ? (amber) based on nullable boolean */
-function PracticeValueBadge({ value, critical = false }: { value: boolean | null; critical?: boolean }) {
+function PracticeValueBadge({ value, critical = false, f }: { value: boolean | null; critical?: boolean; f: Scale }) {
   if (value === true) {
     return (
       <span style={{
         display: "inline-block",
         backgroundColor: critical ? COLOR.red : COLOR.black,
         color: COLOR.white,
-        fontSize: 9,
+        fontSize: f(9),
         fontWeight: 800,
         letterSpacing: "0.08em",
-        padding: "2px 6px",
-        borderRadius: 3,
+        padding: `${f(2)}px ${f(6)}px`,
+        borderRadius: f(3),
         fontFamily: "Arial, Helvetica, sans-serif",
-        minWidth: 32,
+        minWidth: f(32),
         textAlign: "center",
       }}>YES</span>
     );
@@ -72,14 +72,14 @@ function PracticeValueBadge({ value, critical = false }: { value: boolean | null
         display: "inline-block",
         backgroundColor: COLOR.amberBg,
         color: COLOR.amber,
-        fontSize: 9,
+        fontSize: f(9),
         fontWeight: 700,
         letterSpacing: "0.05em",
-        padding: "2px 6px",
-        borderRadius: 3,
+        padding: `${f(2)}px ${f(6)}px`,
+        borderRadius: f(3),
         border: `0.5px solid ${COLOR.amber}`,
         fontFamily: "Arial, Helvetica, sans-serif",
-        minWidth: 32,
+        minWidth: f(32),
         textAlign: "center",
       }}>?</span>
     );
@@ -90,14 +90,14 @@ function PracticeValueBadge({ value, critical = false }: { value: boolean | null
       display: "inline-block",
       backgroundColor: "transparent",
       color: COLOR.gray,
-      fontSize: 9,
+      fontSize: f(9),
       fontWeight: 600,
       letterSpacing: "0.04em",
-      padding: "2px 6px",
+      padding: `${f(2)}px ${f(6)}px`,
       border: `0.5px solid ${COLOR.gray}`,
-      borderRadius: 3,
+      borderRadius: f(3),
       fontFamily: "Arial, Helvetica, sans-serif",
-      minWidth: 32,
+      minWidth: f(32),
       textAlign: "center",
     }}>no</span>
   );
@@ -109,16 +109,18 @@ function PracticeRow({
   label,
   value,
   critical = false,
+  f,
 }: {
   label: string;
   value: boolean | null;
   critical?: boolean;
+  f: Scale;
 }) {
   const labelColor = value === true && critical ? COLOR.red : value === null ? COLOR.amber : COLOR.black;
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 8, paddingTop: 3, paddingBottom: 3 }}>
-      <PracticeValueBadge value={value} critical={critical} />
-      <span style={{ fontSize: 12, fontFamily: "Arial, Helvetica, sans-serif", fontWeight: value ? 600 : 400, color: labelColor }}>
+    <div style={{ display: "flex", alignItems: "center", gap: f(8), paddingTop: f(3), paddingBottom: f(3) }}>
+      <PracticeValueBadge value={value} critical={critical} f={f} />
+      <span style={{ fontSize: f(12), fontFamily: "Arial, Helvetica, sans-serif", fontWeight: value ? 600 : 400, color: labelColor }}>
         {label}
       </span>
     </div>
@@ -127,19 +129,19 @@ function PracticeRow({
 
 // ─── Checkbox item ────────────────────────────────────────────────────────────
 
-function CheckItem({ label, checked }: { label: string; checked: boolean | null }) {
+function CheckItem({ label, checked, f }: { label: string; checked: boolean | null; f: Scale }) {
   const isChecked = checked === true;
   const isUnknown = checked === null;
   const borderColor = isChecked ? COLOR.green : isUnknown ? COLOR.amber : COLOR.gray;
   const bgColor = isChecked ? COLOR.green : "transparent";
 
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 5, paddingTop: 2, paddingBottom: 2 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: f(5), paddingTop: f(2), paddingBottom: f(2) }}>
       <div style={{
-        width: 12,
-        height: 12,
+        width: f(12),
+        height: f(12),
         border: `1.5px solid ${borderColor}`,
-        borderRadius: 2,
+        borderRadius: f(2),
         backgroundColor: bgColor,
         display: "flex",
         alignItems: "center",
@@ -147,15 +149,15 @@ function CheckItem({ label, checked }: { label: string; checked: boolean | null 
         flexShrink: 0,
       }}>
         {isChecked && (
-          <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+          <svg width={f(8)} height={f(8)} viewBox="0 0 8 8" fill="none">
             <path d="M1.5 4L3 5.5L6.5 2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         )}
         {isUnknown && (
-          <span style={{ fontSize: 8, color: COLOR.amber, fontWeight: 700, lineHeight: 1 }}>?</span>
+          <span style={{ fontSize: f(8), color: COLOR.amber, fontWeight: 700, lineHeight: 1 }}>?</span>
         )}
       </div>
-      <span style={{ fontSize: 11, fontFamily: "Arial, Helvetica, sans-serif", color: COLOR.black }}>
+      <span style={{ fontSize: f(11), fontFamily: "Arial, Helvetica, sans-serif", color: COLOR.black }}>
         {label}
       </span>
     </div>
@@ -164,17 +166,17 @@ function CheckItem({ label, checked }: { label: string; checked: boolean | null 
 
 // ─── Browser signal pill ──────────────────────────────────────────────────────
 
-function SignalStatusPill({ status }: { status: "yes" | "partial" | "no" | null }) {
+function SignalStatusPill({ status, f }: { status: "yes" | "partial" | "no" | null; f: Scale }) {
   if (status === null) {
     return (
       <span style={{
         display: "inline-block",
         backgroundColor: COLOR.amberBg,
         color: COLOR.amber,
-        fontSize: 9,
+        fontSize: f(9),
         fontWeight: 700,
-        padding: "2px 6px",
-        borderRadius: 10,
+        padding: `${f(2)}px ${f(6)}px`,
+        borderRadius: f(10),
         border: `0.5px solid ${COLOR.amber}`,
       }}>unknown</span>
     );
@@ -185,10 +187,10 @@ function SignalStatusPill({ status }: { status: "yes" | "partial" | "no" | null 
       display: "inline-block",
       backgroundColor: bgColor,
       color: COLOR.white,
-      fontSize: 9,
+      fontSize: f(9),
       fontWeight: 700,
-      padding: "2px 6px",
-      borderRadius: 10,
+      padding: `${f(2)}px ${f(6)}px`,
+      borderRadius: f(10),
       letterSpacing: "0.04em",
     }}>
       {status === "yes" ? "honored" : status === "partial" ? "partial" : "not honored"}
@@ -198,7 +200,7 @@ function SignalStatusPill({ status }: { status: "yes" | "partial" | "no" | null 
 
 // ─── Data items grouped by category ──────────────────────────────────────────
 
-function DataCollectedByCategory({ items }: { items: DataItem[] }) {
+function DataCollectedByCategory({ items, f }: { items: DataItem[]; f: Scale }) {
   // Group items by category, sensitive categories first
   const grouped = new Map<DataCategory, DataItem[]>();
   for (const item of items) {
@@ -215,38 +217,38 @@ function DataCollectedByCategory({ items }: { items: DataItem[] }) {
   });
 
   return (
-    <div style={{ paddingLeft: 4 }}>
+    <div style={{ paddingLeft: f(4) }}>
       {sortedCategories.map((category) => {
         const catItems = grouped.get(category)!;
         const isSensitive = SENSITIVE_CATEGORIES.has(category);
         const label = CATEGORY_LABELS[category];
 
         return (
-          <div key={category} style={{ marginBottom: 4 }}>
+          <div key={category} style={{ marginBottom: f(4) }}>
             <div style={{
-              fontSize: 10,
+              fontSize: f(10),
               fontWeight: 700,
               color: isSensitive ? COLOR.red : COLOR.black,
-              paddingTop: 3,
-              paddingBottom: 1,
+              paddingTop: f(3),
+              paddingBottom: f(1),
               display: "flex",
               alignItems: "center",
-              gap: 4,
+              gap: f(4),
             }}>
-              <span style={{ fontSize: 9, lineHeight: 1, flexShrink: 0 }}>
+              <span style={{ fontSize: f(9), lineHeight: 1, flexShrink: 0 }}>
                 {isSensitive ? "●" : "○"}
               </span>
               {label}
               {isSensitive && (
-                <span style={{ fontSize: 7, fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase" as const }}>
+                <span style={{ fontSize: f(7), fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase" as const }}>
                   sensitive
                 </span>
               )}
             </div>
-            <div style={{ paddingLeft: 13 }}>
+            <div style={{ paddingLeft: f(13) }}>
               {catItems.map((item, i) => (
                 <div key={i} style={{
-                  fontSize: 10,
+                  fontSize: f(10),
                   color: isSensitive ? COLOR.red : COLOR.gray,
                   paddingTop: 0.5,
                   paddingBottom: 0.5,
@@ -269,13 +271,17 @@ export interface PrivacyPanelLabelProps {
   data: PrivacyPanel;
   /** Highlight fields that differ from a reference label (used in ComparisonView) */
   diffFields?: Set<string>;
+  /** Label width in px. Default 380. All fonts and layout scale proportionally. */
+  width?: number;
 }
 
-export function PrivacyPanelLabel({ data, diffFields }: PrivacyPanelLabelProps) {
+export function PrivacyPanelLabel({ data, diffFields, width = 380 }: PrivacyPanelLabelProps) {
+  const f: Scale = (base: number) => Math.round(base * width / 380);
+
   const { dataCollection, dataSharing, retention, consumerRights, signalHonoring, security, thirdPartyRecipients, supplementary, metadata, purposes } = data;
 
   function highlightStyle(field: string): React.CSSProperties {
-    return diffFields?.has(field) ? { backgroundColor: "#fef9c3", borderRadius: 3 } : {};
+    return diffFields?.has(field) ? { backgroundColor: "#fef9c3", borderRadius: f(3) } : {};
   }
 
   // Retention display
@@ -329,42 +335,42 @@ export function PrivacyPanelLabel({ data, diffFields }: PrivacyPanelLabelProps) 
 
   return (
     <div style={{
-      width: W,
+      width: width,
       border: `2.5px solid ${COLOR.border}`,
       fontFamily: "Arial, Helvetica, sans-serif",
       backgroundColor: COLOR.white,
       boxSizing: "border-box",
     }}>
       {/* ── Title ─────────────────────────────────────────────────────────── */}
-      <div style={{ padding: "8px 8px 6px 8px", borderBottom: RULE.thick }}>
-        <div style={{ fontSize: 34, fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1.05 }}>
+      <div style={{ padding: `${f(8)}px ${f(8)}px ${f(6)}px`, borderBottom: RULE.thick }}>
+        <div style={{ fontSize: f(34), fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1.05 }}>
           Privacy Panel
         </div>
-        <div style={{ fontSize: 12, color: COLOR.gray, marginTop: 2 }}>
+        <div style={{ fontSize: f(12), color: COLOR.gray, marginTop: f(2) }}>
           {metadata.companyName}
         </div>
       </div>
 
       {/* ── Data Collected ───────────────────────────────────────────────── */}
-      <Section pt={6} pb={4}>
-        <SectionLabel>Data Collected</SectionLabel>
+      <Section pt={6} pb={4} f={f}>
+        <SectionLabel f={f}>Data Collected</SectionLabel>
         {dataCollection.items.length === 0 ? (
-          <div style={{ fontSize: 10, color: COLOR.gray }}>None disclosed</div>
+          <div style={{ fontSize: f(10), color: COLOR.gray }}>None disclosed</div>
         ) : (
-          <DataCollectedByCategory items={dataCollection.items} />
+          <DataCollectedByCategory items={dataCollection.items} f={f} />
         )}
       </Section>
 
       <Rule weight="thick" />
 
       {/* ── Data Sharing & Use ────────────────────────────────────────────── */}
-      <Section>
-        <SectionLabel>Data Sharing &amp; Use</SectionLabel>
+      <Section f={f}>
+        <SectionLabel f={f}>Data Sharing &amp; Use</SectionLabel>
         <div style={highlightStyle("soldToThirdParties")}>
-          <PracticeRow label="Sold to third parties" value={dataSharing.soldToThirdParties.value} critical />
+          <PracticeRow label="Sold to third parties" value={dataSharing.soldToThirdParties.value} critical f={f} />
           {/* Third-party recipient categories — subordinate detail under "Sold" */}
           {(thirdPartyRecipients.categoryCount !== null || thirdPartyRecipients.categories.length > 0) && (
-            <div style={{ fontSize: 10, color: COLOR.gray, paddingLeft: 46, paddingBottom: 2, lineHeight: 1.4, marginTop: -2 }}>
+            <div style={{ fontSize: f(10), color: COLOR.gray, paddingLeft: f(46), paddingBottom: f(2), lineHeight: 1.4, marginTop: f(-2) }}>
               <span style={{
                 fontWeight: 700,
                 color: (thirdPartyRecipients.categoryCount ?? 0) > 5 ? COLOR.red : COLOR.black,
@@ -380,19 +386,19 @@ export function PrivacyPanelLabel({ data, diffFields }: PrivacyPanelLabelProps) 
           )}
         </div>
         <div style={highlightStyle("sharedForAdvertising")}>
-          <PracticeRow label="Shared for advertising" value={dataSharing.sharedForAdvertising.value} />
+          <PracticeRow label="Shared for advertising" value={dataSharing.sharedForAdvertising.value} f={f} />
         </div>
         <div style={highlightStyle("crossSiteTracking")}>
-          <PracticeRow label="Cross-site tracking" value={dataSharing.crossSiteTracking.value} />
+          <PracticeRow label="Cross-site tracking" value={dataSharing.crossSiteTracking.value} f={f} />
         </div>
         <div style={highlightStyle("usedForProfiling")}>
-          <PracticeRow label="Used for profiling / AI decisions" value={dataSharing.usedForProfiling.value} />
+          <PracticeRow label="Used for profiling / AI decisions" value={dataSharing.usedForProfiling.value} f={f} />
         </div>
         <div style={highlightStyle("usedToTrainAI")}>
-          <PracticeRow label="Used to train AI models" value={dataSharing.usedToTrainAI.value} />
+          <PracticeRow label="Used to train AI models" value={dataSharing.usedToTrainAI.value} f={f} />
         </div>
         <div style={highlightStyle("disclosedToLawEnforcement")}>
-          <PracticeRow label="Disclosed to law enforcement" value={dataSharing.disclosedToLawEnforcement.value} />
+          <PracticeRow label="Disclosed to law enforcement" value={dataSharing.disclosedToLawEnforcement.value} f={f} />
         </div>
       </Section>
 
@@ -401,16 +407,16 @@ export function PrivacyPanelLabel({ data, diffFields }: PrivacyPanelLabelProps) 
       {/* ── Purposes ─────────────────────────────────────────────────────── */}
       {activePurposes.length > 0 && (
         <>
-          <Section pb={2}>
-            <SectionLabel>Data Uses</SectionLabel>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "4px 8px" }}>
+          <Section pb={2} f={f}>
+            <SectionLabel f={f}>Data Uses</SectionLabel>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: `${f(4)}px ${f(8)}px` }}>
               {activePurposes.map((p) => (
                 <span key={p.label} style={{
-                  fontSize: 10,
+                  fontSize: f(10),
                   backgroundColor: COLOR.grayLight,
                   color: p.label === "Advertising" || p.label === "Third-party partnerships" ? COLOR.red : COLOR.black,
-                  padding: "2px 6px",
-                  borderRadius: 10,
+                  padding: `${f(2)}px ${f(6)}px`,
+                  borderRadius: f(10),
                   fontWeight: p.label === "Advertising" || p.label === "Third-party partnerships" ? 700 : 400,
                 }}>
                   {p.label}
@@ -423,42 +429,42 @@ export function PrivacyPanelLabel({ data, diffFields }: PrivacyPanelLabelProps) 
       )}
 
       {/* ── Retention ────────────────────────────────────────────────────── */}
-      <Section>
-        <SectionLabel>Data Retention</SectionLabel>
-        <div style={{ ...highlightStyle("retention"), fontSize: 13, fontWeight: 700, color: retentionDisplay.color, paddingBottom: 2 }}>
+      <Section f={f}>
+        <SectionLabel f={f}>Data Retention</SectionLabel>
+        <div style={{ ...highlightStyle("retention"), fontSize: f(13), fontWeight: 700, color: retentionDisplay.color, paddingBottom: f(2) }}>
           {retentionDisplay.text}
         </div>
         {retention.variesByDataType && (
-          <div style={{ fontSize: 10, color: COLOR.gray }}>Varies by data type</div>
+          <div style={{ fontSize: f(10), color: COLOR.gray }}>Varies by data type</div>
         )}
         {retention.legallyMandatedRetention && (
-          <div style={{ fontSize: 10, color: COLOR.gray }}>Includes legally mandated retention</div>
+          <div style={{ fontSize: f(10), color: COLOR.gray }}>Includes legally mandated retention</div>
         )}
         {retention.longestStatedPeriod && !["not stated", "not specified", "", "not disclosed", "unspecified"].includes(retention.longestStatedPeriod.toLowerCase()) && (
-          <div style={{ fontSize: 10, color: COLOR.gray }}>{retention.summary.slice(0, 80)}{retention.summary.length > 80 ? "…" : ""}</div>
+          <div style={{ fontSize: f(10), color: COLOR.gray }}>{retention.summary.slice(0, 80)}{retention.summary.length > 80 ? "…" : ""}</div>
         )}
       </Section>
 
       <Rule weight="thick" />
 
       {/* ── Consumer Rights + Security (two columns) ─────────────────────── */}
-      <Section>
-        <div style={{ display: "flex", gap: 12 }}>
+      <Section f={f}>
+        <div style={{ display: "flex", gap: f(12) }}>
           {/* Rights column */}
           <div style={{ flex: 1 }}>
-            <SectionLabel>Consumer Rights</SectionLabel>
+            <SectionLabel f={f}>Consumer Rights</SectionLabel>
             {rights.map((r) => (
               <div key={r.label} style={highlightStyle(`right_${r.label}`)}>
-                <CheckItem label={r.label} checked={r.value} />
+                <CheckItem label={r.label} checked={r.value} f={f} />
               </div>
             ))}
           </div>
           {/* Security column */}
-          <div style={{ flex: 1, borderLeft: RULE.thin, paddingLeft: 12 }}>
-            <SectionLabel>Security</SectionLabel>
+          <div style={{ flex: 1, borderLeft: RULE.thin, paddingLeft: f(12) }}>
+            <SectionLabel f={f}>Security</SectionLabel>
             {securityItems.map((m) => (
               <div key={m.label} style={highlightStyle(`security_${m.label}`)}>
-                <CheckItem label={m.label} checked={m.value} />
+                <CheckItem label={m.label} checked={m.value} f={f} />
               </div>
             ))}
           </div>
@@ -468,11 +474,11 @@ export function PrivacyPanelLabel({ data, diffFields }: PrivacyPanelLabelProps) 
       <Rule weight="thick" />
 
       {/* ── Privacy Signals ──────────────────────────────────────────────── */}
-      <Section>
-        <SectionLabel>Browser Privacy Signals</SectionLabel>
-        <div style={{ ...highlightStyle("honorsBrowserPrivacySignals"), display: "flex", alignItems: "center", gap: 8 }}>
-          <SignalStatusPill status={signalHonoring.honorsBrowserPrivacySignals} />
-          <span style={{ fontSize: 12 }}>GPC / DNT</span>
+      <Section f={f}>
+        <SectionLabel f={f}>Browser Privacy Signals</SectionLabel>
+        <div style={{ ...highlightStyle("honorsBrowserPrivacySignals"), display: "flex", alignItems: "center", gap: f(8) }}>
+          <SignalStatusPill status={signalHonoring.honorsBrowserPrivacySignals} f={f} />
+          <span style={{ fontSize: f(12) }}>GPC / DNT</span>
         </div>
       </Section>
 
@@ -480,9 +486,9 @@ export function PrivacyPanelLabel({ data, diffFields }: PrivacyPanelLabelProps) 
       {supplementary.independentAudits.value !== null && (
         <>
           <Rule weight="thinGray" />
-          <Section pt={3} pb={3}>
-            <div style={{ fontSize: 10, color: COLOR.gray, display: "flex", alignItems: "center", gap: 6 }}>
-              <CheckItem label="Independent security audits" checked={supplementary.independentAudits.value} />
+          <Section pt={3} pb={3} f={f}>
+            <div style={{ fontSize: f(10), color: COLOR.gray, display: "flex", alignItems: "center", gap: f(6) }}>
+              <CheckItem label="Independent security audits" checked={supplementary.independentAudits.value} f={f} />
             </div>
           </Section>
         </>
@@ -491,9 +497,9 @@ export function PrivacyPanelLabel({ data, diffFields }: PrivacyPanelLabelProps) 
       <Rule weight="thin" />
 
       {/* ── Footer ───────────────────────────────────────────────────────── */}
-      <Section pt={6} pb={6}>
-        <div style={{ fontSize: 9, color: COLOR.gray, lineHeight: 1.5 }}>
-          This label summarizes privacy practices as disclosed in the company's privacy policy.
+      <Section pt={6} pb={6} f={f}>
+        <div style={{ fontSize: f(9), color: COLOR.gray, lineHeight: 1.5 }}>
+          This label summarizes privacy practices as disclosed in the company&apos;s privacy policy.
           This is not legal advice.{" "}
           <a
             href={metadata.policyUrl}

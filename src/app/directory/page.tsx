@@ -202,6 +202,8 @@ export default async function DirectoryPage({
                     <div className="text-center">
                       {sold === true
                         ? <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">YES</span>
+                        : sold === false
+                        ? <span className="text-xs font-semibold text-gray-500">no</span>
                         : <span className="text-xs text-gray-300">—</span>}
                     </div>
                     <div className="text-center text-xs">
@@ -224,9 +226,9 @@ export default async function DirectoryPage({
                     <div className="text-center">
                       {trainsAI === true
                         ? <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">YES</span>
-                        : trainsAI === null
-                        ? <span className="text-xs font-semibold text-amber-600">?</span>
-                        : <span className="text-xs text-gray-300">—</span>}
+                        : trainsAI === false
+                        ? <span className="text-xs font-semibold text-gray-500">no</span>
+                        : <span className="text-xs font-semibold text-amber-600">?</span>}
                     </div>
                     <div className="text-right text-xs text-gray-400 whitespace-nowrap">
                       {new Date(analyzedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}

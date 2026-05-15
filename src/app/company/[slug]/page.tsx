@@ -19,7 +19,7 @@ function EvidenceCard({
   field: { value: boolean | null; confidence: number; sourceQuote: string };
   companyName: string;
 }) {
-  const isInferred = /does not mention|no mention|policy is silent|not stated|not specified|not addressed|silent on this/i.test(
+  const isInferred = /does not mention|no mention|no explicit mention|policy is silent|not stated|not specified|not addressed|silent on this/i.test(
     field.sourceQuote
   );
   return (
@@ -100,7 +100,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
           <div className="w-full lg:w-auto lg:flex-shrink-0">
             <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Privacy Panel Label</div>
             <LabelScaler labelWidth={480}>
-              <PrivacyPanelLabel data={facts} />
+              <PrivacyPanelLabel data={facts} width={480} />
             </LabelScaler>
             <div className="mt-4 flex gap-2 text-xs">
               <a
