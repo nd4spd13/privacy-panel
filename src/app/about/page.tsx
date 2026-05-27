@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { scoresEnabled } from "@/lib/flags";
 
 export default function AboutPage() {
+  const showGrades = scoresEnabled();
   return (
     <>
       <Header />
@@ -17,8 +19,8 @@ export default function AboutPage() {
           <h2 className="text-xl font-bold text-gray-900 mb-3">Mission</h2>
           <p className="text-gray-600 leading-relaxed">
             Privacy policies are long, deliberately opaque, and written by lawyers for lawyers.
-            Privacy Panel translates them into a standardized label that anyone can read in 30 seconds,
-            and grades them against a transparent, published rubric.
+            Privacy Panel translates them into a standardized label that anyone can read in 30 seconds
+            {showGrades && ", and grades them against a transparent, published rubric"}.
           </p>
         </section>
 
@@ -26,7 +28,7 @@ export default function AboutPage() {
         <section className="mb-10">
           <h2 className="text-xl font-bold text-gray-900 mb-3">Methodology</h2>
           <p className="text-gray-600 leading-relaxed mb-4">
-            Every analysis follows the same four-step process:
+            Every analysis follows the same {showGrades ? "four" : "three"}-step process:
           </p>
           <div className="space-y-4">
             {[
@@ -45,11 +47,11 @@ export default function AboutPage() {
                 title: "We render the label",
                 body: "We render the facts into a standardized Privacy Panel label modeled on FDA Nutrition Facts.",
               },
-              {
+              ...(showGrades ? [{
                 step: "4",
                 title: "We score it against the rubric",
                 body: "We apply a published, deterministic rubric to produce a numeric score (0–100) and letter grade (A–F). Every point added or deducted is visible and reproducible.",
-              },
+              }] : []),
             ].map((item) => (
               <div key={item.step} className="flex gap-4">
                 <div className="flex-shrink-0 w-8 h-8 bg-black text-white rounded-full flex items-center justify-center text-sm font-black">
@@ -98,8 +100,7 @@ export default function AboutPage() {
             <p>
               <strong>Disputes.</strong> Companies that believe an analysis contains an error can submit
               a dispute with supporting evidence. We review all disputes and update analyses when warranted.
-              See the <Link href="/rubric" className="underline hover:text-gray-900">rubric page</Link> for
-              what we measure and why.
+              {showGrades && <> See the <Link href="/rubric" className="underline hover:text-gray-900">rubric page</Link> for what we measure and why.</>}
             </p>
             <p>
               <strong>No affiliation.</strong> Privacy Panel is an independent project. We are not affiliated
@@ -109,29 +110,31 @@ export default function AboutPage() {
         </section>
 
         {/* ── Open source ─────────────────────────────────────────────────── */}
-        <section className="mb-10">
-          <h2 className="text-xl font-bold text-gray-900 mb-3">Open methodology</h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            The scoring rubric and the JSON schema are public. Anyone can audit how grades are produced
-            or reproduce a score from a stored extraction. The web application code is also public for
-            transparency. The extraction pipeline (AI prompts and policy fetching) is private.
-          </p>
-          <div className="flex flex-wrap gap-3 text-sm">
-            <Link
-              href="/rubric"
-              className="inline-flex items-center gap-1.5 border border-gray-300 rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors font-medium"
-            >
-              View rubric →
-            </Link>
-            <a
-              href="/rubric/v1.yaml"
-              target="_blank"
-              className="inline-flex items-center gap-1.5 border border-gray-300 rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors font-medium"
-            >
-              Download rubric YAML →
-            </a>
-          </div>
-        </section>
+        {showGrades && (
+          <section className="mb-10">
+            <h2 className="text-xl font-bold text-gray-900 mb-3">Open methodology</h2>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              The scoring rubric and the JSON schema are public. Anyone can audit how grades are produced
+              or reproduce a score from a stored extraction. The web application code is also public for
+              transparency. The extraction pipeline (AI prompts and policy fetching) is private.
+            </p>
+            <div className="flex flex-wrap gap-3 text-sm">
+              <Link
+                href="/rubric"
+                className="inline-flex items-center gap-1.5 border border-gray-300 rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors font-medium"
+              >
+                View rubric →
+              </Link>
+              <a
+                href="/rubric/v1.yaml"
+                target="_blank"
+                className="inline-flex items-center gap-1.5 border border-gray-300 rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors font-medium"
+              >
+                Download rubric YAML →
+              </a>
+            </div>
+          </section>
+        )}
 
         {/* ── Contact ─────────────────────────────────────────────────────── */}
         <section>

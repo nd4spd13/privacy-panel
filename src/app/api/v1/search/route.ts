@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { searchCompanies, listCompanies } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { scoresEnabled } from "@/lib/flags";
 
 export async function GET(req: NextRequest) {
   const ip = getClientIp(req);
@@ -26,13 +27,14 @@ export async function GET(req: NextRequest) {
 
   const companies = q ? searchCompanies(q, limit) : listCompanies(limit);
 
+  const showGrades = scoresEnabled();
   const results = companies.map((c) => {
     const extraction = getLatestExtractionForCompany(c.id);
     return {
       slug: c.slug,
       name: c.name,
       domain: c.domain,
-      grade: extraction
+      grade: showGrades && extraction
         ? { letter: extraction.grade.letter, score: extraction.grade.score, label: extraction.grade.label, color: extraction.grade.color }
         : null,
       analyzedAt: extraction?.created_at ?? null,

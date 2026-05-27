@@ -3,6 +3,7 @@ import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
 import { isValidPublicSlug } from "@/lib/slug";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
+import { scoresEnabled } from "@/lib/flags";
 
 export async function GET(req: NextRequest) {
   const ip = getClientIp(req);
@@ -32,6 +33,7 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Invalid slug" }, { status: 400, headers: rlHeaders });
   }
 
+  const showGrades = scoresEnabled();
   const results = slugs.map((slug) => {
     const company = getCompanyBySlug(slug);
     if (!company) return { slug, error: "Not found" };
@@ -42,7 +44,7 @@ export async function GET(req: NextRequest) {
       name: company.name,
       domain: company.domain,
       facts: extraction.facts,
-      grade: extraction.grade,
+      ...(showGrades ? { grade: extraction.grade } : {}),
       analyzedAt: extraction.created_at,
     };
   });

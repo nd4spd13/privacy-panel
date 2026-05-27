@@ -7,8 +7,9 @@ import { PrivacyPanelLabel } from "@/core/rendering/PrivacyPanelLabel";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
 import { PlausibleEvent } from "@/components/PlausibleEvent";
+import { scoresEnabled } from "@/lib/flags";
 
-export const revalidate = 300;
+export const revalidate = 60;
 
 function EvidenceCard({
   label,
@@ -60,6 +61,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
   const extraction = getLatestExtractionForCompany(company.id);
   if (!extraction) notFound();
 
+  const showGrades = scoresEnabled();
   const { facts, grade } = extraction;
   const bd = grade.breakdown;
 
@@ -132,78 +134,82 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
 
           {/* ── Right: Privacy Score ─────────────────────────────────────── */}
           <div className="flex-1 min-w-0">
-            <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Privacy Score</div>
+            {showGrades && (
+              <>
+                <div className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Privacy Score</div>
 
-            {/* Grade display */}
-            <div className="bg-white border border-gray-200 rounded-xl p-5 mb-4 flex items-center gap-5">
-              <GradeBadge letter={grade.letter} size="lg" />
-              <div>
-                <div className="text-2xl font-black text-gray-900">
-                  {grade.score}<span className="text-base font-normal text-gray-400">/100</span>
-                </div>
-                <div className="text-sm text-gray-600 mt-0.5">{grade.label}</div>
-                <div className="text-xs text-gray-400 mt-1">
-                  Rubric v{grade.rubricVersion} · <Link href="/rubric" className="underline hover:text-gray-600">How is this calculated?</Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="text-xs text-gray-500 leading-relaxed mb-6 bg-amber-50 border border-amber-100 rounded-lg px-4 py-3">
-              The score reflects Privacy Panel's assessment based on our{" "}
-              <Link href="/rubric" className="underline hover:text-amber-700">published rubric</Link>.
-              It is our opinion. Not a legal determination. Grades measure disclosed practices,
-              not actual behavior.
-            </div>
-
-            {/* Score breakdown */}
-            <div className="mb-8">
-              <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">Score Breakdown</h2>
-              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
-                <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 bg-gray-50">
-                  <span className="text-sm font-semibold text-gray-600">Starting score</span>
-                  <span className="text-sm font-bold text-gray-900">100</span>
-                </div>
-
-                {deductions.length > 0 && (
-                  <>
-                    <div className="px-4 pt-3 pb-1">
-                      <span className="text-xs font-semibold text-red-600 uppercase tracking-wide">Deductions</span>
+                {/* Grade display */}
+                <div className="bg-white border border-gray-200 rounded-xl p-5 mb-4 flex items-center gap-5">
+                  <GradeBadge letter={grade.letter} size="lg" />
+                  <div>
+                    <div className="text-2xl font-black text-gray-900">
+                      {grade.score}<span className="text-base font-normal text-gray-400">/100</span>
                     </div>
-                    {deductions.map((b) => (
-                      <div key={b.key} className="flex items-center justify-between px-4 py-2.5 border-b border-gray-50">
-                        <div className="min-w-0">
-                          <span className="text-sm text-gray-800">{b.label}</span>
-                          {b.detail && <span className="text-xs text-gray-400 ml-2">({b.detail})</span>}
-                        </div>
-                        <span className="text-sm font-semibold text-red-600 flex-shrink-0 ml-4">{b.points}</span>
-                      </div>
-                    ))}
-                  </>
-                )}
-
-                {bonuses.length > 0 && (
-                  <>
-                    <div className="px-4 pt-3 pb-1">
-                      <span className="text-xs font-semibold text-green-600 uppercase tracking-wide">Bonuses</span>
+                    <div className="text-sm text-gray-600 mt-0.5">{grade.label}</div>
+                    <div className="text-xs text-gray-400 mt-1">
+                      Rubric v{grade.rubricVersion} · <Link href="/rubric" className="underline hover:text-gray-600">How is this calculated?</Link>
                     </div>
-                    {bonuses.map((b) => (
-                      <div key={b.key} className="flex items-center justify-between px-4 py-2.5 border-b border-gray-50">
-                        <div className="min-w-0">
-                          <span className="text-sm text-gray-800">{b.label}</span>
-                          {b.detail && <span className="text-xs text-gray-400 ml-2">({b.detail})</span>}
-                        </div>
-                        <span className="text-sm font-semibold text-green-600 flex-shrink-0 ml-4">+{b.points}</span>
-                      </div>
-                    ))}
-                  </>
-                )}
-
-                <div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-t border-gray-200">
-                  <span className="text-sm font-bold text-gray-900">Final score</span>
-                  <span className="text-lg font-black text-gray-900">{grade.score}/100</span>
+                  </div>
                 </div>
-              </div>
-            </div>
+
+                <div className="text-xs text-gray-500 leading-relaxed mb-6 bg-amber-50 border border-amber-100 rounded-lg px-4 py-3">
+                  The score reflects Privacy Panel&apos;s assessment based on our{" "}
+                  <Link href="/rubric" className="underline hover:text-amber-700">published rubric</Link>.
+                  It is our opinion. Not a legal determination. Grades measure disclosed practices,
+                  not actual behavior.
+                </div>
+
+                {/* Score breakdown */}
+                <div className="mb-8">
+                  <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">Score Breakdown</h2>
+                  <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                    <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 bg-gray-50">
+                      <span className="text-sm font-semibold text-gray-600">Starting score</span>
+                      <span className="text-sm font-bold text-gray-900">100</span>
+                    </div>
+
+                    {deductions.length > 0 && (
+                      <>
+                        <div className="px-4 pt-3 pb-1">
+                          <span className="text-xs font-semibold text-red-600 uppercase tracking-wide">Deductions</span>
+                        </div>
+                        {deductions.map((b) => (
+                          <div key={b.key} className="flex items-center justify-between px-4 py-2.5 border-b border-gray-50">
+                            <div className="min-w-0">
+                              <span className="text-sm text-gray-800">{b.label}</span>
+                              {b.detail && <span className="text-xs text-gray-400 ml-2">({b.detail})</span>}
+                            </div>
+                            <span className="text-sm font-semibold text-red-600 flex-shrink-0 ml-4">{b.points}</span>
+                          </div>
+                        ))}
+                      </>
+                    )}
+
+                    {bonuses.length > 0 && (
+                      <>
+                        <div className="px-4 pt-3 pb-1">
+                          <span className="text-xs font-semibold text-green-600 uppercase tracking-wide">Bonuses</span>
+                        </div>
+                        {bonuses.map((b) => (
+                          <div key={b.key} className="flex items-center justify-between px-4 py-2.5 border-b border-gray-50">
+                            <div className="min-w-0">
+                              <span className="text-sm text-gray-800">{b.label}</span>
+                              {b.detail && <span className="text-xs text-gray-400 ml-2">({b.detail})</span>}
+                            </div>
+                            <span className="text-sm font-semibold text-green-600 flex-shrink-0 ml-4">+{b.points}</span>
+                          </div>
+                        ))}
+                      </>
+                    )}
+
+                    <div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-t border-gray-200">
+                      <span className="text-sm font-bold text-gray-900">Final score</span>
+                      <span className="text-lg font-black text-gray-900">{grade.score}/100</span>
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
 
             {/* Source evidence */}
             <div className="mb-8">
@@ -218,10 +224,14 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
               </div>
 
               <div className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 mb-4 text-xs text-gray-600 leading-relaxed">
-                Disputes are about findings, not grades. The grade is our opinion based on a{" "}
-                <Link href="/rubric" className="underline hover:text-gray-800">published rubric</Link>.
-                If a specific extraction below looks wrong (the quote does not match the policy, or the
-                YES/no is misinterpreted), use the per-finding flag to help us improve.
+                {showGrades
+                  ? <>Disputes are about findings, not grades. The grade is our opinion based on a{" "}
+                      <Link href="/rubric" className="underline hover:text-gray-800">published rubric</Link>.
+                      If a specific extraction below looks wrong (the quote does not match the policy, or the
+                      YES/no is misinterpreted), use the per-finding flag to help us improve.</>
+                  : <>If a specific extraction below looks wrong (the quote does not match the policy, or the
+                      YES/no is misinterpreted), use the per-finding flag to help us improve.</>
+                }
               </div>
 
               <div className="mb-4">
@@ -255,7 +265,9 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
             {/* Analysis metadata */}
             <div className="pt-6 border-t border-gray-100 text-xs text-gray-400 space-y-1">
               <p>Analyzed {new Date(extraction.created_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
-              <p>Rubric version {grade.rubricVersion} · <Link href="/rubric" className="underline hover:text-gray-600">View full rubric</Link></p>
+              {showGrades && (
+                <p>Rubric version {grade.rubricVersion} · <Link href="/rubric" className="underline hover:text-gray-600">View full rubric</Link></p>
+              )}
             </div>
 
           </div>

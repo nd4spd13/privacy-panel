@@ -2,6 +2,8 @@ import { Header } from "@/components/Header";
 import { FEATURE_COMPARE } from "@/lib/flags";
 import CompareClient from "./client";
 
+export const revalidate = 60;
+
 export default function ComparePage() {
   if (!FEATURE_COMPARE) {
     return (

@@ -3,6 +3,7 @@ import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
 import { checkRateLimit, getRateLimitHeaders, getClientIp } from "@/lib/rate-limit";
 import { isValidPublicSlug } from "@/lib/slug";
+import { scoresEnabled } from "@/lib/flags";
 
 export const runtime = "nodejs";
 
@@ -32,24 +33,32 @@ export async function GET(
     return new NextResponse("No analysis available", { status: 404, headers: rlHeaders });
   }
 
+  const showScores = scoresEnabled();
   const format = req.nextUrl.searchParams.get("format") ?? "svg";
   const widthParam = parseInt(req.nextUrl.searchParams.get("width") ?? "380", 10);
   const width = Number.isFinite(widthParam) && widthParam >= 200 && widthParam <= 1200 ? widthParam : 380;
-  const { renderToSVG, renderToHTML } = await import("@/core/rendering/embed");
+  const { renderToSVG, renderToHTML, renderNeutralToSVG, renderNeutralToHTML } = await import("@/core/rendering/embed");
 
   if (format === "html") {
-    const html = renderToHTML(extraction.facts, extraction.grade, width);
+    const html = showScores
+      ? renderToHTML(extraction.facts, extraction.grade, width)
+      : renderNeutralToHTML(extraction.facts, width);
     return new NextResponse(html, {
-      headers: { "Content-Type": "text/html; charset=utf-8" },
+      headers: {
+        "Content-Type": "text/html; charset=utf-8",
+        ...(showScores ? {} : { "Cache-Control": "no-store" }),
+      },
     });
   }
 
   // Default: SVG
-  const svg = renderToSVG(extraction.facts, extraction.grade, width);
+  const svg = showScores
+    ? renderToSVG(extraction.facts, extraction.grade, width)
+    : renderNeutralToSVG(extraction.facts, width);
   return new NextResponse(svg, {
     headers: {
       "Content-Type": "image/svg+xml",
-      "Cache-Control": "public, max-age=3600",
+      "Cache-Control": showScores ? "public, max-age=60" : "no-store",
     },
   });
 }
