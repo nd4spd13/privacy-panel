@@ -61,11 +61,25 @@ export function renderToSVG(data: PrivacyPanel, grade: GradeResult, width = 380)
 </svg>`;
 }
 
-export function renderEmbedSnippet(data: PrivacyPanel, grade: GradeResult, baseUrl = "https://privacypanel.org", width = 380): string {
+export function renderNeutralToSVG(data: PrivacyPanel, width = 380): string {
+  const inner = neutralLabelHTML(data, width);
+  const h = Math.round(700 * width / 380);
+  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xhtml="http://www.w3.org/1999/xhtml" width="${width}" height="${h}" viewBox="0 0 ${width} ${h}">
+  <style>*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif}</style>
+  <foreignObject x="0" y="0" width="${width}" height="${h}">
+    <xhtml:div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px">
+      ${inner}
+    </xhtml:div>
+  </foreignObject>
+</svg>`;
+}
+
+export function renderEmbedSnippet(data: PrivacyPanel, grade: GradeResult, baseUrl = "https://privacypanel.org", width = 380, withGrade = true): string {
   const slug = data.metadata.companyName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-  const h = Math.round(860 * width / 380);
+  const h = Math.round((withGrade ? 860 : 700) * width / 380);
+  const titleSuffix = withGrade ? ` — Grade ${grade.letter}` : "";
   return `<!-- Privacy Panel widget for ${esc(data.metadata.companyName)} -->
-<iframe src="${baseUrl}/embed/${slug}" width="${width}" height="${h}" style="border:none;overflow:hidden" title="Privacy Panel — ${esc(data.metadata.companyName)} — Grade ${grade.letter}" loading="lazy"></iframe>`;
+<iframe src="${baseUrl}/embed/${slug}" width="${width}" height="${h}" style="border:none;overflow:hidden" title="Privacy Panel — ${esc(data.metadata.companyName)}${titleSuffix}" loading="lazy"></iframe>`;
 }
 
 // ─── HTML builders ────────────────────────────────────────────────────────────

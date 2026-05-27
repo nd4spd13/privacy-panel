@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { searchCompanies } from "@/db/companies";
+import { scoresEnabled } from "@/lib/flags";
 
-export const revalidate = 300;
+export const revalidate = 60;
 
 const LABEL_SECTIONS = [
   {
@@ -69,6 +70,7 @@ export default async function LabelPage({
   searchParams: Promise<{ q?: string }>;
 }) {
   const sp = await searchParams;
+  const showGrades = scoresEnabled();
   const query = (sp.q ?? "").trim().slice(0, 200);
   const results = query.length >= 2 ? searchCompanies(query, 8) : [];
 
@@ -220,14 +222,16 @@ export default async function LabelPage({
         </div>
 
         {/* ── Separation from scoring ──────────────────────────────────────── */}
-        <div className="border border-amber-200 bg-amber-50 rounded-xl p-6">
-          <h3 className="font-bold text-amber-900 mb-2">Label vs. Score</h3>
-          <p className="text-sm text-amber-800 leading-relaxed">
-            The label is descriptive: it restates what the policy says and flags sensitive items in red.
-            The score is evaluative: it weighs those practices against the rubric and produces a letter grade.
-            You can read either one independently.
-          </p>
-        </div>
+        {showGrades && (
+          <div className="border border-amber-200 bg-amber-50 rounded-xl p-6">
+            <h3 className="font-bold text-amber-900 mb-2">Label vs. Score</h3>
+            <p className="text-sm text-amber-800 leading-relaxed">
+              The label is descriptive: it restates what the policy says and flags sensitive items in red.
+              The score is evaluative: it weighs those practices against the rubric and produces a letter grade.
+              You can read either one independently.
+            </p>
+          </div>
+        )}
       </main>
     </>
   );

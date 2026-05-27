@@ -4,8 +4,9 @@ import { GradeBadge } from "@/components/GradeBadge";
 import { SearchBar } from "@/components/SearchBar";
 import { listCompanies, searchCompanies, countCompanies } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
+import { scoresEnabled } from "@/lib/flags";
 
-export const revalidate = 300;
+export const revalidate = 60;
 
 const PAGE_SIZE = 50;
 const GRADE_ORDER: Record<string, number> = { A: 0, B: 1, C: 2, D: 3, F: 4 };
@@ -25,16 +26,20 @@ const DEFAULT_DIR: Record<SortKey, SortDir> = {
 
 // Fixed column widths — must match between header and rows
 const COL = "grid-cols-[48px_minmax(140px,1fr)_72px_56px_88px_72px_104px]";
+const COL_NO_GRADE = "grid-cols-[minmax(140px,1fr)_56px_88px_72px_104px]";
 
 export default async function DirectoryPage({
   searchParams,
 }: {
   searchParams: Promise<{ q?: string; sort?: string; dir?: string; page?: string }>;
 }) {
+  const showGrades = scoresEnabled();
   const sp = await searchParams;
   const q = (sp.q ?? "").trim().slice(0, 200);
-  const sort = (sp.sort ?? "grade") as SortKey;
+  const defaultSort: SortKey = showGrades ? "grade" : "name";
+  const sort = (sp.sort ?? defaultSort) as SortKey;
   const dir = (sp.dir ?? DEFAULT_DIR[sort]) as SortDir;
+  const col = showGrades ? COL : COL_NO_GRADE;
   const page = Math.max(1, parseInt(sp.page ?? "1", 10));
 
   const companies = q ? searchCompanies(q, 200) : listCompanies(1000);
@@ -170,14 +175,16 @@ export default async function DirectoryPage({
             <div className="overflow-x-auto rounded-xl border border-gray-200">
               <div className="bg-white min-w-[660px]">
                 {/* Table header */}
-                <div className={`grid ${COL} items-center px-4 py-2.5 bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-400 uppercase tracking-wide gap-4`}>
-                  <div className="w-12" />
+                <div className={`grid ${col} items-center px-4 py-2.5 bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-400 uppercase tracking-wide gap-4`}>
+                  {showGrades && <div className="w-12" />}
                   <Link href={sortHref("name")} className={`hover:text-gray-700 transition-colors ${sort === "name" ? "text-gray-700" : ""}`}>
                     Company{sortArrow("name")}
                   </Link>
-                  <Link href={sortHref("grade")} className={`text-right hover:text-gray-700 transition-colors ${sort === "grade" ? "text-gray-700" : ""}`}>
-                    Score{sortArrow("grade")}
-                  </Link>
+                  {showGrades && (
+                    <Link href={sortHref("grade")} className={`text-right hover:text-gray-700 transition-colors ${sort === "grade" ? "text-gray-700" : ""}`}>
+                      Score{sortArrow("grade")}
+                    </Link>
+                  )}
                   <Link href={sortHref("sold")} className={`text-center hover:text-gray-700 transition-colors ${sort === "sold" ? "text-gray-700" : ""}`}>
                     Sold{sortArrow("sold")}
                   </Link>
@@ -197,17 +204,19 @@ export default async function DirectoryPage({
                   <Link
                     key={company.slug}
                     href={`/company/${company.slug}`}
-                    className={`grid ${COL} items-center px-4 py-3 border-b border-gray-50 last:border-b-0 hover:bg-gray-50 transition-colors gap-4`}
+                    className={`grid ${col} items-center px-4 py-3 border-b border-gray-50 last:border-b-0 hover:bg-gray-50 transition-colors gap-4`}
                   >
-                    <div className="w-12"><GradeBadge letter={grade.letter} size="sm" /></div>
+                    {showGrades && <div className="w-12"><GradeBadge letter={grade.letter} size="sm" /></div>}
                     <div className="min-w-0">
                       <div className="font-semibold text-gray-900 truncate">{company.name}</div>
                       {company.domain && <div className="text-xs text-gray-400 truncate">{company.domain}</div>}
                     </div>
-                    <div className="text-right">
-                      <span className="text-sm font-bold text-gray-900">{grade.score}</span>
-                      <span className="text-xs text-gray-400">/100</span>
-                    </div>
+                    {showGrades && (
+                      <div className="text-right">
+                        <span className="text-sm font-bold text-gray-900">{grade.score}</span>
+                        <span className="text-xs text-gray-400">/100</span>
+                      </div>
+                    )}
                     <div className="text-center">
                       {sold === true
                         ? <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">{isInferredQuote(soldSourceQuote) ? "YES*" : "YES"}</span>

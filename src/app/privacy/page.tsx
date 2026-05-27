@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { LabelScaler } from "@/components/LabelScaler";
 import { PrivacyPanelLabel } from "@/core/rendering/PrivacyPanelLabel";
 import type { PrivacyPanel } from "@/core/schema/types";
+import { scoresEnabled } from "@/lib/flags";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Privacy Panel",
@@ -133,6 +134,7 @@ const SELF_DATA: PrivacyPanel = {
 };
 
 export default function PrivacyPage() {
+  const showGrades = scoresEnabled();
   return (
     <>
       <Header />
@@ -448,11 +450,11 @@ export default function PrivacyPage() {
 
           {/* ── Open methodology ─────────────────────────────────────────────── */}
           <section className="mb-8">
-            <h2 className="text-xl font-bold text-gray-900 mb-4">Open methodology</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Open source</h2>
             <p className="text-gray-600 leading-relaxed mb-3">
-              The scoring rubric, JSON schema, and web application code are public. The extraction
-              pipeline (AI prompts and policy fetching) is private. You can audit how grades are
-              produced and reproduce any score from a stored extraction.
+              {showGrades
+                ? "The scoring rubric, JSON schema, and web application code are public. The extraction pipeline (AI prompts and policy fetching) is private. You can audit how grades are produced and reproduce any score from a stored extraction."
+                : "The JSON schema and web application code are public. The extraction pipeline (AI prompts and policy fetching) is private."}
             </p>
             <a
               href="https://github.com/nd4spd13/privacy-panel"

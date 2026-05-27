@@ -18,9 +18,11 @@ interface GradeBadgeProps {
   letter: string;
   score?: number;
   size?: "sm" | "md" | "lg";
+  show?: boolean;
 }
 
-export function GradeBadge({ letter, score, size = "md" }: GradeBadgeProps) {
+export function GradeBadge({ letter, score, size = "md", show = true }: GradeBadgeProps) {
+  if (!show) return null;
   const bg = BG[letter] ?? "bg-gray-500";
   const sizes = {
     sm: "w-8 h-8 text-base",

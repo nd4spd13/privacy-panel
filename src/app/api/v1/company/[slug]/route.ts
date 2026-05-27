@@ -3,6 +3,7 @@ import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { isValidPublicSlug } from "@/lib/slug";
+import { scoresEnabled } from "@/lib/flags";
 
 export async function GET(
   req: NextRequest,
@@ -38,24 +39,24 @@ export async function GET(
     );
   }
 
-  return NextResponse.json(
-    {
-      company: {
-        slug: company.slug,
-        name: company.name,
-        domain: company.domain,
-      },
-      facts: extraction.facts,
-      grade: extraction.grade,
-      meta: {
-        extractionId: extraction.id,
-        model: extraction.model,
-        inputTokens: extraction.input_tokens,
-        outputTokens: extraction.output_tokens,
-        latencyMs: extraction.latency_ms,
-        analyzedAt: extraction.created_at,
-      },
+  const payload: Record<string, unknown> = {
+    company: {
+      slug: company.slug,
+      name: company.name,
+      domain: company.domain,
     },
-    { headers: rlHeaders }
-  );
+    facts: extraction.facts,
+    meta: {
+      extractionId: extraction.id,
+      model: extraction.model,
+      inputTokens: extraction.input_tokens,
+      outputTokens: extraction.output_tokens,
+      latencyMs: extraction.latency_ms,
+      analyzedAt: extraction.created_at,
+    },
+  };
+  if (scoresEnabled()) {
+    payload.grade = extraction.grade;
+  }
+  return NextResponse.json(payload, { headers: rlHeaders });
 }

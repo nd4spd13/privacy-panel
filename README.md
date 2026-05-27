@@ -88,6 +88,10 @@ See [SECURITY.md](SECURITY.md) for the vulnerability disclosure policy.
 
 The web app holds no Anthropic API key at runtime. The presentation layer reads pre-computed extractions from SQLite; there is no endpoint that triggers Claude API calls from a browser request.
 
+### Emergency kill switch
+
+If the scoring layer needs to be disabled without a redeploy, set `SHOW_SCORES=false` as a Railway environment variable. Grades, scores, and `/rubric` will vanish on the next request; all other pages and API endpoints continue working. See [docs/SHOW_SCORES.md](docs/SHOW_SCORES.md) for the full runbook.
+
 ---
 
 ## License

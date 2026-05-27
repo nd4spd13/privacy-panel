@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { scoresEnabled } from "@/lib/flags";
 
 export function Header() {
+  const showGrades = scoresEnabled();
   return (
     <header className="border-b border-gray-200 bg-white sticky top-0 z-10">
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
@@ -17,7 +19,7 @@ export function Header() {
         </Link>
         <nav className="flex items-center gap-6 text-sm text-gray-600">
           <Link href="/label" className="hover:text-gray-900 transition-colors">Label</Link>
-          <Link href="/rubric" className="hover:text-gray-900 transition-colors">Score</Link>
+          {showGrades && <Link href="/rubric" className="hover:text-gray-900 transition-colors">Score</Link>}
           <Link href="/directory" className="hover:text-gray-900 transition-colors">Directory</Link>
           <Link href="/about" className="hover:text-gray-900 transition-colors">About</Link>
         </nav>
