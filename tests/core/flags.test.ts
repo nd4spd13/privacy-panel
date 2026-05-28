@@ -24,7 +24,19 @@ describe("scoresEnabled()", () => {
     try { rmSync(tmpDir, { recursive: true }); } catch { /* ignore */ }
   });
 
-  it("returns true by default (no env var, no sentinel)", async () => {
+  it("returns false by default — fail-closed (no env var, no sentinel)", async () => {
+    const { scoresEnabled } = await import("@/lib/flags");
+    expect(scoresEnabled()).toBe(false);
+  });
+
+  it("returns false when SHOW_SCORES is absent", async () => {
+    delete process.env.SHOW_SCORES;
+    const { scoresEnabled } = await import("@/lib/flags");
+    expect(scoresEnabled()).toBe(false);
+  });
+
+  it("returns true when SHOW_SCORES=true (only enabling value)", async () => {
+    process.env.SHOW_SCORES = "true";
     const { scoresEnabled } = await import("@/lib/flags");
     expect(scoresEnabled()).toBe(true);
   });
@@ -35,32 +47,40 @@ describe("scoresEnabled()", () => {
     expect(scoresEnabled()).toBe(false);
   });
 
-  it("returns true when SHOW_SCORES=true", async () => {
-    process.env.SHOW_SCORES = "true";
-    const { scoresEnabled } = await import("@/lib/flags");
-    expect(scoresEnabled()).toBe(true);
-  });
-
-  it("returns true when SHOW_SCORES is an unrecognized value", async () => {
+  it("returns false when SHOW_SCORES is an unrecognized value", async () => {
     process.env.SHOW_SCORES = "yes";
     const { scoresEnabled } = await import("@/lib/flags");
-    expect(scoresEnabled()).toBe(true);
+    expect(scoresEnabled()).toBe(false);
   });
 
-  it("returns false when SCORES_DISABLED sentinel file exists", async () => {
+  it("returns false when SHOW_SCORES=True (case-sensitive check)", async () => {
+    process.env.SHOW_SCORES = "True";
+    const { scoresEnabled } = await import("@/lib/flags");
+    expect(scoresEnabled()).toBe(false);
+  });
+
+  it("returns false when SCORES_DISABLED sentinel exists even with SHOW_SCORES=true", async () => {
+    process.env.SHOW_SCORES = "true";
     writeFileSync(join(tmpDir, "SCORES_DISABLED"), "");
     const { scoresEnabled } = await import("@/lib/flags");
     expect(scoresEnabled()).toBe(false);
   });
 
-  it("returns false when both env var and sentinel are set", async () => {
+  it("returns false when both SHOW_SCORES=false and sentinel are set", async () => {
     process.env.SHOW_SCORES = "false";
     writeFileSync(join(tmpDir, "SCORES_DISABLED"), "");
     const { scoresEnabled } = await import("@/lib/flags");
     expect(scoresEnabled()).toBe(false);
   });
 
-  it("returns true when sentinel is absent even if env var is not set", async () => {
+  it("returns false when sentinel is present but SHOW_SCORES is not set", async () => {
+    writeFileSync(join(tmpDir, "SCORES_DISABLED"), "");
+    const { scoresEnabled } = await import("@/lib/flags");
+    expect(scoresEnabled()).toBe(false);
+  });
+
+  it("returns true when SHOW_SCORES=true and no sentinel file", async () => {
+    process.env.SHOW_SCORES = "true";
     const { scoresEnabled } = await import("@/lib/flags");
     expect(scoresEnabled()).toBe(true);
   });

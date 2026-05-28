@@ -1,5 +1,5 @@
 import { Header } from "@/components/Header";
-import { FEATURE_COMPARE } from "@/lib/flags";
+import { FEATURE_COMPARE, scoresEnabled } from "@/lib/flags";
 import CompareClient from "./client";
 
 export const revalidate = 60;
@@ -19,7 +19,7 @@ export default function ComparePage() {
   return (
     <>
       <Header />
-      <CompareClient />
+      <CompareClient showGrades={scoresEnabled()} />
     </>
   );
 }
