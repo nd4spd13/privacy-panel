@@ -113,13 +113,6 @@ export default function RubricClient() {
             The rubric uses tiered weights: core practices apply fully; emerging practices apply at half weight.
             The rubric is deterministic — the same policy facts always produce the same score.
           </p>
-          <a
-            href="/rubric/v1.yaml"
-            className="inline-block mt-4 text-sm text-gray-500 underline hover:text-gray-700"
-            target="_blank"
-          >
-            Download rubric YAML ↗
-          </a>
         </div>
 
         {/* ── Company search ──────────────────────────────────────────────── */}
