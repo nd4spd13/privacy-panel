@@ -5,6 +5,7 @@ export interface Company {
   slug: string;
   name: string;
   domain: string | null;
+  parent_company: string | null;
   created_at: string;
   updated_at: string;
 }

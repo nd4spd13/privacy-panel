@@ -24,10 +24,15 @@ function applySchema(db: Database.Database): void {
 }
 
 function applyMigrations(db: Database.Database): void {
-  // v2 migration: add raw_text column to policies if it doesn't exist
-  const cols = db.prepare("PRAGMA table_info(policies)").all() as { name: string }[];
-  if (!cols.some(c => c.name === "raw_text")) {
+  // v2: add raw_text column to policies
+  const policyCols = db.prepare("PRAGMA table_info(policies)").all() as { name: string }[];
+  if (!policyCols.some(c => c.name === "raw_text")) {
     db.exec("ALTER TABLE policies ADD COLUMN raw_text TEXT");
+  }
+  // v3: add parent_company column to companies
+  const companyCols = db.prepare("PRAGMA table_info(companies)").all() as { name: string }[];
+  if (!companyCols.some(c => c.name === "parent_company")) {
+    db.exec("ALTER TABLE companies ADD COLUMN parent_company TEXT");
   }
 }
 
