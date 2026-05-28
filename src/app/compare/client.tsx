@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { GradeBadge } from "@/components/GradeBadge";
+
+const GRADE_BG: Record<string, string> = {
+  A: "bg-green-700",
+  B: "bg-lime-700",
+  C: "bg-amber-600",
+  D: "bg-orange-700",
+  F: "bg-red-700",
+};
 
 interface CompanyResult {
   company: { slug: string; name: string; domain: string | null };
@@ -9,7 +16,7 @@ interface CompanyResult {
   facts: Record<string, unknown>;
 }
 
-export default function CompareClient() {
+export default function CompareClient({ showGrades = false }: { showGrades?: boolean }) {
   const [slugInput, setSlugInput] = useState("");
   const [selected, setSelected] = useState<string[]>([]);
   const [results, setResults] = useState<CompanyResult[]>([]);
@@ -87,7 +94,11 @@ export default function CompareClient() {
                 key={slug}
                 className="flex items-center gap-2 bg-gray-100 rounded-lg px-3 py-2 text-sm font-semibold text-gray-800"
               >
-                {r && <GradeBadge letter={r.grade.letter} size="sm" />}
+                {r && showGrades && (
+                <div className={`${GRADE_BG[r.grade.letter] ?? "bg-gray-500"} w-8 h-8 text-base rounded-full flex items-center justify-center text-white font-black flex-shrink-0`}>
+                  {r.grade.letter}
+                </div>
+              )}
                 <span>{r ? r.company.name : slug}</span>
                 <button
                   onClick={() => removeSlug(slug)}
@@ -151,7 +162,7 @@ export default function CompareClient() {
       {/* ── Results ──────────────────────────────────────────────────────────── */}
       {hasResults && (
         <div>
-          {/* Grade summary row */}
+          {/* Summary row */}
           <div className="flex gap-6 mb-8 overflow-x-auto pb-2">
             {results.map((r) => (
               <a
@@ -159,10 +170,14 @@ export default function CompareClient() {
                 href={`/company/${r.company.slug}`}
                 className="flex-shrink-0 flex items-center gap-3 bg-white border border-gray-200 rounded-xl p-4 hover:border-gray-400 transition-all"
               >
-                <GradeBadge letter={r.grade.letter} size="md" />
+                {showGrades && (
+                  <div className={`${GRADE_BG[r.grade.letter] ?? "bg-gray-500"} w-12 h-12 text-2xl rounded-full flex items-center justify-center text-white font-black flex-shrink-0`}>
+                    {r.grade.letter}
+                  </div>
+                )}
                 <div>
                   <div className="font-bold text-gray-900">{r.company.name}</div>
-                  <div className="text-sm text-gray-400">{r.grade.score}/100 · {r.grade.label}</div>
+                  {showGrades && <div className="text-sm text-gray-400">{r.grade.score}/100 · {r.grade.label}</div>}
                 </div>
               </a>
             ))}

@@ -1,3 +1,5 @@
+import { scoresEnabled } from "@/lib/flags";
+
 const BG: Record<string, string> = {
   A: "bg-green-700",
   B: "bg-lime-700",
@@ -22,6 +24,7 @@ interface GradeBadgeProps {
 }
 
 export function GradeBadge({ letter, score, size = "md", show = true }: GradeBadgeProps) {
+  if (!scoresEnabled()) return null;
   if (!show) return null;
   const bg = BG[letter] ?? "bg-gray-500";
   const sizes = {

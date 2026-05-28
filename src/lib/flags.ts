@@ -19,10 +19,11 @@ export const FEATURE_COMPARE = false;
 export const FEATURE_DISPUTES = false;
 
 /**
- * Emergency kill switch for the entire scoring layer.
+ * Emergency kill switch for the entire scoring layer. Fail-closed: scores
+ * are hidden unless SHOW_SCORES is explicitly set to the string "true".
  *
  * Returns false (scores hidden) if EITHER signal is present:
- *   1. SHOW_SCORES env var is set to the string "false"
+ *   1. SHOW_SCORES env var is NOT exactly the string "true" (absent = hidden)
  *   2. A file named SCORES_DISABLED exists in the data directory
  *
  * Both signals are checked at call time — no build required to flip.
@@ -30,14 +31,14 @@ export const FEATURE_DISPUTES = false;
  * See docs/SHOW_SCORES.md for operator instructions.
  */
 export function scoresEnabled(): boolean {
-  if (process.env.SHOW_SCORES === "false") return false;
+  if (process.env.SHOW_SCORES !== "true") return false;
   try {
     const dataDir = process.env.DATABASE_URL
       ? dirname(process.env.DATABASE_URL)
       : join(process.cwd(), "data");
     if (existsSync(join(dataDir, "SCORES_DISABLED"))) return false;
   } catch {
-    // fail open — env var still works as the authoritative signal
+    // fail closed on fs error — env var check already gates scores
   }
   return true;
 }

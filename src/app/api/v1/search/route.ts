@@ -34,9 +34,9 @@ export async function GET(req: NextRequest) {
       slug: c.slug,
       name: c.name,
       domain: c.domain,
-      grade: showGrades && extraction
-        ? { letter: extraction.grade.letter, score: extraction.grade.score, label: extraction.grade.label, color: extraction.grade.color }
-        : null,
+      ...(showGrades && extraction
+        ? { grade: { letter: extraction.grade.letter, score: extraction.grade.score, label: extraction.grade.label, color: extraction.grade.color } }
+        : {}),
       analyzedAt: extraction?.created_at ?? null,
     };
   });
