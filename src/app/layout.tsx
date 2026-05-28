@@ -22,9 +22,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <div className="max-w-6xl mx-auto px-6 flex items-center justify-between text-xs text-gray-400">
             <span>© {new Date().getFullYear()} Privacy Panel</span>
             <nav className="flex gap-5">
-              <a href="https://github.com/crspy-inc/privacy-panel" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700">GitHub</a>
+              <a href="https://github.com/nd4spd13/privacy-panel" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700">GitHub</a>
               <a href="/about" className="hover:text-gray-700">About</a>
               <a href="/privacy" className="hover:text-gray-700">Privacy Policy</a>
+              <a href="mailto:hello@privacypanel.org?subject=Takedown%20Notice" className="hover:text-gray-700">Takedown</a>
             </nav>
           </div>
         </footer>

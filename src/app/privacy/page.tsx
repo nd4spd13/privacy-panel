@@ -477,12 +477,33 @@ export default function PrivacyPage() {
           </section>
 
           {/* ── Contact ──────────────────────────────────────────────────────── */}
-          <section>
+          <section className="mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-4">Contact</h2>
             <p className="text-gray-600 leading-relaxed">
               <a href="mailto:hello@privacypanel.org" className="underline hover:text-gray-900">
                 hello@privacypanel.org
               </a>
+            </p>
+          </section>
+
+          {/* ── Takedown / legal ─────────────────────────────────────────────── */}
+          <section>
+            <h2 className="text-xl font-bold text-gray-900 mb-4">Takedown / legal contact</h2>
+            <p className="text-gray-600 leading-relaxed mb-3">
+              For legal matters, copyright claims, factual disputes, or takedown notices, contact us at{" "}
+              <a href="mailto:hello@privacypanel.org" className="underline hover:text-gray-900">
+                hello@privacypanel.org
+              </a>
+              . Please include:
+            </p>
+            <ul className="list-disc list-inside text-gray-600 space-y-1 text-sm leading-relaxed mb-4">
+              <li><strong>Copyright / DMCA:</strong> your claim, the URL in question, and contact details</li>
+              <li><strong>Factual disputes:</strong> the specific claim, why it&apos;s incorrect, and supporting evidence</li>
+              <li><strong>Other legal matters:</strong> the nature of your request</li>
+            </ul>
+            <p className="text-gray-600 leading-relaxed text-sm">
+              We will respond within 5 business days. For data access, rectification, or deletion requests,
+              use the &quot;Your rights&quot; section above.
             </p>
           </section>
 

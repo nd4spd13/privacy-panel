@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /compare-labels
+Disallow: /rubric
+Disallow: /data
