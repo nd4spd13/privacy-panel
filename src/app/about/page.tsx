@@ -125,13 +125,6 @@ export default function AboutPage() {
               >
                 View rubric →
               </Link>
-              <a
-                href="/rubric/v1.yaml"
-                target="_blank"
-                className="inline-flex items-center gap-1.5 border border-gray-300 rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-50 transition-colors font-medium"
-              >
-                Download rubric YAML →
-              </a>
             </div>
           </section>
         )}

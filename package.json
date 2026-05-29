@@ -16,7 +16,9 @@
   },
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/check-public-artifacts.mjs",
     "build": "next build",
+    "check:artifacts": "node scripts/check-public-artifacts.mjs",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
