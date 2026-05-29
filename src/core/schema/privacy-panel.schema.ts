@@ -265,10 +265,7 @@ const SupplementarySchema = z.object({
 });
 
 const MetadataSchema = z.object({
-  schemaVersion: z.union([
-    z.literal(SCHEMA_VERSION),
-    ...LEGACY_SCHEMA_VERSIONS.map(v => z.literal(v)),
-  ]),
+  schemaVersion: z.union([z.literal("2.1.0"), z.literal("2.0.0")]),
   companyName: z.string().min(1),
   policyUrl: z.string().url(),
   /** ISO-8601 date string when the policy was fetched/analyzed. */
