@@ -14,9 +14,14 @@
  * Pure module: no DB, no fs. Unit-testable and reusable by the eval suite (CRS-82)
  * as a pre-publish gate, and by the CLI runner at scripts/audit-quotes.ts.
  *
- * The normalizer here is intentionally local. It should converge with the canonical
- * `norm-v1` normalizer once CRS-94 lands, at which point this file should import it.
+ * Normalization + fuzzy coverage live in `@/core/text/norm-v1` (CRS-198) so the audit,
+ * sourceAnchor population (CRS-175 / CRS-195), and change detection (CRS-94) all share
+ * one versioned normalizer.
  */
+import { normalize, coverage } from "@/core/text/norm-v1";
+
+// Re-exported for back-compat with existing importers (the CRS-187 runner + tests).
+export { normalize as normalizeForMatch, coverage };
 
 /** The single canonical string used everywhere a policy is silent on a field. */
 export const POLICY_SILENT_BOILERPLATE = "Not addressed in this policy.";
@@ -64,42 +69,6 @@ export interface QuoteFinding {
   coverage?: number;
   /** Why it landed in this status (hallucination marker, not located, …). */
   reason?: string;
-}
-
-/**
- * Light normalization for matching: NFC, lowercase, unify curly quotes and dashes,
- * collapse whitespace. Deliberately conservative — it does not strip punctuation.
- */
-export function normalizeForMatch(text: string): string {
-  return text
-    .normalize("NFC")
-    .toLowerCase()
-    .replace(/[‘’‛′]/g, "'") // curly / prime single quotes → '
-    .replace(/[“”‟″]/g, '"') // curly double quotes → "
-    .replace(/[‐-―−]/g, "-") // hyphens / dashes / minus → -
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function wordTrigrams(s: string): string[] {
-  const words = s.split(" ").filter(Boolean);
-  if (words.length < 3) return words.length ? [words.join(" ")] : [];
-  const grams: string[] = [];
-  for (let i = 0; i + 3 <= words.length; i++) grams.push(words.slice(i, i + 3).join(" "));
-  return grams;
-}
-
-/**
- * Fraction of the quote's word-trigrams that appear in the policy. A cheap fuzzy-containment
- * proxy: tolerant of light reformatting, but near-zero for fabricated or paraphrased text.
- * Inputs must already be normalized via {@link normalizeForMatch}.
- */
-export function coverage(quoteNorm: string, policyNorm: string): number {
-  const grams = wordTrigrams(quoteNorm);
-  if (grams.length === 0) return 0;
-  let hit = 0;
-  for (const g of grams) if (policyNorm.includes(g)) hit++;
-  return hit / grams.length;
 }
 
 interface RawQuote {
@@ -162,7 +131,7 @@ function classify(
     return { status: "unverifiable", reason: "no raw policy text on file" };
   }
 
-  const needle = normalizeForMatch(quote);
+  const needle = normalize(quote);
   if (needle.length > 0 && normalizedPolicy.includes(needle)) {
     return { status: "verbatim", coverage: 1 };
   }
@@ -188,7 +157,7 @@ export interface FactsAuditResult {
 
 /** Audit every sourceQuote in a facts object against its policy text. */
 export function auditFacts(facts: unknown, policyText: string | null): FactsAuditResult {
-  const normalizedPolicy = policyText === null ? null : normalizeForMatch(policyText);
+  const normalizedPolicy = policyText === null ? null : normalize(policyText);
   const findings: QuoteFinding[] = collectQuotes(facts).map(({ path, quote, value }) => {
     const { status, reason, coverage: cov } = classify(quote, normalizedPolicy);
     return { path, quote, value, status, reason, coverage: cov };
@@ -215,7 +184,7 @@ export function normalizeSilenceQuotes(
   facts: unknown,
   policyText: string | null
 ): { facts: unknown; replaced: number } {
-  const normalizedPolicy = policyText === null ? null : normalizeForMatch(policyText);
+  const normalizedPolicy = policyText === null ? null : normalize(policyText);
   let replaced = 0;
 
   function walk(node: unknown): unknown {
