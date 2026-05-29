@@ -19,6 +19,7 @@
     "prebuild": "node scripts/check-public-artifacts.mjs",
     "build": "next build",
     "check:artifacts": "node scripts/check-public-artifacts.mjs",
+    "audit:quotes": "npx tsx scripts/audit-quotes.ts",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
