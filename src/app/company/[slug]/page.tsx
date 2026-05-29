@@ -65,10 +65,9 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
   const { facts, grade } = extraction;
   const bd = grade.breakdown;
 
-  const nameMatch = company.name.match(/^(.+?)\s*\(([^()]+(?:\([^()]+\))*[^()]*)\)\s*$/);
-  const displayName = nameMatch ? nameMatch[1].trim() : company.name;
-  const parentCompany = nameMatch ? nameMatch[2].trim() : null;
-  const showParent = parentCompany !== null && parentCompany !== displayName;
+  const displayName = company.name;
+  const parentCompany = company.parent_company ?? null;
+  const showParent = parentCompany !== null;
 
   const deductions = bd.filter((b) => b.triggered && b.points < 0);
   const bonuses = bd.filter((b) => b.triggered && b.points > 0);

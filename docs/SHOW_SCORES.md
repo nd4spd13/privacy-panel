@@ -97,7 +97,7 @@ rm /data/SCORES_DISABLED
 ```
 
 The sentinel file path is resolved from `DATABASE_URL`. If `DATABASE_URL=/data/privacypanel.db`,
-the sentinel is `/data/SCORES_DISABLED`.
+the sentinel is at `/data/SCORES_DISABLED`.
 
 ---
 

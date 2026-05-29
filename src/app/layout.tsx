@@ -24,6 +24,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <nav className="flex gap-5">
               <a href="https://github.com/nd4spd13/privacy-panel" target="_blank" rel="noopener noreferrer" className="hover:text-gray-700">GitHub</a>
               <a href="/about" className="hover:text-gray-700">About</a>
+              <a href="/changelog" className="hover:text-gray-700">Changelog</a>
+              <a href="/terms" className="hover:text-gray-700">Terms</a>
               <a href="/privacy" className="hover:text-gray-700">Privacy Policy</a>
               <a href="mailto:hello@privacypanel.org?subject=Takedown%20Notice" className="hover:text-gray-700">Takedown</a>
             </nav>
