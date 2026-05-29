@@ -34,6 +34,13 @@ function applyMigrations(db: Database.Database): void {
   if (!companyCols.some(c => c.name === "parent_company")) {
     db.exec("ALTER TABLE companies ADD COLUMN parent_company TEXT");
   }
+  // v4: provenance columns on policies (CRS-199 / CRS-190).
+  // normalized_hash = sha256(norm-v1(raw_text)); distinct from content_hash (raw-text hash).
+  for (const col of ["normalized_hash", "normalizer", "archive_url", "archive_captured_at"]) {
+    if (!policyCols.some((c) => c.name === col)) {
+      db.exec(`ALTER TABLE policies ADD COLUMN ${col} TEXT`);
+    }
+  }
 }
 
 /** Close the database connection (useful in tests). */

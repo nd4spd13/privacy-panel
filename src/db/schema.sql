@@ -26,7 +26,12 @@ CREATE TABLE IF NOT EXISTS policies (
   content_hash TEXT    NOT NULL,   -- SHA-256 of raw policy text
   raw_text     TEXT,               -- Full extracted policy text (added v2)
   fetched_at   TEXT    NOT NULL,
-  created_at   TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now'))
+  created_at   TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now')),
+  -- Provenance (added v4 / CRS-199 / CRS-190)
+  normalized_hash     TEXT,        -- SHA-256 of norm-v1(raw_text); distinct from content_hash
+  normalizer          TEXT,        -- e.g. "norm-v1"
+  archive_url         TEXT,        -- Wayback capture (CRS-200)
+  archive_captured_at TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_policies_company   ON policies (company_id);

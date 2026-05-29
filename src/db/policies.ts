@@ -8,6 +8,11 @@ export interface Policy {
   raw_text: string | null;
   fetched_at: string;
   created_at: string;
+  // Provenance (CRS-199 / CRS-190)
+  normalized_hash: string | null;     // sha256(norm-v1(raw_text))
+  normalizer: string | null;          // e.g. "norm-v1"
+  archive_url: string | null;         // Wayback capture (CRS-200)
+  archive_captured_at: string | null;
 }
 
 export function getPolicyByHash(contentHash: string): Policy | null {
@@ -54,4 +59,15 @@ export function getPolicyWithText(companyId: number): Policy | null {
       "SELECT * FROM policies WHERE company_id = ? AND raw_text IS NOT NULL ORDER BY fetched_at DESC LIMIT 1"
     )
     .get(companyId) as Policy | null;
+}
+
+/** Set the norm-v1 normalized-text hash for a policy (CRS-199). */
+export function setNormalizedHash(
+  policyId: number,
+  normalizedHash: string,
+  normalizer: string
+): void {
+  getDb()
+    .prepare("UPDATE policies SET normalized_hash = ?, normalizer = ? WHERE id = ?")
+    .run(normalizedHash, normalizer, policyId);
 }
