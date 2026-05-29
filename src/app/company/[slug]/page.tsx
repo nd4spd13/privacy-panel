@@ -6,6 +6,7 @@ import { LabelScaler } from "@/components/LabelScaler";
 import { PrivacyPanelLabel } from "@/core/rendering/PrivacyPanelLabel";
 import { getCompanyBySlug } from "@/db/companies";
 import { getLatestExtractionForCompany } from "@/db/extractions";
+import { getLatestPolicyForCompany } from "@/db/policies";
 import { PlausibleEvent } from "@/components/PlausibleEvent";
 import { scoresEnabled } from "@/lib/flags";
 
@@ -63,6 +64,8 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
 
   const extraction = getLatestExtractionForCompany(company.id);
   if (!extraction) notFound();
+
+  const policy = getLatestPolicyForCompany(company.id);
 
   const showGrades = scoresEnabled();
   const { facts, grade } = extraction;
@@ -264,11 +267,46 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
               </div>
             </div>
 
-            {/* Analysis metadata */}
-            <div className="pt-6 border-t border-gray-100 text-xs text-gray-400 space-y-1">
-              <p>Analyzed {new Date(extraction.created_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</p>
+            {/* Sources / Provenance */}
+            <div className="pt-6 border-t border-gray-100 text-xs text-gray-400 space-y-1.5">
+              <p className="font-semibold text-gray-500 uppercase tracking-wide text-[10px]">Sources / Provenance</p>
+              <p>
+                Analyzed{" "}
+                {new Date(extraction.created_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                {policy?.fetched_at && (
+                  <> · policy fetched {new Date(policy.fetched_at).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</>
+                )}
+              </p>
+              {policy?.archive_url ? (
+                <p>
+                  <a
+                    href={policy.archive_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-gray-600"
+                  >
+                    Archived copy ↗
+                  </a>
+                  {policy.archive_captured_at && (
+                    <> · captured {new Date(policy.archive_captured_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</>
+                  )}
+                </p>
+              ) : (
+                <p>Archived copy: not yet available</p>
+              )}
+              {policy?.normalized_hash && (
+                <p>
+                  Source hash:{" "}
+                  <a
+                    href={`/api/v1/company/${company.slug}/provenance`}
+                    className="font-mono text-[10px] underline hover:text-gray-600"
+                  >
+                    {policy.normalized_hash.slice(0, 12)}…
+                  </a>
+                </p>
+              )}
               {showGrades && (
-                <p>Rubric version {grade.rubricVersion} · <Link href="/rubric" className="underline hover:text-gray-600">View full rubric</Link></p>
+                <p>Rubric v{grade.rubricVersion} · <Link href="/rubric" className="underline hover:text-gray-600">View rubric</Link></p>
               )}
             </div>
 
