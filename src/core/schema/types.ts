@@ -5,6 +5,10 @@ import { PrivacyPanelSchema } from "./privacy-panel.schema";
 export type { DataCategory } from "./privacy-panel.schema";
 export { DATA_CATEGORIES, SENSITIVE_CATEGORIES, CATEGORY_LABELS } from "./privacy-panel.schema";
 
+// Re-export quote provenance types
+export type { QuoteType, SourceAnchor } from "./privacy-panel.schema";
+export { QuoteTypeSchema, SourceAnchorSchema } from "./privacy-panel.schema";
+
 // ─── Inferred types ───────────────────────────────────────────────────────────
 
 export type PrivacyPanel = z.infer<typeof PrivacyPanelSchema>;

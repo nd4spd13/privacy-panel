@@ -11,18 +11,21 @@ import { scoresEnabled } from "@/lib/flags";
 
 export const revalidate = 60;
 
+const INFERRED_QUOTE_RE = /consumer-unfavorable|failed to load|not available|defaulting to|does not mention|no mention|no explicit mention|policy is silent|not stated|not specified|not addressed|silent on this/i;
+
 function EvidenceCard({
   label,
   field,
   companyName,
 }: {
   label: string;
-  field: { value: boolean | null; confidence: number; sourceQuote: string };
+  field: { value: boolean | null; confidence: number; sourceQuote: string; quoteType?: string };
   companyName: string;
 }) {
-  const isInferred = /consumer-unfavorable|failed to load|not available|defaulting to|does not mention|no mention|no explicit mention|policy is silent|not stated|not specified|not addressed|silent on this/i.test(
-    field.sourceQuote
-  );
+  // v2.1+: use quoteType when present; fall back to regex for legacy v2.0 extractions
+  const isInferred = field.quoteType
+    ? field.quoteType !== "verbatim"
+    : INFERRED_QUOTE_RE.test(field.sourceQuote);
   return (
     <div className="bg-white border border-gray-200 rounded-lg px-4 py-3">
       <div className="flex items-center justify-between mb-1.5">

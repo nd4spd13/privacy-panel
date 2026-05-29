@@ -5,6 +5,7 @@ import {
   PrivacyPanelSchema,
   validate,
   SCHEMA_VERSION,
+  LEGACY_SCHEMA_VERSIONS,
 } from "../../src/core/schema/privacy-panel.schema";
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -20,8 +21,8 @@ function loadFixture(name: string): unknown {
 // ─── SCHEMA_VERSION ───────────────────────────────────────────────────────────
 
 describe("SCHEMA_VERSION", () => {
-  it("is 2.0.0", () => {
-    expect(SCHEMA_VERSION).toBe("2.0.0");
+  it("is 2.1.0", () => {
+    expect(SCHEMA_VERSION).toBe("2.1.0");
   });
 });
 
@@ -108,6 +109,127 @@ describe("BooleanPractice fields", () => {
       },
     };
     expect(validate(withNull).success).toBe(true);
+  });
+});
+
+// ─── quoteType (v2.1) ─────────────────────────────────────────────────────────
+
+describe("quoteType field (v2.1)", () => {
+  it("accepts a BooleanPractice with quoteType=verbatim", () => {
+    const base = loadFixture("minimal") as Record<string, unknown>;
+    const modified = {
+      ...base,
+      dataSharing: {
+        ...(base.dataSharing as object),
+        soldToThirdParties: {
+          value: false,
+          confidence: 1,
+          sourceQuote: "We do not sell your data.",
+          quoteType: "verbatim",
+        },
+      },
+    };
+    expect(validate(modified).success).toBe(true);
+  });
+
+  it("accepts a BooleanPractice with quoteType=silence", () => {
+    const base = loadFixture("minimal") as Record<string, unknown>;
+    const modified = {
+      ...base,
+      dataSharing: {
+        ...(base.dataSharing as object),
+        soldToThirdParties: {
+          value: null,
+          confidence: 0.5,
+          sourceQuote: "Not addressed in this policy.",
+          quoteType: "silence",
+        },
+      },
+    };
+    expect(validate(modified).success).toBe(true);
+  });
+
+  it("rejects an invalid quoteType value", () => {
+    const base = loadFixture("minimal") as Record<string, unknown>;
+    const broken = {
+      ...base,
+      dataSharing: {
+        ...(base.dataSharing as object),
+        soldToThirdParties: {
+          value: false,
+          confidence: 1,
+          sourceQuote: "We do not sell your data.",
+          quoteType: "unknown",
+        },
+      },
+    };
+    expect(validate(broken).success).toBe(false);
+  });
+
+  it("accepts a BooleanPractice without quoteType (v2.0 backward compat)", () => {
+    const base = loadFixture("minimal") as Record<string, unknown>;
+    const result = validate(base);
+    expect(result.success).toBe(true);
+  });
+
+  it("accepts v2.0.0 schemaVersion (legacy)", () => {
+    const base = loadFixture("minimal") as Record<string, unknown>;
+    expect((base as Record<string, unknown & { schemaVersion: string }>).metadata).toBeDefined();
+    const result = validate(base);
+    expect(result.success).toBe(true);
+    if (result.success) expect(result.data.metadata.schemaVersion).toBe("2.0.0");
+  });
+
+  it("SCHEMA_VERSION is 2.1.0 and LEGACY_SCHEMA_VERSIONS contains 2.0.0", () => {
+    expect(SCHEMA_VERSION).toBe("2.1.0");
+    expect(LEGACY_SCHEMA_VERSIONS).toContain("2.0.0");
+  });
+
+  it("accepts a DataItem with quoteType", () => {
+    const base = loadFixture("minimal") as Record<string, unknown>;
+    const modified = {
+      ...base,
+      dataCollection: {
+        ...(base.dataCollection as object),
+        items: [
+          {
+            category: "contact_info",
+            name: "Email",
+            sensitive: false,
+            sourceQuote: "We collect your email.",
+            quoteType: "verbatim",
+          },
+        ],
+      },
+    };
+    expect(validate(modified).success).toBe(true);
+  });
+
+  it("accepts a verbatim BooleanPractice with sourceAnchor", () => {
+    const base = loadFixture("minimal") as Record<string, unknown>;
+    const modified = {
+      ...base,
+      dataSharing: {
+        ...(base.dataSharing as object),
+        soldToThirdParties: {
+          value: false,
+          confidence: 1,
+          sourceQuote: "We do not sell your data.",
+          quoteType: "verbatim",
+          sourceAnchor: {
+            policyTextHash: "a".repeat(64),
+            normalizer: "norm-v1",
+            position: { start: 1000, end: 1030 },
+            quote: {
+              exact: "We do not sell your data.",
+              prefix: "under any circumstances. ",
+              suffix: " We may share",
+            },
+          },
+        },
+      },
+    };
+    expect(validate(modified).success).toBe(true);
   });
 });
 
