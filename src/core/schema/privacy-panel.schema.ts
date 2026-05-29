@@ -1,6 +1,9 @@
 import { z } from "zod";
 
-export const SCHEMA_VERSION = "2.0.0";
+export const SCHEMA_VERSION = "2.1.0";
+
+/** Previous schema versions still accepted by the validator. */
+export const LEGACY_SCHEMA_VERSIONS = ["2.0.0"] as const;
 
 // ─── Data Category Taxonomy ───────────────────────────────────────────────────
 
@@ -71,16 +74,68 @@ export const CATEGORY_LABELS: Record<DataCategory, string> = {
   childrens_data: "Children's Data",
 };
 
+// ─── Quote provenance primitives ─────────────────────────────────────────────
+
+/**
+ * Classifies the relationship between a sourceQuote and the actual policy text.
+ *
+ * - verbatim  — sourceQuote is a near-direct excerpt from the policy
+ * - inferred  — sourceQuote is the model's reasoning about what the policy implies
+ * - silence   — the policy does not address this topic; sourceQuote describes the absence
+ *
+ * Optional for backward compatibility: absent on v2.0 extractions.
+ * When present, the app uses this instead of the regex heuristic.
+ */
+export const QuoteTypeSchema = z.enum(["verbatim", "inferred", "silence"]);
+export type QuoteType = z.infer<typeof QuoteTypeSchema>;
+
+/**
+ * Anchors a verbatim quote to a specific location in the normalized policy text.
+ * Only populated when quoteType === "verbatim".
+ *
+ * Uses a dual W3C Web Annotation selector:
+ *   - position: character offsets into the normalized text (fast path)
+ *   - quote:    TextQuoteSelector (robust fallback if offsets drift)
+ *
+ * policyTextHash is the SHA-256 of the *normalized* policy text (norm-v1),
+ * tying these coordinates to a specific document version.
+ */
+export const SourceAnchorSchema = z.object({
+  /** SHA-256 of the normalized policy text — defines the coordinate system. */
+  policyTextHash: z.string(),
+  /** Versioned normalization function applied before hashing. */
+  normalizer: z.string(),
+  /** Character offsets into the normalized text — fast path. */
+  position: z.object({
+    start: z.number().int().min(0),
+    end: z.number().int().min(0),
+  }),
+  /** W3C TextQuoteSelector — robust re-location if offsets drift. */
+  quote: z.object({
+    exact: z.string(),
+    prefix: z.string(),
+    suffix: z.string(),
+  }),
+  /** Optional SHA-256 of `exact` — proves the excerpt verbatim on its own. */
+  quoteHash: z.string().optional(),
+});
+export type SourceAnchor = z.infer<typeof SourceAnchorSchema>;
+
 // ─── Reusable primitives ──────────────────────────────────────────────────────
 
 /**
  * A boolean determination with supporting evidence and confidence.
  * value === null means the policy does not address this topic at all.
+ *
+ * quoteType (v2.1+): classifies sourceQuote as verbatim / inferred / silence.
+ * sourceAnchor (v2.1+): locates a verbatim quote in the policy text (verbatim only).
  */
 const BooleanPractice = z.object({
   value: z.boolean().nullable(),
   confidence: z.number().min(0).max(1),
   sourceQuote: z.string(),
+  quoteType: QuoteTypeSchema.optional(),
+  sourceAnchor: SourceAnchorSchema.optional(),
 });
 
 /** A data type collected, classified into a standardized category. */
@@ -89,6 +144,7 @@ const DataItem = z.object({
   name: z.string().min(1),
   sensitive: z.boolean(),
   sourceQuote: z.string(),
+  quoteType: QuoteTypeSchema.optional(),
 });
 
 // ─── Sub-schemas ──────────────────────────────────────────────────────────────
@@ -209,7 +265,10 @@ const SupplementarySchema = z.object({
 });
 
 const MetadataSchema = z.object({
-  schemaVersion: z.literal(SCHEMA_VERSION),
+  schemaVersion: z.union([
+    z.literal(SCHEMA_VERSION),
+    ...LEGACY_SCHEMA_VERSIONS.map(v => z.literal(v)),
+  ]),
   companyName: z.string().min(1),
   policyUrl: z.string().url(),
   /** ISO-8601 date string when the policy was fetched/analyzed. */
