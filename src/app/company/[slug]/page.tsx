@@ -14,19 +14,44 @@ export const revalidate = 60;
 
 const INFERRED_QUOTE_RE = /consumer-unfavorable|failed to load|not available|defaulting to|does not mention|no mention|no explicit mention|policy is silent|not stated|not specified|not addressed|silent on this/i;
 
+/** Build a Wayback Machine text-fragment deep link. Returns null if data is missing. */
+function waybackDeepLink(
+  archiveUrl: string | null | undefined,
+  anchor: { quote: { exact: string; prefix: string; suffix: string } } | null | undefined
+): string | null {
+  if (!archiveUrl || !anchor?.quote) return null;
+  const { exact, prefix, suffix } = anchor.quote;
+  const enc = (s: string) => encodeURIComponent(s.slice(0, 60));
+  // W3C text fragment: #:~:text=[prefix]-,[exact],-[suffix]
+  const fragment = prefix
+    ? `${enc(prefix)}-,${enc(exact)},-${enc(suffix)}`
+    : enc(exact);
+  return `${archiveUrl}#:~:text=${fragment}`;
+}
+
 function EvidenceCard({
   label,
   field,
   companyName,
+  archiveUrl,
 }: {
   label: string;
-  field: { value: boolean | null; confidence: number; sourceQuote: string; quoteType?: string };
+  field: {
+    value: boolean | null;
+    confidence: number;
+    sourceQuote: string;
+    quoteType?: string;
+    sourceAnchor?: { quote: { exact: string; prefix: string; suffix: string } };
+  };
   companyName: string;
+  archiveUrl?: string | null;
 }) {
   // v2.1+: use quoteType when present; fall back to regex for legacy v2.0 extractions
   const isInferred = field.quoteType
     ? field.quoteType !== "verbatim"
     : INFERRED_QUOTE_RE.test(field.sourceQuote);
+
+  const deepLink = waybackDeepLink(archiveUrl, field.sourceAnchor ?? null);
   return (
     <div className="bg-white border border-gray-200 rounded-lg px-4 py-3">
       <div className="flex items-center justify-between mb-1.5">
@@ -43,6 +68,16 @@ function EvidenceCard({
       ) : (
         <blockquote className="text-xs text-gray-500 italic border-l-2 border-gray-200 pl-3 leading-relaxed">
           {field.sourceQuote}
+          {deepLink && (
+            <a
+              href={deepLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="not-italic ml-2 text-gray-400 hover:text-gray-700 underline whitespace-nowrap"
+            >
+              view in policy ↗
+            </a>
+          )}
         </blockquote>
       )}
       <div className="mt-2 text-right">
@@ -249,7 +284,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
                     { label: "Used for profiling", field: facts.dataSharing.usedForProfiling },
                     { label: "Used to train AI", field: facts.dataSharing.usedToTrainAI },
                   ].map(({ label, field }) => (
-                    <EvidenceCard key={label} label={label} field={field} companyName={displayName} />
+                    <EvidenceCard key={label} label={label} field={field} companyName={displayName} archiveUrl={policy?.archive_url} />
                   ))}
                 </div>
               </div>
@@ -261,7 +296,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ slug: 
                     { label: "Honors GPC", field: facts.signalHonoring.gpcDetail },
                     { label: "Honors DNT", field: facts.signalHonoring.dntDetail },
                   ].map(({ label, field }) => (
-                    <EvidenceCard key={label} label={label} field={field} companyName={displayName} />
+                    <EvidenceCard key={label} label={label} field={field} companyName={displayName} archiveUrl={policy?.archive_url} />
                   ))}
                 </div>
               </div>
